@@ -65,18 +65,19 @@ async function enrichLinkedInProfile(linkedinUrl: string): Promise<{
       }),
     });
 
-    if (!res.ok) {
-      console.error("[Prospeo] API error:", res.status, await res.text());
+    // Parse response (Prospeo returns 400 for NO_MATCH, handle gracefully)
+    let data;
+    try {
+      data = await res.json();
+    } catch {
+      console.warn("[Prospeo] Could not parse response");
       return null;
     }
 
-    const data = await res.json();
-    
-    if (data.error || !data.person) {
-      console.warn("[Prospeo] No person found:", data.error || "empty response");
+    if (!res.ok || data.error || !data.person) {
+      console.warn("[Prospeo] No match:", data.error_code || data.error || res.status);
       return null;
     }
-
     const person = data.person;
     const company = data.company;
 
@@ -180,7 +181,7 @@ INSTRUCTIES:
     }
 
     const genAI = new GoogleGenerativeAI(geminiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-3.0-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3-pro-preview" });
     const result = await model.generateContent(prompt);
     const message = result.response.text();
 
