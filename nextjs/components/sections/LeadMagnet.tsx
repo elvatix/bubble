@@ -1,6 +1,13 @@
 "use client";
 import { useState } from "react";
 
+interface ProfileSummary {
+  name: string;
+  title: string;
+  company: string;
+  headline: string;
+}
+
 export default function LeadMagnet() {
   const [linkedinUrl, setLinkedinUrl] = useState("");
   const [email, setEmail] = useState("");
@@ -10,7 +17,9 @@ export default function LeadMagnet() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
-  const [step, setStep] = useState<1 | 2>(1); // 1 = form, 2 = result
+  const [step, setStep] = useState<1 | 2>(1);
+  const [enriched, setEnriched] = useState(false);
+  const [profileSummary, setProfileSummary] = useState<ProfileSummary | null>(null);
 
   const handleGenerate = async () => {
     setError("");
@@ -27,6 +36,8 @@ export default function LeadMagnet() {
         return;
       }
       setMessage(data.message);
+      setEnriched(data.enriched || false);
+      setProfileSummary(data.profileSummary || null);
       setStep(2);
     } catch {
       setError("Kan geen verbinding maken. Probeer het opnieuw.");
@@ -47,6 +58,8 @@ export default function LeadMagnet() {
     setLinkedinUrl("");
     setJobTitle("");
     setError("");
+    setEnriched(false);
+    setProfileSummary(null);
   };
 
   return (
@@ -87,7 +100,7 @@ export default function LeadMagnet() {
             </span>
           </h2>
           <p style={{ fontSize: 17, color: "#6b7280", maxWidth: 540, margin: "0 auto", lineHeight: 1.6 }}>
-            Plak een LinkedIn profiel-URL en ontvang direct een AI-gegenereerd InMail bericht. Gratis, geen account nodig.
+            Plak een LinkedIn profiel-URL en ontvang direct een AI-gegenereerd InMail bericht op basis van het échte profiel.
           </p>
         </div>
 
@@ -133,6 +146,9 @@ export default function LeadMagnet() {
                     }}
                   />
                 </div>
+                <p style={{ fontSize: 12, color: "#9ca3af", marginTop: 4 }}>
+                  We scrapen automatisch naam, functie, headline en werkervaring.
+                </p>
               </div>
 
               {/* Job Title */}
@@ -259,7 +275,7 @@ export default function LeadMagnet() {
                       borderRadius: "50%",
                       animation: "spin 0.8s linear infinite",
                     }} />
-                    Bericht wordt gegenereerd...
+                    Profiel wordt gescraped & bericht gegenereerd...
                   </span>
                 ) : (
                   "✨ Genereer InMail bericht"
@@ -269,12 +285,36 @@ export default function LeadMagnet() {
           ) : (
             /* Step 2: Result */
             <>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
                 <span style={{ fontSize: 24 }}>🎉</span>
                 <h3 style={{ fontSize: 20, fontWeight: 700, color: "#111" }}>
                   Je bericht is klaar!
                 </h3>
               </div>
+
+              {/* Enriched profile badge */}
+              {enriched && profileSummary && (
+                <div style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 12,
+                  padding: "12px 16px",
+                  background: "#f0fdf4",
+                  border: "1px solid #bbf7d0",
+                  borderRadius: 12,
+                  marginBottom: 20,
+                }}>
+                  <span style={{ fontSize: 18 }}>✅</span>
+                  <div>
+                    <p style={{ fontSize: 13, fontWeight: 600, color: "#166534" }}>
+                      Profiel gescraped: {profileSummary.name}
+                    </p>
+                    <p style={{ fontSize: 12, color: "#15803d" }}>
+                      {profileSummary.title}{profileSummary.company ? ` bij ${profileSummary.company}` : ""}
+                    </p>
+                  </div>
+                </div>
+              )}
 
               <div style={{
                 background: "#f9fafb",
@@ -351,6 +391,7 @@ export default function LeadMagnet() {
             { icon: "🔒", label: "Veilig & privé" },
             { icon: "⚡", label: "Klaar in 5 sec" },
             { icon: "🆓", label: "Gratis, geen account" },
+            { icon: "🔍", label: "Scraped échte profieldata" },
           ].map((item, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
               <span style={{ fontSize: 16 }}>{item.icon}</span>
@@ -360,7 +401,6 @@ export default function LeadMagnet() {
         </div>
       </div>
 
-      {/* Spinner animation */}
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
       `}</style>
