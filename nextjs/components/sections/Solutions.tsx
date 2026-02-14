@@ -35,7 +35,7 @@ export default function Solutions() {
             </p>
           </div>
         </AnimateOnScroll>
-        <StaggerChildren stagger={0.15}>
+        <StaggerChildren staggerDelay={0.15}>
           <div className="grid-3">
             {solutions.map((s, i) => (
               <motion.div

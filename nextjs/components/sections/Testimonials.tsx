@@ -36,7 +36,7 @@ export default function Testimonials() {
             <p style={{ color: "#6b7280", fontSize: 16 }}>5.0 op Chrome \u2022 4.4 op Trustpilot \u2022 5.0 op Google</p>
           </div>
         </AnimateOnScroll>
-        <StaggerChildren stagger={0.15}>
+        <StaggerChildren staggerDelay={0.15}>
           <div className="grid-3">
             {testimonials.map((t, i) => (
               <motion.div
