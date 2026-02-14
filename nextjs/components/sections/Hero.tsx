@@ -17,7 +17,7 @@ export default function Hero() {
       <div style={{ position: "absolute", bottom: 0, left: 0, width: 320, height: 320, background: "rgba(243,232,255,0.3)", borderRadius: "50%", filter: "blur(100px)", pointerEvents: "none" }} />
 
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+        <div className="grid-2">
           <div>
             <h1
               style={{
@@ -69,7 +69,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
+              <div className="grid-hero-cards">
                 {[
                   { icon: "💬", label: "InMails" },
                   { icon: "🤝", label: "Connecties" },
