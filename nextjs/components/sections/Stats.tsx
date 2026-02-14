@@ -12,7 +12,7 @@ const items = [
 
 export default function Stats() {
   return (
-    <section style={{ padding: "80px 24px", background: "#fff" }}>
+    <section className="section-padding" style={{ background: "#fff" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <AnimateOnScroll variant="fadeUp">
           <h2 style={{ textAlign: "center", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 900, color: "#111", marginBottom: 12 }}>

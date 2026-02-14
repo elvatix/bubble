@@ -26,14 +26,14 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section style={{ padding: "80px 24px", background: "#f8fafc" }}>
+    <section className="section-padding" style={{ background: "#f8fafc" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <AnimateOnScroll variant="fadeUp">
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 900, color: "#111", marginBottom: 12 }}>
               Wat gebruikers zeggen
             </h2>
-            <p style={{ color: "#6b7280", fontSize: 16 }}>5.0 op Chrome \u2022 4.4 op Trustpilot \u2022 5.0 op Google</p>
+            <p style={{ color: "#6b7280", fontSize: 16 }}>5.0 op Chrome • 4.4 op Trustpilot • 5.0 op Google</p>
           </div>
         </AnimateOnScroll>
         <StaggerChildren staggerDelay={0.15}>
@@ -72,11 +72,11 @@ export default function Testimonials() {
                   </div>
                 </div>
                 <p style={{ fontSize: 15, color: "#374151", lineHeight: 1.7, fontStyle: "italic" }}>
-                  \u201c{t.quote}\u201d
+                  &ldquo;{t.quote}&rdquo;
                 </p>
                 <div style={{ marginTop: 12 }}>
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <span key={star} style={{ color: "#fbbf24", fontSize: 16 }}>\u2605</span>
+                    <span key={star} style={{ color: "#fbbf24", fontSize: 16 }}>★</span>
                   ))}
                 </div>
               </motion.div>

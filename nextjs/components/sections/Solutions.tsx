@@ -5,17 +5,17 @@ import { motion } from "framer-motion";
 
 const solutions = [
   {
-    icon: "\ud83c\udfe2",
+    icon: "🏢",
     title: "Recruitmentbureaus",
     description: "Versnel het bereiken van kandidaten. Schrijf persoonlijke InMails en connectieverzoeken in seconden. Bespaar 4-6 uur per week per recruiter.",
   },
   {
-    icon: "\ud83d\udc54",
+    icon: "👔",
     title: "Corporate Recruiters",
-    description: "Effici\u00ebnter intern talent sourcen. Elvatix werkt direct in LinkedIn Recruiter \u2014 geen extra tools of tabbladen nodig.",
+    description: "Efficiënter intern talent sourcen. Elvatix werkt direct in LinkedIn Recruiter — geen extra tools of tabbladen nodig.",
   },
   {
-    icon: "\ud83d\ude80",
+    icon: "🚀",
     title: "Detacheringsbureaus",
     description: "Snel en persoonlijk schakelen met professionals. Schakel eenvoudig tussen recruitment- en salesmodus.",
   },
@@ -23,7 +23,7 @@ const solutions = [
 
 export default function Solutions() {
   return (
-    <section style={{ padding: "80px 24px", background: "#fff" }}>
+    <section id="solutions" className="section-padding" style={{ background: "#fff" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <AnimateOnScroll variant="fadeUp">
           <div style={{ textAlign: "center", marginBottom: 48 }}>
@@ -31,7 +31,7 @@ export default function Solutions() {
               Voor wie is Elvatix?
             </h2>
             <p style={{ color: "#6b7280", fontSize: 16, maxWidth: 560, margin: "0 auto" }}>
-              Of je nu als bureau of in-house recruiter werkt \u2014 Elvatix past zich aan jouw werkwijze aan.
+              Of je nu als bureau of in-house recruiter werkt — Elvatix past zich aan jouw werkwijze aan.
             </p>
           </div>
         </AnimateOnScroll>
