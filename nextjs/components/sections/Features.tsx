@@ -41,7 +41,7 @@ export default function Features() {
   const tab = tabs[active];
 
   return (
-    <section style={{ padding: "80px 24px", background: "#fff" }}>
+    <section className="section-responsive" style={{ padding: "80px 24px", background: "#fff" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, textAlign: "center", color: "#111", marginBottom: 16 }}>
           Neem je recruitment workflow van losse tools naar één krachtig platform
@@ -51,7 +51,7 @@ export default function Features() {
         </p>
 
         {/* Tab navigation */}
-        <div style={{ display: "flex", justifyContent: "center", gap: 32, marginBottom: 48, borderBottom: "1px solid #e5e7eb", paddingBottom: 0 }}>
+        <div className="features-tabs" style={{ display: "flex", justifyContent: "center", gap: 32, marginBottom: 48, borderBottom: "1px solid #e5e7eb", paddingBottom: 0 }}>
           {tabs.map((t, i) => (
             <button
               key={t.id}
@@ -74,7 +74,7 @@ export default function Features() {
         </div>
 
         {/* Tab content */}
-        <div style={{ background: "#f9fafb", borderRadius: 24, padding: 48, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", minHeight: 300 }}>
+        <div className="features-content" style={{ background: "#f9fafb", borderRadius: 24, padding: 48, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", minHeight: 300 }}>
           <div>
             <p style={{ fontSize: 12, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 12 }}>
               {tab.label}

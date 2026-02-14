@@ -2,14 +2,14 @@
 
 export default function WedgeSection() {
   return (
-    <section style={{
+    <section className="section-responsive" style={{
       background: "linear-gradient(135deg, #7aa300 0%, #8db600 50%, #1a2e05 100%)",
       padding: "100px 24px",
       position: "relative",
       overflow: "hidden",
     }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 2 }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+        <div className="wedge-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           {/* Left: headline + text */}
           <div>
             <p style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>

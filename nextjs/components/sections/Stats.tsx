@@ -8,10 +8,10 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section style={{ background: "linear-gradient(135deg, #8db600 0%, #a3c520 30%, #8db600 60%, #6a9a00 100%)", padding: "80px 24px" }}>
+    <section className="section-responsive" style={{ background: "linear-gradient(135deg, #8db600 0%, #a3c520 30%, #8db600 60%, #6a9a00 100%)", padding: "80px 24px" }}>
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
         <div style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(20px)", borderRadius: 32, padding: "64px 48px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 32, textAlign: "center" }}>
+          <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 32, textAlign: "center" }}>
             {stats.map((stat, i) => (
               <div key={i}>
                 <div

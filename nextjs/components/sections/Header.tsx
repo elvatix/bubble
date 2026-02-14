@@ -16,7 +16,7 @@ export default function Header() {
           Elvatix
         </a>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+        <div className="nav-links-desktop" style={{ display: "flex", alignItems: "center", gap: 24 }}>
           {navLinks.map((link) => (
             <a key={link.label} href={link.href} style={{ fontSize: 14, fontWeight: 500, color: "#374151", textDecoration: "none" }}>
               {link.label}
@@ -24,7 +24,7 @@ export default function Header() {
           ))}
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 12, marginLeft: "auto" }}>
+        <div className="nav-cta-desktop" style={{ display: "flex", alignItems: "center", gap: 12, marginLeft: "auto" }}>
           <a href="/start" className="pill-btn pill-btn-outline" style={{ padding: "8px 20px", fontSize: 13 }}>
             Start gratis
           </a>

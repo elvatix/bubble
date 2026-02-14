@@ -30,24 +30,24 @@ const rows = [
 
 export default function Comparison() {
   return (
-    <section id="comparison" style={{ padding: "80px 24px", background: "#fff" }}>
+    <section id="comparison" className="section-responsive" style={{ padding: "80px 24px", background: "#fff" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         {/* Headers */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 200px 1fr", gap: 16, marginBottom: 32 }}>
+        <div className="comparison-header" style={{ display: "grid", gridTemplateColumns: "1fr 200px 1fr", gap: 16, marginBottom: 32 }}>
           <h3 style={{ fontSize: 18, fontWeight: 700, color: "#374151" }}>De oude manier</h3>
-          <div />
+          <div className="comparison-center" />
           <h3 style={{ fontSize: 18, fontWeight: 700, color: "#6a9a00", textAlign: "right" }}>De nieuwe manier</h3>
         </div>
 
         {/* Rows */}
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           {rows.map((row, i) => (
-            <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 200px 1fr", gap: 16, alignItems: "stretch" }}>
+            <div key={i} className="comparison-row" style={{ display: "grid", gridTemplateColumns: "1fr 200px 1fr", gap: 16, alignItems: "stretch" }}>
               <div className="card-old">
                 <p style={{ fontWeight: 600, fontSize: 15, marginBottom: 8, color: "#111" }}>{row.old.text}</p>
                 <p style={{ fontSize: 13, color: "#9ca3af", fontStyle: "italic" }}>{row.old.time}</p>
               </div>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div className="comparison-center" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <span style={{ fontSize: 14, fontWeight: 600, color: "#6b7280", textAlign: "center" }}>{row.category}</span>
               </div>
               <div className="card-new">

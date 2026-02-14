@@ -26,43 +26,54 @@ body {
 }
 
 /* ===================================================================
-   RESPONSIVE OVERRIDES — MOBILE ONLY (≤768px)
-   Only targets inline styles on smaller screens.
-   Nothing above this point is changed from the original.
+   RESPONSIVE — MOBILE ONLY (max-width: 768px)
    =================================================================== */
 
 @media (max-width: 768px) {
-  /* ── Force ALL inline 2-col and 3-col grids to stack ── */
-  [style*="grid-template-columns: 1fr 1fr"],
-  [style*="grid-template-columns:1fr 1fr"],
-  [style*="grid-template-columns: 1fr 1fr 1fr"],
-  [style*="grid-template-columns:1fr 1fr 1fr"] {
+  /* Hero grid → stack */
+  .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+  /* WedgeSection grid → stack */
+  .wedge-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+  /* Comparison grid → stack, hide center label */
+  .comparison-header,
+  .comparison-row {
     grid-template-columns: 1fr !important;
   }
+  .comparison-center { display: none !important; }
 
-  /* ── Comparison 3-col with a 200px center ── */
-  [style*="grid-template-columns: 1fr 200px 1fr"],
-  [style*="grid-template-columns:1fr 200px 1fr"] {
-    grid-template-columns: 1fr !important;
-  }
+  /* Features tab content → stack */
+  .features-content { grid-template-columns: 1fr !important; }
 
-  /* ── Footer 5-col grid ── */
-  [style*="grid-template-columns: repeat(5"],
-  [style*="grid-template-columns:repeat(5"] {
-    grid-template-columns: repeat(2, 1fr) !important;
+  /* Features tab nav → scroll horizontal */
+  .features-tabs {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start !important;
+    gap: 8px !important;
   }
+  .features-tabs button { white-space: nowrap; }
 
-  /* ── Large gaps ── */
-  [style*="gap: 64"],
-  [style*="gap: 48"] {
-    gap: 24px !important;
-  }
+  /* Solutions grid → 1 col */
+  .solutions-grid { grid-template-columns: 1fr !important; }
 
-  /* ── Header / Navbar: hide nav links and CTA on mobile ── */
-  .navbar-floating nav > div:nth-child(2),
-  .navbar-floating nav > div:nth-child(3) {
-    display: none !important;
-  }
+  /* Testimonials grid → 1 col */
+  .testimonials-grid { grid-template-columns: 1fr !important; }
+
+  /* Stats grid → 1 col */
+  .stats-grid { grid-template-columns: 1fr !important; }
+
+  /* Footer grid → 2 cols */
+  .footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .footer-bottom { flex-direction: column !important; gap: 12px !important; text-align: center !important; }
+
+  /* Hero illustration 3-col → 2 col */
+  .hero-features-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Navbar: hide nav links + CTA on mobile */
+  .nav-links-desktop { display: none !important; }
+  .nav-cta-desktop { display: none !important; }
   .navbar-floating {
     border-radius: 16px !important;
     padding: 10px 16px !important;
@@ -70,50 +81,18 @@ body {
     width: calc(100% - 24px) !important;
   }
 
-  /* ── Section padding compact ── */
-  section[style*="padding: 80px 24px"],
-  section[style*="padding: 100px 24px"] {
+  /* Section padding */
+  .section-responsive {
     padding: 48px 16px !important;
   }
 
-  /* ── Footer bottom row stack ── */
-  footer [style*="justify-content: space-between"] {
-    flex-direction: column !important;
-    gap: 12px !important;
-    text-align: center !important;
-  }
-
-  /* ── Comparison center labels hidden on mobile ── */
-  [style*="grid-template-columns: 1fr 200px 1fr"] > div:nth-child(3n+2) {
-    display: none !important;
-  }
-
-  /* ── Images and media ── */
-  img, video, iframe {
-    max-width: 100% !important;
-    height: auto !important;
-  }
+  /* Responsive images */
+  img, video { max-width: 100%; height: auto; }
 }
 
-/* ===================================================================
-   SMALL MOBILE (≤480px)
-   =================================================================== */
-
 @media (max-width: 480px) {
-  /* ── Footer full stack ── */
-  [style*="grid-template-columns: repeat(5"],
-  [style*="grid-template-columns:repeat(5"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* ── Extra compact padding ── */
-  section[style*="padding: 80px 24px"],
-  section[style*="padding: 100px 24px"] {
-    padding: 32px 12px !important;
-  }
-
-  /* ── Headings word break ── */
-  h1, h2 {
-    word-break: break-word;
-  }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .hero-features-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+  .section-responsive { padding: 32px 12px !important; }
+  h1, h2 { word-break: break-word; }
 }
