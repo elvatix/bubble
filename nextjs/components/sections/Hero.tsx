@@ -95,12 +95,12 @@ export default function Hero() {
 
               <div className="grid-hero-cards">
                 {[
-                  { icon: "\ud83d\udce7", label: "InMails" },
-                  { icon: "\ud83e\udd1d", label: "Connecties" },
-                  { icon: "\ud83d\udd14", label: "Reminders" },
-                  { icon: "\ud83d\udcdd", label: "Templates" },
-                  { icon: "\ud83d\udd17", label: "LinkedIn" },
-                  { icon: "\ud83d\udd04", label: "Sales/Recruit" },
+                  { icon: "📧", label: "InMails" },
+                  { icon: "🤝", label: "Connecties" },
+                  { icon: "🔔", label: "Reminders" },
+                  { icon: "📝", label: "Templates" },
+                  { icon: "🔗", label: "LinkedIn" },
+                  { icon: "🔄", label: "Sales/Recruit" },
                 ].map((item, i) => (
                   <motion.div
                     key={i}

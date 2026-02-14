@@ -1,80 +1,79 @@
 "use client";
-import { motion } from "framer-motion";
 import AnimateOnScroll from "../animations/AnimateOnScroll";
+import { motion } from "framer-motion";
 
-const rows = [
+const comparisons = [
   {
-    old: { text: "Handmatig InMails typen, \u00e9\u00e9n voor \u00e9\u00e9n. Of kopi\u00ebren uit ChatGPT en plakken.", time: "~10-15 min per bericht" },
     category: "InMails",
+    old: { text: "Handmatig InMails typen, één voor één. Of kopiëren uit ChatGPT en plakken.", time: "~10-15 min per bericht" },
     new: { text: "AI schrijft persoonlijke InMails in jouw toon, direct in LinkedIn.", time: "~30 seconden per bericht" },
   },
   {
+    category: "Connectieverzoeken",
     old: { text: "Standaard connectieverzoeken zonder context of personalisatie.", time: "Lage acceptatiegraad" },
-    category: "Connecties",
-    new: { text: "Gepersonaliseerde uitnodigingen op basis van profielinformatie, in \u00e9\u00e9n klik.", time: "2x hogere acceptatie" },
+    new: { text: "Gepersonaliseerde uitnodigingen op basis van profielinformatie, in één klik.", time: "2x hogere acceptatie" },
   },
   {
-    old: { text: "Vergeten om op te volgen. Kandidaten vallen tussen wal en schip.", time: "Gemiste kansen" },
     category: "Follow-ups",
-    new: { text: "Automatische reminders en follow-up suggesties op het juiste moment.", time: "Nooit meer vergeten" },
+    old: { text: "Vergeten om op te volgen. Kandidaten vallen tussen wal en schip.", time: "Gemiste kansen" },
+    new: { text: "Geautomatiseerde reminders zodat je nooit meer een follow-up mist.", time: "Altijd op tijd" },
   },
 ];
 
 export default function Comparison() {
   return (
-    <section style={{ padding: "80px 24px", background: "#fff" }}>
+    <section className="section-padding" style={{ background: "#fff" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <AnimateOnScroll variant="fadeUp">
           <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 900, color: "#111", marginBottom: 16 }}>
-              De oude manier vs. <span className="gradient-text">Elvatix</span>
+            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 900, color: "#111", marginBottom: 12 }}>
+              Zonder vs. Met Elvatix
             </h2>
-            <p style={{ fontSize: 17, color: "#6b7280", maxWidth: 600, margin: "0 auto" }}>
-              Bespaar 4-6 uur per week op je LinkedIn outreach. Besteed die tijd aan wat er echt toe doet: kandidaten plaatsen.
+            <p style={{ color: "#6b7280", fontSize: 16, maxWidth: 500, margin: "0 auto" }}>
+              Zie het verschil wanneer AI jouw LinkedIn outreach overneemt.
             </p>
           </div>
         </AnimateOnScroll>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 200px 1fr", gap: 16, marginBottom: 32 }} className="comparison-grid">
-          <AnimateOnScroll variant="fadeLeft">
-            <h3 style={{ fontSize: 18, fontWeight: 700, color: "#374151" }}>Zonder Elvatix</h3>
-          </AnimateOnScroll>
-          <div />
-          <AnimateOnScroll variant="fadeRight">
-            <h3 style={{ fontSize: 18, fontWeight: 700, color: "#6a9a00", textAlign: "right" }}>Met Elvatix</h3>
-          </AnimateOnScroll>
+        <div className="comparison-grid" style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: 24 }}>
+          <div>
+            <h3 style={{ fontSize: 18, fontWeight: 700, color: "#6b7280", marginBottom: 24, textAlign: "center" }}>Zonder Elvatix</h3>
+            {comparisons.map((c, i) => (
+              <AnimateOnScroll key={`old-${i}`} variant="fadeLeft" delay={0.1 * i}>
+                <div style={{ padding: 24, borderRadius: 16, background: "#f8fafc", border: "1px solid #e5e7eb", marginBottom: 16 }}>
+                  <p style={{ fontSize: 12, fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
+                    ZONDER ELVATIX
+                  </p>
+                  <p style={{ fontSize: 15, color: "#374151", fontWeight: 600, marginBottom: 8, lineHeight: 1.6 }}>{c.old.text}</p>
+                  <p style={{ fontSize: 13, color: "#9ca3af", fontStyle: "italic" }}>{c.old.time}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+          <div className="comparison-center-label" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "0 16px" }}>
+            <div style={{ width: 2, height: "100%", background: "linear-gradient(to bottom, transparent, #8db600, transparent)" }} />
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: 18, fontWeight: 700, color: "#8db600", marginBottom: 24, textAlign: "center" }}>Met Elvatix</h3>
+            {comparisons.map((c, i) => (
+              <AnimateOnScroll key={`new-${i}`} variant="fadeRight" delay={0.1 * i}>
+                <motion.div
+                  style={{ padding: 24, borderRadius: 16, background: "#f0f7d4", border: "1px solid #d4edaa", marginBottom: 16 }}
+                  whileHover={{ y: -2, boxShadow: "0 8px 20px rgba(141,182,0,0.12)" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <p style={{ fontSize: 15, color: "#374151", fontWeight: 600, marginBottom: 8, lineHeight: 1.6 }}>{c.new.text}</p>
+                  <p style={{ fontSize: 13, color: "#8db600", fontStyle: "italic", fontWeight: 500 }}>{c.new.time}</p>
+                </motion.div>
+              </AnimateOnScroll>
+            ))}
+          </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          {rows.map((row, i) => (
-            <div key={i} className="comparison-grid">
-              <AnimateOnScroll variant="fadeLeft" delay={0.1 * i}>
-                <motion.div
-                  className="card-old"
-                  whileHover={{ scale: 1.02, boxShadow: "0 8px 30px rgba(0,0,0,0.08)" }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <div className="comparison-mobile-label">Zonder Elvatix</div>
-                  <p style={{ fontWeight: 600, fontSize: 15, marginBottom: 8, color: "#111" }}>{row.old.text}</p>
-                  <p style={{ fontSize: 13, color: "#9ca3af", fontStyle: "italic" }}>{row.old.time}</p>
-                </motion.div>
-              </AnimateOnScroll>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }} className="comparison-center-label">
-                <span style={{ fontSize: 14, fontWeight: 600, color: "#6b7280", textAlign: "center" }}>{row.category}</span>
-              </div>
-              <AnimateOnScroll variant="fadeRight" delay={0.1 * i}>
-                <motion.div
-                  className="card-new"
-                  whileHover={{ scale: 1.02, boxShadow: "0 8px 30px rgba(141,182,0,0.3)" }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <div className="comparison-mobile-label" style={{ color: "rgba(255,255,255,0.7)" }}>Met Elvatix</div>
-                  <p style={{ fontWeight: 600, fontSize: 15, marginBottom: 8 }}>{row.new.text}</p>
-                  <p style={{ fontSize: 13, opacity: 0.8, fontStyle: "italic" }}>{row.new.time}</p>
-                </motion.div>
-              </AnimateOnScroll>
-            </div>
-          ))}
+        <div className="comparison-mobile-label" style={{ display: "none", textAlign: "center", marginTop: 8 }}>
+          <p style={{ fontSize: 13, color: "#9ca3af" }}>Scroll voor vergelijking</p>
         </div>
       </div>
     </section>

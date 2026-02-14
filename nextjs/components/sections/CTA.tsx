@@ -8,7 +8,6 @@ export default function CTA() {
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
         <AnimateOnScroll variant="scaleUp">
           <motion.div
-            className="cta-card"
             style={{
               background: "linear-gradient(135deg, #8db600 0%, #6a9a00 50%, #3d5c00 100%)",
               borderRadius: 32,
@@ -30,7 +29,7 @@ export default function CTA() {
               <p style={{ fontSize: "clamp(14px, 1.5vw, 17px)", color: "rgba(255,255,255,0.8)", maxWidth: 520, margin: "0 auto 32px", lineHeight: 1.7 }}>
                 Plan een demo en ontdek hoe Elvatix jouw LinkedIn outreach versnelt. Van 10-15 minuten naar 30 seconden per bericht.
               </p>
-              <div className="cta-buttons" style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+              <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
                 <motion.a
                   href="https://elvatix.com"
                   className="pill-btn"

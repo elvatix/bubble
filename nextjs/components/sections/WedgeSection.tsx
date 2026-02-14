@@ -5,10 +5,10 @@ import AnimatedCounter from "../animations/AnimatedCounter";
 
 export default function WedgeSection() {
   const stats = [
-    { icon: "\u23f1\ufe0f", stat: "30", suffix: " sec", label: "Per gepersonaliseerd bericht (was 10-15 min)" },
-    { icon: "\ud83d\udcc8", stat: "2x", label: "Zoveel respons op je InMails" },
-    { icon: "\u23f0", stat: "4-6", suffix: " uur", label: "Besparing per week, per recruiter" },
-    { icon: "\ud83c\udfc6", stat: "260", label: "InMails in 1,7 uur (Manpower case)" },
+    { icon: "⏱️", stat: "30", suffix: " sec", label: "Per gepersonaliseerd bericht (was 10-15 min)" },
+    { icon: "📈", stat: "2x", label: "Zoveel respons op je InMails" },
+    { icon: "⏰", stat: "4-6", suffix: " uur", label: "Besparing per week, per recruiter" },
+    { icon: "🏆", stat: "260", label: "InMails in 1,7 uur (Manpower case)" },
   ];
 
   return (
@@ -56,7 +56,7 @@ export default function WedgeSection() {
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Bekijk de Manpower case study \u2192
+                Bekijk de Manpower case study →
               </motion.a>
             </AnimateOnScroll>
           </div>

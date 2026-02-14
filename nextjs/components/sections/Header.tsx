@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -17,6 +17,8 @@ export default function Header() {
       style={{
         position: "fixed",
         top: 0,
+        left: 0,
+        right: 0,
         width: "100%",
         zIndex: 100,
         background: "rgba(255,255,255,0.85)",
@@ -38,7 +40,7 @@ export default function Header() {
           <span style={{ color: "#8db600" }}>Elvatix</span>
         </a>
 
-        <nav className="nav-links">
+        <nav className="nav-links" style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {navLinks.map((link) => (
             <a key={link.label} href={link.href} style={{ color: "#6b7280", textDecoration: "none", fontSize: 14, fontWeight: 500, transition: "color 0.2s" }}>
               {link.label}
@@ -56,6 +58,15 @@ export default function Header() {
           className="hamburger"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
+          style={{
+            display: "none",
+            flexDirection: "column",
+            gap: 5,
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 8,
+          }}
         >
           <div style={{ width: 22, height: 2, background: open ? "transparent" : "#111", transition: "all 0.3s" }} />
           <div style={{ width: 22, height: 2, background: "#111", transform: open ? "rotate(45deg) translateY(-1px)" : "none", transition: "all 0.3s" }} />
@@ -63,7 +74,7 @@ export default function Header() {
         </button>
       </div>
 
-      <div className={`mobile-nav ${open ? "open" : ""}`}>
+      <div className={`mobile-nav${open ? " open" : ""}`}>
         {open && (
           <>
             {navLinks.map((link) => (
