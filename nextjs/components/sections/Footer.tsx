@@ -1,65 +1,50 @@
 "use client";
-
-const columns = [
-  { title: "PLATFORM", links: [
-    { label: "AI Copilot", href: "/platform" },
-    { label: "InMails", href: "/features/inmails" },
-    { label: "Connectieverzoeken", href: "/features/connections" },
-    { label: "Reminders", href: "/features/reminders" },
-    { label: "Custom GPT", href: "/platform" },
-    { label: "Templates", href: "/platform" },
-    { label: "Analytics", href: "/features/analytics" },
-  ]},
-  { title: "VOOR WIE", links: [
-    { label: "Recruitmentbureaus", href: "/solutions" },
-    { label: "Detacheringsbureaus", href: "/solutions" },
-    { label: "Corporate Recruiters", href: "/solutions" },
-    { label: "Executive Search", href: "/solutions" },
-    { label: "Freelancers", href: "/solutions" },
-  ]},
-  { title: "CASE STUDIES", links: [
-    { label: "Manpower", href: "/cases" },
-    { label: "Vibe Group", href: "/cases" },
-  ]},
-  { title: "RESOURCES", links: [
-    { label: "Blog", href: "/blog" },
-    { label: "Integraties", href: "/integraties" },
-    { label: "Pricing", href: "/pricing" },
-  ]},
-  { title: "BEDRIJF", links: [
-    { label: "Over ons", href: "/over-ons" },
-    { label: "Contact", href: "/contact" },
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
-  ]},
-];
+import AnimateOnScroll from "../animations/AnimateOnScroll";
 
 export default function Footer() {
   return (
-    <footer style={{ padding: "64px 24px 32px", background: "#fff", borderTop: "1px solid #e5e7eb" }}>
+    <footer style={{ background: "#111", color: "white", padding: "64px 24px 32px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <div className="footer-grid">
-          {columns.map((col, i) => (
-            <div key={i}>
-              <h4 style={{ fontSize: 12, fontWeight: 700, color: "#374151", letterSpacing: "0.1em", marginBottom: 16 }}>{col.title}</h4>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <a href={link.href} style={{ fontSize: 14, color: "#6b7280", textDecoration: "none" }}>{link.label}</a>
-                  </li>
-                ))}
-              </ul>
+        <AnimateOnScroll variant="fadeUp">
+          <div className="footer-grid">
+            <div>
+              <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 16, color: "#8db600" }}>Elvatix</h3>
+              <p style={{ fontSize: 14, color: "#9ca3af", lineHeight: 1.6 }}>
+                De #1 AI-powered LinkedIn recruitment copilot voor moderne recruiters.
+              </p>
             </div>
-          ))}
-        </div>
-
-        <div className="footer-bottom">
-          <div>
-            <h3 style={{ fontSize: 20, fontWeight: 800, color: "#111", marginBottom: 4 }}>Elvatix</h3>
-            <p style={{ fontSize: 13, color: "#9ca3af" }}>© 2026 Elvatix. Alle rechten voorbehouden.</p>
+            <div>
+              <h4 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.05em", color: "#6b7280" }}>Platform</h4>
+              {["InMails", "Connecties", "Analytics", "AI Copilot"].map((item) => (
+                <a key={item} href="#" style={{ display: "block", fontSize: 14, color: "#d1d5db", textDecoration: "none", marginBottom: 8, transition: "color 0.2s" }}>{item}</a>
+              ))}
+            </div>
+            <div>
+              <h4 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.05em", color: "#6b7280" }}>Bedrijf</h4>
+              {["Over ons", "Pricing", "Case Studies", "Blog"].map((item) => (
+                <a key={item} href="#" style={{ display: "block", fontSize: 14, color: "#d1d5db", textDecoration: "none", marginBottom: 8, transition: "color 0.2s" }}>{item}</a>
+              ))}
+            </div>
+            <div>
+              <h4 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.05em", color: "#6b7280" }}>Support</h4>
+              {["Help Center", "Contact", "Privacy", "Voorwaarden"].map((item) => (
+                <a key={item} href="#" style={{ display: "block", fontSize: 14, color: "#d1d5db", textDecoration: "none", marginBottom: 8, transition: "color 0.2s" }}>{item}</a>
+              ))}
+            </div>
+            <div>
+              <h4 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.05em", color: "#6b7280" }}>Volg ons</h4>
+              {["LinkedIn", "Twitter", "YouTube"].map((item) => (
+                <a key={item} href="#" style={{ display: "block", fontSize: 14, color: "#d1d5db", textDecoration: "none", marginBottom: 8, transition: "color 0.2s" }}>{item}</a>
+              ))}
+            </div>
           </div>
-          <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-            <a href="https://linkedin.com/company/elvatix" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "#9ca3af", textDecoration: "none" }}>LinkedIn</a>
+        </AnimateOnScroll>
+        <div className="footer-bottom">
+          <p style={{ fontSize: 13, color: "#6b7280" }}>&copy; 2025 Elvatix. Alle rechten voorbehouden.</p>
+          <div style={{ display: "flex", gap: 16, fontSize: 13 }}>
+            <a href="#" style={{ color: "#6b7280", textDecoration: "none" }}>Privacy</a>
+            <a href="#" style={{ color: "#6b7280", textDecoration: "none" }}>Voorwaarden</a>
+            <a href="#" style={{ color: "#6b7280", textDecoration: "none" }}>Cookies</a>
           </div>
         </div>
       </div>
