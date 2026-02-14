@@ -6,7 +6,7 @@ export default function Footer() {
     <footer style={{ background: "#111", color: "white", padding: "64px 24px 32px" }}>
       <AnimateOnScroll variant="fadeUp">
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div className="grid-4" style={{ marginBottom: 48 }}>
+          <div className="footer-grid" style={{ marginBottom: 48 }}>
             <div>
               <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 16 }}>
                 <span style={{ color: "#8db600" }}>Elvatix</span>
@@ -50,7 +50,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+          <div className="footer-bottom" style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>&copy; 2025 Elvatix. Alle rechten voorbehouden.</p>
             <div style={{ display: "flex", gap: 16 }}>
               <a href="https://elvatix.com" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", fontSize: 13 }}>Privacy</a>

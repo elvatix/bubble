@@ -12,12 +12,14 @@ export default function WedgeSection() {
   ];
 
   return (
-    <section style={{
-      background: "linear-gradient(135deg, #7aa300 0%, #8db600 50%, #1a2e05 100%)",
-      padding: "100px 24px",
-      position: "relative",
-      overflow: "hidden",
-    }}>
+    <section
+      className="section-padding"
+      style={{
+        background: "linear-gradient(135deg, #7aa300 0%, #8db600 50%, #1a2e05 100%)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 2 }}>
         <div className="grid-2">
           <div>
@@ -27,19 +29,20 @@ export default function WedgeSection() {
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.15}>
-              <h2 style={{ fontSize: "clamp(36px, 4vw, 56px)", fontWeight: 900, color: "white", marginBottom: 20, lineHeight: 1.1 }}>
+              <h2 style={{ fontSize: "clamp(28px, 4vw, 56px)", fontWeight: 900, color: "white", marginBottom: 20, lineHeight: 1.1 }}>
                 Van uren typen naar{" "}
                 <span style={{ color: "#fbbf24" }}>seconden.</span>
               </h2>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.3}>
-              <p style={{ fontSize: 17, color: "rgba(255,255,255,0.7)", maxWidth: 460, marginBottom: 36, lineHeight: 1.7 }}>
+              <p style={{ fontSize: "clamp(14px, 1.5vw, 17px)", color: "rgba(255,255,255,0.7)", maxWidth: 460, marginBottom: 36, lineHeight: 1.7 }}>
                 Je besteedt nu 10-15 minuten per profiel aan het schrijven van een persoonlijk bericht. Of je kopieert uit ChatGPT, plakt in LinkedIn, en schaaft handmatig bij. Elvatix haalt die frustratie weg.
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.45}>
               <motion.a
                 href="https://elvatix.com"
+                className="pill-btn"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -47,11 +50,6 @@ export default function WedgeSection() {
                   background: "rgba(255,255,255,0.15)",
                   color: "white",
                   border: "1px solid rgba(255,255,255,0.3)",
-                  padding: "12px 32px",
-                  borderRadius: 9999,
-                  fontSize: 15,
-                  fontWeight: 600,
-                  textDecoration: "none",
                   backdropFilter: "blur(10px)",
                 }}
                 whileHover={{ scale: 1.05, background: "rgba(255,255,255,0.25)" }}

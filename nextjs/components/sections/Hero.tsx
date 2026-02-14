@@ -5,12 +5,9 @@ import AnimateOnScroll from "../animations/AnimateOnScroll";
 export default function Hero() {
   return (
     <section
+      className="section-padding page-top"
       style={{
         position: "relative",
-        paddingTop: "140px",
-        paddingBottom: "80px",
-        paddingLeft: "24px",
-        paddingRight: "24px",
         background: "linear-gradient(to bottom, #f8fafc, #ffffff)",
         overflow: "hidden",
       }}
@@ -24,7 +21,7 @@ export default function Hero() {
             <AnimateOnScroll variant="fadeUp" delay={0.1}>
               <h1
                 style={{
-                  fontSize: "clamp(36px, 5vw, 64px)",
+                  fontSize: "clamp(32px, 5vw, 64px)",
                   fontWeight: 900,
                   lineHeight: 1.08,
                   letterSpacing: "-0.02em",
@@ -39,17 +36,16 @@ export default function Hero() {
             </AnimateOnScroll>
 
             <AnimateOnScroll variant="fadeUp" delay={0.3}>
-              <p style={{ fontSize: 18, color: "#6b7280", marginBottom: 40, maxWidth: 500, lineHeight: 1.7 }}>
+              <p style={{ fontSize: "clamp(15px, 2vw, 18px)", color: "#6b7280", marginBottom: 40, maxWidth: 500, lineHeight: 1.7 }}>
                 Geen kopiëren uit ChatGPT, plakken in LinkedIn en handmatig bijschaven meer. Elvatix werkt direct in LinkedIn Recruiter en Sales Navigator — van 10-15 minuten naar 30 seconden per persoonlijk bericht.
               </p>
             </AnimateOnScroll>
 
             <AnimateOnScroll variant="fadeUp" delay={0.5}>
-              <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 32 }}>
+              <div className="hero-buttons" style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 32 }}>
                 <motion.a
                   href="https://elvatix.com"
                   className="pill-btn pill-btn-primary"
-                  style={{ padding: "14px 32px", fontSize: 16 }}
                   whileHover={{ scale: 1.05, boxShadow: "0 8px 30px rgba(141,182,0,0.4)" }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -59,7 +55,6 @@ export default function Hero() {
                 <motion.a
                   href="https://elvatix.com"
                   className="pill-btn pill-btn-outline"
-                  style={{ padding: "14px 32px", fontSize: 16 }}
                   whileHover={{ scale: 1.05, backgroundColor: "rgba(141,182,0,0.08)" }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
