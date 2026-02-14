@@ -7,34 +7,34 @@ const tabs = [
   {
     key: "inmails",
     label: "InMails",
-    title: "Schrijf gepersonaliseerde InMails op schaal",
+    title: "Persoonlijke InMails in jouw eigen toon",
     description:
-      "Onze AI leest het LinkedIn-profiel van je kandidaat en genereert een volledig gepersonaliseerd bericht \u2014 in de juiste toon, met relevante hooks. E\u00e9n klik en je bericht is klaar.",
-    features: ["AI-generated personalisatie", "Tone-of-voice matching", "Bulk versturen met variatie"],
+      "Elvatix leest het LinkedIn-profiel van je kandidaat en schrijft een volledig gepersonaliseerd bericht \u2014 in jouw toon, zonder houterige AI-vertalingen. Geen kopiëren en plakken meer.",
+    features: ["Werkt direct in LinkedIn Recruiter & Sales Navigator", "Jouw tone-of-voice, niet die van een robot", "Van 10-15 minuten naar 30 seconden per bericht"],
   },
   {
     key: "connecties",
     label: "Connectieverzoeken",
-    title: "Connectieverzoeken die echt aankomen",
+    title: "Connectieverzoeken die echt worden geaccepteerd",
     description:
-      "Vergeet standaard templates. Elvatix maakt connectieverzoeken op basis van gedeelde achtergrond, interesses en activiteit \u2014 met een bewezen hogere acceptatiegraad.",
-    features: ["Contextbewuste berichten", "Profile-analyse", "3x hogere acceptatie"],
+      "In \u00e9\u00e9n klik gepersonaliseerde uitnodigingen op basis van profielinformatie. Geen standaard templates meer \u2014 elk verzoek is uniek en relevant.",
+    features: ["Automatische profielanalyse", "Gepersonaliseerd op basis van gedeelde achtergrond", "2x hogere acceptatiegraad"],
   },
   {
     key: "reminders",
     label: "Reminders",
-    title: "Automatische opvolging, nooit meer vergeten",
+    title: "Nooit meer een kandidaat vergeten op te volgen",
     description:
-      "Stel slimme reminders in voor opvolging. De AI stelt voor wanneer \u00e9n hoe je het beste kunt opvolgen \u2014 gebaseerd op eerdere interacties.",
-    features: ["Smart timing", "Follow-up suggesties", "Sequence automation"],
+      "Automatische reminders en follow-up suggesties zodat je altijd op het juiste moment opvolgt. Geen spreadsheets of post-its meer nodig.",
+    features: ["Slimme timing voor follow-ups", "Gebaseerd op eerdere interacties", "Automatische herinneringen"],
   },
   {
-    key: "analytics",
-    label: "Analytics",
-    title: "Inzicht in je LinkedIn performance",
+    key: "templates",
+    label: "Templates",
+    title: "Houd controle met templates en instructies",
     description:
-      "Zie precies welke berichten het beste werken. Track response rates, acceptatiegraden en optimaliseer je aanpak continu met data.",
-    features: ["Response tracking", "A/B test resultaten", "ROI dashboard"],
+      "Definieer de structuur en laat de AI de invulling doen. Zo hou je grip op je messaging terwijl elk bericht toch uniek en persoonlijk is.",
+    features: ["Eigen templates en instructies instellen", "AI vult dynamisch in per kandidaat", "Consistente kwaliteit, altijd persoonlijk"],
   },
 ];
 
@@ -47,10 +47,10 @@ export default function Features() {
         <AnimateOnScroll variant="fadeUp">
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 900, color: "#111", marginBottom: 12 }}>
-              Neem je recruitment workflow van losse tools naar \u00e9\u00e9n krachtig platform
+              Alles wat je nodig hebt, direct in LinkedIn
             </h2>
             <p style={{ color: "#6b7280", fontSize: 16, maxWidth: 640, margin: "0 auto" }}>
-              Bekijk de features die Elvatix uniek maken \u2014 elk onderdeel is een volwaardig product bij andere aanbieders. \ud83d\ude0e
+              Elvatix werkt als Chrome-extensie rechtstreeks in LinkedIn Recruiter, Recruiter Lite en Sales Navigator. Geen tabbladen wisselen.
             </p>
           </div>
         </AnimateOnScroll>
@@ -154,7 +154,7 @@ export default function Features() {
               transition={{ delay: 0.25, duration: 0.5 }}
             >
               <span style={{ fontSize: 64, opacity: 0.3 }}>
-                {activeTab === 0 ? "\ud83d\udce7" : activeTab === 1 ? "\ud83e\udd1d" : activeTab === 2 ? "\u23f0" : "\ud83d\udcca"}
+                {activeTab === 0 ? "\ud83d\udce7" : activeTab === 1 ? "\ud83e\udd1d" : activeTab === 2 ? "\ud83d\udd14" : "\ud83d\udcdd"}
               </span>
             </motion.div>
           </motion.div>
