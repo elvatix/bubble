@@ -15,7 +15,7 @@ const tabs = [
     label: "Connectieverzoeken",
     emoji: "🤝",
     title: "Connectieverzoeken die echt aankomen",
-    desc: "Vergeet standaard 'I\'d like to add you to my network'. Elvatix schrijft connectieverzoeken die opvallen en conversaties starten.",
+    desc: "Vergeet standaard 'I'd like to add you to my network'. Elvatix schrijft connectieverzoeken die opvallen en conversaties starten.",
     link: "/features/connections",
   },
   {
@@ -41,7 +41,7 @@ export default function Features() {
   const tab = tabs[active];
 
   return (
-    <section className="section-responsive" style={{ padding: "80px 24px", background: "#fff" }}>
+    <section style={{ padding: "80px 24px", background: "#fff" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, textAlign: "center", color: "#111", marginBottom: 16 }}>
           Neem je recruitment workflow van losse tools naar één krachtig platform
@@ -50,8 +50,7 @@ export default function Features() {
           Bekijk de features die Elvatix uniek maken — elk onderdeel is een volwaardig product bij andere aanbieders. 😎
         </p>
 
-        {/* Tab navigation */}
-        <div className="features-tabs" style={{ display: "flex", justifyContent: "center", gap: 32, marginBottom: 48, borderBottom: "1px solid #e5e7eb", paddingBottom: 0 }}>
+        <div className="feature-tabs">
           {tabs.map((t, i) => (
             <button
               key={t.id}
@@ -73,8 +72,7 @@ export default function Features() {
           ))}
         </div>
 
-        {/* Tab content */}
-        <div className="features-content" style={{ background: "#f9fafb", borderRadius: 24, padding: 48, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", minHeight: 300 }}>
+        <div className="feature-tab-content" style={{ background: "#f9fafb", borderRadius: 24, padding: 48, minHeight: 300 }}>
           <div>
             <p style={{ fontSize: 12, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 12 }}>
               {tab.label}
