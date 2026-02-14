@@ -1,44 +1,58 @@
 "use client";
+import { motion } from "framer-motion";
+import AnimateOnScroll from "../animations/AnimateOnScroll";
 
 const testimonials = [
-  { quote: "Elvatix heeft onze outreach compleet veranderd. We besparen minstens 2 uur per dag per recruiter.", name: "Lisa van den Berg", role: "Head of Recruitment, Vibe Group" },
-  { quote: "De AI-gegenereerde berichten voelen persoonlijker dan wat we ooit handmatig schreven.", name: "Mark de Vries", role: "Senior Recruiter, Manpower" },
-  { quote: "Onze response rate is met 40% gestegen sinds we Elvatix gebruiken. Het is een game-changer.", name: "Sarah Jansen", role: "Talent Acquisition Lead" },
-];
-
-const badges = [
-  { icon: "⭐", label: "Highest Rated" },
-  { icon: "🏆", label: "Best ROI 2025" },
-  { icon: "🚀", label: "Fastest Growing" },
-  { icon: "💚", label: "Most Loved" },
+  { name: "Sophie de Vries", role: "Senior Recruiter, Manpower", quote: "Elvatix heeft onze InMail response rate verdrievoudigd. De AI-personalisatie is ongekend." },
+  { name: "Mark Janssen", role: "Head of Talent, Vibe Group", quote: "We besparen 15+ uur per week op outreach. Dat is een hele recruiter aan capaciteit." },
+  { name: "Lisa van den Berg", role: "Recruitment Lead, Hays", quote: "Eindelijk \u00e9\u00e9n tool voor alles. Geen gedoe meer met 5 verschillende subscriptions." },
 ];
 
 export default function Testimonials() {
   return (
-    <section style={{ padding: "80px 24px", background: "#fff" }}>
+    <section style={{ padding: "80px 24px", background: "#fafafa" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, fontStyle: "italic", textAlign: "center", marginBottom: 48, color: "#111" }}>
-          Wat onze klanten zeggen
-        </h2>
+        <AnimateOnScroll variant="fadeUp">
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 44px)", fontWeight: 900, color: "#111", marginBottom: 12 }}>
+              Wat recruiters zeggen
+            </h2>
+            <p style={{ color: "#6b7280", fontSize: 16 }}>500+ recruiters gebruiken Elvatix dagelijks.</p>
+          </div>
+        </AnimateOnScroll>
 
-        <div className="grid-3" style={{ marginBottom: 48 }}>
+        <div className="grid-3">
           {testimonials.map((t, i) => (
-            <div key={i} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 20, padding: 32 }}>
-              <p style={{ fontSize: 16, color: "#6a9a00", lineHeight: 1.6, marginBottom: 20, fontWeight: 500 }}>
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <p style={{ fontWeight: 700, fontSize: 15, color: "#111" }}>{t.name}</p>
-              <p style={{ fontSize: 13, color: "#9ca3af" }}>{t.role}</p>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap" }}>
-          {badges.map((b, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ fontSize: 20 }}>{b.icon}</span>
-              <span style={{ fontSize: 14, fontWeight: 600, color: "#6b7280" }}>{b.label}</span>
-            </div>
+            <AnimateOnScroll key={i} variant="fadeUp" delay={0.15 * i}>
+              <motion.div
+                style={{
+                  background: "white",
+                  borderRadius: 20,
+                  padding: 36,
+                  border: "1px solid #f3f4f6",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+                whileHover={{
+                  y: -6,
+                  boxShadow: "0 16px 40px rgba(0,0,0,0.06)",
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <div style={{ fontSize: 32, color: "#8db600", marginBottom: 16, fontFamily: "Georgia, serif" }}>\u201c</div>
+                <p style={{ color: "#374151", fontSize: 15, lineHeight: 1.7, flex: 1, fontStyle: "italic" }}>{t.quote}</p>
+                <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 12 }}>
+                  <div style={{ width: 40, height: 40, borderRadius: "50%", background: "linear-gradient(135deg, #8db600, #a3c520)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 700, fontSize: 16 }}>
+                    {t.name[0]}
+                  </div>
+                  <div>
+                    <p style={{ fontWeight: 600, fontSize: 14, color: "#111" }}>{t.name}</p>
+                    <p style={{ fontSize: 13, color: "#9ca3af" }}>{t.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimateOnScroll>
           ))}
         </div>
       </div>
