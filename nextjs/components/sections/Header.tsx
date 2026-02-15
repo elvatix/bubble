@@ -1,15 +1,16 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   const navLinks = [
-    { label: "Modules", href: "#features" },
-    { label: "Voor Wie", href: "#solutions" },
-    { label: "Case Studies", href: "#testimonials" },
-    { label: "Contact", href: "https://elvatix.com" },
+    { label: "Modules", href: "/features" },
+    { label: "Voor Wie", href: "/solutions" },
+    { label: "Case Studies", href: "/cases" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -36,22 +37,22 @@ export default function Header() {
         alignItems: "center",
         justifyContent: "space-between",
       }}>
-        <a href="https://elvatix.com" style={{ fontWeight: 800, fontSize: 22, color: "#111", letterSpacing: "-0.02em", textDecoration: "none", flexShrink: 0 }}>
+        <Link href="/" style={{ fontWeight: 800, fontSize: 22, color: "#111", letterSpacing: "-0.02em", textDecoration: "none", flexShrink: 0 }}>
           <span style={{ color: "#8db600" }}>Elvatix</span>
-        </a>
+        </Link>
 
         <nav className="nav-links" style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {navLinks.map((link) => (
-            <a key={link.label} href={link.href} style={{ color: "#6b7280", textDecoration: "none", fontSize: 14, fontWeight: 500, transition: "color 0.2s" }}>
+            <Link key={link.label} href={link.href} style={{ color: "#6b7280", textDecoration: "none", fontSize: 14, fontWeight: 500, transition: "color 0.2s" }}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="nav-cta">
-          <a href="https://elvatix.com" className="pill-btn pill-btn-primary" style={{ padding: "10px 24px", fontSize: 14 }}>
+          <Link href="/demo" className="pill-btn pill-btn-primary" style={{ padding: "10px 24px", fontSize: 14 }}>
             Plan een demo
-          </a>
+          </Link>
         </div>
 
         <button
@@ -78,13 +79,13 @@ export default function Header() {
         {open && (
           <>
             {navLinks.map((link) => (
-              <a key={link.label} href={link.href} onClick={() => setOpen(false)}>
+              <Link key={link.label} href={link.href} onClick={() => setOpen(false)}>
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a href="https://elvatix.com" className="pill-btn pill-btn-primary" onClick={() => setOpen(false)}>
+            <Link href="/demo" className="pill-btn pill-btn-primary" onClick={() => setOpen(false)}>
               Plan een demo
-            </a>
+            </Link>
           </>
         )}
       </div>
