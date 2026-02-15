@@ -7,9 +7,10 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const navLinks = [
-    { label: "Modules", href: "/features" },
+    { label: "Modules", href: "/platform" },
     { label: "Voor Wie", href: "/solutions" },
     { label: "Case Studies", href: "/cases" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Contact", href: "/contact" },
   ];
 
