@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import AnimateOnScroll from "../animations/AnimateOnScroll";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -44,7 +45,7 @@ export default function Hero() {
             <AnimateOnScroll variant="fadeUp" delay={0.5}>
               <div className="hero-buttons" style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 32 }}>
                 <motion.a
-                  href="https://elvatix.com"
+                  href="/demo"
                   className="pill-btn pill-btn-primary"
                   whileHover={{ scale: 1.05, boxShadow: "0 8px 30px rgba(141,182,0,0.4)" }}
                   whileTap={{ scale: 0.97 }}
@@ -53,7 +54,7 @@ export default function Hero() {
                   Plan een demo
                 </motion.a>
                 <motion.a
-                  href="https://elvatix.com"
+                  href="/cases"
                   className="pill-btn pill-btn-outline"
                   whileHover={{ scale: 1.05, backgroundColor: "rgba(141,182,0,0.08)" }}
                   whileTap={{ scale: 0.97 }}

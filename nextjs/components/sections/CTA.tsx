@@ -31,7 +31,7 @@ export default function CTA() {
               </p>
               <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
                 <motion.a
-                  href="https://elvatix.com"
+                  href="/demo"
                   className="pill-btn"
                   style={{
                     background: "white",
@@ -45,7 +45,7 @@ export default function CTA() {
                   Plan een demo
                 </motion.a>
                 <motion.a
-                  href="https://elvatix.com"
+                  href="/cases"
                   className="pill-btn"
                   style={{
                     background: "rgba(255,255,255,0.15)",

@@ -41,7 +41,7 @@ export default function WedgeSection() {
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.45}>
               <motion.a
-                href="https://elvatix.com"
+                href="/cases"
                 className="pill-btn"
                 style={{
                   display: "inline-flex",
