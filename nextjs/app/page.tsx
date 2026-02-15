@@ -1,6 +1,5 @@
 import Hero from "@/components/sections/Hero";
 import PainPoints from "@/components/sections/PainPoints";
-import LeadMagnet from "@/components/sections/LeadMagnet";
 import WedgeSection from "@/components/sections/WedgeSection";
 import Comparison from "@/components/sections/Comparison";
 import Stats from "@/components/sections/Stats";
@@ -14,7 +13,6 @@ export default function Home() {
     <>
       <Hero />
       <PainPoints />
-      <LeadMagnet />
       <WedgeSection />
       <Comparison />
       <Features />
