@@ -21,10 +21,10 @@ export default function Footer() {
               <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16, color: "rgba(255,255,255,0.4)" }}>Modules</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
                 {[
-                  { label: "InMails", href: "/features" },
-                  { label: "Connectieverzoeken", href: "/features" },
-                  { label: "Reminders", href: "/features" },
-                  { label: "Templates", href: "/features" },
+                  { label: "InMails", href: "/features/inmails" },
+                  { label: "Connectieverzoeken", href: "/features/connections" },
+                  { label: "Reminders", href: "/features/reminders" },
+                  { label: "Analytics", href: "/features/analytics" },
                 ].map((item) => (
                   <li key={item.label}>
                     <Link href={item.href} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 14 }}>{item.label}</Link>
@@ -49,11 +49,12 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16, color: "rgba(255,255,255,0.4)" }}>Contact</h4>
+              <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16, color: "rgba(255,255,255,0.4)" }}>Bedrijf</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
                 {[
-                  { label: "Plan een demo", href: "/demo" },
+                  { label: "Over Ons", href: "/over-ons" },
                   { label: "Case Studies", href: "/cases" },
+                  { label: "Blog", href: "/blog" },
                   { label: "Contact", href: "/contact" },
                 ].map((item) => (
                   <li key={item.label}>
