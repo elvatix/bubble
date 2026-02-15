@@ -5,10 +5,10 @@ import AnimatedCounter from "../animations/AnimatedCounter";
 
 export default function WedgeSection() {
   const stats = [
-    { icon: "⏱️", stat: "30", suffix: " sec", label: "Per gepersonaliseerd bericht (was 10-15 min)" },
-    { icon: "📈", stat: "2x", label: "Zoveel respons op je InMails" },
-    { icon: "⏰", stat: "4-6", suffix: " uur", label: "Besparing per week, per recruiter" },
-    { icon: "🏆", stat: "260", label: "InMails in 1,7 uur (Manpower case)" },
+    { icon: "⏱️", value: "30", suffix: " sec", label: "Per gepersonaliseerd bericht", sub: "Was 10-15 minuten" },
+    { icon: "📈", value: "2", suffix: "x", label: "Meer respons op InMails", sub: "Vergeleken met standaard berichten" },
+    { icon: "⏰", value: "4-6", suffix: " uur", label: "Besparing per week", sub: "Per recruiter, per week" },
+    { icon: "🏆", value: "260", suffix: " InMails", label: "In slechts 1,7 uur", sub: "Manpower case study" },
   ];
 
   return (
@@ -36,7 +36,7 @@ export default function WedgeSection() {
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.3}>
               <p style={{ fontSize: "clamp(14px, 1.5vw, 17px)", color: "rgba(255,255,255,0.7)", maxWidth: 460, marginBottom: 36, lineHeight: 1.7 }}>
-                Je besteedt nu 10-15 minuten per profiel aan het schrijven van een persoonlijk bericht. Of je kopieert uit ChatGPT, plakt in LinkedIn, en schaaft handmatig bij. Elvatix haalt die frustratie weg.
+                500+ recruiters besparen dagelijks uren met Elvatix. Van copy-paste frustratie naar persoonlijke berichten in één klik.
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.45}>
@@ -61,7 +61,7 @@ export default function WedgeSection() {
             </AnimateOnScroll>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {stats.map((item, i) => (
               <AnimateOnScroll key={i} variant="fadeRight" delay={0.15 * i}>
                 <motion.div
@@ -78,12 +78,13 @@ export default function WedgeSection() {
                   whileHover={{ background: "rgba(255,255,255,0.15)", x: 8, transition: { duration: 0.2 } }}
                 >
                   <span style={{ fontSize: 28 }}>{item.icon}</span>
-                  <div>
-                    <AnimatedCounter
-                      target={item.stat}
-                      style={{ fontSize: 28, fontWeight: 800, color: "#fbbf24", display: "block" }}
-                    />
-                    <p style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", marginTop: 2 }}>{item.label}</p>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+                      <span style={{ fontSize: 28, fontWeight: 800, color: "#fbbf24" }}>{item.value}</span>
+                      <span style={{ fontSize: 16, fontWeight: 700, color: "#fbbf24" }}>{item.suffix}</span>
+                    </div>
+                    <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", marginTop: 2, fontWeight: 500 }}>{item.label}</p>
+                    <p style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginTop: 2 }}>{item.sub}</p>
                   </div>
                 </motion.div>
               </AnimateOnScroll>
