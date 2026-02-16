@@ -15,7 +15,7 @@ const ShieldIcon = () => (
 );
 
 const ZapIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8db600" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0a66c2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
   </svg>
 );
@@ -63,18 +63,18 @@ export default function TrustPricing() {
                 padding: 32,
                 borderRadius: 20,
                 background: "#ffffff",
-                border: `1px solid ${i === 2 ? "rgba(141,182,0,0.3)" : "rgba(10,102,194,0.15)"}`,
+                border: "1px solid rgba(10,102,194,0.15)",
                 textAlign: "center",
                 position: "relative",
                 overflow: "hidden",
               }}
-              whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(0,0,0,0.06)" }}
+              whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(10,102,194,0.1)", borderColor: "#0a66c2" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               {i === 2 && (
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, #8db600, #a3c520)" }} />
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, #0a66c2, #004182)" }} />
               )}
-              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: 64, height: 64, borderRadius: 16, background: i === 2 ? "#f0f7d4" : "#e8f0fe", margin: "0 auto 16px" }}>{item.icon}</div>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: 64, height: 64, borderRadius: 16, background: "#e8f0fe", margin: "0 auto 16px" }}>{item.icon}</div>
               <h3 style={{ fontSize: 20, fontWeight: 700, color: "#111", marginBottom: 12 }}>{item.title}</h3>
               <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.7, marginBottom: item.badges ? 16 : 0 }}>{item.description}</p>
               {item.badges && (
@@ -92,15 +92,12 @@ export default function TrustPricing() {
               {i === 2 && (
                 <motion.a
                   href="/demo"
-                  style={{
-                    display: "inline-block", marginTop: 20, padding: "12px 28px",
-                    background: "#8db600", color: "white", borderRadius: 9999,
-                    fontWeight: 700, fontSize: 14, textDecoration: "none",
-                  }}
-                  whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(141,182,0,0.3)" }}
+                  className="pill-btn pill-btn-linkedin"
+                  style={{ marginTop: 20, padding: "12px 28px" }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(10,102,194,0.3)" }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  Start gratis \u2192
+                  Start gratis
                 </motion.a>
               )}
             </motion.div>

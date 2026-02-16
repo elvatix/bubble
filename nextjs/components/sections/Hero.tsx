@@ -1,97 +1,108 @@
 "use client";
 import { motion } from "framer-motion";
-import LeadMagnet from "./LeadMagnet";
+import LeadMagnet from "@/components/sections/LeadMagnet";
 
 export default function Hero() {
   return (
     <section
-      className="section-padding page-top"
       style={{
-        position: "relative",
-        background: "#fafbfc",
-        overflow: "hidden",
-        minHeight: "90vh",
-        display: "flex",
-        alignItems: "center",
+        padding: "120px 24px 60px",
+        background: "linear-gradient(180deg, #f0f7fe 0%, #ffffff 100%)",
+        textAlign: "center",
       }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%" }}>
-        <div className="grid-2" style={{ alignItems: "center" }}>
-          {/* Left: text content — NO entrance animations */}
-          <div>
-            <h1
-              style={{
-                fontSize: "clamp(32px, 4.5vw, 52px)",
-                fontWeight: 900,
-                lineHeight: 1.1,
-                letterSpacing: "-0.03em",
-                marginBottom: 24,
-                color: "#111",
-              }}
-            >
-              Stop met uren typen.{" "}
-              <span style={{ background: "linear-gradient(135deg, #0a66c2, #004182)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                Genereer persoonlijke InMails
-              </span>{" "}
-              in 30 seconden.
-            </h1>
+      <div style={{ maxWidth: 800, margin: "0 auto" }}>
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "6px 16px",
+            borderRadius: 9999,
+            background: "#e8f0fe",
+            marginBottom: 24,
+            fontSize: 13,
+            fontWeight: 600,
+            color: "#0a66c2",
+          }}
+        >
+          <span>LinkedIn Recruiter Tool</span>
+        </div>
 
-            <p style={{ fontSize: "clamp(15px, 1.6vw, 17px)", color: "#6b7280", marginBottom: 36, maxWidth: 500, lineHeight: 1.75 }}>
-              De enige AI-tool die direct in LinkedIn Recruiter werkt. Veilig, persoonlijk en in jouw tone-of-voice.
-            </p>
+        <h1
+          style={{
+            fontSize: "clamp(32px, 5vw, 56px)",
+            fontWeight: 900,
+            lineHeight: 1.1,
+            marginBottom: 20,
+            color: "#111",
+          }}
+        >
+          Stop met uren typen.{" "}
+          <span
+            style={{
+              background: "linear-gradient(135deg, #0a66c2, #004182)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Genereer persoonlijke InMails in 30 seconden.
+          </span>
+        </h1>
 
-            <div className="hero-buttons" style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 36 }}>
-              <motion.a
-                href="/demo"
-                className="pill-btn pill-btn-primary"
-                style={{ padding: "14px 32px", fontSize: 15 }}
-                whileHover={{ scale: 1.04, boxShadow: "0 12px 35px rgba(141,182,0,0.35)" }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                Plan een demo
-              </motion.a>
-              <motion.a
-                href="/cases"
-                className="pill-btn pill-btn-outline"
-                style={{ padding: "14px 28px", fontSize: 15 }}
-                whileHover={{ scale: 1.04, backgroundColor: "rgba(141,182,0,0.06)" }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                Bekijk de Manpower case
-              </motion.a>
-            </div>
+        <p
+          style={{
+            fontSize: 18,
+            color: "#6b7280",
+            lineHeight: 1.7,
+            maxWidth: 600,
+            margin: "0 auto 32px",
+          }}
+        >
+          Elvatix werkt direct in je LinkedIn Recruiter. Schrijf connectieverzoeken en
+          InMails die klinken alsof je ze zelf hebt geschreven — aangevuld met de
+          juiste toon, taal en personalisatie.
+        </p>
 
-            <div style={{ display: "flex", gap: 32, alignItems: "center", flexWrap: "wrap" }}>
-              {[
-                { score: "5.0", label: "Chrome Store" },
-                { score: "4.4", label: "Trustpilot" },
-                { score: "5.0", label: "Google" },
-              ].map((r, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  <div style={{ display: "flex", gap: 2 }}>
-                    {[1,2,3,4,5].map(s => (
-                      <span key={s} style={{ color: s <= Math.floor(parseFloat(r.score)) ? "#fbbf24" : "#e5e7eb", fontSize: 14 }}>{"\u2605"}</span>
-                    ))}
-                  </div>
-                  <span style={{ fontSize: 12, color: "#9ca3af", fontWeight: 500 }}>{r.score} {r.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div
+          style={{
+            display: "flex",
+            gap: 12,
+            justifyContent: "center",
+            flexWrap: "wrap",
+            marginBottom: 48,
+          }}
+        >
+          <motion.a
+            href="/demo"
+            className="pill-btn pill-btn-linkedin"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Plan een demo
+          </motion.a>
+          <motion.a
+            href="#voor-wie"
+            className="pill-btn"
+            style={{ background: "transparent", color: "#0a66c2", border: "2px solid #0a66c2" }}
+            whileHover={{ scale: 1.05, background: "rgba(10,102,194,0.05)" }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Bekijk hoe het werkt
+          </motion.a>
+        </div>
 
-          {/* Right: WORKING LeadMagnet — NO entrance animation */}
+        <div
+          style={{
+            borderRadius: 20,
+            border: "1px solid rgba(10,102,194,0.2)",
+            boxShadow: "0 4px 24px rgba(10,102,194,0.08)",
+            overflow: "hidden",
+          }}
+        >
           <LeadMagnet compact />
         </div>
       </div>
-
-      <style>{`
-        @keyframes hero-pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.3); }
-        }
-      `}</style>
     </section>
   );
 }

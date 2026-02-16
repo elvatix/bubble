@@ -31,12 +31,12 @@ const solutions = [
   {
     icon: <BuildingIcon />,
     title: "Recruitmentbureaus",
-    description: "Versnel het bereiken van kandidaten. Schrijf persoonlijke InMails en connectieverzoeken in seconden. Bespaar 4\u20136 uur per week per recruiter.",
+    description: "Versnel het bereiken van kandidaten. Schrijf persoonlijke InMails en connectieverzoeken in seconden. Bespaar 4–6 uur per week per recruiter.",
   },
   {
     icon: <BriefcaseIcon />,
     title: "Corporate Recruiters",
-    description: "Effici\u00ebnter intern talent sourcen. Elvatix werkt direct in LinkedIn Recruiter \u2014 geen extra tools of tabbladen nodig.",
+    description: "Effici\u00ebnter intern talent sourcen. Elvatix werkt direct in LinkedIn Recruiter — geen extra tools of tabbladen nodig.",
   },
   {
     icon: <RocketIcon />,
@@ -54,7 +54,7 @@ export default function Solutions() {
             Voor wie is Elvatix?
           </h2>
           <p style={{ color: "#6b7280", fontSize: 16, maxWidth: 560, margin: "0 auto" }}>
-            Of je nu als bureau of in-house recruiter werkt \u2014 Elvatix past zich aan jouw werkwijze aan.
+            Of je nu als bureau of in-house recruiter werkt — Elvatix past zich aan jouw werkwijze aan.
           </p>
         </div>
         <div className="grid-3">
@@ -68,7 +68,7 @@ export default function Solutions() {
                 border: "1px solid #e5e7eb",
                 textAlign: "center",
               }}
-              whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(0,0,0,0.08)", borderColor: "rgba(10,102,194,0.3)" }}
+              whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(10,102,194,0.12)", borderColor: "#0a66c2" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: 64, height: 64, borderRadius: 16, background: "#e8f0fe", margin: "0 auto 16px" }}>{s.icon}</div>
