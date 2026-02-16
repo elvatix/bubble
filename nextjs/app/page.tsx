@@ -1,12 +1,18 @@
 import Hero from "@/components/sections/Hero";
-import Features from "@/components/sections/Features";
+import Solutions from "@/components/sections/Solutions";
+import PainPoints from "@/components/sections/PainPoints";
+import Comparison from "@/components/sections/Comparison";
+import TrustPricing from "@/components/sections/TrustPricing";
 import CTA from "@/components/sections/CTA";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Features />
+      <Solutions />
+      <PainPoints />
+      <Comparison />
+      <TrustPricing />
       <CTA />
     </>
   );
