@@ -18,44 +18,86 @@ export default function Header() {
     <header
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        width: "100%",
-        zIndex: 100,
-        background: "rgba(255,255,255,0.85)",
+        top: 16,
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "calc(100% - 48px)",
+        maxWidth: 1200,
+        zIndex: 1000,
+        background: "rgba(255,255,255,0.95)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(0,0,0,0.06)",
+        borderRadius: 9999,
+        padding: "12px 24px",
+        boxShadow: "0 2px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04)",
         boxSizing: "border-box",
       }}
     >
       <div style={{
-        maxWidth: 1200,
-        margin: "0 auto",
-        padding: "16px 24px",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        position: "relative",
       }}>
-        <Link href="/" style={{ fontWeight: 800, fontSize: 22, color: "#111", letterSpacing: "-0.02em", textDecoration: "none", flexShrink: 0 }}>
-          <span style={{ color: "#8db600" }}>Elvatix</span>
+        {/* Logo — absolute zodat het de centering van nav niet verstoort */}
+        <Link
+          href="/"
+          style={{
+            fontWeight: 800,
+            fontSize: 22,
+            letterSpacing: "-0.02em",
+            textDecoration: "none",
+            flexShrink: 0,
+            color: "#0a66c2",
+            zIndex: 1,
+          }}
+        >
+          Elvatix
         </Link>
 
-        <nav className="nav-links" style={{ display: "flex", alignItems: "center", gap: 32 }}>
+        {/* Nav links — gecentreerd in de volle breedte */}
+        <nav
+          className="nav-links"
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 32,
+            pointerEvents: "none",
+          }}
+        >
           {navLinks.map((link) => (
-            <Link key={link.label} href={link.href} style={{ color: "#6b7280", textDecoration: "none", fontSize: 14, fontWeight: 500, transition: "color 0.2s" }}>
+            <Link
+              key={link.label}
+              href={link.href}
+              style={{
+                color: "#374151",
+                textDecoration: "none",
+                fontSize: 14,
+                fontWeight: 500,
+                transition: "color 0.2s",
+                pointerEvents: "auto",
+              }}
+            >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="nav-cta">
-          <Link href="/demo" className="pill-btn pill-btn-primary" style={{ padding: "10px 24px", fontSize: 14 }}>
+        {/* CTA — rechts uitgelijnd */}
+        <div className="nav-cta" style={{ marginLeft: "auto", flexShrink: 0, zIndex: 1 }}>
+          <Link
+            href="/demo"
+            className="pill-btn pill-btn-linkedin"
+            style={{ padding: "10px 24px", fontSize: 14 }}
+          >
             Plan een demo
           </Link>
         </div>
 
+        {/* Hamburger — alleen mobiel */}
         <button
           className="hamburger"
           onClick={() => setOpen(!open)}
@@ -68,6 +110,7 @@ export default function Header() {
             border: "none",
             cursor: "pointer",
             padding: 8,
+            zIndex: 1,
           }}
         >
           <div style={{ width: 22, height: 2, background: open ? "transparent" : "#111", transition: "all 0.3s" }} />
@@ -76,6 +119,7 @@ export default function Header() {
         </button>
       </div>
 
+      {/* Mobile nav */}
       <div className={`mobile-nav${open ? " open" : ""}`}>
         {open && (
           <>
@@ -84,7 +128,7 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/demo" className="pill-btn pill-btn-primary" onClick={() => setOpen(false)}>
+            <Link href="/demo" className="pill-btn pill-btn-linkedin" onClick={() => setOpen(false)}>
               Plan een demo
             </Link>
           </>
