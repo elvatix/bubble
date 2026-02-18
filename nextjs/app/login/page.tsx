@@ -1,48 +1,46 @@
-"use client";
+import Container from '@/components/ui/Container';
+import Button from '@/components/ui/Button';
+import type { Metadata } from 'next';
 
-import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: 'Inloggen \u2014 Elvatix',
+  description: 'Log in op je Elvatix account en start met het genereren van AI-powered LinkedIn berichten.',
+};
 
 export default function LoginPage() {
   return (
-    <main style={{ paddingTop: 100, minHeight: "80vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ maxWidth: 420, width: "100%", padding: "48px 40px", background: "#fff", borderRadius: 20, border: "1px solid #e5e7eb", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
-        <div style={{ textAlign: "center", marginBottom: 32 }}>
-          <h1 style={{ fontSize: 28, fontWeight: 800, color: "#111", marginBottom: 8 }}>Welkom terug</h1>
-          <p style={{ fontSize: 15, color: "#6b7280" }}>Log in op je Elvatix account</p>
-        </div>
+    <main className="pt-32 pb-16">
+      <Container className="max-w-md text-center">
+        <h1 className="text-4xl font-black text-gray-900 mb-3">Welkom terug</h1>
+        <p className="text-gray-600 mb-10">Log in op je Elvatix account</p>
 
-        <form onSubmit={(e) => e.preventDefault()} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <form className="flex flex-col gap-5 text-left">
           <div>
-            <label style={{ fontSize: 13, fontWeight: 600, color: "#374151", display: "block", marginBottom: 6 }}>E-mailadres</label>
-            <input type="email" placeholder="naam@bedrijf.nl" style={{
-              width: "100%", padding: "12px 16px", borderRadius: 10, border: "1px solid #d1d5db",
-              fontSize: 15, outline: "none", boxSizing: "border-box"
-            }} />
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-mailadres</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="naam@bedrijf.nl"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-linkedin focus:border-transparent transition"
+            />
           </div>
           <div>
-            <label style={{ fontSize: 13, fontWeight: 600, color: "#374151", display: "block", marginBottom: 6 }}>Wachtwoord</label>
-            <input type="password" placeholder="••••••••" style={{
-              width: "100%", padding: "12px 16px", borderRadius: 10, border: "1px solid #d1d5db",
-              fontSize: 15, outline: "none", boxSizing: "border-box"
-            }} />
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Wachtwoord</label>
+            <input
+              id="password"
+              type="password"
+              placeholder="\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-linkedin focus:border-transparent transition"
+            />
           </div>
-
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13 }}>
-            <label style={{ display: "flex", alignItems: "center", gap: 6, color: "#6b7280", cursor: "pointer" }}>
-              <input type="checkbox" /> Onthoud mij
-            </label>
-            <a href="#" style={{ color: "#8db600", textDecoration: "none", fontWeight: 500 }}>Wachtwoord vergeten?</a>
-          </div>
-
-          <button type="submit" className="pill-btn pill-btn-primary" style={{ padding: "14px 24px", fontSize: 15, width: "100%", cursor: "pointer", border: "none", marginTop: 8 }}>
-            Inloggen
-          </button>
+          <Button variant="primary" className="w-full mt-2">Inloggen</Button>
         </form>
 
-        <p style={{ textAlign: "center", fontSize: 14, color: "#6b7280", marginTop: 24 }}>
-          Nog geen account? <a href="/start" style={{ color: "#8db600", fontWeight: 600, textDecoration: "none" }}>Start gratis →</a>
+        <p className="text-sm text-gray-500 mt-8">
+          Nog geen account?{' '}
+          <a href="/start" className="text-linkedin font-semibold hover:underline">Start gratis</a>
         </p>
-      </div>
+      </Container>
     </main>
   );
 }
