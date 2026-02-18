@@ -1,99 +1,98 @@
-"use client";
-import type React from "react";
+import Container from '@/components/ui/Container';
+import Button from '@/components/ui/Button';
+import type { Metadata } from 'next';
 
-const tiers = [
+export const metadata: Metadata = {
+  title: 'Pricing \u2014 Elvatix',
+  description: 'Bekijk de Elvatix prijzen. Start gratis of kies het plan dat bij jouw team past.',
+};
+
+const plans = [
   {
-    name: "Starter",
-    price: "Gratis",
-    period: "",
-    desc: "Perfect om te beginnen",
-    features: ["5 gegenereerde berichten per maand", "InMails + connectieverzoeken", "LinkedIn profiel-analyse", "Nederlands en Engels"],
-    cta: "Start gratis",
-    href: "/start",
-    primary: false,
+    name: 'Free',
+    price: '\u20ac0',
+    period: 'voor altijd',
+    desc: 'Perfect om Elvatix te ontdekken.',
+    features: ['5 AI-berichten per dag', 'InMails + connectieverzoeken', 'Basis templates', 'Community support'],
+    cta: 'Start gratis',
+    href: '/start',
+    highlighted: false,
   },
   {
-    name: "Pro",
-    price: "€49",
-    period: "/mnd",
-    desc: "Voor actieve recruiters",
-    features: ["Onbeperkt berichten", "Smart follow-up reminders", "Analytics dashboard", "Custom tone-of-voice", "Template bibliotheek", "Prioriteit support"],
-    cta: "Start 14 dagen gratis",
-    href: "/start",
-    primary: true,
-    badge: "Populairste keuze",
+    name: 'Pro',
+    price: '\u20ac49',
+    period: 'per maand',
+    desc: 'Voor serieuze recruiters die resultaat willen.',
+    features: ['Onbeperkte AI-berichten', 'Custom GPT training', 'Smart Reminders', 'Analytics dashboard', 'Priority support', 'Team templates'],
+    cta: 'Start Pro',
+    href: '/start',
+    highlighted: true,
   },
   {
-    name: "Enterprise",
-    price: "Op maat",
-    period: "",
-    desc: "Voor teams & bureaus",
-    features: ["Alles uit Pro", "Custom GPT op jouw schrijfstijl", "Team analytics & rapportages", "Onboarding & training", "Dedicated account manager", "SSO & API toegang", "SLA garantie"],
-    cta: "Neem contact op",
-    href: "/contact",
-    primary: false,
+    name: 'Enterprise',
+    price: 'Op maat',
+    period: '',
+    desc: 'Voor teams die maximale impact willen.',
+    features: ['Alles in Pro', 'Dedicated account manager', 'Custom integraties', 'SSO & SAML', 'SLA garantie', 'Onboarding programma'],
+    cta: 'Neem contact op',
+    href: '/contact',
+    highlighted: false,
   },
 ];
 
 export default function PricingPage() {
   return (
-    <main style={{ paddingTop: 100 }}>
-      <section style={{ padding: "80px 24px", textAlign: "center" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
-            Pricing
-          </p>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
-            Transparante prijzen, geen verrassingen
-          </h1>
-          <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto" }}>
-            Begin gratis. Upgrade wanneer je klaar bent. Geen contracten, geen verborgen kosten.
-          </p>
-        </div>
-      </section>
+    <main className="pt-32 pb-0">
+      <Container className="text-center mb-16">
+        <span className="inline-block px-4 py-1.5 rounded-full bg-linkedin-light text-linkedin text-sm font-semibold mb-4">Pricing</span>
+        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Eenvoudige, transparante prijzen</h1>
+        <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+          Geen verborgen kosten. Start gratis en upgrade wanneer je klaar bent.
+        </p>
+      </Container>
 
-      <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, alignItems: "stretch" }}>
-          {tiers.map((t) => (
-            <div key={t.name} style={{
-              background: "#fff", borderRadius: 20, padding: 40, border: t.primary ? "2px solid #8db600" : "1px solid #e5e7eb",
-              display: "flex", flexDirection: "column", position: "relative",
-              boxShadow: t.primary ? "0 8px 32px rgba(67, 97, 238, 0.15)" : "none"
-            }}>
-              {t.badge && (
-                <span style={{
-                  position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)",
-                  background: "#8db600", color: "#fff", fontSize: 12, fontWeight: 600, padding: "4px 16px", borderRadius: 20
-                }}>
-                  {t.badge}
-                </span>
-              )}
-              <h3 style={{ fontSize: 20, fontWeight: 700, color: "#111", marginBottom: 8 }}>{t.name}</h3>
-              <div style={{ marginBottom: 8 }}>
-                <span style={{ fontSize: 40, fontWeight: 900, color: "#111" }}>{t.price}</span>
-                {t.period && <span style={{ fontSize: 16, color: "#6b7280" }}>{t.period}</span>}
+      <Container className="max-w-5xl mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`rounded-card p-8 border flex flex-col ${
+                plan.highlighted
+                  ? 'bg-gradient-to-br from-linkedin via-linkedin-dark to-[#003366] text-white border-transparent shadow-xl scale-105'
+                  : 'bg-white border-gray-200'
+              }`}
+            >
+              <h3 className={`text-lg font-bold mb-1 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
+              <div className="flex items-baseline gap-1 mb-1">
+                <span className={`text-4xl font-black ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>{plan.price}</span>
+                {plan.period && <span className={`text-sm ${plan.highlighted ? 'text-white/70' : 'text-gray-500'}`}>{plan.period}</span>}
               </div>
-              <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 24 }}>{t.desc}</p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, flex: 1 }}>
-                {t.features.map((f) => (
-                  <li key={f} style={{ fontSize: 14, color: "#374151", padding: "8px 0", borderBottom: "1px solid #f3f4f6", display: "flex", alignItems: "center", gap: 8 }}>
-                    <span style={{ color: "#8db600", fontWeight: 700 }}>✓</span> {f}
+              <p className={`text-sm mb-6 ${plan.highlighted ? 'text-white/70' : 'text-gray-500'}`}>{plan.desc}</p>
+              <ul className="flex flex-col gap-3 mb-8 flex-1">
+                {plan.features.map((f) => (
+                  <li key={f} className={`flex items-center gap-2 text-sm ${plan.highlighted ? 'text-white/90' : 'text-gray-600'}`}>
+                    <span className="text-green-400">\u2713</span> {f}
                   </li>
                 ))}
               </ul>
-              <a href={t.href} className={t.primary ? "pill-btn pill-btn-primary" : "pill-btn pill-btn-outline"}
-                 style={{ padding: "14px 24px", fontSize: 15, textAlign: "center", marginTop: 32, display: "block" }}>
-                {t.cta}
-              </a>
+              <Button
+                variant={plan.highlighted ? 'white' : 'primary'}
+                href={plan.href}
+                className="w-full text-center"
+              >
+                {plan.cta}
+              </Button>
             </div>
           ))}
         </div>
-      </section>
+      </Container>
 
-      <section style={{ padding: "60px 24px 80px", textAlign: "center" }}>
-        <p style={{ fontSize: 15, color: "#6b7280" }}>
-          Vragen over pricing? <a href="/contact" style={{ color: "#8db600", fontWeight: 600, textDecoration: "none" }}>Neem contact op →</a>
-        </p>
+      <section className="bg-gray-50 py-16">
+        <Container className="text-center">
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Nog vragen over pricing?</h2>
+          <p className="text-gray-600 mb-6">Ons team helpt je graag bij het kiezen van het juiste plan.</p>
+          <Button variant="outline" href="/contact">Neem contact op</Button>
+        </Container>
       </section>
     </main>
   );
