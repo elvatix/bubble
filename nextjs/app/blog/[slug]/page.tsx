@@ -34,9 +34,11 @@ export async function generateStaticParams() {
     return blogs.map((blog) => ({
       slug: blog.slug || generateSlug(blog["SEO title"])
     }))
-  } catch {
+  } catch (error) {
+    console.error('Error in generateStaticParams:', error)
     return []
   }
+}))
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
