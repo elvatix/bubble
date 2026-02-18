@@ -10,13 +10,13 @@ interface BubbleResponse<T> {
 export interface Blog {
   _id: string
   slug: string
-  "SEO title": string    // Let op: kleine 't' niet Title!
-  "SEO Description": string // Let op: hoofdletter 'D'!
-  Body: string            // Hoofdletter B
-  Date: string            // Hoofdletter D
-  Author: string          // Hoofdletter A
-  Image: string           // Hoofdletter I
-  "Alt text": string      // Met spatie (meestal leeg)
+  "SEO title": string
+  "SEO Description": string
+  Body: string
+  Date: string
+  Author: string
+  Image: string
+  "Alt text": string
 }
 
 export async function fetchBubble<T>(endpoint: string): Promise<T[]> {
@@ -24,7 +24,8 @@ export async function fetchBubble<T>(endpoint: string): Promise<T[]> {
   const apiKey = process.env.BUBBLE_API_KEY
 
   if (!apiKey) {
-    throw new Error('BUBBLE_API_KEY is not set')
+    console.warn('BUBBLE_API_KEY is not set, returning empty results')
+    return []
   }
 
   const url = `${apiUrl}/api/1.1/${endpoint}`
@@ -34,11 +35,12 @@ export async function fetchBubble<T>(endpoint: string): Promise<T[]> {
       'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json'
     },
-    next: { revalidate: 3600 } // Cache 1 uur
+    next: { revalidate: 3600 }
   })
 
   if (!res.ok) {
-    throw new Error(`Bubble API error: ${res.status}`)
+    console.error(`Bubble API error: ${res.status}`)
+    return []
   }
 
   const data: BubbleResponse<T> = await res.json()
@@ -48,7 +50,6 @@ export async function fetchBubble<T>(endpoint: string): Promise<T[]> {
 export async function getAllBlogs(): Promise<Blog[]> {
   const blogs = await fetchBubble<Blog>('obj/blog')
 
-  // Sorteer op datum (nieuwste eerst)
   return blogs.sort((a, b) => {
     const dateA = new Date(a.Date).getTime()
     const dateB = new Date(b.Date).getTime()
@@ -69,7 +70,6 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   return blogs[0] || null
 }
 
-// Helper: Genereer slug uit SEO title
 export function generateSlug(title: string): string {
   return title
     .toLowerCase()

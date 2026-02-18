@@ -29,10 +29,14 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
 }
 
 export async function generateStaticParams() {
-  const blogs = await getAllBlogs()
-  return blogs.map((blog) => ({
-    slug: blog.slug || generateSlug(blog["SEO title"])
-  }))
+  try {
+    const blogs = await getAllBlogs()
+    return blogs.map((blog) => ({
+      slug: blog.slug || generateSlug(blog["SEO title"])
+    }))
+  } catch {
+    return []
+  }
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
