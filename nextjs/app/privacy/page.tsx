@@ -2,34 +2,25 @@ import Container from '@/components/ui/Container';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacybeleid \u2014 Elvatix',
-  description: 'Lees hoe Elvatix omgaat met je gegevens en privacy.',
+  title: 'Privacybeleid — Elvatix',
+  description: 'Lees het privacybeleid van Elvatix. We nemen je privacy serieus.',
 };
-
-const sections = [
-  { title: '1. Welke gegevens verzamelen wij?', content: 'Wij verzamelen de gegevens die je aan ons verstrekt bij het aanmaken van een account (naam, e-mailadres, bedrijfsnaam) en gebruiksdata om onze dienst te verbeteren. LinkedIn profieldata wordt alleen verwerkt tijdens het genereren van berichten en wordt niet permanent opgeslagen.' },
-  { title: '2. Waarvoor gebruiken wij je gegevens?', content: 'Je gegevens worden uitsluitend gebruikt voor het leveren van de Elvatix-dienst, het verbeteren van onze AI-modellen (geanonimiseerd), communicatie over je account en het voldoen aan wettelijke verplichtingen.' },
-  { title: '3. Delen met derden', content: 'Wij delen je persoonlijke gegevens niet met derden, tenzij dit noodzakelijk is voor het leveren van onze dienst (bijv. hosting providers) of wettelijk vereist is. Wij verkopen nooit je gegevens.' },
-  { title: '4. Beveiliging', content: 'Wij nemen passende technische en organisatorische maatregelen om je gegevens te beschermen tegen ongeautoriseerde toegang, verlies of misbruik. Alle data wordt versleuteld opgeslagen en overgedragen.' },
-  { title: '5. Je rechten', content: 'Je hebt het recht om je gegevens in te zien, te corrigeren of te laten verwijderen. Ook kun je bezwaar maken tegen de verwerking van je gegevens. Neem hiervoor contact op via privacy@elvatix.com.' },
-  { title: '6. Cookies', content: 'Wij gebruiken functionele cookies die noodzakelijk zijn voor het functioneren van de website. Analytische cookies worden alleen geplaatst met je toestemming.' },
-  { title: '7. Contact', content: 'Voor vragen over dit privacybeleid kun je contact opnemen via privacy@elvatix.com of via onze contactpagina.' },
-];
 
 export default function PrivacyPage() {
   return (
     <main className="pt-32 pb-16">
       <Container className="max-w-3xl">
-        <h1 className="text-4xl font-black text-gray-900 mb-2">Privacybeleid</h1>
-        <p className="text-sm text-gray-400 mb-12">Laatst bijgewerkt: februari 2026</p>
-
-        <div className="space-y-8">
-          {sections.map((s) => (
-            <div key={s.title}>
-              <h2 className="text-lg font-bold text-gray-900 mb-2">{s.title}</h2>
-              <p className="text-gray-600 leading-relaxed">{s.content}</p>
-            </div>
-          ))}
+        <h1 className="text-4xl font-black text-gray-900 mb-8">Privacybeleid</h1>
+        <div className="prose prose-lg max-w-none text-gray-600">
+          <p>Elvatix respecteert je privacy. Dit beleid legt uit welke gegevens we verzamelen, hoe we ze gebruiken en hoe we ze beschermen.</p>
+          <h2 className="text-xl font-bold text-gray-900 mt-8 mb-3">1. Gegevensverzameling</h2>
+          <p>We verzamelen alleen de gegevens die nodig zijn om onze dienst te leveren: je naam, e-mailadres en bedrijfsinformatie bij registratie.</p>
+          <h2 className="text-xl font-bold text-gray-900 mt-8 mb-3">2. Gebruik van gegevens</h2>
+          <p>Je gegevens worden gebruikt om je account te beheren, onze diensten te verbeteren en je te informeren over updates.</p>
+          <h2 className="text-xl font-bold text-gray-900 mt-8 mb-3">3. Kandidaatdata</h2>
+          <p>LinkedIn profieldata die je invoert in Elvatix wordt alleen gebruikt om berichten te genereren en wordt niet opgeslagen na het genereren.</p>
+          <h2 className="text-xl font-bold text-gray-900 mt-8 mb-3">4. Contact</h2>
+          <p>Vragen over privacy? Neem contact met ons op via <a href="/contact" className="text-[var(--linkedin-blue)] hover:underline">ons contactformulier</a>.</p>
         </div>
       </Container>
     </main>

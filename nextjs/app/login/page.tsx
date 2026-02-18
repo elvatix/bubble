@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Inloggen \u2014 Elvatix',
+  title: 'Inloggen — Elvatix',
   description: 'Log in op je Elvatix account en start met het genereren van AI-powered LinkedIn berichten.',
 };
 
@@ -21,7 +21,7 @@ export default function LoginPage() {
               id="email"
               type="email"
               placeholder="naam@bedrijf.nl"
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-linkedin focus:border-transparent transition"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--linkedin-blue)] focus:border-transparent transition"
             />
           </div>
           <div>
@@ -29,8 +29,8 @@ export default function LoginPage() {
             <input
               id="password"
               type="password"
-              placeholder="\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-linkedin focus:border-transparent transition"
+              placeholder="••••••••"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--linkedin-blue)] focus:border-transparent transition"
             />
           </div>
           <Button variant="primary" className="w-full mt-2">Inloggen</Button>
@@ -38,7 +38,7 @@ export default function LoginPage() {
 
         <p className="text-sm text-gray-500 mt-8">
           Nog geen account?{' '}
-          <a href="/start" className="text-linkedin font-semibold hover:underline">Start gratis</a>
+          <a href="/start" className="text-[var(--linkedin-blue)] font-semibold hover:underline">Start gratis</a>
         </p>
       </Container>
     </main>

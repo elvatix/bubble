@@ -3,54 +3,45 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Integraties \u2014 Elvatix',
-  description: 'Elvatix integreert naadloos met LinkedIn, populaire ATS-systemen en je bestaande recruitment workflow.',
+  title: 'Integraties — Elvatix',
+  description: 'Elvatix integreert naadloos met LinkedIn Recruiter en je bestaande recruitment tools.',
 };
 
 const integrations = [
-  { name: 'LinkedIn', desc: 'Directe integratie met LinkedIn profielen. Plak een URL en Elvatix haalt alle relevante data op.', category: 'Platform', icon: '\ud83d\udd17' },
-  { name: 'Bullhorn', desc: 'Synchroniseer kandidaten en berichten rechtstreeks met je Bullhorn ATS.', category: 'ATS', icon: '\ud83c\udfaf' },
-  { name: 'Recruitee', desc: 'Koppel Elvatix aan Recruitee voor een naadloze workflow van sourcing tot plaatsing.', category: 'ATS', icon: '\ud83d\udccb' },
-  { name: 'Greenhouse', desc: 'Push kandidaatinformatie en outreach data naar je Greenhouse pipeline.', category: 'ATS', icon: '\ud83c\udf31' },
-  { name: 'HubSpot', desc: 'Gebruik Elvatix-data in je HubSpot CRM voor betere candidate relationship management.', category: 'CRM', icon: '\ud83e\udde1' },
-  { name: 'Slack', desc: 'Ontvang notificaties over responses en follow-ups direct in je Slack kanaal.', category: 'Communicatie', icon: '\ud83d\udcac' },
-  { name: 'Zapier', desc: 'Verbind Elvatix met 5.000+ apps via Zapier. Automatiseer elke stap van je workflow.', category: 'Automatisering', icon: '\u26a1' },
-  { name: 'Google Sheets', desc: 'Exporteer analytics, kandidaatlijsten en performance data naar Google Sheets.', category: 'Data', icon: '\ud83d\udcca' },
+  { title: 'LinkedIn Recruiter', desc: 'Elvatix werkt direct in je LinkedIn Recruiter omgeving. Geen extra tab, geen copy-paste.', icon: '🔗' },
+  { title: 'ATS Koppelingen', desc: 'Integreer met populaire ATS systemen. Kandidaat-info stroomt automatisch mee.', icon: '📂' },
+  { title: 'Chrome Extensie', desc: 'Eén klik vanuit je browser. Werkt overal waar je LinkedIn gebruikt.', icon: '🌐' },
+  { title: 'API Toegang', desc: 'Bouw custom integraties met de Elvatix API. Voor enterprise teams die meer willen.', icon: '⚙️' },
 ];
 
 export default function IntegratiesPage() {
   return (
     <main className="pt-32 pb-0">
       <Container className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-linkedin-light text-linkedin text-sm font-semibold mb-4">Integraties</span>
-        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Werkt met je bestaande tools</h1>
-        <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-          Elvatix past in je huidige workflow. Integreer met je ATS, CRM of communicatie-tools \u2014 zonder je proces te veranderen.
+        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--linkedin-blue-light)] text-[var(--linkedin-blue)] text-sm font-semibold mb-4">Integraties</span>
+        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Werkt waar jij werkt</h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Elvatix integreert naadloos met je bestaande tools. Geen apart platform, geen workflow-onderbrekingen.
         </p>
       </Container>
 
-      <Container className="mb-16">
+      <Container className="max-w-4xl mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {integrations.map((integ) => (
-            <div key={integ.name} className="bg-white rounded-card p-8 border border-gray-200 flex gap-5 items-start hover:shadow-lg hover:border-linkedin transition-all">
-              <div className="text-4xl shrink-0">{integ.icon}</div>
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-lg font-bold text-gray-900">{integ.name}</h3>
-                  <span className="text-xs font-semibold text-linkedin bg-linkedin-light px-2 py-0.5 rounded">{integ.category}</span>
-                </div>
-                <p className="text-sm text-gray-600 leading-relaxed">{integ.desc}</p>
-              </div>
+          {integrations.map((i) => (
+            <div key={i.title} className="bg-white border border-gray-200 rounded-2xl p-6">
+              <span className="text-3xl mb-3 block">{i.icon}</span>
+              <h3 className="font-bold text-gray-900 mb-2">{i.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{i.desc}</p>
             </div>
           ))}
         </div>
       </Container>
 
-      <section className="bg-gray-50 py-16">
-        <Container className="text-center">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Mis je een integratie?</h2>
-          <p className="text-gray-600 mb-6">Laat het ons weten! We bouwen actief nieuwe integraties op basis van klantvragen.</p>
-          <Button variant="primary" href="/contact">Stel een integratie voor</Button>
+      <section className="bg-gradient-to-r from-[var(--linkedin-blue)] to-[var(--linkedin-blue-dark)] py-16">
+        <Container className="text-center text-white">
+          <h2 className="text-2xl font-extrabold mb-3">Klaar om te integreren?</h2>
+          <p className="text-white/80 mb-6">Plan een demo en ontdek hoe Elvatix past in jouw workflow.</p>
+          <Button variant="white" href="/demo">Plan een demo</Button>
         </Container>
       </section>
     </main>

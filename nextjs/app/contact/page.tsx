@@ -3,39 +3,37 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact \u2014 Elvatix',
-  description: 'Neem contact op met het Elvatix team. Stel je vraag of plan een gesprek in.',
+  title: 'Contact — Elvatix',
+  description: 'Neem contact op met het Elvatix team. We helpen je graag verder.',
 };
 
 export default function ContactPage() {
   return (
     <main className="pt-32 pb-16">
-      <Container className="max-w-2xl">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-black text-gray-900 mb-3">Neem contact op</h1>
-          <p className="text-gray-600">Heb je een vraag of wil je meer weten over Elvatix? We horen graag van je.</p>
-        </div>
+      <Container className="max-w-2xl text-center">
+        <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Neem contact op</h1>
+        <p className="text-gray-600 mb-12">Heb je een vraag, feedback of wil je samenwerken? We horen graag van je.</p>
 
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div>
-            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">Voornaam</label>
-            <input id="firstName" type="text" placeholder="Jan" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-linkedin focus:border-transparent transition" />
+        <form className="flex flex-col gap-4 text-left">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Voornaam</label>
+              <input type="text" placeholder="Jan" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Achternaam</label>
+              <input type="text" placeholder="Jansen" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm" />
+            </div>
           </div>
           <div>
-            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">Achternaam</label>
-            <input id="lastName" type="text" placeholder="Jansen" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-linkedin focus:border-transparent transition" />
+            <label className="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+            <input type="email" placeholder="jan@bedrijf.nl" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm" />
           </div>
-          <div className="md:col-span-2">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-mailadres</label>
-            <input id="email" type="email" placeholder="jan@bedrijf.nl" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-linkedin focus:border-transparent transition" />
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Bericht</label>
+            <textarea rows={5} placeholder="Waar kunnen we je mee helpen?" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm resize-none"></textarea>
           </div>
-          <div className="md:col-span-2">
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Bericht</label>
-            <textarea id="message" rows={5} placeholder="Waar kunnen we je mee helpen?" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-linkedin focus:border-transparent transition resize-none" />
-          </div>
-          <div className="md:col-span-2">
-            <Button variant="primary" className="w-full">Verstuur bericht</Button>
-          </div>
+          <Button variant="primary" type="submit" className="w-full mt-2">Verstuur bericht</Button>
         </form>
       </Container>
     </main>

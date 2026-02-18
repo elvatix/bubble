@@ -1,63 +1,48 @@
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Connectieverzoeken \u2014 Elvatix',
-  description: 'Schrijf LinkedIn connectieverzoeken die geaccepteerd worden. Kort, persoonlijk en altijd binnen de 300 karakters.',
+  title: 'Connectieverzoeken — Elvatix',
+  description: 'Genereer connectieverzoeken die geaccepteerd worden. AI-powered en gepersonaliseerd.',
 };
 
 const features = [
-  { title: 'Altijd binnen 300 karakters', desc: "LinkedIn's harde limiet. Elvatix telt mee en optimaliseert elke letter." },
-  { title: 'Specifiek en relevant', desc: 'Elke connectieverzoek noemt iets concreets uit het profiel \u2014 een recente stap, een specifieke skill, of een opvallend bedrijf.' },
-  { title: 'Geen formele afsluiting', desc: "Geen 'Met vriendelijke groet'. Kort, direct, en uitnodigend om te reageren." },
+  { title: 'Maximaal 300 karakters, maximaal impact', desc: 'LinkedIn beperkt connectieverzoeken tot 300 tekens. Elvatix maakt elk woord tellen met een bericht dat aanspreekt.' },
+  { title: 'Gebaseerd op gemeenschappelijkheden', desc: 'AI vindt gedeelde connecties, bedrijven, opleidingen of interesses en verweeft deze subtiel in het verzoek.' },
+  { title: 'A/B test varianten', desc: 'Genereer meerdere versies en ontdek welke aanpak het beste werkt voor jouw doelgroep.' },
+  { title: 'Hoger acceptatiepercentage', desc: 'Gepersonaliseerde verzoeken worden 2-3x vaker geaccepteerd dan standaard uitnodigingen.' },
 ];
 
 export default function ConnectionsPage() {
   return (
     <main className="pt-32 pb-0">
       <Container className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-linkedin-light text-linkedin text-sm font-semibold mb-4">Connectieverzoeken</span>
-        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Connectieverzoeken die opvallen</h1>
-        <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
-          LinkedIn geeft je maar 300 karakters. Elvatix maakt daar het meeste van \u2014 met een persoonlijke hook die laat zien dat je je hebt verdiept.
+        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--linkedin-blue-light)] text-[var(--linkedin-blue)] text-sm font-semibold mb-4">Connectieverzoeken</span>
+        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Connectieverzoeken die geaccepteerd worden</h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Eerste indrukken tellen. Elvatix schrijft connectieverzoeken die opvallen in een overvolle inbox.
         </p>
-        <div className="text-8xl mb-10">\ud83e\udd1d</div>
+        <div className="text-8xl mb-10 mt-8">🤝</div>
       </Container>
 
-      <Container className="max-w-4xl mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="bg-red-50 rounded-card p-8 border border-red-200">
-            <h3 className="text-base font-bold text-red-600 mb-4">\u274c Zonder Elvatix</h3>
-            <div className="bg-white rounded-xl p-5 text-sm text-gray-700 leading-relaxed">
-              "Hallo, ik wil je graag toevoegen aan mijn netwerk. Ik ben recruiter en heb een interessante vacature die bij je zou passen."
-            </div>
-            <p className="text-xs font-medium text-red-600 mt-3">\ud83d\udd34 15% acceptatiegraad</p>
-          </div>
-          <div className="bg-green-50 rounded-card p-8 border border-green-200">
-            <h3 className="text-base font-bold text-green-600 mb-4">\u2705 Met Elvatix</h3>
-            <div className="bg-white rounded-xl p-5 text-sm text-gray-700 leading-relaxed">
-              "Mooie stap van backend development naar platform architecture, Lisa. We zoeken iemand met precies die brug-ervaring. Benieuwd?"
-            </div>
-            <p className="text-xs font-medium text-green-600 mt-3">\ud83d\udfe2 52% acceptatiegraad</p>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-6">
-          {features.map((item) => (
-            <div key={item.title} className="bg-gray-50 rounded-card p-8 border border-gray-200">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+      <Container className="max-w-4xl mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {features.map((f) => (
+            <div key={f.title} className="bg-white border border-gray-200 rounded-2xl p-6">
+              <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
       </Container>
 
-      <section className="bg-gradient-to-br from-linkedin via-linkedin-dark to-[#003366] py-20">
-        <Container className="text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4">Probeer het zelf</h2>
-          <p className="text-white/70 mb-8">Genereer een connectieverzoek met de gratis tool op onze homepage.</p>
-          <Button variant="white" href="/#lead-magnet">Probeer gratis &rarr;</Button>
+      <section className="bg-gradient-to-r from-[var(--linkedin-blue)] to-[var(--linkedin-blue-dark)] py-16">
+        <Container className="text-center text-white">
+          <h2 className="text-2xl font-extrabold mb-3">Probeer het zelf</h2>
+          <p className="text-white/80 mb-6">Ga naar de homepage en test de connectieverzoek generator.</p>
+          <Button variant="white" href="/">Probeer gratis →</Button>
         </Container>
       </section>
     </main>

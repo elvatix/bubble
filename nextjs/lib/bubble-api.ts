@@ -1,0 +1,80 @@
+// lib/bubble-api.ts
+interface BubbleResponse<T> {
+  response: {
+    results: T[]
+    count: number
+    remaining: number
+  }
+}
+
+export interface Blog {
+  _id: string
+  slug: string
+  "SEO title": string    // Let op: kleine 't' niet Title!
+  "SEO Description": string // Let op: hoofdletter 'D'!
+  Body: string            // Hoofdletter B
+  Date: string            // Hoofdletter D
+  Author: string          // Hoofdletter A
+  Image: string           // Hoofdletter I
+  "Alt text": string      // Met spatie (meestal leeg)
+}
+
+export async function fetchBubble<T>(endpoint: string): Promise<T[]> {
+  const apiUrl = process.env.BUBBLE_API_URL || 'https://elvatix.com'
+  const apiKey = process.env.BUBBLE_API_KEY
+
+  if (!apiKey) {
+    throw new Error('BUBBLE_API_KEY is not set')
+  }
+
+  const url = `${apiUrl}/api/1.1/${endpoint}`
+
+  const res = await fetch(url, {
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json'
+    },
+    next: { revalidate: 3600 } // Cache 1 uur
+  })
+
+  if (!res.ok) {
+    throw new Error(`Bubble API error: ${res.status}`)
+  }
+
+  const data: BubbleResponse<T> = await res.json()
+  return data.response.results
+}
+
+export async function getAllBlogs(): Promise<Blog[]> {
+  const blogs = await fetchBubble<Blog>('obj/blog')
+
+  // Sorteer op datum (nieuwste eerst)
+  return blogs.sort((a, b) => {
+    const dateA = new Date(a.Date).getTime()
+    const dateB = new Date(b.Date).getTime()
+    return dateB - dateA
+  })
+}
+
+export async function getBlogBySlug(slug: string): Promise<Blog | null> {
+  const constraint = encodeURIComponent(
+    JSON.stringify([{
+      key: "slug",
+      constraint_type: "equals",
+      value: slug
+    }])
+  )
+
+  const blogs = await fetchBubble<Blog>(`obj/blog?constraints=${constraint}`)
+  return blogs[0] || null
+}
+
+// Helper: Genereer slug uit SEO title
+export function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim()
+}
