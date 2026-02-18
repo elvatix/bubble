@@ -24,7 +24,7 @@ export default function TermsPage() {
           {sections.map((s) => (
             <div key={s.title}>
               <h2 className="text-xl font-bold text-gray-900 mb-2">{s.title}</h2>
-              <p className="text-gray-600 leading-relaxed">{s.desc || s.content}</p>
+              <p className="text-gray-600 leading-relaxed">{s.content}</p>
             </div>
           ))}
         </div>
