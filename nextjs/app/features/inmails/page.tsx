@@ -4,26 +4,26 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'AI InMails — Elvatix',
-  description: 'Genereer gepersonaliseerde LinkedIn InMails met AI. Gebaseerd op het profiel van je kandidaat.',
+  description: 'Genereer gepersonaliseerde LinkedIn InMails in seconden met AI.',
 };
 
 const features = [
-  { title: 'Profiel-gebaseerde personalisatie', desc: 'Elvatix leest werkervaring, headline, skills en carrièrepad. Het bericht refereert aan specifieke details — geen generieke zinnen.' },
-  { title: 'Chronologisch bewust', desc: 'AI onderscheidt huidige en vorige functies. Iemand die nu CEO is en eerder developer was? Het bericht klopt altijd.' },
-  { title: 'Tone-of-voice controle', desc: 'Kies tussen formeel en informeel. Of train Custom GPT op jouw eigen schrijfstijl voor maximale consistentie.' },
-  { title: 'Nederlands én Engels', desc: 'Native kwaliteit in beide talen. Geen vertaaltaal of stijve constructies — gewoon hoe een mens het zou schrijven.' },
+  { title: 'Profielanalyse in seconden', desc: 'Plak een LinkedIn URL en onze AI analyseert werkervaring, skills, interesses en carrièrepad — alles in één klik.' },
+  { title: 'Natuurlijk Nederlands', desc: 'Geen stijve, robotachtige berichten. Elvatix schrijft alsof een ervaren recruiter het zelf typt — persoonlijk en menselijk.' },
+  { title: 'Tone-of-voice aanpasbaar', desc: 'Van formeel tot casual, van direct tot subtiel. Pas de schrijfstijl aan op jouw merk en doelgroep.' },
+  { title: 'Custom GPT training', desc: 'Train het model op jouw beste berichten. Hoe meer je het gebruikt, hoe beter het jouw stijl begrijpt.' },
 ];
 
 export default function InMailsPage() {
   return (
-    <main className="pt-32 pb-0">
+    <main className="pt-40 pb-0">
       <Container className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--linkedin-blue-light)] text-[var(--linkedin-blue)] text-sm font-semibold mb-4">InMails</span>
-        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">AI-powered InMails die converteren</h1>
+        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--linkedin-blue-light)] text-[var(--linkedin-blue)] text-sm font-semibold mb-4">AI InMails</span>
+        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">InMails die daadwerkelijk gelezen worden</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Geen copy-paste templates meer. Elvatix analyseert het volledige LinkedIn profiel en schrijft een bericht dat aansluit op de werkervaring, skills en carrière van je kandidaat.
+          Genereer hyper-gepersonaliseerde LinkedIn InMails op basis van het profiel van je kandidaat — in seconden, niet in minuten.
         </p>
-        <div className="text-8xl mb-10 mt-8">💬</div>
+        <div className="text-8xl my-10">💬</div>
       </Container>
 
       <Container className="max-w-4xl mb-20">
@@ -40,7 +40,7 @@ export default function InMailsPage() {
       <section className="bg-gradient-to-r from-[var(--linkedin-blue)] to-[var(--linkedin-blue-dark)] py-16">
         <Container className="text-center text-white">
           <h2 className="text-2xl font-extrabold mb-3">Probeer het zelf</h2>
-          <p className="text-white/80 mb-6">Ga naar de homepage en test de InMail generator met een LinkedIn URL.</p>
+          <p className="text-white/80 mb-6">Ga naar de homepage en genereer je eerste AI InMail — gratis.</p>
           <Button variant="white" href="/">Probeer gratis →</Button>
         </Container>
       </section>
