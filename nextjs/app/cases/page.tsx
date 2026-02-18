@@ -42,7 +42,7 @@ const cases = [
 
 export default function CasesPage() {
   return (
-    <main className="pt-32 pb-0">
+    <main className="pt-40 pb-0">
       <Container className="text-center mb-16">
         <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--linkedin-blue-light)] text-[var(--linkedin-blue)] text-sm font-semibold mb-4">Case Studies</span>
         <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Resultaten die spreken</h1>

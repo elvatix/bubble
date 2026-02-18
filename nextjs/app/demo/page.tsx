@@ -16,7 +16,7 @@ const benefits = [
 
 export default function DemoPage() {
   return (
-    <main className="pt-32 pb-16">
+    <main className="pt-40 pb-16">
       <Container className="max-w-5xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <div>

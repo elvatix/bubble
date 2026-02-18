@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="pt-32 pb-16">
+    <main className="pt-40 pb-16">
       <Container className="max-w-2xl text-center">
         <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Neem contact op</h1>
         <p className="text-gray-600 mb-12">Heb je een vraag, feedback of wil je samenwerken? We horen graag van je.</p>

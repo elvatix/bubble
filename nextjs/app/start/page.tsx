@@ -4,17 +4,17 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Start gratis — Elvatix',
-  description: 'Maak een gratis Elvatix account aan en genereer direct AI-powered LinkedIn berichten.',
+  description: 'Maak je gratis Elvatix-account aan en begin vandaag nog met AI-powered recruitment.',
 };
 
 export default function StartPage() {
   return (
-    <main className="pt-32 pb-16">
+    <main className="pt-40 pb-16">
       <Container className="max-w-md text-center">
         <h1 className="text-4xl font-black text-gray-900 mb-3">Start gratis</h1>
-        <p className="text-gray-600 mb-10">Maak je account aan en begin direct met recruiten.</p>
+        <p className="text-gray-600 mb-10">Maak je account aan en genereer je eerste AI-bericht binnen 60 seconden.</p>
 
-        <form className="flex flex-col gap-5 text-left">
+        <form className="flex flex-col gap-4 text-left">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Voornaam</label>
