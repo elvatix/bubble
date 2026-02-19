@@ -6,10 +6,6 @@ export default function Hero() {
   return (
     <section className="pt-[120px] pb-[60px] px-6 bg-gradient-to-b from-linkedin-light to-white text-center">
       <div className="max-w-[800px] mx-auto">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-linkedin-light mb-6 text-[13px] font-semibold text-linkedin">
-          <span>LinkedIn Recruiter Tool</span>
-        </div>
-
         <h1 className="text-[clamp(32px,5vw,56px)] font-black leading-[1.1] mb-5 text-gray-900">
           Stop met uren typen.{" "}
           <span className="gradient-text">
