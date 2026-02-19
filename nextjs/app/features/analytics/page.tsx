@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Analytics \u2014 Elvatix",
+  title: "Analytics - Elvatix",
   description: "Inzicht in je outreach performance. Zie welke berichten converteren en optimaliseer je recruitment strategie.",
 };
 

@@ -1,4 +1,5 @@
 "use client";
+import { MapPinIcon, BriefcaseIcon, ZapIcon, ShieldCheckIcon, TargetIcon, CheckIcon } from "@/components/icons/Icons";
 import { useState, useEffect, useRef, useCallback } from "react";
 
 interface ProfileData {
@@ -393,13 +394,13 @@ export default function LeadMagnet() {
                       borderTop: "1px solid #e5e7eb", flexWrap: "wrap",
                     }}>
                       {profile.location && (
-                        <span style={{ fontSize: 12, color: "#9ca3af" }}>📍 {profile.location}</span>
+                        <span style={{ fontSize: 12, color: "#9ca3af", display: "inline-flex", alignItems: "center", gap: 4 }}><MapPinIcon size={12} /> {profile.location}</span>
                       )}
                       {profile.jobHistory.length > 0 && (
-                        <span style={{ fontSize: 12, color: "#9ca3af" }}>💼 {profile.jobHistory.length} posities</span>
+                        <span style={{ fontSize: 12, color: "#9ca3af", display: "inline-flex", alignItems: "center", gap: 4 }}><BriefcaseIcon size={12} /> {profile.jobHistory.length} posities</span>
                       )}
                       {profile.skills.length > 0 && (
-                        <span style={{ fontSize: 12, color: "#9ca3af" }}>⚡ {profile.skills.length} skills</span>
+                        <span style={{ fontSize: 12, color: "#9ca3af", display: "inline-flex", alignItems: "center", gap: 4 }}><ZapIcon size={12} /> {profile.skills.length} skills</span>
                       )}
                     </div>
                   )}
@@ -489,7 +490,7 @@ export default function LeadMagnet() {
                         background: copiedInmail ? "#10b981" : "#8db600",
                         color: "white",
                       }}>
-                      {copiedInmail ? "✓ Gekopieerd" : "Kopieer InMail"}
+                      {copiedInmail ? "Gekopieerd" : "Kopieer InMail"}
                     </button>
                     <button onClick={() => { setActiveTab("connection"); handleCopy("connection"); }}
                       style={{
@@ -498,7 +499,7 @@ export default function LeadMagnet() {
                         background: copiedConn ? "#10b981" : "#111827",
                         color: "white",
                       }}>
-                      {copiedConn ? "✓ Gekopieerd" : "Kopieer connectieverzoek"}
+                      {copiedConn ? "Gekopieerd" : "Kopieer connectieverzoek"}
                     </button>
                     <button onClick={handleReset}
                       style={{
@@ -543,9 +544,9 @@ export default function LeadMagnet() {
         {/* Trust */}
         <div style={{ display: "flex", justifyContent: "center", gap: 24, marginTop: 28, flexWrap: "wrap" }}>
           {[
-            { icon: "🔒", text: "Veilig & privé" },
-            { icon: "⚡", text: "Klaar in ~15 sec" },
-            { icon: "🎯", text: "5x gratis per uur" },
+            { icon: <ShieldCheckIcon size={16} />, text: "Veilig & privé" },
+            { icon: <ZapIcon size={16} />, text: "Klaar in ~15 sec" },
+            { icon: <TargetIcon size={16} />, text: "5x gratis per uur" },
           ].map((item, i) => (
             <span key={i} style={{ fontSize: 12, color: "#9ca3af", display: "flex", alignItems: "center", gap: 5 }}>
               <span>{item.icon}</span> {item.text}

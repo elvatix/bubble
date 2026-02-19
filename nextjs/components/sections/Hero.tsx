@@ -1,4 +1,5 @@
 "use client";
+import { MessageSquareIcon, UsersIcon, BarChartIcon, SearchIcon, CpuIcon, MailIcon } from "@/components/icons/Icons";
 
 export default function Hero() {
   return (
@@ -75,15 +76,15 @@ export default function Hero() {
 
               <div className="hero-features-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
                 {[
-                  { icon: "💬", label: "InMails" },
-                  { icon: "🤝", label: "Connecties" },
-                  { icon: "📊", label: "Analytics" },
-                  { icon: "🔍", label: "Sourcing" },
-                  { icon: "🤖", label: "AI Copilot" },
-                  { icon: "📧", label: "Outreach" },
+                  { icon: <MessageSquareIcon size={24} />, label: "InMails" },
+                  { icon: <UsersIcon size={24} />, label: "Connecties" },
+                  { icon: <BarChartIcon size={24} />, label: "Analytics" },
+                  { icon: <SearchIcon size={24} />, label: "Sourcing" },
+                  { icon: <CpuIcon size={24} />, label: "AI Copilot" },
+                  { icon: <MailIcon size={24} />, label: "Outreach" },
                 ].map((item, i) => (
                   <div key={i} style={{ background: "rgba(255,255,255,0.15)", borderRadius: 16, padding: 16, textAlign: "center", color: "white", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    <div style={{ fontSize: 24, marginBottom: 4 }}>{item.icon}</div>
+                    <div style={{ marginBottom: 4, display: "flex", justifyContent: "center" }}>{item.icon}</div>
                     <div style={{ fontSize: 12, fontWeight: 500, opacity: 0.9 }}>{item.label}</div>
                   </div>
                 ))}

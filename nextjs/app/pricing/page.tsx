@@ -1,4 +1,5 @@
 "use client";
+import { CheckIcon } from "@/components/icons/Icons";
 import type React from "react";
 
 const tiers = [
@@ -77,7 +78,7 @@ export default function PricingPage() {
               <ul style={{ listStyle: "none", padding: 0, margin: 0, flex: 1 }}>
                 {t.features.map((f) => (
                   <li key={f} style={{ fontSize: 14, color: "#374151", padding: "8px 0", borderBottom: "1px solid #f3f4f6", display: "flex", alignItems: "center", gap: 8 }}>
-                    <span style={{ color: "#8db600", fontWeight: 700 }}>✓</span> {f}
+                    <span style={{ color: "#8db600", display: "flex", flexShrink: 0 }}><CheckIcon size={16} /></span> {f}
                   </li>
                 ))}
               </ul>

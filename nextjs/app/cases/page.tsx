@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BuildingIcon, ZapIcon } from "@/components/icons/Icons";
 
 export const metadata: Metadata = {
   title: "Case Studies — Elvatix",
@@ -9,7 +10,7 @@ const cases = [
   {
     company: "Manpower",
     industry: "Uitzenden & Detachering",
-    logo: "🏢",
+    logo: <BuildingIcon size={48} />,
     challenge: "Het team van 40+ recruiters verstuurde handmatig InMails die te generiek waren. Response rates lagen onder de 15% en de doorlooptijd van vacatures liep op.",
     solution: "Manpower implementeerde Elvatix voor het volledige recruitment team. Elke recruiter genereert nu gepersonaliseerde berichten op basis van LinkedIn profieldata, met follow-up reminders en analytics per medewerker.",
     results: [
@@ -24,7 +25,7 @@ const cases = [
   {
     company: "Vibe Group",
     industry: "IT Recruitment & Detachering",
-    logo: "⚡",
+    logo: <ZapIcon size={48} />,
     challenge: "Als snelgroeiend IT-recruitmentbureau had Vibe Group moeite om de outreach-kwaliteit te bewaken bij schaalvergroting. Nieuwe recruiters hadden weken nodig om het niveau van seniors te bereiken.",
     solution: "Met Elvatix kregen juniors direct toegang tot AI-gestuurde berichten die het niveau van senior recruiters evenaarden. Custom GPT werd getraind op de Vibe Group schrijfstijl.",
     results: [
@@ -59,7 +60,7 @@ export default function CasesPage() {
         <section key={c.company} style={{ padding: "0 24px 80px" }}>
           <div style={{ maxWidth: 900, margin: "0 auto", background: "#f9fafb", borderRadius: 24, padding: 48, border: "1px solid #e5e7eb" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 32 }}>
-              <span style={{ fontSize: 48 }}>{c.logo}</span>
+              <span style={{ color: "#8db600", display: "flex" }}>{c.logo}</span>
               <div>
                 <h2 style={{ fontSize: 28, fontWeight: 800, color: "#111" }}>{c.company}</h2>
                 <p style={{ fontSize: 14, color: "#6b7280" }}>{c.industry}</p>

@@ -1,4 +1,5 @@
 "use client";
+import { StarIcon, TrophyIcon, RocketIcon, HeartIcon } from "@/components/icons/Icons";
 
 const testimonials = [
   { quote: "Elvatix heeft onze outreach compleet veranderd. We besparen minstens 2 uur per dag per recruiter.", name: "Lisa van den Berg", role: "Head of Recruitment, Vibe Group" },
@@ -7,10 +8,10 @@ const testimonials = [
 ];
 
 const badges = [
-  { icon: "⭐", label: "Highest Rated" },
-  { icon: "🏆", label: "Best ROI 2025" },
-  { icon: "🚀", label: "Fastest Growing" },
-  { icon: "💚", label: "Most Loved" },
+  { icon: <StarIcon size={20} />, label: "Highest Rated" },
+  { icon: <TrophyIcon size={20} />, label: "Best ROI 2025" },
+  { icon: <RocketIcon size={20} />, label: "Fastest Growing" },
+  { icon: <HeartIcon size={20} />, label: "Most Loved" },
 ];
 
 export default function Testimonials() {
@@ -36,7 +37,7 @@ export default function Testimonials() {
         <div style={{ display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap" }}>
           {badges.map((b, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ fontSize: 20 }}>{b.icon}</span>
+              <span style={{ color: "#8db600", display: "flex" }}>{b.icon}</span>
               <span style={{ fontSize: 14, fontWeight: 600, color: "#6b7280" }}>{b.label}</span>
             </div>
           ))}

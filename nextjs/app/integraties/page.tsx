@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LinkIcon, TargetIcon, ClipboardIcon, SeedlingIcon, HeartIcon, MessageSquareIcon, ZapIcon, SpreadsheetIcon } from "@/components/icons/Icons";
 
 export const metadata: Metadata = {
   title: "Integraties — Elvatix",
@@ -6,14 +7,14 @@ export const metadata: Metadata = {
 };
 
 const integrations = [
-  { name: "LinkedIn", desc: "Directe integratie met LinkedIn profielen. Plak een URL en Elvatix haalt alle relevante data op.", category: "Platform", icon: "🔗" },
-  { name: "Bullhorn", desc: "Synchroniseer kandidaten en berichten rechtstreeks met je Bullhorn ATS.", category: "ATS", icon: "🎯" },
-  { name: "Recruitee", desc: "Koppel Elvatix aan Recruitee voor een naadloze workflow van sourcing tot plaatsing.", category: "ATS", icon: "📋" },
-  { name: "Greenhouse", desc: "Push kandidaatinformatie en outreach data naar je Greenhouse pipeline.", category: "ATS", icon: "🌱" },
-  { name: "HubSpot", desc: "Gebruik Elvatix-data in je HubSpot CRM voor betere candidate relationship management.", category: "CRM", icon: "🧡" },
-  { name: "Slack", desc: "Ontvang notificaties over responses en follow-ups direct in je Slack kanaal.", category: "Communicatie", icon: "💬" },
-  { name: "Zapier", desc: "Verbind Elvatix met 5.000+ apps via Zapier. Automatiseer elke stap van je workflow.", category: "Automatisering", icon: "⚡" },
-  { name: "Google Sheets", desc: "Exporteer analytics, kandidaatlijsten en performance data naar Google Sheets.", category: "Data", icon: "📊" },
+  { name: "LinkedIn", desc: "Directe integratie met LinkedIn profielen. Plak een URL en Elvatix haalt alle relevante data op.", category: "Platform", icon: <LinkIcon size={40} /> },
+  { name: "Bullhorn", desc: "Synchroniseer kandidaten en berichten rechtstreeks met je Bullhorn ATS.", category: "ATS", icon: <TargetIcon size={40} /> },
+  { name: "Recruitee", desc: "Koppel Elvatix aan Recruitee voor een naadloze workflow van sourcing tot plaatsing.", category: "ATS", icon: <ClipboardIcon size={40} /> },
+  { name: "Greenhouse", desc: "Push kandidaatinformatie en outreach data naar je Greenhouse pipeline.", category: "ATS", icon: <SeedlingIcon size={40} /> },
+  { name: "HubSpot", desc: "Gebruik Elvatix-data in je HubSpot CRM voor betere candidate relationship management.", category: "CRM", icon: <HeartIcon size={40} /> },
+  { name: "Slack", desc: "Ontvang notificaties over responses en follow-ups direct in je Slack kanaal.", category: "Communicatie", icon: <MessageSquareIcon size={40} /> },
+  { name: "Zapier", desc: "Verbind Elvatix met 5.000+ apps via Zapier. Automatiseer elke stap van je workflow.", category: "Automatisering", icon: <ZapIcon size={40} /> },
+  { name: "Google Sheets", desc: "Exporteer analytics, kandidaatlijsten en performance data naar Google Sheets.", category: "Data", icon: <SpreadsheetIcon size={40} /> },
 ];
 
 export default function IntegratiesPage() {
@@ -35,7 +36,7 @@ export default function IntegratiesPage() {
         <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
           {integrations.map((integ) => (
             <div key={integ.name} style={{ background: "#fff", borderRadius: 16, padding: 32, border: "1px solid #e5e7eb", display: "flex", gap: 20, alignItems: "flex-start" }}>
-              <div style={{ fontSize: 40, minWidth: 48 }}>{integ.icon}</div>
+              <div style={{ minWidth: 48, color: "#8db600", display: "flex" }}>{integ.icon}</div>
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: "#111" }}>{integ.name}</h3>

@@ -1,4 +1,5 @@
 "use client";
+import { UserIcon } from "@/components/icons/Icons";
 
 export default function QuoteBanner() {
   return (
@@ -22,7 +23,7 @@ export default function QuoteBanner() {
             <p style={{ fontSize: 13, color: "#9ca3af" }}>Oprichter, Elvatix</p>
           </div>
           <div style={{ width: 100, height: 100, borderRadius: "50%", background: "#e8e0f0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-            <span style={{ fontSize: 48, opacity: 0.5 }}>👤</span>
+            <span style={{ color: "#8e7aa0", opacity: 0.5, display: "flex" }}><UserIcon size={48} /></span>
           </div>
         </div>
       </div>

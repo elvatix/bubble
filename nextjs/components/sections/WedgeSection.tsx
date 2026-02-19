@@ -1,4 +1,5 @@
 "use client";
+import { ZapIcon, TrendingUpIcon, TargetIcon, CpuIcon } from "@/components/icons/Icons";
 
 export default function WedgeSection() {
   return (
@@ -44,10 +45,10 @@ export default function WedgeSection() {
           {/* Right: visual metrics */}
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
             {[
-              { icon: "⚡", stat: "30x", label: "Sneller dan handmatig outreach" },
-              { icon: "📈", stat: "85%", label: "Minder tijd per InMail" },
-              { icon: "🎯", stat: "3x", label: "Hogere response rate" },
-              { icon: "🤖", stat: "100%", label: "AI-gepersonaliseerd" },
+              { icon: <ZapIcon size={28} />, stat: "30x", label: "Sneller dan handmatig outreach" },
+              { icon: <TrendingUpIcon size={28} />, stat: "85%", label: "Minder tijd per InMail" },
+              { icon: <TargetIcon size={28} />, stat: "3x", label: "Hogere response rate" },
+              { icon: <CpuIcon size={28} />, stat: "100%", label: "AI-gepersonaliseerd" },
             ].map((item, i) => (
               <div key={i} style={{
                 display: "flex",
@@ -59,7 +60,7 @@ export default function WedgeSection() {
                 border: "1px solid rgba(255,255,255,0.1)",
                 backdropFilter: "blur(10px)",
               }}>
-                <span style={{ fontSize: 28 }}>{item.icon}</span>
+                <span style={{ color: "#fbbf24", flexShrink: 0, display: "flex" }}>{item.icon}</span>
                 <div>
                   <span style={{ fontSize: 28, fontWeight: 800, color: "#fbbf24" }}>{item.stat}</span>
                   <p style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", marginTop: 2 }}>{item.label}</p>

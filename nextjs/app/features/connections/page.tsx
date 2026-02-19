@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { UsersIcon, XCircleIcon, CheckCircleIcon, CircleDotIcon } from "@/components/icons/Icons";
 
 export const metadata: Metadata = {
   title: "Connectieverzoeken — Elvatix",
@@ -17,7 +18,7 @@ export default function ConnectionsPage() {
           <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto 40px" }}>
             LinkedIn geeft je maar 300 karakters. Elvatix maakt daar het meeste van — met een persoonlijke hook die laat zien dat je je hebt verdiept.
           </p>
-          <div style={{ fontSize: 100, marginBottom: 40 }}>��</div>
+          <div style={{ marginBottom: 40, color: "#8db600", display: "flex", justifyContent: "center" }}><UsersIcon size={100} /></div>
         </div>
       </section>
 
@@ -25,18 +26,18 @@ export default function ConnectionsPage() {
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
             <div style={{ background: "#fef2f2", borderRadius: 16, padding: 32, border: "1px solid #fecaca" }}>
-              <h3 style={{ fontSize: 16, fontWeight: 700, color: "#dc2626", marginBottom: 16 }}>❌ Zonder Elvatix</h3>
+              <h3 style={{ fontSize: 16, fontWeight: 700, color: "#dc2626", marginBottom: 16 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><XCircleIcon size={16} /> Zonder Elvatix</span></h3>
               <div style={{ background: "#fff", borderRadius: 12, padding: 20, fontSize: 14, color: "#374151", lineHeight: 1.6 }}>
                 "Hallo, ik wil je graag toevoegen aan mijn netwerk. Ik ben recruiter en heb een interessante vacature die bij je zou passen."
               </div>
-              <p style={{ fontSize: 13, color: "#dc2626", marginTop: 12, fontWeight: 500 }}>🔴 15% acceptatiegraad</p>
+              <p style={{ fontSize: 13, color: "#dc2626", marginTop: 12, fontWeight: 500 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><CircleDotIcon size={14} /> 15% acceptatiegraad</span></p>
             </div>
             <div style={{ background: "#f0fdf4", borderRadius: 16, padding: 32, border: "1px solid #bbf7d0" }}>
-              <h3 style={{ fontSize: 16, fontWeight: 700, color: "#16a34a", marginBottom: 16 }}>✅ Met Elvatix</h3>
+              <h3 style={{ fontSize: 16, fontWeight: 700, color: "#16a34a", marginBottom: 16 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><CheckCircleIcon size={16} /> Met Elvatix</span></h3>
               <div style={{ background: "#fff", borderRadius: 12, padding: 20, fontSize: 14, color: "#374151", lineHeight: 1.6 }}>
                 "Mooie stap van backend development naar platform architecture, Lisa. We zoeken iemand met precies die brug-ervaring. Benieuwd?"
               </div>
-              <p style={{ fontSize: 13, color: "#16a34a", marginTop: 12, fontWeight: 500 }}>🟢 52% acceptatiegraad</p>
+              <p style={{ fontSize: 13, color: "#16a34a", marginTop: 12, fontWeight: 500 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><CircleDotIcon size={14} /> 52% acceptatiegraad</span></p>
             </div>
           </div>
         </div>

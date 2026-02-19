@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BuildingIcon, LinkIcon, LandmarkIcon, TargetIcon, BriefcaseIcon } from "@/components/icons/Icons";
 
 export const metadata: Metadata = {
   title: "Oplossingen — Elvatix",
@@ -10,31 +11,31 @@ const audiences = [
     title: "Recruitmentbureaus",
     desc: "Schaal je outreach zonder extra headcount. Elvatix helpt je team om 3x meer gepersonaliseerde berichten te versturen met dezelfde bezetting.",
     stats: "Gemiddeld 47% hogere response rate",
-    icon: "🏢",
+    icon: <BuildingIcon size={80} />,
   },
   {
     title: "Detacheringsbureaus",
     desc: "Bouw een warme kandidatenpool op met connectieverzoeken die converteren. Ideaal voor high-volume recruitment in IT, finance en engineering.",
     stats: "2,3x meer geaccepteerde connectieverzoeken",
-    icon: "🔗",
+    icon: <LinkIcon size={80} />,
   },
   {
     title: "Corporate Recruiters",
     desc: "Versterk je employer brand met berichten die je bedrijfscultuur uitstralen. Elvatix past de tone-of-voice aan op jouw organisatie.",
     stats: "65% tijdsbesparing op sourcing",
-    icon: "🏛️",
+    icon: <LandmarkIcon size={80} />,
   },
   {
     title: "Executive Search",
     desc: "Voor senior rollen telt elke zin. Elvatix analyseert carrièrepaden en schrijft berichten die C-level kandidaten aanspreken.",
     stats: "Gemiddeld 38% response op C-level outreach",
-    icon: "🎯",
+    icon: <TargetIcon size={80} />,
   },
   {
     title: "Freelance Recruiters",
     desc: "Werk slimmer als je voor jezelf werkt. Eén tool die je hele outreach beheert — van eerste bericht tot follow-up.",
     stats: "5 uur per week bespaard",
-    icon: "💼",
+    icon: <BriefcaseIcon size={80} />,
   },
 ];
 
@@ -63,7 +64,7 @@ export default function SolutionsPage() {
               gap: 48, alignItems: "center", background: "#f9fafb", borderRadius: 20, padding: 48, border: "1px solid #e5e7eb"
             }}>
               {i % 2 === 0 && (
-                <div style={{ fontSize: 80, textAlign: "center" }}>{a.icon}</div>
+                <div style={{ textAlign: "center", color: "#8db600", display: "flex", justifyContent: "center" }}>{a.icon}</div>
               )}
               <div>
                 <h3 style={{ fontSize: 24, fontWeight: 800, color: "#111", marginBottom: 12 }}>{a.title}</h3>
@@ -71,7 +72,7 @@ export default function SolutionsPage() {
                 <p style={{ fontSize: 14, fontWeight: 600, color: "#8db600" }}>{a.stats}</p>
               </div>
               {i % 2 !== 0 && (
-                <div style={{ fontSize: 80, textAlign: "center" }}>{a.icon}</div>
+                <div style={{ textAlign: "center", color: "#8db600", display: "flex", justifyContent: "center" }}>{a.icon}</div>
               )}
             </div>
           ))}

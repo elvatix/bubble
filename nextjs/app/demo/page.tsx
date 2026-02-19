@@ -1,4 +1,5 @@
 "use client";
+import { CheckIcon } from "@/components/icons/Icons";
 
 export default function DemoPage() {
   return (
@@ -18,7 +19,7 @@ export default function DemoPage() {
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {["Persoonlijke walkthrough van het platform", "Advies op maat voor jouw workflow", "Live voorbeeld met een LinkedIn profiel", "Q&A met ons team"].map((item) => (
                 <div key={item} style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <span style={{ color: "#8db600", fontWeight: 700, fontSize: 16 }}>✓</span>
+                  <span style={{ color: "#8db600", display: "flex", flexShrink: 0 }}><CheckIcon size={16} /></span>
                   <span style={{ fontSize: 15, color: "#374151" }}>{item}</span>
                 </div>
               ))}

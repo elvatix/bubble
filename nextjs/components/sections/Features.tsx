@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
+import { MessageSquareIcon, UsersIcon, ClockIcon, BarChartIcon } from "@/components/icons/Icons";
 
 const tabs = [
   {
     id: "inmails",
     label: "InMails",
-    emoji: "💬",
+    icon: "MessageSquareIcon",
     title: "Schrijf gepersonaliseerde InMails op schaal",
     desc: "Onze AI leest het LinkedIn-profiel van je kandidaat en genereert een volledig gepersonaliseerd bericht — in de juiste toon, met relevante hooks. Eén klik en je bericht is klaar.",
     link: "/features/inmails",
@@ -13,7 +14,7 @@ const tabs = [
   {
     id: "connecties",
     label: "Connectieverzoeken",
-    emoji: "🤝",
+    icon: "UsersIcon",
     title: "Connectieverzoeken die echt aankomen",
     desc: "Vergeet standaard 'I\'d like to add you to my network'. Elvatix schrijft connectieverzoeken die opvallen en conversaties starten.",
     link: "/features/connections",
@@ -21,7 +22,7 @@ const tabs = [
   {
     id: "reminders",
     label: "Reminders",
-    emoji: "⏰",
+    icon: "ClockIcon",
     title: "Automatische follow-ups",
     desc: "Stel in wanneer je wilt opvolgen. Elvatix herinnert je en genereert een follow-up bericht afgestemd op de vorige interactie.",
     link: "/features/reminders",
@@ -29,7 +30,7 @@ const tabs = [
   {
     id: "analytics",
     label: "Analytics",
-    emoji: "📊",
+    icon: "BarChartIcon",
     title: "Inzicht in je outreach performance",
     desc: "Zie welke berichten het beste converteren, welke templates de hoogste response rate hebben en waar je tijd het meest oplevert.",
     link: "/features/analytics",
@@ -47,7 +48,7 @@ export default function Features() {
           Neem je recruitment workflow van losse tools naar één krachtig platform
         </h2>
         <p style={{ textAlign: "center", color: "#6b7280", fontSize: 16, maxWidth: 600, margin: "0 auto 48px", lineHeight: 1.6 }}>
-          Bekijk de features die Elvatix uniek maken — elk onderdeel is een volwaardig product bij andere aanbieders. 😎
+          Bekijk de features die Elvatix uniek maken — elk onderdeel is een volwaardig product bij andere aanbieders.
         </p>
 
         {/* Tab navigation */}
@@ -90,8 +91,11 @@ export default function Features() {
             </a>
           </div>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ fontSize: 120, filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.1))" }}>
-              {tab.emoji}
+            <div style={{ color: "#8db600", filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.1))" }}>
+              {tab.icon === "MessageSquareIcon" && <MessageSquareIcon size={80} />}
+              {tab.icon === "UsersIcon" && <UsersIcon size={80} />}
+              {tab.icon === "ClockIcon" && <ClockIcon size={80} />}
+              {tab.icon === "BarChartIcon" && <BarChartIcon size={80} />}
             </div>
           </div>
         </div>

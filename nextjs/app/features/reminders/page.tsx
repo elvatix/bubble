@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ClockIcon, CalendarIcon, EditIcon, BellIcon, TrendingUpIcon } from "@/components/icons/Icons";
 
 export const metadata: Metadata = {
   title: "Smart Reminders — Elvatix",
@@ -17,20 +18,20 @@ export default function RemindersPage() {
           <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto 40px" }}>
             80% van de plaatsingen komt na het tweede of derde contact. Elvatix zorgt dat je nooit meer een follow-up mist.
           </p>
-          <div style={{ fontSize: 100, marginBottom: 40 }}>⏰</div>
+          <div style={{ marginBottom: 40, color: "#8db600", display: "flex", justifyContent: "center" }}><ClockIcon size={100} /></div>
         </div>
       </section>
 
       <section style={{ padding: "0 24px 80px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
           {[
-            { icon: "📅", title: "Slim plannen", desc: "Stel in na hoeveel dagen je wilt opvolgen. Elvatix herinnert je op het juiste moment." },
-            { icon: "✍️", title: "AI follow-up berichten", desc: "Geen 'Ik wilde even checken'. Elvatix genereert een follow-up die verwijst naar je vorige bericht." },
-            { icon: "🔔", title: "Dashboard notificaties", desc: "Zie al je openstaande follow-ups in één overzicht. Prioriteit op basis van urgentie en response-kans." },
-            { icon: "📈", title: "Hogere response rate", desc: "Kandidaten die een relevante follow-up krijgen reageren 3x vaker dan bij een cold InMail." },
+            { icon: <CalendarIcon size={32} />, title: "Slim plannen", desc: "Stel in na hoeveel dagen je wilt opvolgen. Elvatix herinnert je op het juiste moment." },
+            { icon: <EditIcon size={32} />, title: "AI follow-up berichten", desc: "Geen 'Ik wilde even checken'. Elvatix genereert een follow-up die verwijst naar je vorige bericht." },
+            { icon: <BellIcon size={32} />, title: "Dashboard notificaties", desc: "Zie al je openstaande follow-ups in één overzicht. Prioriteit op basis van urgentie en response-kans." },
+            { icon: <TrendingUpIcon size={32} />, title: "Hogere response rate", desc: "Kandidaten die een relevante follow-up krijgen reageren 3x vaker dan bij een cold InMail." },
           ].map((item) => (
             <div key={item.title} style={{ background: "#f9fafb", borderRadius: 16, padding: 32, border: "1px solid #e5e7eb" }}>
-              <div style={{ fontSize: 32, marginBottom: 12 }}>{item.icon}</div>
+              <div style={{ marginBottom: 12, color: "#8db600" }}>{item.icon}</div>
               <h3 style={{ fontSize: 18, fontWeight: 700, color: "#111", marginBottom: 8 }}>{item.title}</h3>
               <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.7 }}>{item.desc}</p>
             </div>

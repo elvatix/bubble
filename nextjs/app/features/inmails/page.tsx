@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MessageSquareIcon } from "@/components/icons/Icons";
 
 export const metadata: Metadata = {
   title: "AI InMails — Elvatix",
@@ -17,7 +18,7 @@ export default function InMailsPage() {
           <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto 40px" }}>
             Geen copy-paste templates meer. Elvatix analyseert het volledige LinkedIn profiel en schrijft een bericht dat aansluit op de werkervaring, skills en carrière van je kandidaat.
           </p>
-          <div style={{ fontSize: 100, marginBottom: 40 }}>💬</div>
+          <div style={{ marginBottom: 40, color: "#8db600", display: "flex", justifyContent: "center" }}><MessageSquareIcon size={100} /></div>
         </div>
       </section>
 
