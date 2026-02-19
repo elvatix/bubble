@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import LeadMagnet from "@/components/sections/LeadMagnet";
+import EnvelopeAnimation from "@/components/animations/EnvelopeAnimation";
 
 export default function Hero() {
   return (
@@ -12,6 +13,15 @@ export default function Hero() {
             Genereer persoonlijke InMails in 30 seconden.
           </span>
         </h1>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="my-8"
+        >
+          <EnvelopeAnimation />
+        </motion.div>
 
         <p className="text-lg text-gray-500 leading-relaxed max-w-[600px] mx-auto mb-8">
           Elvatix werkt direct in je LinkedIn Recruiter. Schrijf connectieverzoeken en
