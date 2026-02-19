@@ -1,49 +1,69 @@
-import Container from '@/components/ui/Container';
-import Button from '@/components/ui/Button';
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
+import { UsersIcon, XCircleIcon, CheckCircleIcon, CircleDotIcon } from "@/components/icons/Icons";
 
 export const metadata: Metadata = {
-  title: 'Connectieverzoeken | Elvatix',
-  description: 'Schrijf LinkedIn connectieverzoeken die opvallen en daadwerkelijk geaccepteerd worden.',
-  alternates: { canonical: '/features/connections' },
+  title: "Connectieverzoeken — Elvatix",
+  description: "Schrijf LinkedIn connectieverzoeken die geaccepteerd worden. Kort, persoonlijk en altijd binnen de 300 karakters.",
 };
-
-const features = [
-  { title: 'Persoonlijke noot, altijd', desc: 'Elvatix analyseert het profiel en schrijft een connectieverzoek dat verwijst naar specifieke ervaring, projecten of gedeelde interesses.' },
-  { title: '300 karakters, maximale impact', desc: 'LinkedIn staat maximaal 300 karakters toe. Elvatix optimaliseert elk woord voor maximale impact binnen die limiet.' },
-  { title: 'A/B varianten', desc: 'Genereer meerdere varianten en kies de versie die het best past bij je aanpak : formeel, casual of ergens daartussenin.' },
-  { title: 'Automatisch koppelen     aan InMail', desc: 'Verstuur een connectieverzoek én een InMail tegelijk. Elvatix zorgt dat beide berichten op elkaar aansluiten.' },
-];
 
 export default function ConnectionsPage() {
   return (
-    <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Connectieverzoeken</span>
-        <h1 className="page-heading">Connectieverzoeken die wél geaccepteerd worden</h1>
-        <p className="page-subtitle">
-          Geen standaard &ldquo;Ik zou je graag toevoegen&rdquo; meer. Elvatix schrijft connectieverzoeken die opvallen . Gebaseerd op het echte profiel.
-        </p>
-        <div className="text-8xl my-10">🤝</div>
-      </Container>
+    <main style={{ paddingTop: 100 }}>
+      <section style={{ padding: "80px 24px", textAlign: "center" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Connectieverzoeken</p>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
+            Connectieverzoeken die opvallen
+          </h1>
+          <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto 40px" }}>
+            LinkedIn geeft je maar 300 karakters. Elvatix maakt daar het meeste van — met een persoonlijke hook die laat zien dat je je hebt verdiept.
+          </p>
+          <div style={{ marginBottom: 40, color: "#8db600", display: "flex", justifyContent: "center" }}><UsersIcon size={100} /></div>
+        </div>
+      </section>
 
-      <Container className="max-w-4xl mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {features.map((f) => (
-            <div key={f.title} className="bg-white border border-gray-200 rounded-2xl p-6">
-              <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+      <section style={{ padding: "0 24px 80px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+            <div style={{ background: "#fef2f2", borderRadius: 16, padding: 32, border: "1px solid #fecaca" }}>
+              <h3 style={{ fontSize: 16, fontWeight: 700, color: "#dc2626", marginBottom: 16 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><XCircleIcon size={16} /> Zonder Elvatix</span></h3>
+              <div style={{ background: "#fff", borderRadius: 12, padding: 20, fontSize: 14, color: "#374151", lineHeight: 1.6 }}>
+                "Hallo, ik wil je graag toevoegen aan mijn netwerk. Ik ben recruiter en heb een interessante vacature die bij je zou passen."
+              </div>
+              <p style={{ fontSize: 13, color: "#dc2626", marginTop: 12, fontWeight: 500 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><CircleDotIcon size={14} /> 15% acceptatiegraad</span></p>
+            </div>
+            <div style={{ background: "#f0fdf4", borderRadius: 16, padding: 32, border: "1px solid #bbf7d0" }}>
+              <h3 style={{ fontSize: 16, fontWeight: 700, color: "#16a34a", marginBottom: 16 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><CheckCircleIcon size={16} /> Met Elvatix</span></h3>
+              <div style={{ background: "#fff", borderRadius: 12, padding: 20, fontSize: 14, color: "#374151", lineHeight: 1.6 }}>
+                "Mooie stap van backend development naar platform architecture, Lisa. We zoeken iemand met precies die brug-ervaring. Benieuwd?"
+              </div>
+              <p style={{ fontSize: 13, color: "#16a34a", marginTop: 12, fontWeight: 500 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><CircleDotIcon size={14} /> 52% acceptatiegraad</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: "0 24px 80px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", flexDirection: "column", gap: 24 }}>
+          {[
+            { title: "Altijd binnen 300 karakters", desc: "LinkedIn's harde limiet. Elvatix telt mee en optimaliseert elke letter." },
+            { title: "Specifiek en relevant", desc: "Elke connectieverzoek noemt iets concreets uit het profiel — een recente stap, een specifieke skill, of een opvallend bedrijf." },
+            { title: "Geen formele afsluiting", desc: "Geen 'Met vriendelijke groet'. Kort, direct, en uitnodigend om te reageren." },
+          ].map((item) => (
+            <div key={item.title} style={{ background: "#f9fafb", borderRadius: 16, padding: 32, border: "1px solid #e5e7eb" }}>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: "#111", marginBottom: 8 }}>{item.title}</h3>
+              <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.7 }}>{item.desc}</p>
             </div>
           ))}
         </div>
-      </Container>
+      </section>
 
-      <section className="cta-section">
-        <Container className="text-center text-white">
-          <h2 className="text-2xl font-extrabold mb-3">Probeer het zelf</h2>
-          <p className="text-white/80 mb-6">Genereer je eerste connectieverzoek . Helemaal gratis.</p>
-          <Button variant="white" href="/">Start nu →</Button>
-        </Container>
+      <section style={{ padding: "80px 24px", background: "#111", textAlign: "center" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto" }}>
+          <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", marginBottom: 16 }}>Probeer het zelf</h2>
+          <p style={{ color: "#9ca3af", fontSize: 16, marginBottom: 32 }}>Genereer een connectieverzoek met de gratis tool op onze homepage.</p>
+          <a href="/#lead-magnet" className="pill-btn pill-btn-white" style={{ padding: "14px 32px", fontSize: 16 }}>Probeer gratis →</a>
+        </div>
       </section>
     </main>
   );

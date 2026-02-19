@@ -1,19 +1,29 @@
 "use client";
+import { UserIcon } from "@/components/icons/Icons";
 
 export default function QuoteBanner() {
   return (
-    <section className="section-padding bg-gray-50">
-      <div className="max-w-[900px] mx-auto">
-        <div className="bg-gradient-to-br from-green-bg via-white to-green-bg border-3 border-green rounded-3xl p-12 grid grid-cols-[1fr_auto] gap-8 items-center max-md:grid-cols-1 max-md:p-6">
+    <section style={{ padding: "80px 24px", background: "#f9fafb" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        <div style={{
+          background: "linear-gradient(135deg, #f0f7d4 0%, #fff 50%, #f0f7d4 100%)",
+          border: "3px solid #8db600",
+          borderRadius: 24,
+          padding: 48,
+          display: "grid",
+          gridTemplateColumns: "1fr auto",
+          gap: 32,
+          alignItems: "center",
+        }}>
           <div>
-            <p className="text-[clamp(20px,2.5vw,28px)] font-bold text-green leading-snug mb-4">
+            <p style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 700, color: "#8db600", lineHeight: 1.4, marginBottom: 16 }}>
               &ldquo;Ik besteed honderden uren aan het onderzoeken van recruitment tech en Elvatix is lichtjaren vooruit.&rdquo;
             </p>
-            <p className="font-bold text-[15px] text-gray-900">Kevin Coenen</p>
-            <p className="text-[13px] text-gray-400">Oprichter, Elvatix</p>
+            <p style={{ fontWeight: 700, fontSize: 15, color: "#111" }}>Kevin Coenen</p>
+            <p style={{ fontSize: 13, color: "#9ca3af" }}>Oprichter, Elvatix</p>
           </div>
-          <div className="w-[100px] h-[100px] rounded-full bg-[#e8e0f0] flex items-center justify-center shrink-0 max-md:mx-auto">
-            <span className="text-5xl opacity-50">👤</span>
+          <div style={{ width: 100, height: 100, borderRadius: "50%", background: "#e8e0f0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+            <span style={{ color: "#8e7aa0", opacity: 0.5, display: "flex" }}><UserIcon size={48} /></span>
           </div>
         </div>
       </div>

@@ -1,85 +1,100 @@
-import Container from '@/components/ui/Container';
-import Button from '@/components/ui/Button';
-import type { Metadata } from 'next';
+"use client";
+import { CheckIcon } from "@/components/icons/Icons";
+import type React from "react";
 
-export const metadata: Metadata = {
-  title: 'Pricing | Elvatix',
-  description: 'Bekijk de prijzen van Elvatix. Start gratis, upgrade wanneer je klaar bent.',
-  alternates: { canonical: '/pricing' },
-};
-
-const plans = [
+const tiers = [
   {
-    name: 'Free',
-    price: '€0',
-    period: 'voor altijd',
-    desc: 'Perfect om Elvatix te ontdekken.',
-    features: ['5 AI-berichten per dag', 'InMails + connectieverzoeken', 'Basis templates', 'Community support'],
-    cta: 'Start gratis',
-    href: '/start',
-    highlight: false,
+    name: "Starter",
+    price: "Gratis",
+    period: "",
+    desc: "Perfect om te beginnen",
+    features: ["5 gegenereerde berichten per maand", "InMails + connectieverzoeken", "LinkedIn profiel-analyse", "Nederlands en Engels"],
+    cta: "Start gratis",
+    href: "/start",
+    primary: false,
   },
   {
-    name: 'Pro',
-    price: '€49',
-    period: 'per maand',
-    desc: 'Voor serieuze recruiters die resultaat willen.',
-    features: ['Onbeperkte AI-berichten', 'Custom GPT training', 'Smart Reminders', 'Analytics dashboard', 'Priority support', 'Team templates'],
-    cta: 'Start Pro',
-    href: '/start',
-    highlight: true,
+    name: "Pro",
+    price: "€49",
+    period: "/mnd",
+    desc: "Voor actieve recruiters",
+    features: ["Onbeperkt berichten", "Smart follow-up reminders", "Analytics dashboard", "Custom tone-of-voice", "Template bibliotheek", "Prioriteit support"],
+    cta: "Start 14 dagen gratis",
+    href: "/start",
+    primary: true,
+    badge: "Populairste keuze",
   },
   {
-    name: 'Enterprise',
-    price: 'Op maat',
-    period: '',
-    desc: 'Voor teams die maximale impact willen.',
-    features: ['Alles in Pro', 'Dedicated account manager', 'Custom integraties', 'SSO & SAML', 'SLA garantie', 'Onboarding programma'],
-    cta: 'Neem contact op',
-    href: '/contact',
-    highlight: false,
+    name: "Enterprise",
+    price: "Op maat",
+    period: "",
+    desc: "Voor teams & bureaus",
+    features: ["Alles uit Pro", "Custom GPT op jouw schrijfstijl", "Team analytics & rapportages", "Onboarding & training", "Dedicated account manager", "SSO & API toegang", "SLA garantie"],
+    cta: "Neem contact op",
+    href: "/contact",
+    primary: false,
   },
 ];
 
 export default function PricingPage() {
   return (
-    <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Pricing</span>
-        <h1 className="page-heading">Eenvoudige, transparante prijzen</h1>
-        <p className="page-subtitle">Geen verborgen kosten. Start gratis en upgrade wanneer je klaar bent.</p>
-      </Container>
+    <main style={{ paddingTop: 100 }}>
+      <section style={{ padding: "80px 24px", textAlign: "center" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
+            Pricing
+          </p>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
+            Transparante prijzen, geen verrassingen
+          </h1>
+          <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto" }}>
+            Begin gratis. Upgrade wanneer je klaar bent. Geen contracten, geen verborgen kosten.
+          </p>
+        </div>
+      </section>
 
-      <Container className="max-w-5xl mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {plans.map((plan) => (
-            <div key={plan.name} className={`rounded-2xl p-8 flex flex-col ${plan.highlight ? 'bg-linkedin text-white shadow-xl scale-105' : 'bg-white border border-gray-200'}`}>
-              <h2 className="text-xl font-bold mb-1">{plan.name}</h2>
-              <div className="mb-1">
-                <span className="text-4xl font-black">{plan.price}</span>
-                {plan.period && <span className={`text-sm ml-1 ${plan.highlight ? 'text-white/70' : 'text-gray-500'}`}>{plan.period}</span>}
+      <section style={{ padding: "0 24px 80px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, alignItems: "stretch" }}>
+          {tiers.map((t) => (
+            <div key={t.name} style={{
+              background: "#fff", borderRadius: 20, padding: 40, border: t.primary ? "2px solid #8db600" : "1px solid #e5e7eb",
+              display: "flex", flexDirection: "column", position: "relative",
+              boxShadow: t.primary ? "0 8px 32px rgba(67, 97, 238, 0.15)" : "none"
+            }}>
+              {t.badge && (
+                <span style={{
+                  position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)",
+                  background: "#8db600", color: "#fff", fontSize: 12, fontWeight: 600, padding: "4px 16px", borderRadius: 20
+                }}>
+                  {t.badge}
+                </span>
+              )}
+              <h3 style={{ fontSize: 20, fontWeight: 700, color: "#111", marginBottom: 8 }}>{t.name}</h3>
+              <div style={{ marginBottom: 8 }}>
+                <span style={{ fontSize: 40, fontWeight: 900, color: "#111" }}>{t.price}</span>
+                {t.period && <span style={{ fontSize: 16, color: "#6b7280" }}>{t.period}</span>}
               </div>
-              <p className={`text-sm mb-6 ${plan.highlight ? 'text-white/80' : 'text-gray-600'}`}>{plan.desc}</p>
-              <ul className="flex flex-col gap-3 mb-8 flex-grow">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm">
-                    <span className={plan.highlight ? 'text-green-300' : 'text-green-500'}>✓</span>
-                    <span>{f}</span>
+              <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 24 }}>{t.desc}</p>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, flex: 1 }}>
+                {t.features.map((f) => (
+                  <li key={f} style={{ fontSize: 14, color: "#374151", padding: "8px 0", borderBottom: "1px solid #f3f4f6", display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{ color: "#8db600", display: "flex", flexShrink: 0 }}><CheckIcon size={16} /></span> {f}
                   </li>
                 ))}
               </ul>
-              <Button variant={plan.highlight ? 'white' : 'primary'} href={plan.href} className="w-full">{plan.cta}</Button>
+              <a href={t.href} className={t.primary ? "pill-btn pill-btn-primary" : "pill-btn pill-btn-outline"}
+                 style={{ padding: "14px 24px", fontSize: 15, textAlign: "center", marginTop: 32, display: "block" }}>
+                {t.cta}
+              </a>
             </div>
           ))}
         </div>
-      </Container>
+      </section>
 
-      <section className="bg-gray-50 py-16">
-        <Container className="text-center">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Nog vragen over pricing?</h2>
-          <p className="text-gray-600 mb-6">Ons team helpt je graag bij het kiezen van het juiste plan.</p>
-          <Button variant="outline" href="/contact">Neem contact op</Button>
-        </Container>
+      <section style={{ padding: "60px 24px 80px", textAlign: "center" }}>
+        <p style={{ fontSize: 15, color: "#6b7280" }}>
+          Vragen over pricing? <a href="/contact" style={{ color: "#8db600", fontWeight: 600, textDecoration: "none" }}>Neem contact op →</a>
+        </p>
       </section>
     </main>
   );

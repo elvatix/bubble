@@ -1,74 +1,97 @@
 "use client";
-import { motion } from "framer-motion";
-import AnimateOnScroll from "../animations/AnimateOnScroll";
-import AnimatedCounter from "../animations/AnimatedCounter";
+import { ZapIcon, TrendingUpIcon, TargetIcon, CpuIcon } from "@/components/icons/Icons";
 
 export default function WedgeSection() {
-  const stats = [
-    { icon: "⏱️", value: "30", suffix: " sec", label: "Per gepersonaliseerd bericht", sub: "Was 10-15 minuten" },
-    { icon: "📈", value: "2", suffix: "x", label: "Meer respons op InMails", sub: "Vergeleken met standaard berichten" },
-    { icon: "⏰", value: "4-6", suffix: " uur", label: "Besparing per week", sub: "Per recruiter, per week" },
-    { icon: "🏆", value: "260", suffix: " InMails", label: "In slechts 1,7 uur", sub: "Manpower case study" },
-  ];
-
   return (
-    <section className="section-padding bg-gradient-to-br from-green-dark via-green to-[#1a2e05] relative overflow-hidden">
-      <div className="section-inner relative z-[2]">
-        <div className="grid-2">
+    <section className="section-responsive" style={{
+      background: "linear-gradient(135deg, #7aa300 0%, #8db600 50%, #1a2e05 100%)",
+      padding: "100px 24px",
+      position: "relative",
+      overflow: "hidden",
+    }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 2 }}>
+        <div className="wedge-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+          {/* Left: headline + text */}
           <div>
-            <AnimateOnScroll variant="fadeUp">
-              <p className="text-sm font-semibold text-white/50 uppercase tracking-[0.1em] mb-4">
-                Bewezen resultaten
-              </p>
-            </AnimateOnScroll>
-            <AnimateOnScroll variant="fadeUp" delay={0.15}>
-              <h2 className="text-[clamp(28px,4vw,56px)] font-black text-white mb-5 leading-[1.1]">
-                Van uren typen naar{" "}
-                <span className="text-amber-400">seconden.</span>
-              </h2>
-            </AnimateOnScroll>
-            <AnimateOnScroll variant="fadeUp" delay={0.3}>
-              <p className="text-[clamp(14px,1.5vw,17px)] text-white/70 max-w-[460px] mb-9 leading-relaxed">
-                500+ recruiters besparen dagelijks uren met Elvatix. Van copy-paste frustratie naar persoonlijke berichten in één klik.
-              </p>
-            </AnimateOnScroll>
-            <AnimateOnScroll variant="fadeUp" delay={0.45}>
-              <motion.a
-                href="/cases"
-                className="pill-btn inline-flex items-center gap-2 bg-white/15 text-white border border-white/30 backdrop-blur-[10px]"
-                whileHover={{ scale: 1.05, background: "rgba(255,255,255,0.25)" }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                Bekijk de Manpower case study →
-              </motion.a>
-            </AnimateOnScroll>
+            <p style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
+              De kloof wordt groter
+            </p>
+            <h2 style={{ fontSize: "clamp(36px, 4vw, 56px)", fontWeight: 900, color: "white", marginBottom: 20, lineHeight: 1.1 }}>
+              Recruitment verandert.{" "}
+              <span style={{ color: "#fbbf24" }}>Snel.</span>
+            </h2>
+            <p style={{ fontSize: 17, color: "rgba(255,255,255,0.7)", maxWidth: 460, marginBottom: 36, lineHeight: 1.7 }}>
+              Wie blijft vasthouden aan de oude manier, loopt achter. Met de Elvatix AI Copilot ben je altijd een stap voor.
+            </p>
+            <a href="/platform" style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "rgba(255,255,255,0.15)",
+              color: "white",
+              border: "1px solid rgba(255,255,255,0.3)",
+              padding: "12px 32px",
+              borderRadius: 9999,
+              fontSize: 15,
+              fontWeight: 600,
+              textDecoration: "none",
+              backdropFilter: "blur(10px)",
+              transition: "background 0.2s",
+            }}>
+              Ontdek de AI Copilot →
+            </a>
           </div>
 
-          <div className="flex flex-col gap-4">
-            {stats.map((item, i) => (
-              <AnimateOnScroll key={i} variant="fadeRight" delay={0.15 * i}>
-                <motion.div
-                  className="flex items-center gap-5 bg-white/8 rounded-2xl py-5 px-6 border border-white/10 backdrop-blur-[10px]"
-                  whileHover={{ background: "rgba(255,255,255,0.15)", x: 8, transition: { duration: 0.2 } }}
-                >
-                  <span className="text-[28px]">{item.icon}</span>
-                  <div className="flex-1">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-[28px] font-extrabold text-amber-400">{item.value}</span>
-                      <span className="text-base font-bold text-amber-400">{item.suffix}</span>
-                    </div>
-                    <p className="text-sm text-white/85 mt-0.5 font-medium">{item.label}</p>
-                    <p className="text-[11px] text-white/45 mt-0.5">{item.sub}</p>
-                  </div>
-                </motion.div>
-              </AnimateOnScroll>
+          {/* Right: visual metrics */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            {[
+              { icon: <ZapIcon size={28} />, stat: "30x", label: "Sneller dan handmatig outreach" },
+              { icon: <TrendingUpIcon size={28} />, stat: "85%", label: "Minder tijd per InMail" },
+              { icon: <TargetIcon size={28} />, stat: "3x", label: "Hogere response rate" },
+              { icon: <CpuIcon size={28} />, stat: "100%", label: "AI-gepersonaliseerd" },
+            ].map((item, i) => (
+              <div key={i} style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 20,
+                background: "rgba(255,255,255,0.08)",
+                borderRadius: 16,
+                padding: "20px 24px",
+                border: "1px solid rgba(255,255,255,0.1)",
+                backdropFilter: "blur(10px)",
+              }}>
+                <span style={{ color: "#fbbf24", flexShrink: 0, display: "flex" }}>{item.icon}</span>
+                <div>
+                  <span style={{ fontSize: 28, fontWeight: 800, color: "#fbbf24" }}>{item.stat}</span>
+                  <p style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", marginTop: 2 }}>{item.label}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="absolute -top-[100px] -right-[100px] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(251,191,36,0.15)_0%,transparent_70%)] rounded-full z-[1]" />
+      {/* Subtle decorative elements instead of the broken wedge */}
+      <div style={{
+        position: "absolute",
+        top: -100,
+        right: -100,
+        width: 400,
+        height: 400,
+        background: "radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 70%)",
+        borderRadius: "50%",
+        zIndex: 1,
+      }} />
+      <div style={{
+        position: "absolute",
+        bottom: -150,
+        left: -150,
+        width: 500,
+        height: 500,
+        background: "radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%)",
+        borderRadius: "50%",
+        zIndex: 1,
+      }} />
     </section>
   );
 }
