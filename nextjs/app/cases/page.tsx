@@ -45,9 +45,9 @@ export default function CasesPage() {
   return (
     <main className="pt-40 pb-0">
       <Container className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-linkedin-light)] text-[var(--color-linkedin)] text-sm font-semibold mb-4">Case Studies</span>
-        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Resultaten die spreken</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <span className="page-badge">Case Studies</span>
+        <h1 className="page-heading">Resultaten die spreken</h1>
+        <p className="page-subtitle">
           Ontdek hoe toonaangevende recruitmentbureaus hun outreach transformeerden met Elvatix.
         </p>
       </Container>
@@ -76,12 +76,12 @@ export default function CasesPage() {
                     <div key={r.label} className="bg-gray-50 rounded-xl p-4 text-center">
                       <p className="text-xs text-gray-500 mb-1">{r.label}</p>
                       <p className="text-xs text-gray-400 line-through">{r.before}</p>
-                      <p className="text-2xl font-black text-[var(--color-linkedin)]">{r.after}</p>
+                      <p className="text-2xl font-black text-linkedin">{r.after}</p>
                     </div>
                   ))}
                 </div>
 
-                <blockquote className="border-l-4 border-[var(--color-linkedin)] pl-4 italic text-gray-600 text-sm mb-2">
+                <blockquote className="border-l-4 border-linkedin pl-4 italic text-gray-600 text-sm mb-2">
                   &ldquo;{c.quote}&rdquo;
                 </blockquote>
                 <p className="text-sm font-bold text-gray-900">{c.quotePerson}</p>
@@ -92,7 +92,7 @@ export default function CasesPage() {
         </div>
       </Container>
 
-      <section className="bg-gradient-to-r from-[var(--color-linkedin)] to-[var(--color-linkedin-dark)] py-16">
+      <section className="cta-section">
         <Container className="text-center text-white">
           <h2 className="text-2xl font-extrabold mb-3">Word de volgende success story</h2>
           <p className="text-white/80 mb-6">Ontdek wat Elvatix voor jouw team kan betekenen.</p>

@@ -64,7 +64,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
         )}
 
         <header className="mb-12">
-          <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">
+          <h1 className="page-heading">
             {blog['SEO title']}
           </h1>
           <div className="flex items-center gap-4 text-gray-500">
@@ -80,7 +80,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
         />
 
         <div className="mt-16 pt-8 border-t">
-          <a href="/blog" className="text-[var(--color-linkedin)] font-semibold hover:underline">
+          <a href="/blog" className="text-linkedin font-semibold hover:underline">
             ← Terug naar overzicht
           </a>
         </div>

@@ -19,9 +19,9 @@ export default function OverOnsPage() {
   return (
     <main className="pt-40 pb-0">
       <Container className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-linkedin-light)] text-[var(--color-linkedin)] text-sm font-semibold mb-4">Over Ons</span>
-        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Gebouwd door recruiters, voor recruiters</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <span className="page-badge">Over Ons</span>
+        <h1 className="page-heading">Gebouwd door recruiters, voor recruiters</h1>
+        <p className="page-subtitle">
           Elvatix is ontstaan uit frustratie met het generieke karakter van LinkedIn outreach. We wisten dat het beter kon — en bouwden de oplossing.
         </p>
       </Container>
@@ -39,7 +39,7 @@ export default function OverOnsPage() {
         </div>
       </Container>
 
-      <section className="bg-gradient-to-r from-[var(--color-linkedin)] to-[var(--color-linkedin-dark)] py-16">
+      <section className="cta-section">
         <Container className="text-center text-white">
           <h2 className="text-2xl font-extrabold mb-3">Wil je met ons werken?</h2>
           <p className="text-white/80 mb-6">We zijn altijd op zoek naar gepassioneerde mensen die recruitment willen verbeteren.</p>

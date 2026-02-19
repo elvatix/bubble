@@ -18,9 +18,9 @@ export default async function BlogOverviewPage() {
   return (
     <main className="pt-40 pb-16">
       <Container className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-linkedin-light)] text-[var(--color-linkedin)] text-sm font-semibold mb-4">Blog</span>
-        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Inzichten & Updates</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <span className="page-badge">Blog</span>
+        <h1 className="page-heading">Inzichten & Updates</h1>
+        <p className="page-subtitle">
           De laatste artikelen over AI-powered recruitment, LinkedIn strategieën en talent acquisition best practices.
         </p>
       </Container>
@@ -39,7 +39,7 @@ export default async function BlogOverviewPage() {
                 <Link
                   key={blog._id}
                   href={`/blog/${slug}`}
-                  className="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-[var(--color-linkedin)] transition-all"
+                  className="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-linkedin transition-all"
                 >
                   {blog.Image && (
                     <div className="aspect-video relative overflow-hidden">
@@ -55,13 +55,13 @@ export default async function BlogOverviewPage() {
                     <time className="text-xs text-gray-400 mb-2 block">
                       {new Date(blog.Date).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
                     </time>
-                    <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[var(--color-linkedin)] transition-colors">
+                    <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-linkedin transition-colors">
                       {blog['SEO title']}
                     </h2>
                     <p className="text-sm text-gray-600 line-clamp-3">{blog['SEO Description']}</p>
                     <div className="mt-4 flex items-center justify-between">
                       <span className="text-xs text-gray-500">{blog.Author}</span>
-                      <span className="text-sm text-[var(--color-linkedin)] font-semibold">
+                      <span className="text-sm text-linkedin font-semibold">
                         Lees meer →
                       </span>
                     </div>
