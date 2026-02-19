@@ -95,3 +95,7 @@ node-bin
 node.tar.gz
 setup.sh
 PROJECT_EXPORT.md
+
+# Environment variables
+.env.local
+.env*.local

@@ -1,75 +1,82 @@
-import { getAllBlogs, generateSlug } from '@/lib/bubble-api';
-import Container from '@/components/ui/Container';
-import Image from 'next/image';
-import Link from 'next/link';
-import type { Metadata } from 'next';
-
-export const revalidate = 3600;
+import { getAllBlogs, generateSlug, fixImageUrl, getBlogTitle } from '@/lib/bubble-api'
+import Link from 'next/link'
+import Image from 'next/image'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blog | Elvatix',
-  description: 'Lees de laatste inzichten over AI-powered recruitment, LinkedIn outreach en talent acquisition.',
-  alternates: { canonical: '/blog' },
-};
+  title: 'Recruitment Blog | Elvatix',
+  description: 'LinkedIn recruitment tips en strategieën',
+}
 
-export default async function BlogOverviewPage() {
-  const blogs = await getAllBlogs();
+export const revalidate = 3600 // Hervalideer elk uur
+
+export default async function BlogPage() {
+  const blogs = await getAllBlogs()
 
   return (
-    <main className="pt-40 pb-16">
-      <Container className="text-center mb-16">        <h1 className="page-heading">Inzichten & Updates</h1>
-        <p className="page-subtitle">
-          De laatste artikelen over AI-powered recruitment, LinkedIn strategieën en talent acquisition best practices.
-        </p>
-      </Container>
+    <main className="pt-32 pb-16 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-black mb-4">
+            Recruitment Insights
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Tips, trends en best practices voor recruiters
+          </p>
+        </div>
 
-      <Container className="max-w-5xl">
-        {blogs.length === 0 ? (
-          <div className="text-center py-16">
-            <p className="text-xl text-gray-500">Nog geen blogposts beschikbaar.</p>
-            <p className="text-sm text-gray-400 mt-2">Check binnenkort terug voor onze eerste artikelen.</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogs.map((blog) => {
-              const slug = blog.slug || generateSlug(blog['SEO title']);
-              return (
-                <Link
-                  key={blog._id}
-                  href={`/blog/${slug}`}
-                  className="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-linkedin transition-all"
-                >
-                  {blog.Image && (
-                    <div className="aspect-video relative overflow-hidden">
-                      <Image
-                        src={blog.Image}
-                        alt={blog['Alt text'] || blog['SEO title']}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
+        {/* Grid - responsive 1/2/3 kolommen */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogs.map((blog) => {
+            const title = getBlogTitle(blog)
+            const slug = generateSlug(title)
+            const imageUrl = fixImageUrl(blog.Image)
+
+            return (
+              <Link
+                key={blog._id}
+                href={`/blog/${slug}`}
+                className="group border border-gray-200 rounded-2xl
+                  overflow-hidden hover:shadow-xl
+                  hover:border-linkedin transition-all duration-300"
+              >
+                {/* Featured Image */}
+                <div className="aspect-video relative overflow-hidden bg-gray-100">
+                  {imageUrl && (
+                    <Image
+                      src={imageUrl}
+                      alt={blog["Alt text"] || title}
+                      fill
+                      className="object-cover group-hover:scale-105
+                        transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw,
+                        (max-width: 1200px) 50vw, 33vw"
+                    />
                   )}
-                  <div className="p-6">
-                    <time className="text-xs text-gray-400 mb-2 block">
-                      {new Date(blog.Date).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
-                    </time>
-                    <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-linkedin transition-colors">
-                      {blog['SEO title']}
-                    </h2>
-                    <p className="text-sm text-gray-600 line-clamp-3">{blog['SEO Description']}</p>
-                    <div className="mt-4 flex items-center justify-between">
-                      <span className="text-xs text-gray-500">{blog.Author}</span>
-                      <span className="text-sm text-linkedin font-semibold">
-                        Lees meer →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
+                </div>
+
+                {/* Content — alleen titel, max 2 regels */}
+                <div className="p-6">
+                  <h2 className="text-xl font-bold mt-2 mb-3
+                    group-hover:text-linkedin
+                    transition line-clamp-2">
+                    {title}
+                  </h2>
+                </div>
+              </Link>
+            )
+          })}
+        </div>
+
+        {/* Empty state */}
+        {blogs.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-gray-500 text-lg">
+              Nog geen blogs beschikbaar
+            </p>
           </div>
         )}
-      </Container>
+      </div>
     </main>
-  );
+  )
 }
