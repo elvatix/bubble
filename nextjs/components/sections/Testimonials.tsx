@@ -1,47 +1,71 @@
 "use client";
-import { StarIcon, TrophyIcon, RocketIcon, HeartIcon } from "@/components/icons/Icons";
+import AnimateOnScroll from "../animations/AnimateOnScroll";
+import StaggerChildren from "../animations/StaggerChildren";
+import { motion } from "framer-motion";
 
 const testimonials = [
-  { quote: "Elvatix heeft onze outreach compleet veranderd. We besparen minstens 2 uur per dag per recruiter.", name: "Lisa van den Berg", role: "Head of Recruitment, Vibe Group" },
-  { quote: "De AI-gegenereerde berichten voelen persoonlijker dan wat we ooit handmatig schreven.", name: "Mark de Vries", role: "Senior Recruiter, Manpower" },
-  { quote: "Onze response rate is met 40% gestegen sinds we Elvatix gebruiken. Het is een game-changer.", name: "Sarah Jansen", role: "Talent Acquisition Lead" },
-];
-
-const badges = [
-  { icon: <StarIcon size={20} />, label: "Highest Rated" },
-  { icon: <TrophyIcon size={20} />, label: "Best ROI 2025" },
-  { icon: <RocketIcon size={20} />, label: "Fastest Growing" },
-  { icon: <HeartIcon size={20} />, label: "Most Loved" },
+  {
+    name: "Manpower",
+    role: "Case Study",
+    quote: "260 super persoonlijke InMails verstuurd in slechts 1,7 uur. Dat was anders 63+ uur werk geweest.",
+    avatar: "M",
+  },
+  {
+    name: "Recruitment Consultant",
+    role: "Bureau Recruiter",
+    quote: "Ik bespaar minimaal 5 uur per week. De berichten klinken precies zoals ik ze zelf zou schrijven.",
+    avatar: "R",
+  },
+  {
+    name: "Corporate Recruiter",
+    role: "In-house Recruiter",
+    quote: "Eindelijk een tool die direct in LinkedIn werkt. Geen gekopieer meer tussen ChatGPT en LinkedIn.",
+    avatar: "C",
+  },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="section-responsive" style={{ padding: "80px 24px", background: "#fff" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, fontStyle: "italic", textAlign: "center", marginBottom: 48, color: "#111" }}>
-          Wat onze klanten zeggen
-        </h2>
-
-        <div className="testimonials-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24, marginBottom: 48 }}>
-          {testimonials.map((t, i) => (
-            <div key={i} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 20, padding: 32 }}>
-              <p style={{ fontSize: 16, color: "#6a9a00", lineHeight: 1.6, marginBottom: 20, fontWeight: 500 }}>
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <p style={{ fontWeight: 700, fontSize: 15, color: "#111" }}>{t.name}</p>
-              <p style={{ fontSize: 13, color: "#9ca3af" }}>{t.role}</p>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap" }}>
-          {badges.map((b, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ color: "#8db600", display: "flex" }}>{b.icon}</span>
-              <span style={{ fontSize: 14, fontWeight: 600, color: "#6b7280" }}>{b.label}</span>
-            </div>
-          ))}
-        </div>
+    <section className="section-padding bg-surface">
+      <div className="section-inner">
+        <AnimateOnScroll variant="fadeUp">
+          <div className="text-center mb-12">
+            <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
+              Wat gebruikers zeggen
+            </h2>
+            <p className="text-gray-500 text-base">5.0 op Chrome • 4.4 op Trustpilot • 5.0 op Google</p>
+          </div>
+        </AnimateOnScroll>
+        <StaggerChildren staggerDelay={0.15}>
+          <div className="grid-3">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={i}
+                className="bg-white rounded-[20px] p-8 border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
+                whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(0,0,0,0.06)" }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-green to-green-gradient-end text-white flex items-center justify-center font-bold text-base">
+                    {t.avatar}
+                  </div>
+                  <div>
+                    <p className="font-bold text-[15px] text-gray-900">{t.name}</p>
+                    <p className="text-[13px] text-gray-400">{t.role}</p>
+                  </div>
+                </div>
+                <p className="text-[15px] text-gray-700 leading-relaxed italic">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="mt-3">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span key={star} className="text-amber-400 text-base">★</span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </StaggerChildren>
       </div>
     </section>
   );

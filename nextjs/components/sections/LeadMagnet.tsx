@@ -1,6 +1,6 @@
 "use client";
-import { MapPinIcon, BriefcaseIcon, ZapIcon, ShieldCheckIcon, TargetIcon, CheckIcon } from "@/components/icons/Icons";
 import { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
 
 interface ProfileData {
   fullName: string;
@@ -34,16 +34,16 @@ const STEPS = [
 ];
 
 const STATUS_TEXT: Record<string, { title: string; sub: string }> = {
-  connecting: { title: "Verbinding maken met LinkedIn…", sub: "Profiel wordt opgezocht" },
-  scanning: { title: "Profiel wordt gescand…", sub: "Data ophalen" },
+  connecting: { title: "Verbinding maken met LinkedIn\u2026", sub: "Profiel wordt opgezocht" },
+  scanning: { title: "Profiel wordt gescand\u2026", sub: "Data ophalen" },
   found: { title: "Profiel gevonden", sub: "Gegevens succesvol opgehaald" },
-  analyzing: { title: "Profiel wordt geanalyseerd…", sub: "Beste insteek bepalen" },
-  "writing-inmail": { title: "InMail wordt geschreven…", sub: "Gepersonaliseerd bericht genereren" },
-  "writing-conn": { title: "Connectieverzoek wordt opgesteld…", sub: "Kort bericht genereren" },
+  analyzing: { title: "Profiel wordt geanalyseerd\u2026", sub: "Beste insteek bepalen" },
+  "writing-inmail": { title: "InMail wordt geschreven\u2026", sub: "Gepersonaliseerd bericht genereren" },
+  "writing-conn": { title: "Connectieverzoek wordt opgesteld\u2026", sub: "Kort bericht genereren" },
   done: { title: "Klaar", sub: "Kopieer en verstuur via LinkedIn" },
 };
 
-export default function LeadMagnet() {
+export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const [linkedinUrl, setLinkedinUrl] = useState("");
   const [email, setEmail] = useState("");
   const [jobTitle, setJobTitle] = useState("");
@@ -62,7 +62,6 @@ export default function LeadMagnet() {
   const typewriterRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const messageRef = useRef<HTMLDivElement>(null);
 
-  // Typewriter for InMail
   useEffect(() => {
     if (phase === "writing-inmail" && inmailFull) {
       let i = 0;
@@ -79,7 +78,6 @@ export default function LeadMagnet() {
     }
   }, [phase, inmailFull]);
 
-  // Typewriter for connection request
   useEffect(() => {
     if (phase === "writing-conn" && connectionFull) {
       let i = 0;
@@ -181,374 +179,300 @@ export default function LeadMagnet() {
     return "pending";
   };
 
+  const formContent = (
+    <div
+      id="lead-magnet"
+      className={`bg-white border border-gray-200 relative overflow-hidden ${
+        compact
+          ? "rounded-[20px] p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.03)]"
+          : "rounded-2xl p-9 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)]"
+      }`}
+    >
+      {compact && (
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-green via-green-light to-amber-400" />
+      )}
+
+      {compact && (
+        <div className="mb-5">
+          <p className="text-[11px] font-bold text-green uppercase tracking-[0.12em] mb-2">AI Recruitment Writer</p>
+          <h3 className="text-xl font-extrabold text-gray-900 mb-1">Genereer een bericht</h3>
+          <p className="text-xs text-gray-400 leading-normal">Plak een LinkedIn URL en wij schrijven een persoonlijke InMail.</p>
+        </div>
+      )}
+
+      {phase === "idle" ? (
+        <>
+          {/* LinkedIn URL */}
+          <div className={compact ? "mb-3.5" : "mb-5"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">LinkedIn URL *</label>
+            <div className="flex items-center border border-gray-300 rounded-sm overflow-hidden transition-colors">
+              <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-300 flex items-center text-text-light">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                </svg>
+              </span>
+              <input type="url" placeholder="https://linkedin.com/in/jan-jansen"
+                value={linkedinUrl} onChange={(e) => setLinkedinUrl(e.target.value)}
+                className="flex-1 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit]" />
+            </div>
+          </div>
+
+          {/* Job title */}
+          <div className={compact ? "mb-3.5" : "mb-5"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Functie waarvoor je werft</label>
+            <input type="text" placeholder="bijv. Senior Software Engineer"
+              value={jobTitle} onChange={(e) => setJobTitle(e.target.value)}
+              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border" />
+          </div>
+
+          {/* Tone */}
+          <div className={compact ? "mb-3.5" : "mb-5"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Toon</label>
+            <div className="flex gap-2.5">
+              {(["informal", "formal"] as const).map((t) => (
+                <button key={t} onClick={() => setTone(t)}
+                  className={`flex-1 py-[11px] px-4 rounded-lg text-sm font-semibold cursor-pointer transition-all duration-150 font-[inherit] ${
+                    tone === t
+                      ? "border-[1.5px] border-green bg-linkedin-light text-green"
+                      : "border border-gray-300 bg-white text-gray-500"
+                  }`}>
+                  {t === "informal" ? "Informeel" : "Formeel"}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Email */}
+          <div className={compact ? "mb-[18px]" : "mb-7"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">E-mailadres *</label>
+            <input type="email" placeholder="naam@bedrijf.nl"
+              value={email} onChange={(e) => setEmail(e.target.value)}
+              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border" />
+          </div>
+
+          {error && <div className="py-2.5 px-3.5 bg-red-50 border border-red-200 rounded-lg text-red-600 text-[13px] mb-4">{error}</div>}
+
+          <button onClick={handleGenerate} disabled={!email || !linkedinUrl}
+            className={`w-full border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white ${
+              !email || !linkedinUrl
+                ? "bg-gray-300 cursor-not-allowed"
+                : compact
+                  ? "bg-gradient-to-br from-green to-green-dark shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
+                  : "bg-green"
+            } ${compact ? "py-3 px-5 text-sm" : "py-3.5 px-6 text-[15px]"}`}>
+            Genereer berichten
+          </button>
+        </>
+      ) : (
+        <>
+          {/* Progress steps */}
+          <div className="flex gap-0.5 mb-7">
+            {STEPS.map((step) => {
+              const status = getStepStatus(step.key);
+              return (
+                <div key={step.key} className="flex-1">
+                  <div className={`h-[3px] rounded-sm mb-2 transition-colors duration-400 ${
+                    status === "done" ? "bg-green"
+                    : status === "active" ? "bg-[length:200%_100%] bg-[linear-gradient(90deg,var(--color-green)_0%,var(--color-linkedin)_50%,var(--color-green)_100%)] animate-[lm-shimmer_1.5s_infinite]"
+                    : "bg-gray-200"
+                  }`} />
+                  <span className={`text-[10px] font-semibold uppercase tracking-[0.5px] ${
+                    status === "done" ? "text-green" : status === "active" ? "text-linkedin" : "text-gray-300"
+                  }`}>{step.label}</span>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Status */}
+          {STATUS_TEXT[phase] && (
+            <div className="mb-6 py-4 px-5 bg-gray-50 rounded-[10px] border border-gray-200">
+              <p className="text-sm font-bold text-gray-900 mb-1">{STATUS_TEXT[phase].title}</p>
+              <p className="text-xs text-gray-400">{STATUS_TEXT[phase].sub}</p>
+            </div>
+          )}
+
+          {/* Profile card */}
+          {profile && phase !== "connecting" && phase !== "scanning" && (
+            <div className="py-4 px-5 bg-gray-50 rounded-[10px] border border-gray-200 mb-5 animate-[lm-fade-in_0.3s_ease]">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <p className="text-[15px] font-bold text-gray-900 mb-0.5">{profile.fullName}</p>
+                  <p className="text-[13px] text-gray-500">{profile.currentTitle}</p>
+                  {profile.companyName && <p className="text-xs text-gray-400">{profile.companyName}</p>}
+                </div>
+                {enriched && (
+                  <span className="text-[10px] py-1 px-2 bg-emerald-50 text-emerald-600 rounded-md font-semibold">
+                    Enriched
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Generated messages */}
+          {(phase === "writing-inmail" || phase === "writing-conn" || phase === "done") && (
+            <div>
+              <div className="flex gap-1 mb-0">
+                {(["inmail", "connection"] as const).map(tab => (
+                  <button key={tab} onClick={() => setActiveTab(tab)}
+                    className={`flex-1 py-2.5 rounded-t-lg text-[13px] font-semibold cursor-pointer font-[inherit] flex items-center justify-center gap-1.5 ${
+                      activeTab === tab
+                        ? "bg-surface-alt border border-gray-200 border-b-surface-alt text-gray-900"
+                        : "bg-transparent border border-transparent border-b-gray-200 text-gray-400"
+                    }`}>
+                    {tab === "inmail" ? "InMail" : "Connectieverzoek"}
+                    {((tab === "inmail" && (phase === "done" || phase === "writing-conn")) || (tab === "connection" && phase === "done")) && (
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-success">
+                        <circle cx="7" cy="7" r="7" fill="currentColor"/>
+                        <path d="M4.5 7l1.5 1.5 3.5-3.5" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              {/* InMail content */}
+              {activeTab === "inmail" && (
+                <div ref={messageRef} className="bg-surface-alt border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-sm leading-[1.8] text-gray-700 font-[inherit] max-h-[280px] overflow-y-auto">
+                  {inmailDisplayed || (
+                    <span className="text-gray-300 italic">{"Bericht wordt geschreven\u2026"}</span>
+                  )}
+                  {phase === "writing-inmail" && inmailDisplayed && (
+                    <span className="text-green animate-[lm-blink_0.7s_step-end_infinite]">|</span>
+                  )}
+                </div>
+              )}
+
+              {/* Connection content */}
+              {activeTab === "connection" && (
+                <div>
+                  <div className="bg-surface-alt border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-sm leading-[1.8] text-gray-700 font-[inherit] min-h-[72px]">
+                    {phase === "done" || phase === "writing-conn" ? (
+                      <>
+                        {connectionDisplayed || (
+                          <span className="text-gray-300 italic">{"Wordt opgesteld\u2026"}</span>
+                        )}
+                        {phase === "writing-conn" && connectionDisplayed && (
+                          <span className="text-green animate-[lm-blink_0.7s_step-end_infinite]">|</span>
+                        )}
+                      </>
+                    ) : (
+                      <span className="text-gray-300 italic">
+                        {"Wordt na InMail gegenereerd\u2026"}
+                      </span>
+                    )}
+                  </div>
+                  {phase === "done" && connectionFull && (
+                    <p className="text-[11px] text-gray-400 mt-2 mr-1 text-right">
+                      {connectionFull.length}/300 karakters
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Done actions */}
+          {phase === "done" && (
+            <div className="mt-6 animate-[lm-fade-in_0.3s_ease]">
+              <div className="flex gap-2.5">
+                <button onClick={() => { setActiveTab("inmail"); handleCopy("inmail"); }}
+                  className={`flex-1 py-3 px-4 rounded-lg text-[13px] font-semibold cursor-pointer transition-all font-[inherit] border-none whitespace-nowrap text-white ${
+                    copiedInmail ? "bg-emerald-500" : "bg-green"
+                  }`}>
+                  {copiedInmail ? "\u2713 Gekopieerd" : "Kopieer InMail"}
+                </button>
+                <button onClick={() => { setActiveTab("connection"); handleCopy("connection"); }}
+                  className={`flex-1 py-3 px-4 rounded-lg text-[13px] font-semibold cursor-pointer transition-all font-[inherit] border-none whitespace-nowrap text-white ${
+                    copiedConn ? "bg-emerald-500" : "bg-gray-800"
+                  }`}>
+                  {copiedConn ? "\u2713 Gekopieerd" : "Kopieer connectieverzoek"}
+                </button>
+                <button onClick={handleReset}
+                  className="py-3 px-4 rounded-lg text-[13px] font-semibold cursor-pointer transition-all font-[inherit] bg-gray-100 text-gray-700 border border-gray-300 whitespace-nowrap">
+                  Nieuw
+                </button>
+              </div>
+
+              {/* Upsell */}
+              {!compact && (
+                <div className="mt-5 p-5 bg-gray-50 border border-gray-200 rounded-[10px] flex items-center justify-between gap-4 flex-wrap">
+                  <div>
+                    <p className="text-sm font-bold text-gray-900 mb-1">
+                      Onbeperkt berichten + automatische follow-ups?
+                    </p>
+                    <p className="text-[13px] text-gray-500">
+                      Ontdek wat Elvatix voor jouw recruitment kan doen.
+                    </p>
+                  </div>
+                  <Link href="/demo" className="py-2.5 px-5 bg-green text-white rounded-lg font-semibold text-[13px] no-underline whitespace-nowrap shrink-0">
+                    {"Vraag demo aan \u2192"}
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
+
+          {error && <div className="py-2.5 px-3.5 bg-red-50 border border-red-200 rounded-lg text-red-600 text-[13px] mt-4">{error}</div>}
+        </>
+      )}
+    </div>
+  );
+
+  if (compact) {
+    return (
+      <>
+        {formContent}
+        <div className="flex justify-center gap-5 mt-3.5">
+          {[
+            { icon: "\ud83d\udd12", text: "Veilig & privé" },
+            { icon: "\u26a1", text: "Klaar in ~15 sec" },
+            { icon: "\ud83c\udfaf", text: "5x gratis per uur" },
+          ].map((item, i) => (
+            <span key={i} className="text-[11px] text-gray-400 flex items-center gap-1">
+              <span>{item.icon}</span> {item.text}
+            </span>
+          ))}
+        </div>
+        <style>{`
+          @keyframes lm-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+          @keyframes lm-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+          @keyframes lm-blink { 50% { opacity: 0; } }
+          @keyframes lm-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+          #lead-magnet input:focus { outline: none; border-color: var(--color-green); box-shadow: 0 0 0 2px rgba(141, 182, 0, 0.08); }
+        `}</style>
+      </>
+    );
+  }
+
   return (
-    <section id="lead-magnet" style={{
-      padding: "100px 24px",
-      background: "#f9fafb",
-      position: "relative",
-    }}>
-      <div style={{ maxWidth: 720, margin: "0 auto" }}>
+    <section className="py-[100px] px-6 bg-gray-50 relative">
+      <div className="max-w-[720px] mx-auto">
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <span style={{
-            display: "inline-block", fontSize: 12, fontWeight: 600, color: "#8db600",
-            letterSpacing: "1px", textTransform: "uppercase", marginBottom: 16,
-          }}>
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-semibold text-green tracking-[1px] uppercase mb-4">
             AI Recruitment Writer
           </span>
-          <h2 style={{
-            fontSize: "clamp(26px, 3.5vw, 42px)", fontWeight: 800, color: "#111827",
-            marginBottom: 12, lineHeight: 1.15, letterSpacing: "-0.025em",
-          }}>
+          <h2 className="text-[clamp(26px,3.5vw,42px)] font-extrabold text-gray-900 mb-3 leading-[1.15] tracking-tight">
             Genereer een gepersonaliseerd bericht
           </h2>
-          <p style={{ fontSize: 16, color: "#6b7280", maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>
-            Plak een LinkedIn URL — wij scrapen het profiel en schrijven een InMail en connectieverzoek op maat.
+          <p className="text-base text-gray-500 max-w-[520px] mx-auto leading-relaxed">
+            {"Plak een LinkedIn URL en wij scrapen het profiel en schrijven een InMail en connectieverzoek op maat."}
           </p>
         </div>
 
-        {/* Card */}
-        <div style={{
-          background: "#ffffff", borderRadius: 16, padding: "36px 32px",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
-          border: "1px solid #e5e7eb",
-        }}>
-          {phase === "idle" ? (
-            <>
-              {/* LinkedIn URL */}
-              <div style={{ marginBottom: 20 }}>
-                <label style={labelStyle}>LinkedIn URL *</label>
-                <div style={{
-                  display: "flex", alignItems: "center",
-                  border: "1px solid #d1d5db", borderRadius: 10, overflow: "hidden",
-                  transition: "border-color 0.2s",
-                }}>
-                  <span style={{
-                    padding: "12px 14px", background: "#f9fafb", borderRight: "1px solid #d1d5db",
-                    display: "flex", alignItems: "center",
-                  }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                      <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-                    </svg>
-                  </span>
-                  <input type="url" placeholder="https://linkedin.com/in/jan-jansen"
-                    value={linkedinUrl} onChange={(e) => setLinkedinUrl(e.target.value)}
-                    style={inputStyle} />
-                </div>
-              </div>
-
-              {/* Job title */}
-              <div style={{ marginBottom: 20 }}>
-                <label style={labelStyle}>Functie waarvoor je werft</label>
-                <input type="text" placeholder="bijv. Senior Software Engineer"
-                  value={jobTitle} onChange={(e) => setJobTitle(e.target.value)}
-                  style={{ ...inputStyle, ...fullInputStyle }} />
-              </div>
-
-              {/* Tone */}
-              <div style={{ marginBottom: 20 }}>
-                <label style={labelStyle}>Toon</label>
-                <div style={{ display: "flex", gap: 10 }}>
-                  {(["informal", "formal"] as const).map((t) => (
-                    <button key={t} onClick={() => setTone(t)} style={{
-                      flex: 1, padding: "11px 16px", borderRadius: 8,
-                      border: tone === t ? "1.5px solid #8db600" : "1px solid #d1d5db",
-                      background: tone === t ? "#f0f3ff" : "#fff",
-                      color: tone === t ? "#8db600" : "#6b7280",
-                      fontWeight: 600, fontSize: 14, cursor: "pointer",
-                      transition: "all 0.15s ease", fontFamily: "inherit",
-                    }}>
-                      {t === "informal" ? "Informeel" : "Formeel"}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Email */}
-              <div style={{ marginBottom: 28 }}>
-                <label style={labelStyle}>E-mailadres *</label>
-                <input type="email" placeholder="naam@bedrijf.nl"
-                  value={email} onChange={(e) => setEmail(e.target.value)}
-                  style={{ ...inputStyle, ...fullInputStyle }} />
-              </div>
-
-              {error && <div style={errorStyle}>{error}</div>}
-
-              <button onClick={handleGenerate} disabled={!email || !linkedinUrl} style={{
-                width: "100%", padding: "14px 24px",
-                background: !email || !linkedinUrl ? "#d1d5db" : "#8db600",
-                color: "white", border: "none", borderRadius: 10,
-                fontSize: 15, fontWeight: 700, cursor: !email || !linkedinUrl ? "not-allowed" : "pointer",
-                transition: "background 0.2s", fontFamily: "inherit",
-              }}>
-                Genereer berichten
-              </button>
-            </>
-          ) : (
-            <>
-              {/* Progress steps */}
-              <div style={{ display: "flex", gap: 2, marginBottom: 28 }}>
-                {STEPS.map((step) => {
-                  const status = getStepStatus(step.key);
-                  return (
-                    <div key={step.key} style={{ flex: 1 }}>
-                      <div style={{
-                        height: 3, borderRadius: 2, marginBottom: 8,
-                        background: status === "done" ? "#8db600"
-                          : status === "active" ? "#93a6f5"
-                          : "#e5e7eb",
-                        transition: "background 0.4s ease",
-                      }} />
-                      <p style={{
-                        fontSize: 11, fontWeight: 600, textAlign: "center", margin: 0,
-                        color: status === "done" ? "#8db600"
-                          : status === "active" ? "#8db600"
-                          : "#d1d5db",
-                        transition: "color 0.3s",
-                      }}>
-                        {step.label}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Status line */}
-              <div style={{
-                display: "flex", alignItems: "center", gap: 12,
-                padding: "14px 18px", background: "#f9fafb",
-                border: "1px solid #e5e7eb", borderRadius: 10, marginBottom: 20,
-              }}>
-                {phase !== "done" ? (
-                  <div style={{
-                    width: 8, height: 8, borderRadius: "50%", background: "#8db600",
-                    animation: "lm-pulse 1.5s ease-in-out infinite", flexShrink: 0,
-                  }} />
-                ) : (
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
-                    <circle cx="8" cy="8" r="8" fill="#10b981"/>
-                    <path d="M5 8l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                )}
-                <div style={{ minWidth: 0 }}>
-                  <p style={{ fontSize: 14, fontWeight: 600, color: "#111827", margin: 0 }}>
-                    {STATUS_TEXT[phase]?.title || "Klaar"}
-                  </p>
-                  <p style={{ fontSize: 12, color: "#9ca3af", margin: 0 }}>
-                    {STATUS_TEXT[phase]?.sub || ""}
-                  </p>
-                </div>
-              </div>
-
-              {/* Scanning skeleton */}
-              {(phase === "connecting" || phase === "scanning") && (
-                <div style={{
-                  display: "flex", alignItems: "center", gap: 14, padding: "18px",
-                  background: "#f9fafb", border: "1px solid #e5e7eb", borderRadius: 10,
-                }}>
-                  <div style={{ width: 44, height: 44, borderRadius: 10, background: "#e5e7eb", flexShrink: 0, animation: "lm-shimmer 1.5s ease-in-out infinite" }} />
-                  <div style={{ flex: 1 }}>
-                    <div style={{ width: "55%", height: 14, background: "#e5e7eb", borderRadius: 4, marginBottom: 8, animation: "lm-shimmer 1.5s ease-in-out infinite" }} />
-                    <div style={{ width: "35%", height: 10, background: "#e5e7eb", borderRadius: 4, animation: "lm-shimmer 1.5s ease-in-out infinite" }} />
-                  </div>
-                </div>
-              )}
-
-              {/* Profile card */}
-              {profile && currentIdx >= phaseOrder.indexOf("found") && (
-                <div style={{
-                  padding: "18px", background: "#f9fafb",
-                  border: "1px solid #e5e7eb", borderRadius: 10,
-                  marginBottom: phase === "found" || phase === "analyzing" ? 0 : 20,
-                  animation: "lm-fade-in 0.3s ease",
-                }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <div style={{
-                      width: 44, height: 44, borderRadius: 10, background: "#8db600",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      color: "white", fontSize: 16, fontWeight: 700, flexShrink: 0,
-                    }}>
-                      {profile.fullName.split(" ").map(n => n[0]).join("").slice(0, 2)}
-                    </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                        <p style={{ fontSize: 15, fontWeight: 700, color: "#111827", margin: 0 }}>
-                          {profile.fullName}
-                        </p>
-                        {enriched && (
-                          <span style={{
-                            fontSize: 10, fontWeight: 600, color: "#8db600", background: "#f0f3ff",
-                            padding: "2px 7px", borderRadius: 4, letterSpacing: "0.3px",
-                          }}>VERRIJKT</span>
-                        )}
-                      </div>
-                      <p style={{ fontSize: 13, color: "#6b7280", margin: "2px 0 0" }}>
-                        {profile.currentTitle}{profile.companyName ? ` · ${profile.companyName}` : ""}
-                      </p>
-                    </div>
-                  </div>
-                  {enriched && (profile.location || profile.jobHistory.length > 0 || profile.skills.length > 0) && (
-                    <div style={{
-                      display: "flex", gap: 16, marginTop: 12, paddingTop: 12,
-                      borderTop: "1px solid #e5e7eb", flexWrap: "wrap",
-                    }}>
-                      {profile.location && (
-                        <span style={{ fontSize: 12, color: "#9ca3af", display: "inline-flex", alignItems: "center", gap: 4 }}><MapPinIcon size={12} /> {profile.location}</span>
-                      )}
-                      {profile.jobHistory.length > 0 && (
-                        <span style={{ fontSize: 12, color: "#9ca3af", display: "inline-flex", alignItems: "center", gap: 4 }}><BriefcaseIcon size={12} /> {profile.jobHistory.length} posities</span>
-                      )}
-                      {profile.skills.length > 0 && (
-                        <span style={{ fontSize: 12, color: "#9ca3af", display: "inline-flex", alignItems: "center", gap: 4 }}><ZapIcon size={12} /> {profile.skills.length} skills</span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Message area */}
-              {(["writing-inmail", "writing-conn", "done"].includes(phase)) && (
-                <div style={{ marginTop: 20, animation: "lm-fade-in 0.3s ease" }}>
-                  {/* Tabs */}
-                  <div style={{ display: "flex", gap: 0, marginBottom: 0, borderBottom: "1px solid #e5e7eb" }}>
-                    {[
-                      { key: "inmail" as const, label: "InMail", done: !!inmailFull },
-                      { key: "connection" as const, label: "Connectieverzoek", done: !!connectionFull && phase === "done" },
-                    ].map((tab) => (
-                      <button key={tab.key} onClick={() => setActiveTab(tab.key)} style={{
-                        padding: "10px 20px", border: "none",
-                        borderBottom: activeTab === tab.key ? "2px solid #8db600" : "2px solid transparent",
-                        background: "transparent",
-                        color: activeTab === tab.key ? "#8db600" : "#9ca3af",
-                        fontWeight: 600, fontSize: 13, cursor: "pointer",
-                        fontFamily: "inherit", transition: "all 0.15s",
-                        display: "flex", alignItems: "center", gap: 6,
-                      }}>
-                        {tab.label}
-                        {tab.done && (
-                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <circle cx="7" cy="7" r="7" fill="#10b981"/>
-                            <path d="M4.5 7l1.5 1.5 3.5-3.5" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* InMail content */}
-                  {activeTab === "inmail" && (
-                    <div ref={messageRef} style={{
-                      ...messageBoxStyle, maxHeight: 280, overflowY: "auto",
-                    }}>
-                      {inmailDisplayed || (
-                        <span style={{ color: "#d1d5db", fontStyle: "italic" }}>Bericht wordt geschreven…</span>
-                      )}
-                      {phase === "writing-inmail" && inmailDisplayed && (
-                        <span style={{ color: "#8db600", animation: "lm-blink 0.7s step-end infinite" }}>|</span>
-                      )}
-                    </div>
-                  )}
-
-                  {/* Connection content */}
-                  {activeTab === "connection" && (
-                    <div>
-                      <div style={{ ...messageBoxStyle, minHeight: 72 }}>
-                        {phase === "done" || phase === "writing-conn" ? (
-                          <>
-                            {connectionDisplayed || (
-                              <span style={{ color: "#d1d5db", fontStyle: "italic" }}>Wordt opgesteld…</span>
-                            )}
-                            {phase === "writing-conn" && connectionDisplayed && (
-                              <span style={{ color: "#8db600", animation: "lm-blink 0.7s step-end infinite" }}>|</span>
-                            )}
-                          </>
-                        ) : (
-                          <span style={{ color: "#d1d5db", fontStyle: "italic" }}>
-                            Wordt na InMail gegenereerd…
-                          </span>
-                        )}
-                      </div>
-                      {phase === "done" && connectionFull && (
-                        <p style={{ fontSize: 11, color: "#9ca3af", margin: "8px 4px 0", textAlign: "right" }}>
-                          {connectionFull.length}/300 karakters
-                        </p>
-                      )}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Done actions */}
-              {phase === "done" && (
-                <div style={{ marginTop: 24, animation: "lm-fade-in 0.3s ease" }}>
-                  <div style={{ display: "flex", gap: 10 }}>
-                    <button onClick={() => { setActiveTab("inmail"); handleCopy("inmail"); }}
-                      style={{
-                        ...actionBtnStyle,
-                        flex: 1,
-                        background: copiedInmail ? "#10b981" : "#8db600",
-                        color: "white",
-                      }}>
-                      {copiedInmail ? "Gekopieerd" : "Kopieer InMail"}
-                    </button>
-                    <button onClick={() => { setActiveTab("connection"); handleCopy("connection"); }}
-                      style={{
-                        ...actionBtnStyle,
-                        flex: 1,
-                        background: copiedConn ? "#10b981" : "#111827",
-                        color: "white",
-                      }}>
-                      {copiedConn ? "Gekopieerd" : "Kopieer connectieverzoek"}
-                    </button>
-                    <button onClick={handleReset}
-                      style={{
-                        ...actionBtnStyle,
-                        background: "#f3f4f6", color: "#374151", border: "1px solid #d1d5db",
-                      }}>
-                      Nieuw
-                    </button>
-                  </div>
-
-                  {/* Upsell */}
-                  <div style={{
-                    marginTop: 20, padding: "20px", background: "#f9fafb",
-                    border: "1px solid #e5e7eb", borderRadius: 10,
-                    display: "flex", alignItems: "center", justifyContent: "space-between",
-                    gap: 16, flexWrap: "wrap",
-                  }}>
-                    <div>
-                      <p style={{ fontSize: 14, fontWeight: 700, color: "#111827", margin: "0 0 4px" }}>
-                        Onbeperkt berichten + automatische follow-ups?
-                      </p>
-                      <p style={{ fontSize: 13, color: "#6b7280", margin: 0 }}>
-                        Ontdek wat Elvatix voor jouw recruitment kan doen.
-                      </p>
-                    </div>
-                    <a href="/demo" style={{
-                      padding: "10px 20px", background: "#8db600", color: "white",
-                      borderRadius: 8, fontWeight: 600, fontSize: 13,
-                      textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0,
-                    }}>
-                      Vraag demo aan →
-                    </a>
-                  </div>
-                </div>
-              )}
-
-              {error && <div style={{ ...errorStyle, marginTop: 16 }}>{error}</div>}
-            </>
-          )}
-        </div>
+        {formContent}
 
         {/* Trust */}
-        <div style={{ display: "flex", justifyContent: "center", gap: 24, marginTop: 28, flexWrap: "wrap" }}>
+        <div className="flex justify-center gap-6 mt-7 flex-wrap">
           {[
-            { icon: <ShieldCheckIcon size={16} />, text: "Veilig & privé" },
-            { icon: <ZapIcon size={16} />, text: "Klaar in ~15 sec" },
-            { icon: <TargetIcon size={16} />, text: "5x gratis per uur" },
+            { icon: "\ud83d\udd12", text: "Veilig & privé" },
+            { icon: "\u26a1", text: "Klaar in ~15 sec" },
+            { icon: "\ud83c\udfaf", text: "5x gratis per uur" },
           ].map((item, i) => (
-            <span key={i} style={{ fontSize: 12, color: "#9ca3af", display: "flex", alignItems: "center", gap: 5 }}>
+            <span key={i} className="text-xs text-gray-400 flex items-center gap-1.5">
               <span>{item.icon}</span> {item.text}
             </span>
           ))}
@@ -557,57 +481,12 @@ export default function LeadMagnet() {
 
       <style>{`
         @keyframes lm-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-        @keyframes lm-shimmer {
-          0% { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
-        }
+        @keyframes lm-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
         @keyframes lm-blink { 50% { opacity: 0; } }
         @keyframes lm-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-
-        #lead-magnet input:focus {
-          outline: none;
-          border-color: #8db600 !important;
-          box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.08);
-        }
-
-        @media (max-width: 640px) {
-          #lead-magnet .lm-actions { flex-direction: column; }
-        }
+        #lead-magnet input:focus { outline: none; border-color: var(--color-green); box-shadow: 0 0 0 2px rgba(141, 182, 0, 0.08); }
+        @media (max-width: 640px) { #lead-magnet .lm-actions { flex-direction: column; } }
       `}</style>
     </section>
   );
 }
-
-// Shared styles
-const labelStyle: React.CSSProperties = {
-  display: "block", fontSize: 13, fontWeight: 600, color: "#374151",
-  marginBottom: 6,
-};
-
-const inputStyle: React.CSSProperties = {
-  flex: 1, padding: "12px 14px", border: "none", outline: "none",
-  fontSize: 14, background: "transparent", color: "#111827", fontFamily: "inherit",
-};
-
-const fullInputStyle: React.CSSProperties = {
-  width: "100%", border: "1px solid #d1d5db", borderRadius: 10,
-  background: "#ffffff", boxSizing: "border-box" as const,
-};
-
-const messageBoxStyle: React.CSSProperties = {
-  background: "#fafbfc", borderLeft: "1px solid #e5e7eb", borderRight: "1px solid #e5e7eb",
-  borderBottom: "1px solid #e5e7eb", borderTop: "none",
-  borderRadius: "0 0 10px 10px", padding: "20px",
-  whiteSpace: "pre-wrap" as const, fontSize: 14, lineHeight: 1.8, color: "#374151", fontFamily: "inherit",
-};
-
-const errorStyle: React.CSSProperties = {
-  padding: "10px 14px", background: "#fef2f2", border: "1px solid #fecaca",
-  borderRadius: 8, color: "#dc2626", fontSize: 13, marginBottom: 16,
-};
-
-const actionBtnStyle: React.CSSProperties = {
-  padding: "12px 16px", borderRadius: 8, fontSize: 13, fontWeight: 600,
-  cursor: "pointer", transition: "all 0.15s ease", fontFamily: "inherit",
-  border: "none", whiteSpace: "nowrap" as const,
-};

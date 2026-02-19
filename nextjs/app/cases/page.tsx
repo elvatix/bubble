@@ -1,107 +1,103 @@
-import type { Metadata } from "next";
-import { BuildingIcon, ZapIcon } from "@/components/icons/Icons";
+import Container from '@/components/ui/Container';
+import Button from '@/components/ui/Button';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Case Studies — Elvatix",
-  description: "Ontdek hoe recruitmentbureaus zoals Manpower en Vibe Group hun outreach transformeerden met Elvatix.",
+  title: 'Case Studies | Elvatix',
+  description: 'Ontdek hoe recruitmentbureaus hun outreach transformeerden met Elvatix.',
+  alternates: { canonical: '/cases' },
 };
 
 const cases = [
   {
-    company: "Manpower",
-    industry: "Uitzenden & Detachering",
-    logo: <BuildingIcon size={48} />,
-    challenge: "Het team van 40+ recruiters verstuurde handmatig InMails die te generiek waren. Response rates lagen onder de 15% en de doorlooptijd van vacatures liep op.",
-    solution: "Manpower implementeerde Elvatix voor het volledige recruitment team. Elke recruiter genereert nu gepersonaliseerde berichten op basis van LinkedIn profieldata, met follow-up reminders en analytics per medewerker.",
+    company: 'Manpower',
+    industry: 'Uitzenden & Detachering',
+    logo: '🏢',
+    challenge: 'Het team van 40+ recruiters verstuurde handmatig InMails die te generiek waren. Response rates lagen onder de 15% en de doorlooptijd van vacatures liep op.',
+    solution: 'Manpower implementeerde Elvatix voor het volledige recruitment team. Elke recruiter genereert nu gepersonaliseerde berichten op basis van LinkedIn profieldata, met follow-up reminders en analytics per medewerker.',
     results: [
-      { metric: "Response rate", before: "14%", after: "41%" },
-      { metric: "Time-to-fill", before: "34 dagen", after: "21 dagen" },
-      { metric: "Tijd per bericht", before: "8 min", after: "30 sec" },
+      { label: 'Response rate', before: '14%', after: '41%' },
+      { label: 'Time-to-fill', before: '34 dagen', after: '21 dagen' },
+      { label: 'Tijd per bericht', before: '8 min', after: '30 sec' },
     ],
-    quote: "Elvatix heeft de manier waarop ons team kandidaten benadert compleet veranderd. De berichten voelen echt persoonlijk — kandidaten merken niet dat AI meehielp.",
-    quoteName: "Lisa van der Berg",
-    quoteRole: "Head of Talent Acquisition, Manpower Nederland",
+    quote: 'Elvatix heeft de manier waarop ons team kandidaten benadert compleet veranderd. De berichten voelen echt persoonlijk . Kandidaten merken niet dat AI meehielp.',
+    quotePerson: 'Lisa van der Berg',
+    quoteRole: 'Head of Talent Acquisition, Manpower Nederland',
   },
   {
-    company: "Vibe Group",
-    industry: "IT Recruitment & Detachering",
-    logo: <ZapIcon size={48} />,
-    challenge: "Als snelgroeiend IT-recruitmentbureau had Vibe Group moeite om de outreach-kwaliteit te bewaken bij schaalvergroting. Nieuwe recruiters hadden weken nodig om het niveau van seniors te bereiken.",
-    solution: "Met Elvatix kregen juniors direct toegang tot AI-gestuurde berichten die het niveau van senior recruiters evenaarden. Custom GPT werd getraind op de Vibe Group schrijfstijl.",
+    company: 'Vibe Group',
+    industry: 'IT Recruitment & Detachering',
+    logo: '⚡',
+    challenge: 'Als snelgroeiend IT-recruitmentbureau had Vibe Group moeite om de outreach-kwaliteit te bewaken bij schaalvergroting. Nieuwe recruiters hadden weken nodig om het niveau van seniors te bereiken.',
+    solution: 'Met Elvatix kregen juniors direct toegang tot AI-gestuurde berichten die het niveau van senior recruiters evenaarden. Custom GPT werd getraind op de Vibe Group schrijfstijl.',
     results: [
-      { metric: "Onboarding-tijd recruiters", before: "6 weken", after: "1 week" },
-      { metric: "Connectie-acceptatie", before: "23%", after: "52%" },
-      { metric: "Berichten per dag p.p.", before: "15", after: "60+" },
+      { label: 'Onboarding-tijd recruiters', before: '6 weken', after: '1 week' },
+      { label: 'Connectie-acceptatie', before: '23%', after: '52%' },
+      { label: 'Berichten per dag p.p.', before: '15', after: '60+' },
     ],
-    quote: "De impact was direct zichtbaar. Onze juniors presteerden binnen een week op senior niveau. Dat had ik niet voor mogelijk gehouden.",
-    quoteName: "Mark de Vries",
-    quoteRole: "COO, Vibe Group",
+    quote: 'De impact was direct zichtbaar. Onze juniors presteerden binnen een week op senior niveau. Dat had ik niet voor mogelijk gehouden.',
+    quotePerson: 'Mark de Vries',
+    quoteRole: 'COO, Vibe Group',
   },
 ];
 
 export default function CasesPage() {
   return (
-    <main style={{ paddingTop: 100 }}>
-      <section style={{ padding: "80px 24px", textAlign: "center" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
-            Case Studies
-          </p>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
-            Resultaten die voor zich spreken
-          </h1>
-          <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto" }}>
-            Ontdek hoe toonaangevende recruitmentbureaus hun outreach transformeerden met Elvatix.
-          </p>
-        </div>
-      </section>
+    <main className="pt-40 pb-0">
+      <Container className="text-center mb-16">
+        <span className="page-badge">Case Studies</span>
+        <h1 className="page-heading">Resultaten die spreken</h1>
+        <p className="page-subtitle">
+          Ontdek hoe toonaangevende recruitmentbureaus hun outreach transformeerden met Elvatix.
+        </p>
+      </Container>
 
-      {cases.map((c) => (
-        <section key={c.company} style={{ padding: "0 24px 80px" }}>
-          <div style={{ maxWidth: 900, margin: "0 auto", background: "#f9fafb", borderRadius: 24, padding: 48, border: "1px solid #e5e7eb" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 32 }}>
-              <span style={{ color: "#8db600", display: "flex" }}>{c.logo}</span>
-              <div>
-                <h2 style={{ fontSize: 28, fontWeight: 800, color: "#111" }}>{c.company}</h2>
-                <p style={{ fontSize: 14, color: "#6b7280" }}>{c.industry}</p>
+      <Container className="max-w-4xl mb-20">
+        <div className="flex flex-col gap-16">
+          {cases.map((c) => (
+            <div key={c.company} className="border border-gray-200 rounded-2xl overflow-hidden">
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-3xl">{c.logo}</span>
+                  <div>
+                    <h2 className="text-2xl font-bold text-gray-900">{c.company}</h2>
+                    <p className="text-sm text-gray-500">{c.industry}</p>
+                  </div>
+                </div>
+
+                <h3 className="font-bold text-gray-900 mb-2">De uitdaging</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">{c.challenge}</p>
+
+                <h3 className="font-bold text-gray-900 mb-2">De oplossing</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-8">{c.solution}</p>
+
+                <div className="grid grid-cols-3 gap-4 mb-8">
+                  {c.results.map((r) => (
+                    <div key={r.label} className="bg-gray-50 rounded-xl p-4 text-center">
+                      <p className="text-xs text-gray-500 mb-1">{r.label}</p>
+                      <p className="text-xs text-gray-400 line-through">{r.before}</p>
+                      <p className="text-2xl font-black text-linkedin">{r.after}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <blockquote className="border-l-4 border-linkedin pl-4 italic text-gray-600 text-sm mb-2">
+                  &ldquo;{c.quote}&rdquo;
+                </blockquote>
+                <p className="text-sm font-bold text-gray-900">{c.quotePerson}</p>
+                <p className="text-xs text-gray-500">{c.quoteRole}</p>
               </div>
             </div>
-
-            <div style={{ marginBottom: 32 }}>
-              <h3 style={{ fontSize: 16, fontWeight: 700, color: "#111", marginBottom: 8 }}>De uitdaging</h3>
-              <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.7 }}>{c.challenge}</p>
-            </div>
-
-            <div style={{ marginBottom: 32 }}>
-              <h3 style={{ fontSize: 16, fontWeight: 700, color: "#111", marginBottom: 8 }}>De oplossing</h3>
-              <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.7 }}>{c.solution}</p>
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, marginBottom: 32 }}>
-              {c.results.map((r) => (
-                <div key={r.metric} style={{ background: "#fff", borderRadius: 16, padding: 24, textAlign: "center", border: "1px solid #e5e7eb" }}>
-                  <p style={{ fontSize: 13, color: "#6b7280", marginBottom: 8 }}>{r.metric}</p>
-                  <p style={{ fontSize: 14, color: "#9ca3af", textDecoration: "line-through", marginBottom: 4 }}>{r.before}</p>
-                  <p style={{ fontSize: 28, fontWeight: 800, color: "#8db600" }}>{r.after}</p>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ background: "#fff", borderRadius: 16, padding: 32, borderLeft: "4px solid #8db600" }}>
-              <p style={{ fontSize: 16, color: "#374151", lineHeight: 1.7, fontStyle: "italic", marginBottom: 16 }}>"{c.quote}"</p>
-              <p style={{ fontSize: 14, fontWeight: 600, color: "#111" }}>{c.quoteName}</p>
-              <p style={{ fontSize: 13, color: "#6b7280" }}>{c.quoteRole}</p>
-            </div>
-          </div>
-        </section>
-      ))}
-
-      <section style={{ padding: "80px 24px", background: "#111", textAlign: "center" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 36, fontWeight: 800, color: "#fff", marginBottom: 16 }}>Word de volgende success story</h2>
-          <p style={{ color: "#9ca3af", fontSize: 16, marginBottom: 32 }}>Ontdek wat Elvatix voor jouw team kan betekenen.</p>
-          <a href="/demo" className="pill-btn pill-btn-white" style={{ padding: "14px 32px", fontSize: 16 }}>Boek een demo</a>
+          ))}
         </div>
+      </Container>
+
+      <section className="cta-section">
+        <Container className="text-center text-white">
+          <h2 className="text-2xl font-extrabold mb-3">Word de volgende success story</h2>
+          <p className="text-white/80 mb-6">Ontdek wat Elvatix voor jouw team kan betekenen.</p>
+          <Button variant="white" href="/demo">Plan een demo</Button>
+        </Container>
       </section>
     </main>
   );

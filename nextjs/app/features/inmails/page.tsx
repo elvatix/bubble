@@ -1,49 +1,49 @@
-import type { Metadata } from "next";
-import { MessageSquareIcon } from "@/components/icons/Icons";
+import Container from '@/components/ui/Container';
+import Button from '@/components/ui/Button';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "AI InMails — Elvatix",
-  description: "Genereer gepersonaliseerde LinkedIn InMails op basis van profieldata. Elke keer uniek, relevant en in natuurlijk Nederlands.",
+  title: 'AI InMails | Elvatix',
+  description: 'Genereer gepersonaliseerde LinkedIn InMails in seconden met AI.',
+  alternates: { canonical: '/features/inmails' },
 };
+
+const features = [
+  { title: 'Profielanalyse in seconden', desc: 'Plak een LinkedIn URL en onze AI analyseert werkervaring, skills, interesses en carrièrepad . Alles in één klik.' },
+  { title: 'Natuurlijk Nederlands', desc: 'Geen stijve, robotachtige berichten. Elvatix schrijft alsof een ervaren recruiter het zelf typt . Persoonlijk en menselijk.' },
+  { title: 'Tone-of-voice aanpasbaar', desc: 'Van formeel tot casual, van direct tot subtiel. Pas de schrijfstijl aan op jouw merk en doelgroep.' },
+  { title: 'Custom GPT training', desc: 'Train het model op jouw beste berichten. Hoe meer je het gebruikt, hoe beter het jouw stijl begrijpt.' },
+];
 
 export default function InMailsPage() {
   return (
-    <main style={{ paddingTop: 100 }}>
-      <section style={{ padding: "80px 24px", textAlign: "center" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>InMails</p>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
-            InMails die gelezen worden
-          </h1>
-          <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto 40px" }}>
-            Geen copy-paste templates meer. Elvatix analyseert het volledige LinkedIn profiel en schrijft een bericht dat aansluit op de werkervaring, skills en carrière van je kandidaat.
-          </p>
-          <div style={{ marginBottom: 40, color: "#8db600", display: "flex", justifyContent: "center" }}><MessageSquareIcon size={100} /></div>
-        </div>
-      </section>
+    <main className="pt-40 pb-0">
+      <Container className="text-center mb-16">
+        <span className="page-badge">AI InMails</span>
+        <h1 className="page-heading">InMails die daadwerkelijk gelezen worden</h1>
+        <p className="page-subtitle">
+          Genereer hyper-gepersonaliseerde LinkedIn InMails op basis van het profiel van je kandidaat . In seconden, niet in minuten.
+        </p>
+        <div className="text-8xl my-10">💬</div>
+      </Container>
 
-      <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", flexDirection: "column", gap: 24 }}>
-          {[
-            { title: "Profiel-gebaseerde personalisatie", desc: "Elvatix leest werkervaring, headline, skills en carrièrepad. Het bericht refereert aan specifieke details — geen generieke zinnen." },
-            { title: "Chronologisch bewust", desc: "AI onderscheidt huidige en vorige functies. Iemand die nu CEO is en eerder developer was? Het bericht klopt altijd." },
-            { title: "Tone-of-voice controle", desc: "Kies tussen formeel en informeel. Of train Custom GPT op jouw eigen schrijfstijl voor maximale consistentie." },
-            { title: "Nederlands én Engels", desc: "Native kwaliteit in beide talen. Geen vertaaltaal of stijve constructies — gewoon hoe een mens het zou schrijven." },
-          ].map((item) => (
-            <div key={item.title} style={{ background: "#f9fafb", borderRadius: 16, padding: 32, border: "1px solid #e5e7eb" }}>
-              <h3 style={{ fontSize: 18, fontWeight: 700, color: "#111", marginBottom: 8 }}>{item.title}</h3>
-              <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.7 }}>{item.desc}</p>
+      <Container className="max-w-4xl mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {features.map((f) => (
+            <div key={f.title} className="bg-white border border-gray-200 rounded-2xl p-6">
+              <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
-      </section>
+      </Container>
 
-      <section style={{ padding: "80px 24px", background: "#111", textAlign: "center" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: "#fff", marginBottom: 16 }}>Probeer het zelf</h2>
-          <p style={{ color: "#9ca3af", fontSize: 16, marginBottom: 32 }}>Ga naar de homepage en test de InMail generator met een LinkedIn URL.</p>
-          <a href="/#lead-magnet" className="pill-btn pill-btn-white" style={{ padding: "14px 32px", fontSize: 16 }}>Probeer gratis →</a>
-        </div>
+      <section className="cta-section">
+        <Container className="text-center text-white">
+          <h2 className="text-2xl font-extrabold mb-3">Probeer het zelf</h2>
+          <p className="text-white/80 mb-6">Ga naar de homepage en genereer je eerste AI InMail . Helemaal gratis.</p>
+          <Button variant="white" href="/">Probeer gratis →</Button>
+        </Container>
       </section>
     </main>
   );

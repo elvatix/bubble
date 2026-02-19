@@ -1,99 +1,80 @@
-import type { Metadata } from "next";
-import { MessageSquareIcon, UsersIcon, ClockIcon, BarChartIcon, CpuIcon, FileTextIcon } from "@/components/icons/Icons";
+import Container from '@/components/ui/Container';
+import Button from '@/components/ui/Button';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Platform — Elvatix",
-  description: "Ontdek het Elvatix platform: AI-powered recruitment tools voor InMails, connectieverzoeken, reminders en analytics.",
+  title: 'Platform | Elvatix',
+  description: 'Ontdek het complete Elvatix platform. AI InMails, connectieverzoeken, reminders en analytics in één tool.',
+  alternates: { canonical: '/platform' },
 };
 
-const features = [
-  { icon: <MessageSquareIcon size={40} />, title: "AI InMails", desc: "Genereer gepersonaliseerde InMails op basis van het LinkedIn-profiel van je kandidaat. Eén klik, klaar.", href: "/features/inmails" },
-  { icon: <UsersIcon size={40} />, title: "Connectieverzoeken", desc: "Schrijf connectieverzoeken die opvallen en daadwerkelijk geaccepteerd worden. Geen standaard templates.", href: "/features/connections" },
-  { icon: <ClockIcon size={40} />, title: "Smart Reminders", desc: "Automatische follow-ups afgestemd op eerdere interacties. Nooit meer een kandidaat vergeten.", href: "/features/reminders" },
-  { icon: <BarChartIcon size={40} />, title: "Analytics Dashboard", desc: "Zie welke berichten converteren, welke templates het beste werken en waar je tijd het meest oplevert.", href: "/features/analytics" },
-  { icon: <CpuIcon size={40} />, title: "Custom GPT", desc: "Train je eigen AI-model op jouw schrijfstijl, tone-of-voice en branchekennis. Uniek voor Elvatix.", href: "/platform" },
-  { icon: <FileTextIcon size={40} />, title: "Templates", desc: "Bewaar en deel je beste berichten als template. Gebruik ze als startpunt voor nieuwe outreach.", href: "/platform" },
+const modules = [
+  { icon: '💬', title: 'AI InMails', desc: 'Genereer gepersonaliseerde InMails op basis van het LinkedIn-profiel van je kandidaat. Eén klik, klaar.', href: '/features/inmails' },
+  { icon: '🤝', title: 'Connectieverzoeken', desc: 'Schrijf connectieverzoeken die opvallen en daadwerkelijk geaccepteerd worden. Geen standaard templates.', href: '/features/connections' },
+  { icon: '⏰', title: 'Smart Reminders', desc: 'Automatische follow-ups afgestemd op eerdere interacties. Nooit meer een kandidaat vergeten.', href: '/features/reminders' },
+  { icon: '📊', title: 'Analytics Dashboard', desc: 'Zie welke berichten converteren, welke templates het beste werken en waar je tijd het meest oplevert.', href: '/features/analytics' },
+  { icon: '🤖', title: 'Custom GPT', desc: 'Train je eigen AI-model op jouw schrijfstijl, tone-of-voice en branchekennis. Uniek voor Elvatix.', href: '/platform' },
+  { icon: '📝', title: 'Templates', desc: 'Bewaar en deel je beste berichten als template. Gebruik ze als startpunt voor nieuwe outreach.', href: '/platform' },
 ];
 
-const steps = [
-  { num: "01", title: "Plak een LinkedIn URL", desc: "Voer de LinkedIn-URL van je kandidaat in. Elvatix haalt automatisch alle relevante profieldata op." },
-  { num: "02", title: "AI analyseert het profiel", desc: "Onze AI leest werkervaring, skills, headline en carrièrepad. Binnen seconden begrijpt het wie je kandidaat is." },
-  { num: "03", title: "Ontvang gepersonaliseerde berichten", desc: "Je krijgt een InMail én connectieverzoek op maat. Persoonlijk, relevant en in natuurlijk Nederlands." },
+const howItWorks = [
+  { num: '01', title: 'Plak een LinkedIn URL', desc: 'Kopieer de LinkedIn-URL van je kandidaat en plak deze in Elvatix. Dat is alles wat je nodig hebt.' },
+  { num: '02', title: 'AI analyseert het profiel', desc: 'Onze AI leest werkervaring, skills, headline en carrièrepad. Binnen seconden begrijpt het wie je kandidaat is.' },
+  { num: '03', title: 'Ontvang gepersonaliseerde berichten', desc: 'Je krijgt een InMail én connectieverzoek op maat. Persoonlijk, relevant en in natuurlijk Nederlands.' },
 ];
 
 export default function PlatformPage() {
   return (
-    <main style={{ paddingTop: 100 }}>
-      {/* Hero */}
-      <section style={{ padding: "80px 24px", textAlign: "center" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
-            Platform
-          </p>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
-            Eén platform voor al je LinkedIn recruitment
-          </h1>
-          <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto 40px" }}>
-            Elvatix combineert AI-powered messaging, slimme follow-ups en diepgaande analytics in één intuïtief platform. Gebouwd door recruiters, voor recruiters.
-          </p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
-            <a href="/demo" className="pill-btn pill-btn-primary" style={{ padding: "14px 32px", fontSize: 16 }}>Boek een demo</a>
-            <a href="/start" className="pill-btn pill-btn-outline" style={{ padding: "14px 32px", fontSize: 16 }}>Start gratis</a>
-          </div>
-        </div>
-      </section>
+    <main className="pt-40 pb-0">
+      <Container className="text-center mb-16">
+        <span className="page-badge">Platform</span>
+        <h1 className="page-heading">
+          Eén platform voor al je LinkedIn recruitment
+        </h1>
+        <p className="page-subtitle">
+          Elvatix combineert AI-powered messaging, slimme follow-ups en diepgaande analytics in één intuïtief platform. Gebouwd door recruiters, voor recruiters.
+        </p>
+      </Container>
 
-      {/* Features Grid */}
-      <section style={{ padding: "80px 24px", background: "#f9fafb" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 36, fontWeight: 800, textAlign: "center", color: "#111", marginBottom: 16 }}>
-            Alles wat je nodig hebt
-          </h2>
-          <p style={{ textAlign: "center", color: "#6b7280", fontSize: 16, maxWidth: 500, margin: "0 auto 48px" }}>
-            Elk onderdeel is een volwaardig product — samen vormen ze het krachtigste recruitment platform.
-          </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
-            {features.map((f) => (
-              <a key={f.title} href={f.href} style={{ background: "#fff", borderRadius: 16, padding: 32, border: "1px solid #e5e7eb", textDecoration: "none", transition: "box-shadow 0.2s" }}>
-                <div style={{ marginBottom: 16, color: "#8db600" }}>{f.icon}</div>
-                <h3 style={{ fontSize: 20, fontWeight: 700, color: "#111", marginBottom: 8 }}>{f.title}</h3>
-                <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.6 }}>{f.desc}</p>
-              </a>
-            ))}
-          </div>
+      <Container className="max-w-5xl mb-20">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Alles wat je nodig hebt</h2>
+          <p className="text-gray-600">Elk onderdeel is een volwaardig product en samen vormen ze het krachtigste recruitment platform.</p>
         </div>
-      </section>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {modules.map((m) => (
+            <a key={m.title} href={m.href} className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-linkedin transition-all group">
+              <span className="text-3xl mb-3 block">{m.icon}</span>
+              <h3 className="font-bold text-gray-900 mb-1 group-hover:text-linkedin">{m.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{m.desc}</p>
+            </a>
+          ))}
+        </div>
+      </Container>
 
-      {/* How it works */}
-      <section style={{ padding: "80px 24px" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 36, fontWeight: 800, textAlign: "center", color: "#111", marginBottom: 56 }}>
-            Hoe werkt het?
-          </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
-            {steps.map((s) => (
-              <div key={s.num} style={{ display: "flex", gap: 32, alignItems: "flex-start" }}>
-                <div style={{ fontSize: 48, fontWeight: 900, color: "#e5e7eb", lineHeight: 1, minWidth: 60 }}>{s.num}</div>
+      <section className="bg-gray-50 py-16">
+        <Container className="max-w-4xl">
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-10 text-center">Hoe het werkt</h2>
+          <div className="flex flex-col gap-8">
+            {howItWorks.map((step) => (
+              <div key={step.num} className="flex items-start gap-5">
+                <span className="text-3xl font-black text-linkedin flex-shrink-0 w-12">{step.num}</span>
                 <div>
-                  <h3 style={{ fontSize: 22, fontWeight: 700, color: "#111", marginBottom: 8 }}>{s.title}</h3>
-                  <p style={{ fontSize: 16, color: "#6b7280", lineHeight: 1.7 }}>{s.desc}</p>
+                  <h3 className="font-bold text-gray-900 mb-1">{step.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* CTA */}
-      <section style={{ padding: "80px 24px", background: "#111", textAlign: "center" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 36, fontWeight: 800, color: "#fff", marginBottom: 16 }}>Klaar om te starten?</h2>
-          <p style={{ color: "#9ca3af", fontSize: 16, marginBottom: 32 }}>Probeer Elvatix gratis of boek een demo met ons team.</p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
-            <a href="/demo" className="pill-btn pill-btn-white" style={{ padding: "14px 32px", fontSize: 16 }}>Boek een demo</a>
-            <a href="/start" className="pill-btn pill-btn-outline" style={{ padding: "14px 32px", fontSize: 16, color: "#fff", borderColor: "#fff" }}>Start gratis</a>
-          </div>
-        </div>
+      <section className="cta-section">
+        <Container className="text-center text-white">
+          <h2 className="text-2xl font-extrabold mb-3">Klaar om te beginnen?</h2>
+          <p className="text-white/80 mb-6">Plan een demo en ontdek het volledige platform.</p>
+          <Button variant="white" href="/demo">Plan een demo</Button>
+        </Container>
       </section>
     </main>
   );

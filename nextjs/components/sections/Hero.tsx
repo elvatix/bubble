@@ -1,116 +1,49 @@
 "use client";
-import { MessageSquareIcon, UsersIcon, BarChartIcon, SearchIcon, CpuIcon, MailIcon } from "@/components/icons/Icons";
+import { motion } from "framer-motion";
+import LeadMagnet from "@/components/sections/LeadMagnet";
 
 export default function Hero() {
   return (
-    <section
-      className="section-responsive"
-      style={{
-        position: "relative",
-        paddingTop: "140px",
-        paddingBottom: "80px",
-        paddingLeft: "24px",
-        paddingRight: "24px",
-        background: "linear-gradient(to bottom, #f8fafc, #ffffff)",
-        overflow: "hidden",
-      }}
-    >
-      {/* Decorative blurs */}
-      <div style={{ position: "absolute", top: 0, right: 0, width: 384, height: 384, background: "rgba(219,234,254,0.4)", borderRadius: "50%", filter: "blur(120px)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", bottom: 0, left: 0, width: 320, height: 320, background: "rgba(243,232,255,0.3)", borderRadius: "50%", filter: "blur(100px)", pointerEvents: "none" }} />
-
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
-          {/* Left copy */}
-          <div>
-            <h1
-              style={{
-                fontSize: "clamp(36px, 5vw, 64px)",
-                fontWeight: 900,
-                lineHeight: 1.08,
-                letterSpacing: "-0.02em",
-                marginBottom: 24,
-                color: "#111",
-              }}
-            >
-              <span style={{ fontStyle: "italic", color: "#8db600" }}>Jouw</span> complete{" "}
-              recruitment workflow.{" "}
-              <span style={{ fontStyle: "italic" }}>Eén</span> easy-to-use,{" "}
-              <span className="gradient-text">AI-native</span>{" "}
-              platform.
-            </h1>
-
-            <p style={{ fontSize: 18, color: "#6b7280", marginBottom: 40, maxWidth: 480, lineHeight: 1.7 }}>
-              Geen losse tools meer. Personaliseer je LinkedIn outreach,
-              automatiseer InMails en connectieverzoeken — allemaal vanuit
-              één AI-copilot.
-            </p>
-
-            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <a href="/demo" className="pill-btn pill-btn-primary" style={{ padding: "14px 32px", fontSize: 16 }}>
-                Boek een demo
-              </a>
-              <a href="/start" className="pill-btn pill-btn-outline" style={{ padding: "14px 32px", fontSize: 16 }}>
-                Start gratis
-              </a>
-            </div>
-          </div>
-
-          {/* Right illustration */}
-          <div>
-            <div
-              style={{
-                background: "linear-gradient(135deg, #8db600, #a3c520, #6a9a00)",
-                borderRadius: 24,
-                padding: 32,
-                position: "relative",
-                overflow: "hidden",
-                boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)",
-              }}
-            >
-              <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
-                <div style={{ width: 56, height: 56, borderRadius: "50%", background: "rgba(255,255,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ color: "white", fontSize: 24, fontWeight: 700 }}>E</span>
-                </div>
-              </div>
-
-              <div className="hero-features-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
-                {[
-                  { icon: <MessageSquareIcon size={24} />, label: "InMails" },
-                  { icon: <UsersIcon size={24} />, label: "Connecties" },
-                  { icon: <BarChartIcon size={24} />, label: "Analytics" },
-                  { icon: <SearchIcon size={24} />, label: "Sourcing" },
-                  { icon: <CpuIcon size={24} />, label: "AI Copilot" },
-                  { icon: <MailIcon size={24} />, label: "Outreach" },
-                ].map((item, i) => (
-                  <div key={i} style={{ background: "rgba(255,255,255,0.15)", borderRadius: 16, padding: 16, textAlign: "center", color: "white", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    <div style={{ marginBottom: 4, display: "flex", justifyContent: "center" }}>{item.icon}</div>
-                    <div style={{ fontSize: 12, fontWeight: 500, opacity: 0.9 }}>{item.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginTop: 24 }}>
-                <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 14, fontWeight: 500 }}>OLD WAY</span>
-                <div style={{ width: 48, height: 24, background: "rgba(255,255,255,0.3)", borderRadius: 9999, position: "relative" }}>
-                  <div style={{ position: "absolute", right: 4, top: 4, width: 16, height: 16, background: "white", borderRadius: "50%" }} />
-                </div>
-                <span style={{ color: "white", fontSize: 14, fontWeight: 600 }}>NEW WAY</span>
-              </div>
-            </div>
-          </div>
+    <section className="pt-[120px] pb-[60px] px-6 bg-gradient-to-b from-linkedin-light to-white text-center">
+      <div className="max-w-[800px] mx-auto">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-linkedin-light mb-6 text-[13px] font-semibold text-linkedin">
+          <span>LinkedIn Recruiter Tool</span>
         </div>
 
-        {/* Social proof */}
-        <div style={{ marginTop: 80, textAlign: "center" }}>
-          <p style={{ fontSize: 14, fontWeight: 600, color: "#374151", marginBottom: 32 }}>
-            Vertrouwd door 500+ recruiters in Nederland en België
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: 40, opacity: 0.5 }}>
-            {["Manpower", "Vibe Group", "Yacht", "Hays", "Brunel", "Michael Page"].map((name) => (
-              <span key={name} style={{ fontSize: 18, fontWeight: 700, color: "#9ca3af", letterSpacing: "0.05em" }}>{name}</span>
-            ))}
-          </div>
+        <h1 className="text-[clamp(32px,5vw,56px)] font-black leading-[1.1] mb-5 text-gray-900">
+          Stop met uren typen.{" "}
+          <span className="gradient-text">
+            Genereer persoonlijke InMails in 30 seconden.
+          </span>
+        </h1>
+
+        <p className="text-lg text-gray-500 leading-relaxed max-w-[600px] mx-auto mb-8">
+          Elvatix werkt direct in je LinkedIn Recruiter. Schrijf connectieverzoeken en
+          InMails die klinken alsof je ze zelf hebt geschreven. Aangevuld met de
+          juiste toon, taal en personalisatie.
+        </p>
+
+        <div className="flex gap-3 justify-center flex-wrap mb-12">
+          <motion.a
+            href="/demo"
+            className="pill-btn pill-btn-linkedin"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Plan een demo
+          </motion.a>
+          <motion.a
+            href="#voor-wie"
+            className="pill-btn pill-btn-outline"
+            whileHover={{ scale: 1.05, background: "rgba(10,102,194,0.05)" }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Bekijk hoe het werkt
+          </motion.a>
+        </div>
+
+        <div className="rounded-[20px] border border-linkedin/20 shadow-[0_4px_24px_rgba(10,102,194,0.08)] overflow-hidden">
+          <LeadMagnet compact />
         </div>
       </div>
     </section>

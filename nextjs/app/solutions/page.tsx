@@ -1,90 +1,73 @@
-import type { Metadata } from "next";
-import { BuildingIcon, LinkIcon, LandmarkIcon, TargetIcon, BriefcaseIcon } from "@/components/icons/Icons";
+import Container from '@/components/ui/Container';
+import Button from '@/components/ui/Button';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Oplossingen — Elvatix",
-  description: "Elvatix biedt oplossingen voor recruitmentbureaus, detacheringsbureaus, corporate recruiters, executive search en freelancers.",
+  title: 'Solutions | Elvatix',
+  description: 'Ontdek hoe Elvatix past bij jouw type organisatie.',
+  alternates: { canonical: '/solutions' },
 };
 
-const audiences = [
+const segments = [
   {
-    title: "Recruitmentbureaus",
-    desc: "Schaal je outreach zonder extra headcount. Elvatix helpt je team om 3x meer gepersonaliseerde berichten te versturen met dezelfde bezetting.",
-    stats: "Gemiddeld 47% hogere response rate",
-    icon: <BuildingIcon size={80} />,
+    icon: '🏢',
+    title: 'Recruitmentbureaus',
+    desc: 'Voor bureaus die dagelijks tientallen kandidaten benaderen. Schaal je outreach zonder kwaliteitsverlies.',
+    benefits: ['Volume zonder kwaliteitsverlies', 'Team-brede schrijfstandaard', 'ROI per recruiter zichtbaar'],
   },
   {
-    title: "Detacheringsbureaus",
-    desc: "Bouw een warme kandidatenpool op met connectieverzoeken die converteren. Ideaal voor high-volume recruitment in IT, finance en engineering.",
-    stats: "2,3x meer geaccepteerde connectieverzoeken",
-    icon: <LinkIcon size={80} />,
+    icon: '🔗',
+    title: 'Corporate Recruiters',
+    desc: 'Voor in-house teams die employer branding en persoonlijke benadering combineren.',
+    benefits: ['Employer branding consistent', 'Persoonliijke touch op schaal', 'Integratie met ATS'],
   },
   {
-    title: "Corporate Recruiters",
-    desc: "Versterk je employer brand met berichten die je bedrijfscultuur uitstralen. Elvatix past de tone-of-voice aan op jouw organisatie.",
-    stats: "65% tijdsbesparing op sourcing",
-    icon: <LandmarkIcon size={80} />,
-  },
-  {
-    title: "Executive Search",
-    desc: "Voor senior rollen telt elke zin. Elvatix analyseert carrièrepaden en schrijft berichten die C-level kandidaten aanspreken.",
-    stats: "Gemiddeld 38% response op C-level outreach",
-    icon: <TargetIcon size={80} />,
-  },
-  {
-    title: "Freelance Recruiters",
-    desc: "Werk slimmer als je voor jezelf werkt. Eén tool die je hele outreach beheert — van eerste bericht tot follow-up.",
-    stats: "5 uur per week bespaard",
-    icon: <BriefcaseIcon size={80} />,
+    icon: '🔍',
+    title: 'Detacheringsbureaus',
+    desc: 'Voor organisaties die langdurige relaties opbouwen met kandidaten.',
+    benefits: ['Relatie-opbouw door personalisatie', 'Follow-up automatisering', 'Kandidaat-portaal integratie'],
   },
 ];
 
 export default function SolutionsPage() {
   return (
-    <main style={{ paddingTop: 100 }}>
-      <section style={{ padding: "80px 24px", textAlign: "center" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
-            Oplossingen
-          </p>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
-            Gebouwd voor elke type recruiter
-          </h1>
-          <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto" }}>
-            Of je nu werkt bij een bureau, corporate, of zelfstandig bent — Elvatix past zich aan op jouw workflow.
-          </p>
-        </div>
-      </section>
+    <main className="pt-40 pb-0">
+      <Container className="text-center mb-16">
+        <span className="page-badge">Solutions</span>
+        <h1 className="page-heading">Voor elke recruiter de juiste oplossing</h1>
+        <p className="page-subtitle">
+          Of je nu solo werkt of een team van 50+ aanstuurt | Elvatix past zich aan.
+        </p>
+      </Container>
 
-      <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", flexDirection: "column", gap: 32 }}>
-          {audiences.map((a, i) => (
-            <div key={a.title} style={{
-              display: "grid", gridTemplateColumns: i % 2 === 0 ? "1fr 2fr" : "2fr 1fr",
-              gap: 48, alignItems: "center", background: "#f9fafb", borderRadius: 20, padding: 48, border: "1px solid #e5e7eb"
-            }}>
-              {i % 2 === 0 && (
-                <div style={{ textAlign: "center", color: "#8db600", display: "flex", justifyContent: "center" }}>{a.icon}</div>
-              )}
-              <div>
-                <h3 style={{ fontSize: 24, fontWeight: 800, color: "#111", marginBottom: 12 }}>{a.title}</h3>
-                <p style={{ fontSize: 16, color: "#6b7280", lineHeight: 1.7, marginBottom: 16 }}>{a.desc}</p>
-                <p style={{ fontSize: 14, fontWeight: 600, color: "#8db600" }}>{a.stats}</p>
+      <Container className="max-w-5xl mb-20">
+        <div className="flex flex-col gap-8">
+          {segments.map((s) => (
+            <div key={s.title} className="bg-white border border-gray-200 rounded-2xl p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">{s.icon}</span>
+                <h2 className="text-2xl font-bold text-gray-900">{s.title}</h2>
               </div>
-              {i % 2 !== 0 && (
-                <div style={{ textAlign: "center", color: "#8db600", display: "flex", justifyContent: "center" }}>{a.icon}</div>
-              )}
+              <p className="text-gray-600 mb-6 leading-relaxed">{s.desc}</p>
+              <ul className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                {s.benefits.map((b) => (
+                  <li key={b} className="flex items-start gap-2">
+                    <span className="text-green-500 mt-0.5">✓</span>
+                    <span className="text-sm text-gray-700">{b}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
-      </section>
+      </Container>
 
-      <section style={{ padding: "80px 24px", background: "#111", textAlign: "center" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 36, fontWeight: 800, color: "#fff", marginBottom: 16 }}>Past Elvatix bij jou?</h2>
-          <p style={{ color: "#9ca3af", fontSize: 16, marginBottom: 32 }}>Boek een demo en ontdek hoe Elvatix jouw recruitment transformeert.</p>
-          <a href="/demo" className="pill-btn pill-btn-white" style={{ padding: "14px 32px", fontSize: 16 }}>Boek een demo</a>
-        </div>
+      <section className="cta-section">
+        <Container className="text-center text-white">
+          <h2 className="text-2xl font-extrabold mb-3">Welke oplossing past bij jou?</h2>
+          <p className="text-white/80 mb-6">Plan een demo en ontdek hoe Elvatix jouw team kan versterken.</p>
+          <Button variant="white" href="/demo">Plan een demo</Button>
+        </Container>
       </section>
     </main>
   );

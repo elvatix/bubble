@@ -1,60 +1,57 @@
-import type { Metadata } from "next";
-import { LinkIcon, TargetIcon, ClipboardIcon, SeedlingIcon, HeartIcon, MessageSquareIcon, ZapIcon, SpreadsheetIcon } from "@/components/icons/Icons";
+import Container from '@/components/ui/Container';
+import Button from '@/components/ui/Button';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Integraties — Elvatix",
-  description: "Elvatix integreert naadloos met LinkedIn, populaire ATS-systemen en je bestaande recruitment workflow.",
+  title: 'Integraties | Elvatix',
+  description: 'Verbind Elvatix met je bestaande recruitment tools. Naadloze integraties met populaire ATS en CRM systemen.',
+  alternates: { canonical: '/integraties' },
 };
 
 const integrations = [
-  { name: "LinkedIn", desc: "Directe integratie met LinkedIn profielen. Plak een URL en Elvatix haalt alle relevante data op.", category: "Platform", icon: <LinkIcon size={40} /> },
-  { name: "Bullhorn", desc: "Synchroniseer kandidaten en berichten rechtstreeks met je Bullhorn ATS.", category: "ATS", icon: <TargetIcon size={40} /> },
-  { name: "Recruitee", desc: "Koppel Elvatix aan Recruitee voor een naadloze workflow van sourcing tot plaatsing.", category: "ATS", icon: <ClipboardIcon size={40} /> },
-  { name: "Greenhouse", desc: "Push kandidaatinformatie en outreach data naar je Greenhouse pipeline.", category: "ATS", icon: <SeedlingIcon size={40} /> },
-  { name: "HubSpot", desc: "Gebruik Elvatix-data in je HubSpot CRM voor betere candidate relationship management.", category: "CRM", icon: <HeartIcon size={40} /> },
-  { name: "Slack", desc: "Ontvang notificaties over responses en follow-ups direct in je Slack kanaal.", category: "Communicatie", icon: <MessageSquareIcon size={40} /> },
-  { name: "Zapier", desc: "Verbind Elvatix met 5.000+ apps via Zapier. Automatiseer elke stap van je workflow.", category: "Automatisering", icon: <ZapIcon size={40} /> },
-  { name: "Google Sheets", desc: "Exporteer analytics, kandidaatlijsten en performance data naar Google Sheets.", category: "Data", icon: <SpreadsheetIcon size={40} /> },
+  { name: 'LinkedIn Recruiter', desc: 'Direct koppelen met je LinkedIn Recruiter-account voor naadloze candidate sourcing.', status: 'Live' },
+  { name: 'Bullhorn', desc: 'Synchroniseer kandidaatdata en activiteiten automatisch met Bullhorn CRM.', status: 'Live' },
+  { name: 'Salesforce', desc: 'Push recruitment data naar Salesforce voor complet overzicht van je pipeline.', status: 'Beta' },
+  { name: 'Greenhouse', desc: 'Integreer met Greenhouse ATS voor end-to-end recruitment workflow.', status: 'Coming soon' },
+  { name: 'Zapier', desc: 'Verbind Elvatix met 5000+ apps via Zapier voor onbeperkte automatisering.', status: 'Live' },
+  { name: 'API', desc: 'Bouw custom integraties met onze REST API. Volledige documentatie beschikbaar.', status: 'Live' },
 ];
 
 export default function IntegratiesPage() {
   return (
-    <main style={{ paddingTop: 100 }}>
-      <section style={{ padding: "80px 24px", textAlign: "center" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Integraties</p>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
-            Werkt met je bestaande tools
-          </h1>
-          <p style={{ fontSize: 18, color: "#6b7280", lineHeight: 1.7, maxWidth: 600, margin: "0 auto" }}>
-            Elvatix past in je huidige workflow. Integreer met je ATS, CRM of communicatie-tools — zonder je proces te veranderen.
-          </p>
-        </div>
-      </section>
+    <main className="pt-40 pb-0">
+      <Container className="text-center mb-16">
+        <span className="page-badge">Integraties</span>
+        <h1 className="page-heading">Verbind al je tools</h1>
+        <p className="page-subtitle">
+          Elvatix integreert naadloos met je bestaande recruitment stack. Geen datasilo\'s, geen dubbel werk.
+        </p>
+      </Container>
 
-      <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
-          {integrations.map((integ) => (
-            <div key={integ.name} style={{ background: "#fff", borderRadius: 16, padding: 32, border: "1px solid #e5e7eb", display: "flex", gap: 20, alignItems: "flex-start" }}>
-              <div style={{ minWidth: 48, color: "#8db600", display: "flex" }}>{integ.icon}</div>
-              <div>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-                  <h3 style={{ fontSize: 18, fontWeight: 700, color: "#111" }}>{integ.name}</h3>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#8db600", background: "#f0f7d4", padding: "2px 8px", borderRadius: 4 }}>{integ.category}</span>
-                </div>
-                <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>{integ.desc}</p>
+      <Container className="max-w-5xl mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {integrations.map((i) => (
+            <div key={i.name} className="bg-white border border-gray-200 rounded-2xl p-6">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-bold text-gray-900">{i.name}</h3>
+                <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
+                  i.status === 'Live' ? 'bg-green-100 text-green-700' :
+                  i.status === 'Beta' ? 'bg-yellow-100 text-yellow-700' :
+                  'bg-gray-100 text-gray-500'
+                }`}>{i.status}</span>
               </div>
+              <p className="text-gray-600 text-sm leading-relaxed">{i.desc}</p>
             </div>
           ))}
         </div>
-      </section>
+      </Container>
 
-      <section style={{ padding: "60px 24px", background: "#f9fafb", textAlign: "center" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 24, fontWeight: 800, color: "#111", marginBottom: 12 }}>Mis je een integratie?</h2>
-          <p style={{ color: "#6b7280", fontSize: 15, marginBottom: 24 }}>Laat het ons weten! We bouwen actief nieuwe integraties op basis van klantvragen.</p>
-          <a href="/contact" className="pill-btn pill-btn-primary" style={{ padding: "12px 28px", fontSize: 15 }}>Stel een integratie voor</a>
-        </div>
+      <section className="cta-section">
+        <Container className="text-center text-white">
+          <h2 className="text-2xl font-extrabold mb-3">Mis je een integratie?</h2>
+          <p className="text-white/80 mb-6">Laat ons weten welke tools je gebruikt. We bouwen graag mee.</p>
+          <Button variant="white" href="/contact">Vertel ons</Button>
+        </Container>
       </section>
     </main>
   );
