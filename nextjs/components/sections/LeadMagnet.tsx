@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
 
 interface ProfileData {
   fullName: string;
@@ -406,9 +407,9 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                       Ontdek wat Elvatix voor jouw recruitment kan doen.
                     </p>
                   </div>
-                  <a href="/demo" className="py-2.5 px-5 bg-green text-white rounded-lg font-semibold text-[13px] no-underline whitespace-nowrap shrink-0">
+                  <Link href="/demo" className="py-2.5 px-5 bg-green text-white rounded-lg font-semibold text-[13px] no-underline whitespace-nowrap shrink-0">
                     {"Vraag demo aan \u2192"}
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
