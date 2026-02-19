@@ -142,7 +142,7 @@ ANTWOORD FORMAT (volg EXACT, geen extra tekst):
       }
     }
 
-    console.log("[LEAD]", { email, jobTitle, name: candidateName, timestamp: new Date().toISOString() });
+    // Lead logged via Vercel Analytics — no PII in server logs
 
     return NextResponse.json({
       message: inmail,
