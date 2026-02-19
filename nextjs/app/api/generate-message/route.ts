@@ -61,10 +61,10 @@ Skills: ${(profile.skills || []).join(", ") || "niet beschikbaar"}`;
     const firstName = profile?.firstName || candidateName.split(" ")[0] || "de kandidaat";
 
     const toneInstruction = tone === "formal"
-      ? "Schrijf professioneel maar menselijk — zoals een senior professional die een gelijkwaardige aanspreekt."
-      : "Schrijf warm, vlot en persoonlijk — zoals een goed gesprek tussen twee professionals bij een kop koffie.";
+      ? "Schrijf professioneel maar menselijk : zoals een senior professional die een gelijkwaardige aanspreekt."
+      : "Schrijf warm, vlot en persoonlijk : zoals een goed gesprek tussen twee professionals bij een kop koffie.";
 
-    const prompt = `Je schrijft LinkedIn-berichten in vloeiend, natuurlijk Nederlands. Geen vertaaltaal, geen stijve zinnen. Schrijf zoals een Nederlander echt schrijft — vlot, direct, en met persoonlijkheid.
+    const prompt = `Je schrijft LinkedIn-berichten in vloeiend, natuurlijk Nederlands. Geen vertaaltaal, geen stijve zinnen. Schrijf zoals een Nederlander echt schrijft : vlot, direct, en met persoonlijkheid.
 
 KANDIDAAT:
 - Naam: ${candidateName} (voornaam: ${firstName})
@@ -76,7 +76,7 @@ REGELS OVER WERKERVARING (STRIKT):
 2. [VORIG] = VERLEDEN → verleden tijd ("je tijd bij X", "je ervaring bij Y").
 3. [ONBEKEND] = geen datuminfo → schrijf neutraal, zonder aan te nemen of het huidig of verleden is.
 4. "heden" in de periode = nog actief. Een einddatum = afgelopen. Haal dit NOOIT door elkaar.
-5. De headline is hoe de kandidaat zichzelf omschrijft — gebruik het als context, niet als functietitel.
+5. De headline is hoe de kandidaat zichzelf omschrijft en gebruik het als context, niet als functietitel.
 
 TOON & STIJL:
 - ${toneInstruction}
@@ -98,12 +98,12 @@ BERICHTEN:
 
 1) INMAIL (max 150 woorden):
 - Spreek aan met "${firstName}".
-- Open met iets specifieks over hún carrière dat laat zien dat je je hebt verdiept — hun huidige rol, een opvallende stap, of een combinatie van skills.
+- Open met iets specifieks over hún carrière dat laat zien dat je je hebt verdiept : hun huidige rol, een opvallende stap, of een combinatie van skills.
 - Maak een natuurlijke brug naar de rol: "${jobTitle || "niet gespecificeerd"}". Leg uit waarom hun achtergrond daar perfect bij past.
-- Sluit af met een laagdrempelige uitnodiging — kort gesprek, koffie, even bellen. Geen druk.
+- Sluit af met een laagdrempelige uitnodiging : kort gesprek, koffie, even bellen. Geen druk.
 - Elke zin moet waarde toevoegen. Geen opvulzinnen.
 
-2) CONNECTIEVERZOEK (MAXIMAAL 300 karakters inclusief spaties — harde LinkedIn limiet):
+2) CONNECTIEVERZOEK (MAXIMAAL 300 karakters inclusief spaties . Harde LinkedIn limiet):
 - Eén of twee zinnen, max.
 - Noem iets concreets uit hun profiel dat opvalt.
 - Geef een korte, eerlijke reden om te connecten.
@@ -142,7 +142,7 @@ ANTWOORD FORMAT (volg EXACT, geen extra tekst):
       }
     }
 
-    // Lead logged via Vercel Analytics — no PII in server logs
+    // Lead logged via Vercel Analytics, no PII in server logs
 
     return NextResponse.json({
       message: inmail,

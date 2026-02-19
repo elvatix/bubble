@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Blog — Elvatix',
+  title: 'Blog | Elvatix',
   description: 'Lees de laatste inzichten over AI-powered recruitment, LinkedIn outreach en talent acquisition.',
   alternates: { canonical: '/blog' },
 };

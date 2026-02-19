@@ -5,7 +5,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Start gratis — Elvatix',
+  title: 'Start gratis | Elvatix',
   description: 'Maak je gratis Elvatix-account aan en begin vandaag nog met AI-powered recruitment.',
   alternates: { canonical: '/start' },
 };

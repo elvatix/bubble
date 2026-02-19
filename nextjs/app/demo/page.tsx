@@ -4,7 +4,7 @@ import FormWrapper from '@/components/ui/FormWrapper';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Demo aanvragen — Elvatix',
+  title: 'Demo aanvragen | Elvatix',
   description: 'Plan een persoonlijke demo van Elvatix. Ontdek hoe AI jouw recruitment kan versnellen.',
   alternates: { canonical: '/demo' },
 };

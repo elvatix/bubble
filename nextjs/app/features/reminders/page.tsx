@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Smart Reminders — Elvatix',
+  title: 'Smart Reminders | Elvatix',
   description: 'Automatische follow-up reminders op basis van eerdere interacties. Nooit meer een kandidaat vergeten.',
   alternates: { canonical: '/features/reminders' },
 };
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const features = [
   { title: 'Intelligente timing', desc: 'Elvatix analyseert wanneer je kandidaten het meest actief zijn op LinkedIn en plant je follow-up op het optimale moment.' },
   { title: 'Context-aware berichten', desc: 'Elke follow-up verwijst naar je eerdere interactie. Geen generieke \'Nog even checken\' berichten, maar relevante opvolging.' },
-  { title: 'Automatische pipeline', desc: 'Stel een follow-up sequence in: dag 3, dag 7, dag 14. Elvatix doet de rest — totdat de kandidaat reageert.' },
+  { title: 'Automatische pipeline', desc: 'Stel een follow-up sequence in: dag 3, dag 7, dag 14. Elvatix doet de rest . Totdat de kandidaat reageert.' },
   { title: 'Team-overzicht', desc: 'Managers zien in één dashboard welke follow-ups openstaan, wie achterloopt en waar kansen liggen.' },
 ];
 

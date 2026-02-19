@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Connectieverzoeken — Elvatix',
+  title: 'Connectieverzoeken | Elvatix',
   description: 'Schrijf LinkedIn connectieverzoeken die opvallen en daadwerkelijk geaccepteerd worden.',
   alternates: { canonical: '/features/connections' },
 };
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const features = [
   { title: 'Persoonlijke noot, altijd', desc: 'Elvatix analyseert het profiel en schrijft een connectieverzoek dat verwijst naar specifieke ervaring, projecten of gedeelde interesses.' },
   { title: '300 karakters, maximale impact', desc: 'LinkedIn staat maximaal 300 karakters toe. Elvatix optimaliseert elk woord voor maximale impact binnen die limiet.' },
-  { title: 'A/B varianten', desc: 'Genereer meerdere varianten en kies de versie die het best past bij je aanpak — formeel, casual of ergens daartussenin.' },
+  { title: 'A/B varianten', desc: 'Genereer meerdere varianten en kies de versie die het best past bij je aanpak : formeel, casual of ergens daartussenin.' },
   { title: 'Automatisch koppelen     aan InMail', desc: 'Verstuur een connectieverzoek én een InMail tegelijk. Elvatix zorgt dat beide berichten op elkaar aansluiten.' },
 ];
 
@@ -22,7 +22,7 @@ export default function ConnectionsPage() {
         <span className="page-badge">Connectieverzoeken</span>
         <h1 className="page-heading">Connectieverzoeken die wél geaccepteerd worden</h1>
         <p className="page-subtitle">
-          Geen standaard &ldquo;Ik zou je graag toevoegen&rdquo; meer. Elvatix schrijft connectieverzoeken die opvallen — gebaseerd op het echte profiel.
+          Geen standaard &ldquo;Ik zou je graag toevoegen&rdquo; meer. Elvatix schrijft connectieverzoeken die opvallen . Gebaseerd op het echte profiel.
         </p>
         <div className="text-8xl my-10">🤝</div>
       </Container>
@@ -41,7 +41,7 @@ export default function ConnectionsPage() {
       <section className="cta-section">
         <Container className="text-center text-white">
           <h2 className="text-2xl font-extrabold mb-3">Probeer het zelf</h2>
-          <p className="text-white/80 mb-6">Genereer je eerste connectieverzoek — gratis.</p>
+          <p className="text-white/80 mb-6">Genereer je eerste connectieverzoek . Helemaal gratis.</p>
           <Button variant="white" href="/">Start nu →</Button>
         </Container>
       </section>

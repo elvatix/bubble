@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://elvatix.com"),
   title: {
-    default: "Elvatix — #1 AI-Powered LinkedIn Recruitment Copilot",
+    default: "Elvatix | #1 AI-Powered LinkedIn Recruitment Copilot",
     template: "%s | Elvatix",
   },
   description:
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     locale: "nl_NL",
     url: "https://elvatix.com",
     siteName: "Elvatix",
-    title: "Elvatix — #1 AI-Powered LinkedIn Recruitment Copilot",
+    title: "Elvatix | #1 AI-Powered LinkedIn Recruitment Copilot",
     description:
       "Schrijf persoonlijke InMails in seconden. De AI-recruitment copilot die uren handmatig werk bespaart.",
     images: [
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Elvatix — AI-Powered LinkedIn Recruitment Copilot",
+        alt: "Elvatix | AI-Powered LinkedIn Recruitment Copilot",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elvatix — #1 AI-Powered LinkedIn Recruitment Copilot",
+    title: "Elvatix | #1 AI-Powered LinkedIn Recruitment Copilot",
     description:
       "Schrijf persoonlijke InMails in seconden. De AI-recruitment copilot die uren handmatig werk bespaart.",
     images: ["/opengraph-image.png"],

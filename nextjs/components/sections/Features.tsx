@@ -9,7 +9,7 @@ const tabs = [
     label: "InMails",
     title: "Persoonlijke InMails in 30 seconden",
     description:
-      "Elvatix leest het LinkedIn-profiel van je kandidaat en schrijft een volledig gepersonaliseerd bericht — in jouw toon, zonder houterige AI-vertalingen. Geen kopiëren en plakken meer.",
+      "Elvatix leest het LinkedIn-profiel van je kandidaat en schrijft een volledig gepersonaliseerd bericht . In jouw toon, zonder houterige AI-vertalingen. Geen kopiëren en plakken meer.",
     features: [
       "Schrijf in jouw eigen tone-of-voice",
       "30 seconden per gepersonaliseerd bericht",
@@ -21,7 +21,7 @@ const tabs = [
     label: "Connectieverzoeken",
     title: "Gepersonaliseerde connectieverzoeken",
     description:
-      "In één klik gepersonaliseerde uitnodigingen op basis van profielinformatie. Geen standaard templates meer — elk verzoek is uniek en relevant.",
+      "In één klik gepersonaliseerde uitnodigingen op basis van profielinformatie. Geen standaard templates meer . Elk verzoek is uniek en relevant.",
     features: [
       "2x hogere acceptatiegraad",
       "Automatisch gepersonaliseerd",

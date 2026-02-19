@@ -19,7 +19,7 @@ export default function Hero() {
 
         <p className="text-lg text-gray-500 leading-relaxed max-w-[600px] mx-auto mb-8">
           Elvatix werkt direct in je LinkedIn Recruiter. Schrijf connectieverzoeken en
-          InMails die klinken alsof je ze zelf hebt geschreven — aangevuld met de
+          InMails die klinken alsof je ze zelf hebt geschreven . Aangevuld met de
           juiste toon, taal en personalisatie.
         </p>
 

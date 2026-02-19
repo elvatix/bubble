@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Pricing — Elvatix',
+  title: 'Pricing | Elvatix',
   description: 'Bekijk de prijzen van Elvatix. Start gratis, upgrade wanneer je klaar bent.',
   alternates: { canonical: '/pricing' },
 };
