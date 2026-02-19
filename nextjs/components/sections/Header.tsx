@@ -52,9 +52,9 @@ export default function Header() {
         onClick={() => setOpen(!open)}
         aria-label="Menu"
       >
-        <div className={`w-[22px] h-0.5 bg-gray-900 transition-all duration-300 ${open ? "translate-y-[5.5px] rotate-45" : ""}`} />
+        <div className={`w-[22px] h-0.5 bg-gray-900 transition-all duration-300 ${open ? "translate-y-[7px] rotate-45" : ""}`} />
         <div className={`w-[22px] h-0.5 bg-gray-900 transition-all duration-300 ${open ? "opacity-0" : ""}`} />
-        <div className={`w-[22px] h-0.5 bg-gray-900 transition-all duration-300 ${open ? "-translate-y-[5.5px] -rotate-45" : ""}`} />
+        <div className={`w-[22px] h-0.5 bg-gray-900 transition-all duration-300 ${open ? "-translate-y-[7px] -rotate-45" : ""}`} />
       </button>
 
       {/* Mobile nav */}
