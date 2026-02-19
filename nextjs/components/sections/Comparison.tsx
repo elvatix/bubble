@@ -9,7 +9,7 @@ const CheckCircleIcon = ({ color = "var(--linkedin-blue)" }: { color?: string })
 );
 
 const XIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-danger" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10" />
     <line x1="15" y1="9" x2="9" y2="15" />
     <line x1="9" y1="9" x2="15" y2="15" />
@@ -70,7 +70,7 @@ export default function Comparison() {
               whileHover={{ background: "var(--color-linkedin-light)" }}
             >
               <span className="text-sm text-gray-700">{row.label}</span>
-              <span className="flex justify-center">{row.zonder ? <CheckCircleIcon /> : <XIcon />}</span>
+              <span className="flex justify-center text-danger">{row.zonder ? <CheckCircleIcon /> : <XIcon />}</span>
               <span className="flex justify-center">{row.met ? <CheckCircleIcon /> : <XIcon />}</span>
             </motion.div>
           ))}

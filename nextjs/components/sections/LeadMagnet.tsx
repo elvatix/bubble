@@ -204,9 +204,9 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           {/* LinkedIn URL */}
           <div className={compact ? "mb-3.5" : "mb-5"}>
             <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">LinkedIn URL *</label>
-            <div className="flex items-center border border-gray-300 rounded-[10px] overflow-hidden transition-colors">
-              <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-300 flex items-center">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-text-light" strokeWidth="2">
+            <div className="flex items-center border border-gray-300 rounded-sm overflow-hidden transition-colors">
+              <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-300 flex items-center text-text-light">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                   <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
                 </svg>
@@ -273,11 +273,11 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                 <div key={step.key} className="flex-1">
                   <div className={`h-[3px] rounded-sm mb-2 transition-colors duration-400 ${
                     status === "done" ? "bg-green"
-                    : status === "active" ? "bg-[length:200%_100%] bg-[linear-gradient(90deg,var(--color-green)_0%,#93a6f5_50%,var(--color-green)_100%)] animate-[lm-shimmer_1.5s_infinite]"
+                    : status === "active" ? "bg-[length:200%_100%] bg-[linear-gradient(90deg,var(--color-green)_0%,var(--color-linkedin)_50%,var(--color-green)_100%)] animate-[lm-shimmer_1.5s_infinite]"
                     : "bg-gray-200"
                   }`} />
                   <span className={`text-[10px] font-semibold uppercase tracking-[0.5px] ${
-                    status === "done" ? "text-green" : status === "active" ? "text-[#4361ee]" : "text-gray-300"
+                    status === "done" ? "text-green" : status === "active" ? "text-linkedin" : "text-gray-300"
                   }`}>{step.label}</span>
                 </div>
               );
@@ -323,8 +323,8 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                     }`}>
                     {tab === "inmail" ? "InMail" : "Connectieverzoek"}
                     {((tab === "inmail" && (phase === "done" || phase === "writing-conn")) || (tab === "connection" && phase === "done")) && (
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <circle cx="7" cy="7" r="7" fill="currentColor" className="text-success"/>
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-success">
+                        <circle cx="7" cy="7" r="7" fill="currentColor"/>
                         <path d="M4.5 7l1.5 1.5 3.5-3.5" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     )}
@@ -440,7 +440,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           @keyframes lm-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
           @keyframes lm-blink { 50% { opacity: 0; } }
           @keyframes lm-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-          #lead-magnet input:focus { outline: none; border-color: var(--color-green) !important; box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.08); }
+          #lead-magnet input:focus { outline: none; border-color: var(--color-green); box-shadow: 0 0 0 2px rgba(141, 182, 0, 0.08); }
         `}</style>
       </>
     );
@@ -483,7 +483,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         @keyframes lm-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
         @keyframes lm-blink { 50% { opacity: 0; } }
         @keyframes lm-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-        #lead-magnet input:focus { outline: none; border-color: var(--color-green) !important; box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.08); }
+        #lead-magnet input:focus { outline: none; border-color: var(--color-green); box-shadow: 0 0 0 2px rgba(141, 182, 0, 0.08); }
         @media (max-width: 640px) { #lead-magnet .lm-actions { flex-direction: column; } }
       `}</style>
     </section>
