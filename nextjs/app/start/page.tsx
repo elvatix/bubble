@@ -1,6 +1,7 @@
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import FormWrapper from '@/components/ui/FormWrapper';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -19,28 +20,28 @@ export default function StartPage() {
         <FormWrapper className="flex flex-col gap-4 text-left" successMessage="Account aangemaakt! Check je inbox voor de bevestigingsmail.">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="form-label">Voornaam</label>
-              <input type="text" placeholder="Jan" className="form-input" required />
+              <label htmlFor="start-voornaam" className="form-label">Voornaam</label>
+              <input id="start-voornaam" name="voornaam" type="text" placeholder="Jan" className="form-input" required />
             </div>
             <div>
-              <label className="form-label">Achternaam</label>
-              <input type="text" placeholder="Jansen" className="form-input" required />
+              <label htmlFor="start-achternaam" className="form-label">Achternaam</label>
+              <input id="start-achternaam" name="achternaam" type="text" placeholder="Jansen" className="form-input" required />
             </div>
           </div>
           <div>
-            <label className="form-label">Werkmail</label>
-            <input type="email" placeholder="jan@bedrijf.nl" className="form-input" required />
+            <label htmlFor="start-email" className="form-label">Werkmail</label>
+            <input id="start-email" name="email" type="email" placeholder="jan@bedrijf.nl" className="form-input" required />
           </div>
           <div>
-            <label className="form-label">Wachtwoord</label>
-            <input type="password" placeholder="Minimaal 8 karakters" className="form-input" required minLength={8} />
+            <label htmlFor="start-wachtwoord" className="form-label">Wachtwoord</label>
+            <input id="start-wachtwoord" name="wachtwoord" type="password" placeholder="Minimaal 8 karakters" className="form-input" required minLength={8} />
           </div>
           <Button variant="primary" type="submit" className="w-full mt-2">Account aanmaken</Button>
         </FormWrapper>
 
         <p className="text-sm text-gray-500 mt-8">
           Al een account?{' '}
-          <a href="/login" className="text-linkedin font-semibold hover:underline">Log in</a>
+          <Link href="/login" className="text-linkedin font-semibold hover:underline">Log in</Link>
         </p>
       </Container>
     </main>

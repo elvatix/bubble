@@ -42,25 +42,25 @@ export default function DemoPage() {
             <FormWrapper className="flex flex-col gap-4" successMessage="Bedankt! We plannen je demo en nemen snel contact op.">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="form-label">Voornaam</label>
-                  <input type="text" placeholder="Jan" className="form-input" required />
+                  <label htmlFor="demo-voornaam" className="form-label">Voornaam</label>
+                  <input id="demo-voornaam" name="voornaam" type="text" placeholder="Jan" className="form-input" required />
                 </div>
                 <div>
-                  <label className="form-label">Achternaam</label>
-                  <input type="text" placeholder="Jansen" className="form-input" required />
+                  <label htmlFor="demo-achternaam" className="form-label">Achternaam</label>
+                  <input id="demo-achternaam" name="achternaam" type="text" placeholder="Jansen" className="form-input" required />
                 </div>
               </div>
               <div>
-                <label className="form-label">Werkmail</label>
-                <input type="email" placeholder="jan@bedrijf.nl" className="form-input" required />
+                <label htmlFor="demo-email" className="form-label">Werkmail</label>
+                <input id="demo-email" name="email" type="email" placeholder="jan@bedrijf.nl" className="form-input" required />
               </div>
               <div>
-                <label className="form-label">Bedrijf</label>
-                <input type="text" placeholder="Bedrijfsnaam" className="form-input" required />
+                <label htmlFor="demo-bedrijf" className="form-label">Bedrijf</label>
+                <input id="demo-bedrijf" name="bedrijf" type="text" placeholder="Bedrijfsnaam" className="form-input" required />
               </div>
               <div>
-                <label className="form-label">Teamgrootte</label>
-                <select className="form-input text-gray-600">
+                <label htmlFor="demo-team" className="form-label">Teamgrootte</label>
+                <select id="demo-team" name="teamgrootte" className="form-input text-gray-600">
                   <option>1-5 recruiters</option>
                   <option>6-20 recruiters</option>
                   <option>20+ recruiters</option>

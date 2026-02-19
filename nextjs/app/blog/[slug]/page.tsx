@@ -2,6 +2,7 @@ import { getBlogBySlug, getAllBlogs, generateSlug } from '@/lib/bubble-api';
 import { notFound } from 'next/navigation';
 import Container from '@/components/ui/Container';
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const revalidate = 3600;
@@ -80,9 +81,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
         />
 
         <div className="mt-16 pt-8 border-t">
-          <a href="/blog" className="text-linkedin font-semibold hover:underline">
+          <Link href="/blog" className="text-linkedin font-semibold hover:underline">
             ← Terug naar overzicht
-          </a>
+          </Link>
         </div>
       </Container>
     </main>

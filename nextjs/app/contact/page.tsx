@@ -19,21 +19,21 @@ export default function ContactPage() {
         <FormWrapper className="flex flex-col gap-4 text-left" successMessage="Bedankt voor je bericht! We reageren binnen 24 uur.">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="form-label">Voornaam</label>
-              <input type="text" placeholder="Jan" className="form-input" required />
+              <label htmlFor="contact-voornaam" className="form-label">Voornaam</label>
+              <input id="contact-voornaam" name="voornaam" type="text" placeholder="Jan" className="form-input" required />
             </div>
             <div>
-              <label className="form-label">Achternaam</label>
-              <input type="text" placeholder="Jansen" className="form-input" required />
+              <label htmlFor="contact-achternaam" className="form-label">Achternaam</label>
+              <input id="contact-achternaam" name="achternaam" type="text" placeholder="Jansen" className="form-input" required />
             </div>
           </div>
           <div>
-            <label className="form-label">E-mail</label>
-            <input type="email" placeholder="jan@bedrijf.nl" className="form-input" required />
+            <label htmlFor="contact-email" className="form-label">E-mail</label>
+            <input id="contact-email" name="email" type="email" placeholder="jan@bedrijf.nl" className="form-input" required />
           </div>
           <div>
-            <label className="form-label">Bericht</label>
-            <textarea rows={5} placeholder="Waar kunnen we je mee helpen?" className="form-input resize-none" required></textarea>
+            <label htmlFor="contact-bericht" className="form-label">Bericht</label>
+            <textarea id="contact-bericht" name="bericht" rows={5} placeholder="Waar kunnen we je mee helpen?" className="form-input resize-none" required></textarea>
           </div>
           <Button variant="primary" type="submit" className="w-full mt-2">Verstuur bericht</Button>
         </FormWrapper>

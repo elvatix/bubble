@@ -1,6 +1,7 @@
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import FormWrapper from '@/components/ui/FormWrapper';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,19 +19,19 @@ export default function LoginPage() {
 
         <FormWrapper className="flex flex-col gap-5 text-left" successMessage="Ingelogd! Je wordt doorgestuurd...">
           <div>
-            <label className="form-label">E-mail</label>
-            <input type="email" placeholder="jan@bedrijf.nl" className="form-input" required />
+            <label htmlFor="login-email" className="form-label">E-mail</label>
+            <input id="login-email" name="email" type="email" placeholder="jan@bedrijf.nl" className="form-input" required />
           </div>
           <div>
-            <label className="form-label">Wachtwoord</label>
-            <input type="password" placeholder="Minimaal 8 karakters" className="form-input" required />
+            <label htmlFor="login-wachtwoord" className="form-label">Wachtwoord</label>
+            <input id="login-wachtwoord" name="wachtwoord" type="password" placeholder="Minimaal 8 karakters" className="form-input" required />
           </div>
           <Button variant="primary" type="submit" className="w-full mt-2">Inloggen</Button>
         </FormWrapper>
 
         <p className="text-sm text-gray-500 mt-8">
           Nog geen account?{' '}
-          <a href="/start" className="text-linkedin font-semibold hover:underline">Start gratis</a>
+          <Link href="/start" className="text-linkedin font-semibold hover:underline">Start gratis</Link>
         </p>
       </Container>
     </main>
