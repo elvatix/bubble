@@ -56,13 +56,6 @@
   --shadow-green-hover: 0 4px 12px rgba(141,182,0,0.3);
 }
 
-/* Legacy aliases — for var() references in component classes */
-:root {
-  --linkedin-blue: var(--color-linkedin);
-  --linkedin-blue-dark: var(--color-linkedin-dark);
-  --linkedin-blue-light: var(--color-linkedin-light);
-}
-
 * { box-sizing: border-box; }
 
 body {
@@ -80,22 +73,6 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.gradient-text-stats {
-  background: linear-gradient(135deg, var(--color-linkedin) 0%, var(--color-linkedin-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ── Fade animations ── */
-.fade-in-up {
-  opacity: 0; transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
-}
-.fade-in-up.visible { opacity: 1; transform: translateY(0); }
-.fade-in-up-delay-1 { transition-delay: 0.1s; }
-.fade-in-up-delay-2 { transition-delay: 0.2s; }
-.fade-in-up-delay-3 { transition-delay: 0.3s; }
 
 /* ── Navbar ── */
 .navbar-floating {
@@ -114,51 +91,30 @@ body {
 .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
 .mobile-nav { display: none; }
 
-/* ── Stats card ── */
-.stats-card {
-  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
-  border-radius: 24px; padding: 56px 40px; text-align: center;
-  border: 1px solid var(--color-border);
-}
-
-/* ── Tag styles ── */
-.tag-outline { border: 1px solid var(--color-linkedin); color: var(--color-linkedin); border-radius: 9999px; padding: 4px 14px; font-size: 12px; font-weight: 600; }
-.tag-filled { background: var(--color-linkedin); color: white; border-radius: 9999px; padding: 6px 16px; font-size: 13px; font-weight: 600; }
-
-/* ── Hero cards ── */
-.hero-card-glow { background: rgba(10,102,194,0.06); border: 1px solid rgba(10,102,194,0.15); border-radius: 16px; padding: 16px; backdrop-filter: blur(8px); }
-
-/* ── CTA gradient ── */
-.cta-gradient { background: linear-gradient(135deg, var(--color-linkedin) 0%, var(--color-linkedin-dark) 40%, var(--color-linkedin-dark) 100%); }
-
 /* ── Buttons ── */
 .pill-btn { padding: 10px 28px; border-radius: 9999px; font-weight: 600; font-size: 14px; transition: all 0.2s ease; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; white-space: nowrap; }
-.pill-btn-primary { background: var(--color-linkedin); color: white; border: none; }
-.pill-btn-primary:hover { background: var(--color-linkedin-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(10,102,194,0.3); }
 .pill-btn-outline { background: transparent; color: var(--color-linkedin); border: 2px solid var(--color-linkedin); }
 .pill-btn-outline:hover { background: rgba(10,102,194,0.05); }
-.pill-btn-white { background: white; color: var(--color-linkedin); border: 2px solid rgba(255,255,255,0.8); }
-.pill-btn-white:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
 .pill-btn-linkedin { background: var(--color-linkedin); color: white; border: none; }
 .pill-btn-linkedin:hover { background: var(--color-linkedin-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(10,102,194,0.3); }
 
-/* ── Quote card ── */
-.quote-card { background: linear-gradient(135deg, var(--color-linkedin-light) 0%, var(--color-background) 50%, var(--color-linkedin-light) 100%); border: 3px solid var(--color-linkedin); border-radius: 24px; padding: 48px; }
+/* ── Page utility classes (herhaalde patronen) ── */
+.page-badge { display: inline-block; padding: 4px 16px; border-radius: 9999px; background: var(--color-linkedin-light); color: var(--color-linkedin); font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.page-heading { font-size: clamp(2rem, 5vw, 3.75rem); font-weight: 900; color: var(--color-text-primary); margin-bottom: 24px; }
+.page-subtitle { font-size: 18px; color: var(--color-text-muted); max-width: 42rem; margin-left: auto; margin-right: auto; }
+.cta-section { background: linear-gradient(to right, var(--color-linkedin), var(--color-linkedin-dark)); padding: 64px 24px; }
+.form-label { display: block; font-size: 14px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 4px; }
+.form-input { width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--color-border); font-size: 14px; }
 
 /* ── Responsive grid helpers ── */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; }
-.grid-hero-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
 
 /* ── Section helpers ── */
 .section-padding { padding: 80px 24px; }
 .section-inner { max-width: 1100px; margin: 0 auto; }
-.section-inner-wide { max-width: 1200px; margin: 0 auto; }
-
-/* ── Page top padding (below fixed navbar) ── */
-.page-top { padding-top: 100px; }
 
 /* ── Page grid helpers ── */
 .page-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -166,19 +122,6 @@ body {
 /* ── Footer grid ── */
 .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; margin-bottom: 48px; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 24px; }
-
-/* ── Feature tabs ── */
-.feature-tabs { display: flex; justify-content: center; gap: 32px; margin-bottom: 48px; border-bottom: 1px solid var(--color-border); padding-bottom: 0; }
-.feature-tab-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-
-/* ── Comparison grid ── */
-.comparison-grid { display: grid; grid-template-columns: 1fr 200px 1fr; gap: 16px; align-items: stretch; }
-.comparison-center-label { display: flex; align-items: center; justify-content: center; }
-.comparison-mobile-label { display: none; font-weight: 700; font-size: 12px; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
-
-/* ── Float animation ── */
-@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-.animate-float { animation: float 6s ease-in-out infinite; }
 
 /* ═══════════════════════════════════════════
               TABLET: 768px - 1024px
@@ -190,13 +133,10 @@ body {
   .grid-5 { grid-template-columns: repeat(3, 1fr); }
   .page-grid-3 { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: repeat(3, 1fr); }
-  .feature-tab-content { grid-template-columns: 1fr; }
-  .comparison-grid { grid-template-columns: 1fr; gap: 16px; }
-  .stats-card { padding: 48px 32px; }
 }
 
 /* ═══════════════════════════════════════════
-                MOBILE: <= 768px
+               MOBILE: <= 768px
    ═══════════════════════════════════════════ */
 @media (max-width: 768px) {
   header.navbar-floating {
@@ -222,19 +162,10 @@ body {
   .grid-3 { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr; }
   .grid-5 { grid-template-columns: repeat(2, 1fr); }
-  .grid-hero-cards { grid-template-columns: repeat(2, 1fr); }
   .page-grid-3 { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .feature-tabs { gap: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: flex-start; padding: 0 8px; }
-  .feature-tab-content { grid-template-columns: 1fr; }
-  .comparison-grid { grid-template-columns: 1fr; }
-  .comparison-center-label { display: none; }
-  .comparison-mobile-label { display: block; }
-  .stats-card { padding: 32px 20px; border-radius: 20px; }
-  .quote-card { padding: 24px; }
   .section-padding { padding: 48px 16px; }
-  .page-top { padding-top: 80px; }
 
   main img, main video, main iframe {
     max-width: 100%;
@@ -247,11 +178,8 @@ body {
    ═══════════════════════════════════════════ */
 @media (max-width: 480px) {
   .grid-5 { grid-template-columns: 1fr; }
-  .grid-hero-cards { grid-template-columns: 1fr 1fr; gap: 8px; }
   .footer-grid { grid-template-columns: 1fr; }
   .section-padding { padding: 36px 12px; }
-  .page-top { padding-top: 70px; }
-  .quote-card { padding: 16px 12px; }
 
   main h1 { word-break: break-word; }
   main h2 { word-break: break-word; }

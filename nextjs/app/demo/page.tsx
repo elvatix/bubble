@@ -21,7 +21,7 @@ export default function DemoPage() {
       <Container className="max-w-5xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <div>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-linkedin-light)] text-[var(--color-linkedin)] text-sm font-semibold mb-4">Demo</span>
+            <span className="page-badge">Demo</span>
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Zie Elvatix in actie</h1>
             <p className="text-gray-600 mb-8 leading-relaxed">
               In 30 minuten laten we zien hoe Elvatix jouw recruitment workflow transformeert. Persoonlijk, relevant en afgestemd op jouw situatie.
@@ -41,25 +41,25 @@ export default function DemoPage() {
             <form className="flex flex-col gap-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Voornaam</label>
-                  <input type="text" placeholder="Jan" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm" />
+                  <label className="form-label">Voornaam</label>
+                  <input type="text" placeholder="Jan" className="form-input" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Achternaam</label>
-                  <input type="text" placeholder="Jansen" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm" />
+                  <label className="form-label">Achternaam</label>
+                  <input type="text" placeholder="Jansen" className="form-input" />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Werkmail</label>
-                <input type="email" placeholder="jan@bedrijf.nl" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm" />
+                <label className="form-label">Werkmail</label>
+                <input type="email" placeholder="jan@bedrijf.nl" className="form-input" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Bedrijf</label>
-                <input type="text" placeholder="Bedrijfsnaam" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm" />
+                <label className="form-label">Bedrijf</label>
+                <input type="text" placeholder="Bedrijfsnaam" className="form-input" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Teamgrootte</label>
-                <select className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm text-gray-600">
+                <label className="form-label">Teamgrootte</label>
+                <select className="form-input text-gray-600">
                   <option>1-5 recruiters</option>
                   <option>6-20 recruiters</option>
                   <option>20+ recruiters</option>

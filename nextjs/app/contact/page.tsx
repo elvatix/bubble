@@ -18,21 +18,21 @@ export default function ContactPage() {
         <form className="flex flex-col gap-4 text-left">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Voornaam</label>
-              <input type="text" placeholder="Jan" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm" />
+              <label className="form-label">Voornaam</label>
+              <input type="text" placeholder="Jan" className="form-input" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Achternaam</label>
-              <input type="text" placeholder="Jansen" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm" />
+              <label className="form-label">Achternaam</label>
+              <input type="text" placeholder="Jansen" className="form-input" />
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
-            <input type="email" placeholder="jan@bedrijf.nl" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm" />
+            <label className="form-label">E-mail</label>
+            <input type="email" placeholder="jan@bedrijf.nl" className="form-input" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Bericht</label>
-            <textarea rows={5} placeholder="Waar kunnen we je mee helpen?" className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm resize-none"></textarea>
+            <label className="form-label">Bericht</label>
+            <textarea rows={5} placeholder="Waar kunnen we je mee helpen?" className="form-input resize-none"></textarea>
           </div>
           <Button variant="primary" type="submit" className="w-full mt-2">Verstuur bericht</Button>
         </form>
