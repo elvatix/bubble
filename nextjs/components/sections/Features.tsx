@@ -59,11 +59,11 @@ export default function Features() {
   const active = tabs[activeTab];
 
   return (
-    <section id="features" className="section-padding bg-[#f8fafc]">
+    <section id="features" className="section-padding bg-surface">
       <div className="section-inner">
         <AnimateOnScroll variant="fadeUp">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#8db600] uppercase tracking-[0.1em] mb-3">
+            <p className="text-sm font-semibold text-green uppercase tracking-[0.1em] mb-3">
               Modules
             </p>
             <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
@@ -83,7 +83,7 @@ export default function Features() {
                 onClick={() => setActiveTab(i)}
                 className={`px-6 py-3 rounded-full border-none cursor-pointer text-sm font-semibold transition-all duration-200 ${
                   activeTab === i
-                    ? "bg-[#8db600] text-white shadow-[0_4px_12px_rgba(141,182,0,0.3)]"
+                    ? "bg-green text-white shadow-green-hover"
                     : "bg-white text-gray-700 shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -110,13 +110,13 @@ export default function Features() {
               <ul className="list-none p-0 m-0 flex flex-col gap-3">
                 {active.features.map((f, i) => (
                   <li key={i} className="flex items-center gap-2.5 text-sm text-gray-700">
-                    <span className="text-[#8db600] text-sm">✓</span>
+                    <span className="text-green text-sm">✓</span>
                     {f}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="bg-gradient-to-br from-[#e8f5c8] to-[#d4edaa] rounded-[20px] p-10 flex items-center justify-center min-h-[240px]">
+            <div className="bg-gradient-to-br from-green-bg to-green-light rounded-[20px] p-10 flex items-center justify-center min-h-[240px]">
               <motion.div
                 className="text-6xl text-center"
                 animate={{ scale: [1, 1.1, 1] }}

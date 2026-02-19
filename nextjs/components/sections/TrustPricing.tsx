@@ -41,7 +41,7 @@ const trustItems = [
 
 export default function TrustPricing() {
   return (
-    <section className="section-padding bg-[#f8fafc]">
+    <section className="section-padding bg-surface">
       <div className="section-inner">
         <div className="text-center mb-12">
           <p className="text-[13px] font-bold text-linkedin uppercase tracking-[0.12em] mb-3">

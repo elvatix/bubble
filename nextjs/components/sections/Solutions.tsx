@@ -61,7 +61,7 @@ export default function Solutions() {
           {solutions.map((s, i) => (
             <motion.div
               key={i}
-              className="p-8 rounded-[20px] bg-[#fafafa] border border-gray-200 text-center"
+              className="p-8 rounded-[20px] bg-surface-card border border-gray-200 text-center"
               whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(10,102,194,0.12)", borderColor: "var(--linkedin-blue)" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >

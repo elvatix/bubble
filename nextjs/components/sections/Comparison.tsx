@@ -9,7 +9,7 @@ const CheckCircleIcon = ({ color = "var(--linkedin-blue)" }: { color?: string })
 );
 
 const XIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-danger" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10" />
     <line x1="15" y1="9" x2="9" y2="15" />
     <line x1="9" y1="9" x2="15" y2="15" />
@@ -56,7 +56,7 @@ export default function Comparison() {
         {/* Comparison table */}
         <div className="rounded-[20px] border border-gray-200 overflow-hidden">
           {/* Header */}
-          <div className="grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] bg-[#f8f9fa] py-3.5 px-6 border-b border-gray-200">
+          <div className="grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] bg-surface py-3.5 px-6 border-b border-gray-200">
             <span className="text-[13px] font-bold text-gray-500 uppercase tracking-wide">Feature</span>
             <span className="text-[13px] font-bold text-red-500 text-center">Handmatig</span>
             <span className="text-[13px] font-bold text-linkedin text-center">Elvatix</span>
@@ -67,7 +67,7 @@ export default function Comparison() {
               className={`grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] py-4 px-6 items-center ${
                 i < rows.length - 1 ? "border-b border-gray-100" : ""
               }`}
-              whileHover={{ background: "#f0f7fe" }}
+              whileHover={{ background: "var(--color-linkedin-light)" }}
             >
               <span className="text-sm text-gray-700">{row.label}</span>
               <span className="flex justify-center">{row.zonder ? <CheckCircleIcon /> : <XIcon />}</span>

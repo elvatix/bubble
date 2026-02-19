@@ -16,7 +16,7 @@ export default function Stats() {
       <div className="section-inner">
         <AnimateOnScroll variant="fadeUp">
           <div className="text-center mb-12">
-            <p className="text-[13px] font-bold text-[#8db600] uppercase tracking-[0.12em] mb-3">In cijfers</p>
+            <p className="text-[13px] font-bold text-green uppercase tracking-[0.12em] mb-3">In cijfers</p>
             <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
               Cijfers die voor zich spreken
             </h2>
@@ -30,13 +30,13 @@ export default function Stats() {
             {items.map((s, i) => (
               <StaggerItem key={i}>
                 <motion.div
-                  className="text-center p-8 rounded-[20px] bg-gradient-to-br from-[#fafafa] to-[#f5f5f5] border border-gray-100"
+                  className="text-center p-8 rounded-[20px] bg-gradient-to-br from-surface-card to-surface-card-end border border-gray-100"
                   whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(0,0,0,0.08)", borderColor: "rgba(141,182,0,0.2)" }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <div className="flex items-baseline justify-center gap-0.5">
                     <span className="text-5xl font-black text-gray-900">{s.value}</span>
-                    {s.suffix && <span className="text-[22px] font-bold text-[#8db600]">{s.suffix}</span>}
+                    {s.suffix && <span className="text-[22px] font-bold text-green">{s.suffix}</span>}
                   </div>
                   <p className="text-base font-bold text-gray-900 mt-2">{s.label}</p>
                   <p className="text-[13px] text-gray-400 mt-1">{s.sub}</p>
