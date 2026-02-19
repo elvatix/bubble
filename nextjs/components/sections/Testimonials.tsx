@@ -1,4 +1,5 @@
 "use client";
+import { StarIcon } from '@/components/icons/Icons';
 import AnimateOnScroll from "../animations/AnimateOnScroll";
 import StaggerChildren from "../animations/StaggerChildren";
 import { motion } from "framer-motion";

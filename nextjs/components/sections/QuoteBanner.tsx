@@ -1,4 +1,5 @@
 "use client";
+import { UserIcon } from '@/components/icons/Icons';
 
 export default function QuoteBanner() {
   return (

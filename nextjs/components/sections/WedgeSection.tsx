@@ -1,4 +1,5 @@
 "use client";
+import { StopwatchIcon, TrendingUpIcon, ClockIcon, TrophyIcon } from '@/components/icons/Icons';
 import { motion } from "framer-motion";
 import AnimateOnScroll from "../animations/AnimateOnScroll";
 import AnimatedCounter from "../animations/AnimatedCounter";
