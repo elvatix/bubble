@@ -3,8 +3,14 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import ImmersiveLayout from './immersive-layout'
 
 export const revalidate = 3600
+
+// Slugs die de immersive layout gebruiken
+const IMMERSIVE_SLUGS = [
+  'hoeveel-berichten-sturen-voor-1-intake-op-linkedin-richtlijn-en-timing',
+]
 
 interface BlogPostProps {
   params: Promise<{ slug: string }>
@@ -75,6 +81,22 @@ export default async function BlogPost({ params }: BlogPostProps) {
     day: 'numeric',
   })
 
+  // ── Immersive layout voor specifieke blogs ──
+  if (IMMERSIVE_SLUGS.includes(slug)) {
+    return (
+      <ImmersiveLayout
+        title={title}
+        author={blog.Author}
+        date={dateFormatted}
+        readingTime={readingTime}
+        imageUrl={imageUrl}
+        altText={blog["Alt text"] || title}
+        bodyContent={bodyContent}
+      />
+    )
+  }
+
+  // ── Default layout voor alle andere blogs ──
   return (
     <main className="min-h-screen bg-white">
 
