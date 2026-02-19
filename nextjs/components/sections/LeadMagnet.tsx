@@ -1,4 +1,5 @@
 "use client";
+import { ShieldIcon, ZapIcon, TargetIcon } from '@/components/icons/Icons';
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 
@@ -427,9 +428,9 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         {formContent}
         <div className="flex justify-center gap-5 mt-3.5">
           {[
-            { icon: "\ud83d\udd12", text: "Veilig & privé" },
-            { icon: "\u26a1", text: "Klaar in ~15 sec" },
-            { icon: "\ud83c\udfaf", text: "5x gratis per uur" },
+            { icon: <ShieldIcon size={14} />, text: "Veilig & privé" },
+            { icon: <ZapIcon size={14} />, text: "Klaar in ~15 sec" },
+            { icon: <TargetIcon size={14} />, text: "5x gratis per uur" },
           ].map((item, i) => (
             <span key={i} className="text-[11px] text-gray-400 flex items-center gap-1">
               <span>{item.icon}</span> {item.text}
@@ -468,9 +469,9 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         {/* Trust */}
         <div className="flex justify-center gap-6 mt-7 flex-wrap">
           {[
-            { icon: "\ud83d\udd12", text: "Veilig & privé" },
-            { icon: "\u26a1", text: "Klaar in ~15 sec" },
-            { icon: "\ud83c\udfaf", text: "5x gratis per uur" },
+            { icon: <ShieldIcon size={14} />, text: "Veilig & privé" },
+            { icon: <ZapIcon size={14} />, text: "Klaar in ~15 sec" },
+            { icon: <TargetIcon size={14} />, text: "5x gratis per uur" },
           ].map((item, i) => (
             <span key={i} className="text-xs text-gray-400 flex items-center gap-1.5">
               <span>{item.icon}</span> {item.text}
