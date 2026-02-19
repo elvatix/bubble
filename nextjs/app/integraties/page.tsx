@@ -20,9 +20,7 @@ const integrations = [
 export default function IntegratiesPage() {
   return (
     <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Integraties</span>
-        <h1 className="page-heading">Verbind al je tools</h1>
+      <Container className="text-center mb-16">        <h1 className="page-heading">Verbind al je tools</h1>
         <p className="page-subtitle">
           Elvatix integreert naadloos met je bestaande recruitment stack. Geen datasilo\'s, geen dubbel werk.
         </p>

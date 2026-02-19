@@ -17,9 +17,7 @@ export default async function BlogOverviewPage() {
 
   return (
     <main className="pt-40 pb-16">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Blog</span>
-        <h1 className="page-heading">Inzichten & Updates</h1>
+      <Container className="text-center mb-16">        <h1 className="page-heading">Inzichten & Updates</h1>
         <p className="page-subtitle">
           De laatste artikelen over AI-powered recruitment, LinkedIn strategieën en talent acquisition best practices.
         </p>

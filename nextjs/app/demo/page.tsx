@@ -22,9 +22,7 @@ export default function DemoPage() {
     <main className="pt-40 pb-16">
       <Container className="max-w-5xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-          <div>
-            <span className="page-badge">Demo</span>
-            <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Zie Elvatix in actie</h1>
+          <div>            <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Zie Elvatix in actie</h1>
             <p className="text-gray-600 mb-8 leading-relaxed">
               In 30 minuten laten we zien hoe Elvatix jouw recruitment workflow transformeert. Persoonlijk, relevant en afgestemd op jouw situatie.
             </p>

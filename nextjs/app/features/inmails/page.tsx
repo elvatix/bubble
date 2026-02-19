@@ -19,9 +19,7 @@ const features = [
 export default function InMailsPage() {
   return (
     <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">AI InMails</span>
-        <h1 className="page-heading">InMails die daadwerkelijk gelezen worden</h1>
+      <Container className="text-center mb-16">        <h1 className="page-heading">InMails die daadwerkelijk gelezen worden</h1>
         <p className="page-subtitle">
           Genereer hyper-gepersonaliseerde LinkedIn InMails op basis van het profiel van je kandidaat . In seconden, niet in minuten.
         </p>

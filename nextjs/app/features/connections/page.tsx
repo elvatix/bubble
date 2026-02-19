@@ -19,9 +19,7 @@ const features = [
 export default function ConnectionsPage() {
   return (
     <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Connectieverzoeken</span>
-        <h1 className="page-heading">Connectieverzoeken die wél geaccepteerd worden</h1>
+      <Container className="text-center mb-16">        <h1 className="page-heading">Connectieverzoeken die wél geaccepteerd worden</h1>
         <p className="page-subtitle">
           Geen standaard &ldquo;Ik zou je graag toevoegen&rdquo; meer. Elvatix schrijft connectieverzoeken die opvallen . Gebaseerd op het echte profiel.
         </p>

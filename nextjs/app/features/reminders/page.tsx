@@ -19,9 +19,7 @@ const features = [
 export default function RemindersPage() {
   return (
     <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Smart Reminders</span>
-        <h1 className="page-heading">Nooit meer een kandidaat vergeten</h1>
+      <Container className="text-center mb-16">        <h1 className="page-heading">Nooit meer een kandidaat vergeten</h1>
         <p className="page-subtitle">
           Automatische follow-up reminders op basis van eerdere interacties. Elke opvolging voelt persoonlijk en relevant.
         </p>

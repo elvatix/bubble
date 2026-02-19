@@ -19,9 +19,7 @@ const features = [
 export default function AnalyticsPage() {
   return (
     <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Analytics</span>
-        <h1 className="page-heading">Data-gedreven recruitment</h1>
+      <Container className="text-center mb-16">        <h1 className="page-heading">Data-gedreven recruitment</h1>
         <p className="page-subtitle">
           Diepgaande analytics die je laten zien wat werkt en wat niet. Optimaliseer je outreach met echte data.
         </p>

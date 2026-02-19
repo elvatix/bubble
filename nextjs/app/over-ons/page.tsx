@@ -19,9 +19,7 @@ const values = [
 export default function OverOnsPage() {
   return (
     <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Over Ons</span>
-        <h1 className="page-heading">Gebouwd door recruiters, voor recruiters</h1>
+      <Container className="text-center mb-16">        <h1 className="page-heading">Gebouwd door recruiters, voor recruiters</h1>
         <p className="page-subtitle">
           Elvatix is ontstaan uit frustratie met het generieke karakter van LinkedIn outreach. We wisten dat het beter kon en bouwden de oplossing.
         </p>

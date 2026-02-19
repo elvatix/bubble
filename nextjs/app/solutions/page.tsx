@@ -33,9 +33,7 @@ const segments = [
 export default function SolutionsPage() {
   return (
     <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Solutions</span>
-        <h1 className="page-heading">Voor elke recruiter de juiste oplossing</h1>
+      <Container className="text-center mb-16">        <h1 className="page-heading">Voor elke recruiter de juiste oplossing</h1>
         <p className="page-subtitle">
           Of je nu solo werkt of een team van 50+ aanstuurt | Elvatix past zich aan.
         </p>

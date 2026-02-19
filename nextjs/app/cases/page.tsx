@@ -45,9 +45,7 @@ const cases = [
 export default function CasesPage() {
   return (
     <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Case Studies</span>
-        <h1 className="page-heading">Resultaten die spreken</h1>
+      <Container className="text-center mb-16">        <h1 className="page-heading">Resultaten die spreken</h1>
         <p className="page-subtitle">
           Ontdek hoe toonaangevende recruitmentbureaus hun outreach transformeerden met Elvatix.
         </p>

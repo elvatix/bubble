@@ -45,9 +45,7 @@ const plans = [
 export default function PricingPage() {
   return (
     <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Pricing</span>
-        <h1 className="page-heading">Eenvoudige, transparante prijzen</h1>
+      <Container className="text-center mb-16">        <h1 className="page-heading">Eenvoudige, transparante prijzen</h1>
         <p className="page-subtitle">Geen verborgen kosten. Start gratis en upgrade wanneer je klaar bent.</p>
       </Container>
 

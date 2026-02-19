@@ -27,9 +27,7 @@ const howItWorks = [
 export default function PlatformPage() {
   return (
     <main className="pt-40 pb-0">
-      <Container className="text-center mb-16">
-        <span className="page-badge">Platform</span>
-        <h1 className="page-heading">
+      <Container className="text-center mb-16">        <h1 className="page-heading">
           Eén platform voor al je LinkedIn recruitment
         </h1>
         <p className="page-subtitle">
