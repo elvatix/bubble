@@ -6,11 +6,11 @@ export default function CTA() {
     <section className="section-padding bg-gradient-to-br from-linkedin to-linkedin-dark text-center">
       <div className="max-w-[700px] mx-auto">
         <h2 className="text-[clamp(28px,3.5vw,44px)] font-black text-white mb-4 leading-tight">
-          Klaar om 4–6 uur per week te besparen?
+          Klaar om 4-6 uur per week te besparen?
         </h2>
         <p className="text-white/85 text-base mb-8 leading-relaxed">
           Plan een demo en ontdek hoe Elvatix jouw LinkedIn outreach versnelt.
-          Van 10–15 minuten naar 30 seconden per bericht.
+          Van 10-15 minuten naar 30 seconden per bericht.
         </p>
         <div className="flex gap-3 justify-center flex-wrap">
           <motion.a

@@ -196,7 +196,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         <div className="mb-5">
           <p className="text-[11px] font-bold text-green uppercase tracking-[0.12em] mb-2">AI Recruitment Writer</p>
           <h3 className="text-xl font-extrabold text-gray-900 mb-1">Genereer een bericht</h3>
-          <p className="text-xs text-gray-400 leading-normal">{"Plak een LinkedIn URL \u2014 wij schrijven een persoonlijke InMail."}</p>
+          <p className="text-xs text-gray-400 leading-normal">Plak een LinkedIn URL en wij schrijven een persoonlijke InMail.</p>
         </div>
       )}
 
@@ -459,7 +459,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             Genereer een gepersonaliseerd bericht
           </h2>
           <p className="text-base text-gray-500 max-w-[520px] mx-auto leading-relaxed">
-            {"Plak een LinkedIn URL \u2014 wij scrapen het profiel en schrijven een InMail en connectieverzoek op maat."}
+            {"Plak een LinkedIn URL en wij scrapen het profiel en schrijven een InMail en connectieverzoek op maat."}
           </p>
         </div>
 

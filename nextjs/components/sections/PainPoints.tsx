@@ -49,7 +49,7 @@ const XCircleIcon = () => (
 );
 
 const pains = [
-  { icon: <ClockIcon />, title: "Handmatig typen", description: "10–15 minuten per InMail, profiel voor profiel. Onhoudbaar." },
+  { icon: <ClockIcon />, title: "Handmatig typen", description: "10-15 minuten per InMail, profiel voor profiel. Onhoudbaar." },
   { icon: <ClipboardIcon />, title: "Kopiëren & plakken", description: "Templates uit ChatGPT kopiëren, plakken in LinkedIn, handmatig bijschaven." },
   { icon: <UserXIcon />, title: "Geen personalisatie", description: "Standaard connectieverzoeken die niemand accepteert." },
   { icon: <TrendDownIcon />, title: "Lage response rates", description: "Generieke outreach = lage reactiepercentages en frustratie." },
