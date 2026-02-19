@@ -59,46 +59,33 @@ export default function Features() {
   const active = tabs[activeTab];
 
   return (
-    <section id="features" className="section-padding" style={{ background: "#f8fafc" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+    <section id="features" className="section-padding bg-[#f8fafc]">
+      <div className="section-inner">
         <AnimateOnScroll variant="fadeUp">
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <p style={{ fontSize: 14, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 12 }}>
+          <div className="text-center mb-12">
+            <p className="text-sm font-semibold text-[#8db600] uppercase tracking-[0.1em] mb-3">
               Modules
             </p>
-            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 900, color: "#111", marginBottom: 12 }}>
+            <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
               Alles wat je nodig hebt, direct in LinkedIn
             </h2>
-            <p style={{ color: "#6b7280", fontSize: 16, maxWidth: 560, margin: "0 auto" }}>
+            <p className="text-gray-500 text-base max-w-[560px] mx-auto">
               Vier krachtige modules die samenwerken om jouw LinkedIn outreach te versnellen.
             </p>
           </div>
         </AnimateOnScroll>
 
         <AnimateOnScroll variant="fadeUp" delay={0.2}>
-          <div className="feature-tabs" style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 8,
-            marginBottom: 32,
-            flexWrap: "wrap",
-          }}>
+          <div className="flex justify-center gap-2 mb-8 flex-wrap">
             {tabs.map((tab, i) => (
               <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(i)}
-                style={{
-                  padding: "12px 24px",
-                  borderRadius: 9999,
-                  border: "none",
-                  cursor: "pointer",
-                  fontSize: 14,
-                  fontWeight: 600,
-                  background: activeTab === i ? "#8db600" : "white",
-                  color: activeTab === i ? "white" : "#374151",
-                  boxShadow: activeTab === i ? "0 4px 12px rgba(141,182,0,0.3)" : "0 1px 4px rgba(0,0,0,0.06)",
-                  transition: "all 0.2s",
-                }}
+                className={`px-6 py-3 rounded-full border-none cursor-pointer text-sm font-semibold transition-all duration-200 ${
+                  activeTab === i
+                    ? "bg-[#8db600] text-white shadow-[0_4px_12px_rgba(141,182,0,0.3)]"
+                    : "bg-white text-gray-700 shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
+                }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -115,42 +102,23 @@ export default function Features() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="feature-tab-content"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 48,
-              background: "white",
-              borderRadius: 24,
-              padding: 48,
-              border: "1px solid #f3f4f6",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
-              alignItems: "center",
-            }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white rounded-3xl p-12 max-md:p-6 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] items-center"
           >
             <div>
-              <h3 style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 800, color: "#111", marginBottom: 16 }}>{active.title}</h3>
-              <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.7, marginBottom: 24 }}>{active.description}</p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+              <h3 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-gray-900 mb-4">{active.title}</h3>
+              <p className="text-[15px] text-gray-500 leading-relaxed mb-6">{active.description}</p>
+              <ul className="list-none p-0 m-0 flex flex-col gap-3">
                 {active.features.map((f, i) => (
-                  <li key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#374151" }}>
-                    <span style={{ color: "#8db600", fontSize: 14 }}>✓</span>
+                  <li key={i} className="flex items-center gap-2.5 text-sm text-gray-700">
+                    <span className="text-[#8db600] text-sm">✓</span>
                     {f}
                   </li>
                 ))}
               </ul>
             </div>
-            <div style={{
-              background: "linear-gradient(135deg, #e8f5c8, #d4edaa)",
-              borderRadius: 20,
-              padding: 40,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              minHeight: 240,
-            }}>
+            <div className="bg-gradient-to-br from-[#e8f5c8] to-[#d4edaa] rounded-[20px] p-10 flex items-center justify-center min-h-[240px]">
               <motion.div
-                style={{ fontSize: 64, textAlign: "center" }}
+                className="text-6xl text-center"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >

@@ -26,14 +26,14 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="section-padding" style={{ background: "#f8fafc" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+    <section className="section-padding bg-[#f8fafc]">
+      <div className="section-inner">
         <AnimateOnScroll variant="fadeUp">
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 900, color: "#111", marginBottom: 12 }}>
+          <div className="text-center mb-12">
+            <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
               Wat gebruikers zeggen
             </h2>
-            <p style={{ color: "#6b7280", fontSize: 16 }}>5.0 op Chrome • 4.4 op Trustpilot • 5.0 op Google</p>
+            <p className="text-gray-500 text-base">5.0 op Chrome • 4.4 op Trustpilot • 5.0 op Google</p>
           </div>
         </AnimateOnScroll>
         <StaggerChildren staggerDelay={0.15}>
@@ -41,42 +41,25 @@ export default function Testimonials() {
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
-                style={{
-                  background: "white",
-                  borderRadius: 20,
-                  padding: 32,
-                  border: "1px solid #f3f4f6",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.02)",
-                }}
+                className="bg-white rounded-[20px] p-8 border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
                 whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(0,0,0,0.06)" }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-                  <div style={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: "50%",
-                    background: "linear-gradient(135deg, #8db600, #6a9a00)",
-                    color: "white",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontWeight: 700,
-                    fontSize: 16,
-                  }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#8db600] to-[#6a9a00] text-white flex items-center justify-center font-bold text-base">
                     {t.avatar}
                   </div>
                   <div>
-                    <p style={{ fontWeight: 700, fontSize: 15, color: "#111" }}>{t.name}</p>
-                    <p style={{ fontSize: 13, color: "#9ca3af" }}>{t.role}</p>
+                    <p className="font-bold text-[15px] text-gray-900">{t.name}</p>
+                    <p className="text-[13px] text-gray-400">{t.role}</p>
                   </div>
                 </div>
-                <p style={{ fontSize: 15, color: "#374151", lineHeight: 1.7, fontStyle: "italic" }}>
+                <p className="text-[15px] text-gray-700 leading-relaxed italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div style={{ marginTop: 12 }}>
+                <div className="mt-3">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <span key={star} style={{ color: "#fbbf24", fontSize: 16 }}>★</span>
+                    <span key={star} className="text-amber-400 text-base">★</span>
                   ))}
                 </div>
               </motion.div>
