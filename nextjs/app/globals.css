@@ -157,16 +157,15 @@ body {
                 MOBILE: <= 768px
    ═══════════════════════════════════════════ */
 @media (max-width: 768px) {
-  /* Header: needs !important because Header.tsx uses inline styles for its unique floating positioning */
-  header {
-    top: 10px !important;
-    width: calc(100% - 24px) !important;
-    padding: 10px 16px !important;
-    border-radius: 24px !important;
+  header.navbar-floating {
+    top: 10px;
+    width: calc(100% - 24px);
+    padding: 10px 16px;
+    border-radius: 24px;
   }
-  .nav-links { display: none !important; }
-  .nav-cta { display: none !important; }
-  .hamburger { display: flex !important; align-items: center; margin-left: auto; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; align-items: center; margin-left: auto; }
   .mobile-nav.open {
     display: flex; flex-direction: column; gap: 8px;
     position: fixed; top: 64px; left: 12px; right: 12px;

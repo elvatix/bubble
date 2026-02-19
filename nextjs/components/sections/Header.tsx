@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Header() {
@@ -15,71 +14,25 @@ export default function Header() {
   ];
 
   return (
-    <header
-      style={{
-        position: "fixed",
-        top: 16,
-        left: "50%",
-        transform: "translateX(-50%)",
-        width: "calc(100% - 48px)",
-        maxWidth: 1200,
-        zIndex: 1000,
-        background: "rgba(255,255,255,0.95)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
-        borderRadius: 9999,
-        padding: "12px 24px",
-        boxShadow: "0 2px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04)",
-        boxSizing: "border-box",
-      }}
-    >
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        position: "relative",
-      }}>
+    <header className="navbar-floating">
+      <div className="flex items-center relative">
         {/* Logo — absolute zodat het de centering van nav niet verstoort */}
         <Link
           href="/"
-          style={{
-            fontWeight: 800,
-            fontSize: 22,
-            letterSpacing: "-0.02em",
-            textDecoration: "none",
-            flexShrink: 0,
-            color: "var(--linkedin-blue)",
-            zIndex: 1,
-          }}
+          className="font-extrabold text-[22px] tracking-tight no-underline shrink-0 text-linkedin z-[1]"
         >
           Elvatix
         </Link>
 
         {/* Nav links — gecentreerd in de volle breedte */}
         <nav
-          className="nav-links"
-          style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 32,
-            pointerEvents: "none",
-          }}
+          className="nav-links absolute inset-x-0 flex items-center justify-center gap-8 pointer-events-none"
         >
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              style={{
-                color: "#374151",
-                textDecoration: "none",
-                fontSize: 14,
-                fontWeight: 500,
-                transition: "color 0.2s",
-                pointerEvents: "auto",
-              }}
+              className="text-gray-700 no-underline text-sm font-medium transition-colors duration-200 pointer-events-auto hover:text-linkedin"
             >
               {link.label}
             </Link>
@@ -87,11 +40,10 @@ export default function Header() {
         </nav>
 
         {/* CTA — rechts uitgelijnd */}
-        <div className="nav-cta" style={{ marginLeft: "auto", flexShrink: 0, zIndex: 1 }}>
+        <div className="nav-cta ml-auto shrink-0 z-[1]">
           <Link
             href="/demo"
-            className="pill-btn pill-btn-linkedin"
-            style={{ padding: "10px 24px", fontSize: 14 }}
+            className="pill-btn pill-btn-linkedin py-2.5 px-6 text-sm"
           >
             Plan een demo
           </Link>
@@ -99,23 +51,13 @@ export default function Header() {
 
         {/* Hamburger — alleen mobiel */}
         <button
-          className="hamburger"
+          className="hamburger flex-col gap-[5px] p-2 z-[1]"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
-          style={{
-            display: "none",
-            flexDirection: "column",
-            gap: 5,
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: 8,
-            zIndex: 1,
-          }}
         >
-          <div style={{ width: 22, height: 2, background: open ? "transparent" : "#111", transition: "all 0.3s" }} />
-          <div style={{ width: 22, height: 2, background: "#111", transform: open ? "rotate(45deg) translateY(-1px)" : "none", transition: "all 0.3s" }} />
-          <div style={{ width: 22, height: 2, background: "#111", transform: open ? "rotate(-45deg) translateY(1px)" : "none", transition: "all 0.3s" }} />
+          <div className={`w-[22px] h-0.5 transition-all duration-300 ${open ? "bg-transparent" : "bg-gray-900"}`} />
+          <div className={`w-[22px] h-0.5 bg-gray-900 transition-all duration-300 ${open ? "rotate-45 -translate-y-px" : ""}`} />
+          <div className={`w-[22px] h-0.5 bg-gray-900 transition-all duration-300 ${open ? "-rotate-45 translate-y-px" : ""}`} />
         </button>
       </div>
 
