@@ -39,7 +39,7 @@ export default function StartPage() {
 
         <p className="text-sm text-gray-500 mt-8">
           Al een account?{' '}
-          <a href="/login" className="text-[var(--linkedin-blue)] font-semibold hover:underline">Log in</a>
+          <a href="/login" className="text-[var(--color-linkedin)] font-semibold hover:underline">Log in</a>
         </p>
       </Container>
     </main>

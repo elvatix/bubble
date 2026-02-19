@@ -19,7 +19,7 @@ export default function ConnectionsPage() {
   return (
     <main className="pt-40 pb-0">
       <Container className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--linkedin-blue-light)] text-[var(--linkedin-blue)] text-sm font-semibold mb-4">Connectieverzoeken</span>
+        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-linkedin-light)] text-[var(--color-linkedin)] text-sm font-semibold mb-4">Connectieverzoeken</span>
         <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Connectieverzoeken die wél geaccepteerd worden</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Geen standaard &ldquo;Ik zou je graag toevoegen&rdquo; meer. Elvatix schrijft connectieverzoeken die opvallen — gebaseerd op het echte profiel.
@@ -38,7 +38,7 @@ export default function ConnectionsPage() {
         </div>
       </Container>
 
-      <section className="bg-gradient-to-r from-[var(--linkedin-blue)] to-[var(--linkedin-blue-dark)] py-16">
+      <section className="bg-gradient-to-r from-[var(--color-linkedin)] to-[var(--color-linkedin-dark)] py-16">
         <Container className="text-center text-white">
           <h2 className="text-2xl font-extrabold mb-3">Probeer het zelf</h2>
           <p className="text-white/80 mb-6">Genereer je eerste connectieverzoek — gratis.</p>
