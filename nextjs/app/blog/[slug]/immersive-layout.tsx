@@ -60,7 +60,7 @@ function FadeIn({ children, className = '', delay = 0 }: {
           observer.disconnect()
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0 }
     )
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
@@ -270,7 +270,6 @@ export default function ImmersiveLayout({
       {/* ═══ BLOG BODY ═══ */}
       <section className="px-6 pb-16">
         <div className="max-w-3xl mx-auto">
-          <FadeIn>
             <div
               className="blog-prose immersive-prose prose prose-lg max-w-none
                 prose-headings:font-black prose-headings:text-gray-900
@@ -303,7 +302,6 @@ export default function ImmersiveLayout({
                 prose-blockquote:shadow-sm"
               dangerouslySetInnerHTML={{ __html: bodyContent }}
             />
-          </FadeIn>
         </div>
       </section>
 
