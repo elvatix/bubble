@@ -185,3 +185,40 @@ body {
   main h1 { word-break: break-word; }
   main h2 { word-break: break-word; }
 }
+
+
+/* ====== BLOG PROSE STYLES ====== */
+.blog-prose h1:first-child {
+  display: none; /* Hide duplicate h1 from Bubble HTML — title already shown in hero */
+}
+
+.blog-prose .highlight {
+  background: #f8fafc;
+  border-left: 4px solid var(--color-green, #AFCE26);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 12px 12px 0;
+}
+
+.blog-prose .highlight p {
+  margin: 0;
+}
+
+.blog-prose .faq h3 {
+  color: var(--color-linkedin);
+  font-size: 1.15rem;
+}
+
+.blog-prose ul li::marker {
+  color: var(--color-linkedin);
+}
+
+.blog-prose ol li::marker {
+  color: var(--color-linkedin);
+  font-weight: 600;
+}
+
+/* Smooth scroll for ToC links */
+html {
+  scroll-behavior: smooth;
+}

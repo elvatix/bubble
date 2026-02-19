@@ -137,10 +137,10 @@ export function cleanBlogBody(html: string): string {
   content = content.replace(/\s+style\s*=\s*"[^"]*"/gi, '')
   content = content.replace(/\s+style\s*=\s*'[^']*'/gi, '')
 
-  // 7. Remove class attributes (Bubble-specific classes like "bullets", "checkmarks")
-  // but keep the semantic HTML tags
-  content = content.replace(/\s+class\s*=\s*"[^"]*"/gi, '')
-  content = content.replace(/\s+class\s*=\s*'[^']*'/gi, '')
+  // 7. Keep useful class attributes (highlight, faq) but remove purely styling ones
+  // Convert checkmarks/bullets classes to standard ul
+  content = content.replace(/class="bullets"/gi, '')
+  content = content.replace(/class="checkmarks"/gi, '')
 
   // 8. Clean up excessive whitespace
   content = content.replace(/\n{3,}/g, '\n\n')
