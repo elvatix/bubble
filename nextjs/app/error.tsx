@@ -17,7 +17,7 @@ export default function Error({
           Er ging iets mis
         </h1>
         <p className="page-subtitle mb-10">
-          Onze excuses — we werken eraan. Probeer het opnieuw of ga terug naar
+          Sorry, er ging iets mis. Probeer het opnieuw of ga terug naar
           de homepage.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="navbar-floating">
-      {/* Logo — links */}
+      {/* Logo */}
       <Link
         href="/"
         className="font-extrabold text-[22px] tracking-tight no-underline shrink-0 text-linkedin z-[1]"
@@ -23,7 +23,7 @@ export default function Header() {
         Elvatix
       </Link>
 
-      {/* Nav links — gecentreerd */}
+      {/* Nav links */}
       <nav className="nav-links">
         {navLinks.map((link) => (
           <Link
@@ -36,7 +36,7 @@ export default function Header() {
         ))}
       </nav>
 
-      {/* CTA — rechts */}
+      {/* CTA */}
       <div className="nav-cta">
         <Link
           href="/demo"
@@ -46,7 +46,7 @@ export default function Header() {
         </Link>
       </div>
 
-      {/* Hamburger — alleen mobiel */}
+      {/* Hamburger (mobiel) */}
       <button
         className="hamburger"
         onClick={() => setOpen(!open)}

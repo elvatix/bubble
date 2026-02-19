@@ -10,7 +10,7 @@ export default function NotFound() {
           Pagina niet gevonden
         </h1>
         <p className="page-subtitle mb-10">
-          De pagina die je zoekt bestaat niet of is verplaatst. Geen zorgen — je
+          De pagina die je zoekt bestaat niet of is verplaatst. Geen zorgen, je
           bent snel weer op de juiste plek.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

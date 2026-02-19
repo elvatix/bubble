@@ -4,7 +4,7 @@ import FormWrapper from '@/components/ui/FormWrapper';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact — Elvatix',
+  title: 'Contact | Elvatix',
   description: 'Neem contact op met het Elvatix team. We helpen je graag verder.',
   alternates: { canonical: '/contact' },
 };

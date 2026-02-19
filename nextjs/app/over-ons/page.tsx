@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Over Ons — Elvatix',
+  title: 'Over Ons | Elvatix',
   description: 'Leer het team achter Elvatix kennen. Gebouwd door recruiters, voor recruiters.',
   alternates: { canonical: '/over-ons' },
 };
@@ -22,7 +22,7 @@ export default function OverOnsPage() {
         <span className="page-badge">Over Ons</span>
         <h1 className="page-heading">Gebouwd door recruiters, voor recruiters</h1>
         <p className="page-subtitle">
-          Elvatix is ontstaan uit frustratie met het generieke karakter van LinkedIn outreach. We wisten dat het beter kon — en bouwden de oplossing.
+          Elvatix is ontstaan uit frustratie met het generieke karakter van LinkedIn outreach. We wisten dat het beter kon en bouwden de oplossing.
         </p>
       </Container>
 

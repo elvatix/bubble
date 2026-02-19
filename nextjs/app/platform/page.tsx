@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Platform — Elvatix',
+  title: 'Platform | Elvatix',
   description: 'Ontdek het complete Elvatix platform. AI InMails, connectieverzoeken, reminders en analytics in één tool.',
   alternates: { canonical: '/platform' },
 };
@@ -39,7 +39,7 @@ export default function PlatformPage() {
       <Container className="max-w-5xl mb-20">
         <div className="text-center mb-10">
           <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Alles wat je nodig hebt</h2>
-          <p className="text-gray-600">Elk onderdeel is een volwaardig product — samen vormen ze het krachtigste recruitment platform.</p>
+          <p className="text-gray-600">Elk onderdeel is een volwaardig product en samen vormen ze het krachtigste recruitment platform.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {modules.map((m) => (

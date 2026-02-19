@@ -7,7 +7,7 @@ import CTA from "@/components/sections/CTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Elvatix — #1 AI-Powered LinkedIn Recruitment Copilot",
+  title: "Elvatix | #1 AI-Powered LinkedIn Recruitment Copilot",
   description:
     "Schrijf persoonlijke InMails in seconden, automatiseer connectieverzoeken en versnel je hele recruitment workflow met AI. Start gratis.",
   alternates: { canonical: "/" },

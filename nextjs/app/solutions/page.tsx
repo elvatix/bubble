@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Solutions — Elvatix',
+  title: 'Solutions | Elvatix',
   description: 'Ontdek hoe Elvatix past bij jouw type organisatie.',
   alternates: { canonical: '/solutions' },
 };
@@ -36,7 +36,7 @@ export default function SolutionsPage() {
         <span className="page-badge">Solutions</span>
         <h1 className="page-heading">Voor elke recruiter de juiste oplossing</h1>
         <p className="page-subtitle">
-          Of je nu solo werkt of een team van 50+ aanstuurt — Elvatix past zich aan.
+          Of je nu solo werkt of een team van 50+ aanstuurt | Elvatix past zich aan.
         </p>
       </Container>
 

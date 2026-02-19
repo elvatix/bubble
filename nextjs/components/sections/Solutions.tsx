@@ -36,7 +36,7 @@ const solutions = [
   {
     icon: <BriefcaseIcon />,
     title: "Corporate Recruiters",
-    description: "Efficiënter intern talent sourcen. Elvatix werkt direct in LinkedIn Recruiter — geen extra tools of tabbladen nodig.",
+    description: "Efficiënter intern talent sourcen. Elvatix werkt direct in LinkedIn Recruiter . Geen extra tools of tabbladen nodig.",
   },
   {
     icon: <RocketIcon />,
@@ -54,7 +54,7 @@ export default function Solutions() {
             Voor wie is Elvatix?
           </h2>
           <p className="text-gray-500 text-base max-w-[560px] mx-auto">
-            Of je nu als bureau of in-house recruiter werkt — Elvatix past zich aan jouw werkwijze aan.
+            Of je nu als bureau of in-house recruiter werkt | Elvatix past zich aan jouw werkwijze aan.
           </p>
         </div>
         <div className="grid-3">

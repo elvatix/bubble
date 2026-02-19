@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Analytics — Elvatix',
+  title: 'Analytics | Elvatix',
   description: 'Diepgaande inzichten in je LinkedIn outreach. Zie wat werkt en optimaliseer je recruitment strategie.',
   alternates: { canonical: '/features/analytics' },
 };
@@ -22,7 +22,7 @@ export default function AnalyticsPage() {
         <span className="page-badge">Analytics</span>
         <h1 className="page-heading">Data-gedreven recruitment</h1>
         <p className="page-subtitle">
-          Diepgaande analytics die je laten zien wat werkt — en wat niet. Optimaliseer je outreach met echte data.
+          Diepgaande analytics die je laten zien wat werkt en wat niet. Optimaliseer je outreach met echte data.
         </p>
         <div className="text-8xl my-10">📊</div>
       </Container>
