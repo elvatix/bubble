@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
   return {
     title: blog['SEO title'] + ' | Elvatix',
     description: blog['SEO Description'],
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: blog['SEO title'],
       description: blog['SEO Description'],

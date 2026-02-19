@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Over Ons — Elvatix',
   description: 'Leer het team achter Elvatix kennen. Gebouwd door recruiters, voor recruiters.',
+  alternates: { canonical: '/over-ons' },
 };
 
 const values = [

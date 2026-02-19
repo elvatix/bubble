@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Analytics — Elvatix',
   description: 'Diepgaande inzichten in je LinkedIn outreach. Zie wat werkt en optimaliseer je recruitment strategie.',
+  alternates: { canonical: '/features/analytics' },
 };
 
 const features = [

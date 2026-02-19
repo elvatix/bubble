@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Privacybeleid — Elvatix',
   description: 'Lees het privacybeleid van Elvatix. We beschermen je gegevens met de hoogste standaarden.',
+  alternates: { canonical: '/privacy' },
 };
 
 const sections = [

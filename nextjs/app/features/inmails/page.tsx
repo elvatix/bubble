@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'AI InMails — Elvatix',
   description: 'Genereer gepersonaliseerde LinkedIn InMails in seconden met AI.',
+  alternates: { canonical: '/features/inmails' },
 };
 
 const features = [

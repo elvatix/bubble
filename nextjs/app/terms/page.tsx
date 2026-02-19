@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Algemene Voorwaarden — Elvatix',
   description: 'Lees de algemene voorwaarden van Elvatix.',
+  alternates: { canonical: '/terms' },
 };
 
 const sections = [

@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Smart Reminders — Elvatix',
   description: 'Automatische follow-up reminders op basis van eerdere interacties. Nooit meer een kandidaat vergeten.',
+  alternates: { canonical: '/features/reminders' },
 };
 
 const features = [
