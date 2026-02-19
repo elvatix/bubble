@@ -75,13 +75,13 @@ body {
 
 /* ── Gradient text ── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--linkedin-blue), var(--linkedin-blue-dark));
+  background: linear-gradient(135deg, var(--color-linkedin), var(--color-linkedin-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .gradient-text-stats {
-  background: linear-gradient(135deg, var(--linkedin-blue) 0%, var(--linkedin-blue-dark) 100%);
+  background: linear-gradient(135deg, var(--color-linkedin) 0%, var(--color-linkedin-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -116,34 +116,34 @@ body {
 
 /* ── Stats card ── */
 .stats-card {
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
   border-radius: 24px; padding: 56px 40px; text-align: center;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-border);
 }
 
 /* ── Tag styles ── */
-.tag-outline { border: 1px solid var(--linkedin-blue); color: var(--linkedin-blue); border-radius: 9999px; padding: 4px 14px; font-size: 12px; font-weight: 600; }
-.tag-filled { background: var(--linkedin-blue); color: white; border-radius: 9999px; padding: 6px 16px; font-size: 13px; font-weight: 600; }
+.tag-outline { border: 1px solid var(--color-linkedin); color: var(--color-linkedin); border-radius: 9999px; padding: 4px 14px; font-size: 12px; font-weight: 600; }
+.tag-filled { background: var(--color-linkedin); color: white; border-radius: 9999px; padding: 6px 16px; font-size: 13px; font-weight: 600; }
 
 /* ── Hero cards ── */
 .hero-card-glow { background: rgba(10,102,194,0.06); border: 1px solid rgba(10,102,194,0.15); border-radius: 16px; padding: 16px; backdrop-filter: blur(8px); }
 
 /* ── CTA gradient ── */
-.cta-gradient { background: linear-gradient(135deg, var(--linkedin-blue) 0%, var(--linkedin-blue-dark) 40%, #002d6b 100%); }
+.cta-gradient { background: linear-gradient(135deg, var(--color-linkedin) 0%, var(--color-linkedin-dark) 40%, var(--color-linkedin-dark) 100%); }
 
 /* ── Buttons ── */
 .pill-btn { padding: 10px 28px; border-radius: 9999px; font-weight: 600; font-size: 14px; transition: all 0.2s ease; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; white-space: nowrap; }
-.pill-btn-primary { background: var(--linkedin-blue); color: white; border: none; }
-.pill-btn-primary:hover { background: var(--linkedin-blue-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(10,102,194,0.3); }
-.pill-btn-outline { background: transparent; color: var(--linkedin-blue); border: 2px solid var(--linkedin-blue); }
+.pill-btn-primary { background: var(--color-linkedin); color: white; border: none; }
+.pill-btn-primary:hover { background: var(--color-linkedin-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(10,102,194,0.3); }
+.pill-btn-outline { background: transparent; color: var(--color-linkedin); border: 2px solid var(--color-linkedin); }
 .pill-btn-outline:hover { background: rgba(10,102,194,0.05); }
-.pill-btn-white { background: white; color: var(--linkedin-blue); border: 2px solid rgba(255,255,255,0.8); }
+.pill-btn-white { background: white; color: var(--color-linkedin); border: 2px solid rgba(255,255,255,0.8); }
 .pill-btn-white:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
-.pill-btn-linkedin { background: var(--linkedin-blue); color: white; border: none; }
-.pill-btn-linkedin:hover { background: var(--linkedin-blue-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(10,102,194,0.3); }
+.pill-btn-linkedin { background: var(--color-linkedin); color: white; border: none; }
+.pill-btn-linkedin:hover { background: var(--color-linkedin-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(10,102,194,0.3); }
 
 /* ── Quote card ── */
-.quote-card { background: linear-gradient(135deg, var(--linkedin-blue-light) 0%, #fff 50%, var(--linkedin-blue-light) 100%); border: 3px solid var(--linkedin-blue); border-radius: 24px; padding: 48px; }
+.quote-card { background: linear-gradient(135deg, var(--color-linkedin-light) 0%, var(--color-background) 50%, var(--color-linkedin-light) 100%); border: 3px solid var(--color-linkedin); border-radius: 24px; padding: 48px; }
 
 /* ── Responsive grid helpers ── */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
@@ -165,16 +165,16 @@ body {
 
 /* ── Footer grid ── */
 .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; margin-bottom: 48px; }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e5e7eb; padding-top: 24px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 24px; }
 
 /* ── Feature tabs ── */
-.feature-tabs { display: flex; justify-content: center; gap: 32px; margin-bottom: 48px; border-bottom: 1px solid #e5e7eb; padding-bottom: 0; }
+.feature-tabs { display: flex; justify-content: center; gap: 32px; margin-bottom: 48px; border-bottom: 1px solid var(--color-border); padding-bottom: 0; }
 .feature-tab-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 
 /* ── Comparison grid ── */
 .comparison-grid { display: grid; grid-template-columns: 1fr 200px 1fr; gap: 16px; align-items: stretch; }
 .comparison-center-label { display: flex; align-items: center; justify-content: center; }
-.comparison-mobile-label { display: none; font-weight: 700; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+.comparison-mobile-label { display: none; font-weight: 700; font-size: 12px; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
 
 /* ── Float animation ── */
 @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
@@ -214,7 +214,7 @@ body {
     background: white; border-radius: 16px; padding: 16px 20px;
     box-shadow: 0 8px 40px rgba(0,0,0,0.12); z-index: 999;
   }
-  .mobile-nav.open a { display: block; padding: 12px 0; font-size: 16px; color: #374151; text-decoration: none; border-bottom: 1px solid #f3f4f6; font-weight: 500; }
+  .mobile-nav.open a { display: block; padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); text-decoration: none; border-bottom: 1px solid var(--color-border-light); font-weight: 500; }
   .mobile-nav.open a:last-child { border-bottom: none; }
   .mobile-nav.open .pill-btn { text-align: center; justify-content: center; width: 100%; margin-top: 8px; }
 

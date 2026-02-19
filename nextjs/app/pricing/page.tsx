@@ -45,7 +45,7 @@ export default function PricingPage() {
   return (
     <main className="pt-40 pb-0">
       <Container className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--linkedin-blue-light)] text-[var(--linkedin-blue)] text-sm font-semibold mb-4">Pricing</span>
+        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-linkedin-light)] text-[var(--color-linkedin)] text-sm font-semibold mb-4">Pricing</span>
         <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">Eenvoudige, transparante prijzen</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">Geen verborgen kosten. Start gratis en upgrade wanneer je klaar bent.</p>
       </Container>
@@ -53,7 +53,7 @@ export default function PricingPage() {
       <Container className="max-w-5xl mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {plans.map((plan) => (
-            <div key={plan.name} className={`rounded-2xl p-8 flex flex-col ${plan.highlight ? 'bg-[var(--linkedin-blue)] text-white shadow-xl scale-105' : 'bg-white border border-gray-200'}`}>
+            <div key={plan.name} className={`rounded-2xl p-8 flex flex-col ${plan.highlight ? 'bg-[var(--color-linkedin)] text-white shadow-xl scale-105' : 'bg-white border border-gray-200'}`}>
               <h2 className="text-xl font-bold mb-1">{plan.name}</h2>
               <div className="mb-1">
                 <span className="text-4xl font-black">{plan.price}</span>

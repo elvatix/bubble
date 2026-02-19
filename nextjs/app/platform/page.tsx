@@ -27,7 +27,7 @@ export default function PlatformPage() {
   return (
     <main className="pt-40 pb-0">
       <Container className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--linkedin-blue-light)] text-[var(--linkedin-blue)] text-sm font-semibold mb-4">Platform</span>
+        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-linkedin-light)] text-[var(--color-linkedin)] text-sm font-semibold mb-4">Platform</span>
         <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">
           Eén platform voor al je LinkedIn recruitment
         </h1>
@@ -43,9 +43,9 @@ export default function PlatformPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {modules.map((m) => (
-            <a key={m.title} href={m.href} className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[var(--linkedin-blue)] transition-all group">
+            <a key={m.title} href={m.href} className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[var(--color-linkedin)] transition-all group">
               <span className="text-3xl mb-3 block">{m.icon}</span>
-              <h3 className="font-bold text-gray-900 mb-1 group-hover:text-[var(--linkedin-blue)]">{m.title}</h3>
+              <h3 className="font-bold text-gray-900 mb-1 group-hover:text-[var(--color-linkedin)]">{m.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{m.desc}</p>
             </a>
           ))}
@@ -58,7 +58,7 @@ export default function PlatformPage() {
           <div className="flex flex-col gap-8">
             {howItWorks.map((step) => (
               <div key={step.num} className="flex items-start gap-5">
-                <span className="text-3xl font-black text-[var(--linkedin-blue)] flex-shrink-0 w-12">{step.num}</span>
+                <span className="text-3xl font-black text-[var(--color-linkedin)] flex-shrink-0 w-12">{step.num}</span>
                 <div>
                   <h3 className="font-bold text-gray-900 mb-1">{step.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
@@ -69,7 +69,7 @@ export default function PlatformPage() {
         </Container>
       </section>
 
-      <section className="bg-gradient-to-r from-[var(--linkedin-blue)] to-[var(--linkedin-blue-dark)] py-16">
+      <section className="bg-gradient-to-r from-[var(--color-linkedin)] to-[var(--color-linkedin-dark)] py-16">
         <Container className="text-center text-white">
           <h2 className="text-2xl font-extrabold mb-3">Klaar om te beginnen?</h2>
           <p className="text-white/80 mb-6">Plan een demo en ontdek het volledige platform.</p>
