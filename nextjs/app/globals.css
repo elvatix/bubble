@@ -165,7 +165,7 @@ body {
   }
   .nav-links { display: none; }
   .nav-cta { display: none; }
-  .hamburger { display: flex; align-items: center; margin-left: auto; }
+  .hamburger { display: flex; flex-direction: column; gap: 5px; align-items: center; margin-left: auto; }
   .mobile-nav.open {
     display: flex; flex-direction: column; gap: 8px;
     position: fixed; top: 64px; left: 12px; right: 12px;
