@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import { ZapIcon, TargetIcon, MessageSquareIcon, RocketIcon } from '@/components/icons/Icons';
 import Button from '@/components/ui/Button';
 import FormWrapper from '@/components/ui/FormWrapper';
 import type { Metadata } from 'next';
@@ -10,10 +11,10 @@ export const metadata: Metadata = {
 };
 
 const benefits = [
-  { icon: '⚡', text: 'Live walkthrough van het platform' },
-  { icon: '🎯', text: 'Gepersonaliseerde use-case analyse' },
-  { icon: '💬', text: 'Stel al je vragen aan ons team' },
-  { icon: '🚀', text: 'Direct aan de slag na de demo' },
+  { icon: <ZapIcon size={20} />, text: 'Live walkthrough van het platform' },
+  { icon: <TargetIcon size={20} />, text: 'Gepersonaliseerde use-case analyse' },
+  { icon: <MessageSquareIcon size={20} />, text: 'Stel al je vragen aan ons team' },
+  { icon: <RocketIcon size={20} />, text: 'Direct aan de slag na de demo' },
 ];
 
 export default function DemoPage() {

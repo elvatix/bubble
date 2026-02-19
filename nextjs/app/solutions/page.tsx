@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import { BuildingIcon, LinkIcon, SearchIcon, CheckIcon } from '@/components/icons/Icons';
 import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
@@ -10,19 +11,19 @@ export const metadata: Metadata = {
 
 const segments = [
   {
-    icon: '🏢',
+    icon: <BuildingIcon size={28} />,
     title: 'Recruitmentbureaus',
     desc: 'Voor bureaus die dagelijks tientallen kandidaten benaderen. Schaal je outreach zonder kwaliteitsverlies.',
     benefits: ['Volume zonder kwaliteitsverlies', 'Team-brede schrijfstandaard', 'ROI per recruiter zichtbaar'],
   },
   {
-    icon: '🔗',
+    icon: <LinkIcon size={28} />,
     title: 'Corporate Recruiters',
     desc: 'Voor in-house teams die employer branding en persoonlijke benadering combineren.',
     benefits: ['Employer branding consistent', 'Persoonliijke touch op schaal', 'Integratie met ATS'],
   },
   {
-    icon: '🔍',
+    icon: <SearchIcon size={28} />,
     title: 'Detacheringsbureaus',
     desc: 'Voor organisaties die langdurige relaties opbouwen met kandidaten.',
     benefits: ['Relatie-opbouw door personalisatie', 'Follow-up automatisering', 'Kandidaat-portaal integratie'],
@@ -52,7 +53,7 @@ export default function SolutionsPage() {
               <ul className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {s.benefits.map((b) => (
                   <li key={b} className="flex items-start gap-2">
-                    <span className="text-green-500 mt-0.5">✓</span>
+                    <CheckIcon size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
                     <span className="text-sm text-gray-700">{b}</span>
                   </li>
                 ))}

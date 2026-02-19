@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import { CheckIcon } from '@/components/icons/Icons';
 import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
@@ -63,7 +64,7 @@ export default function PricingPage() {
               <ul className="flex flex-col gap-3 mb-8 flex-grow">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm">
-                    <span className={plan.highlight ? 'text-green-300' : 'text-green-500'}>✓</span>
+                    <CheckIcon size={16} className={plan.highlight ? 'text-green-300' : 'text-green-500'} />
                     <span>{f}</span>
                   </li>
                 ))}

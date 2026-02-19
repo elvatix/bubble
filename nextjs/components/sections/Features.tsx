@@ -1,4 +1,5 @@
 "use client";
+import { MailIcon, UsersIcon, BellIcon, FileTextIcon, CheckIcon } from '@/components/icons/Icons';
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimateOnScroll from "../animations/AnimateOnScroll";
@@ -110,7 +111,7 @@ export default function Features() {
               <ul className="list-none p-0 m-0 flex flex-col gap-3">
                 {active.features.map((f, i) => (
                   <li key={i} className="flex items-center gap-2.5 text-sm text-gray-700">
-                    <span className="text-green text-sm">✓</span>
+                    <CheckIcon size={14} className="text-green flex-shrink-0" />
                     {f}
                   </li>
                 ))}
@@ -122,7 +123,7 @@ export default function Features() {
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                {activeTab === 0 ? "📧" : activeTab === 1 ? "🤝" : activeTab === 2 ? "🔔" : "📝"}
+                {activeTab === 0 ? <MailIcon size={48} /> : activeTab === 1 ? <UsersIcon size={48} /> : activeTab === 2 ? <BellIcon size={48} /> : <FileTextIcon size={48} />}
               </motion.div>
             </div>
           </motion.div>

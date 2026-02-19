@@ -5,10 +5,10 @@ import AnimatedCounter from "../animations/AnimatedCounter";
 
 export default function WedgeSection() {
   const stats = [
-    { icon: "⏱️", value: "30", suffix: " sec", label: "Per gepersonaliseerd bericht", sub: "Was 10-15 minuten" },
-    { icon: "📈", value: "2", suffix: "x", label: "Meer respons op InMails", sub: "Vergeleken met standaard berichten" },
-    { icon: "⏰", value: "4-6", suffix: " uur", label: "Besparing per week", sub: "Per recruiter, per week" },
-    { icon: "🏆", value: "260", suffix: " InMails", label: "In slechts 1,7 uur", sub: "Manpower case study" },
+    { icon: <StopwatchIcon size={28} />, value: "30", suffix: " sec", label: "Per gepersonaliseerd bericht", sub: "Was 10-15 minuten" },
+    { icon: <TrendingUpIcon size={28} />, value: "2", suffix: "x", label: "Meer respons op InMails", sub: "Vergeleken met standaard berichten" },
+    { icon: <ClockIcon size={28} />, value: "4-6", suffix: " uur", label: "Besparing per week", sub: "Per recruiter, per week" },
+    { icon: <TrophyIcon size={28} />, value: "260", suffix: " InMails", label: "In slechts 1,7 uur", sub: "Manpower case study" },
   ];
 
   return (

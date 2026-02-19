@@ -23,7 +23,7 @@ export default function FormWrapper({
   if (submitted) {
     return (
       <div className={`flex flex-col items-center justify-center gap-4 py-12 ${className}`}>
-        <span className="text-4xl">✅</span>
+        <CheckCircleIcon size={48} className="text-green-500" />
         <p className="text-lg font-semibold text-gray-900">{successMessage}</p>
         <button
           onClick={() => setSubmitted(false)}

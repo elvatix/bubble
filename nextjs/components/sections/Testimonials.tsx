@@ -59,7 +59,7 @@ export default function Testimonials() {
                 </p>
                 <div className="mt-3">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <span key={star} className="text-amber-400 text-base">★</span>
+                    <StarIcon key={star} size={16} className="text-amber-400" />
                   ))}
                 </div>
               </motion.div>

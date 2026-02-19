@@ -13,7 +13,7 @@ export default function QuoteBanner() {
             <p className="text-[13px] text-gray-400">Oprichter, Elvatix</p>
           </div>
           <div className="w-[100px] h-[100px] rounded-full bg-[#e8e0f0] flex items-center justify-center shrink-0 max-md:mx-auto">
-            <span className="text-5xl opacity-50">👤</span>
+            <span className="opacity-50"><UserIcon size={48} /></span>
           </div>
         </div>
       </div>

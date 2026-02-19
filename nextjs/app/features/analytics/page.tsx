@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import { BarChartIcon } from '@/components/icons/Icons';
 import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
@@ -24,7 +25,7 @@ export default function AnalyticsPage() {
         <p className="page-subtitle">
           Diepgaande analytics die je laten zien wat werkt en wat niet. Optimaliseer je outreach met echte data.
         </p>
-        <div className="text-8xl my-10">📊</div>
+        <div className="my-10 text-linkedin"><BarChartIcon size={80} /></div>
       </Container>
 
       <Container className="max-w-4xl mb-20">

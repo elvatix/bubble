@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import { MessageSquareIcon, UsersIcon, ClockIcon, BarChartIcon, CpuIcon, FileTextIcon } from '@/components/icons/Icons';
 import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
@@ -9,12 +10,12 @@ export const metadata: Metadata = {
 };
 
 const modules = [
-  { icon: '💬', title: 'AI InMails', desc: 'Genereer gepersonaliseerde InMails op basis van het LinkedIn-profiel van je kandidaat. Eén klik, klaar.', href: '/features/inmails' },
-  { icon: '🤝', title: 'Connectieverzoeken', desc: 'Schrijf connectieverzoeken die opvallen en daadwerkelijk geaccepteerd worden. Geen standaard templates.', href: '/features/connections' },
-  { icon: '⏰', title: 'Smart Reminders', desc: 'Automatische follow-ups afgestemd op eerdere interacties. Nooit meer een kandidaat vergeten.', href: '/features/reminders' },
-  { icon: '📊', title: 'Analytics Dashboard', desc: 'Zie welke berichten converteren, welke templates het beste werken en waar je tijd het meest oplevert.', href: '/features/analytics' },
-  { icon: '🤖', title: 'Custom GPT', desc: 'Train je eigen AI-model op jouw schrijfstijl, tone-of-voice en branchekennis. Uniek voor Elvatix.', href: '/platform' },
-  { icon: '📝', title: 'Templates', desc: 'Bewaar en deel je beste berichten als template. Gebruik ze als startpunt voor nieuwe outreach.', href: '/platform' },
+  { icon: <MessageSquareIcon size={28} />, title: 'AI InMails', desc: 'Genereer gepersonaliseerde InMails op basis van het LinkedIn-profiel van je kandidaat. Eén klik, klaar.', href: '/features/inmails' },
+  { icon: <UsersIcon size={28} />, title: 'Connectieverzoeken', desc: 'Schrijf connectieverzoeken die opvallen en daadwerkelijk geaccepteerd worden. Geen standaard templates.', href: '/features/connections' },
+  { icon: <ClockIcon size={28} />, title: 'Smart Reminders', desc: 'Automatische follow-ups afgestemd op eerdere interacties. Nooit meer een kandidaat vergeten.', href: '/features/reminders' },
+  { icon: <BarChartIcon size={28} />, title: 'Analytics Dashboard', desc: 'Zie welke berichten converteren, welke templates het beste werken en waar je tijd het meest oplevert.', href: '/features/analytics' },
+  { icon: <CpuIcon size={28} />, title: 'Custom GPT', desc: 'Train je eigen AI-model op jouw schrijfstijl, tone-of-voice en branchekennis. Uniek voor Elvatix.', href: '/platform' },
+  { icon: <FileTextIcon size={28} />, title: 'Templates', desc: 'Bewaar en deel je beste berichten als template. Gebruik ze als startpunt voor nieuwe outreach.', href: '/platform' },
 ];
 
 const howItWorks = [
@@ -44,7 +45,7 @@ export default function PlatformPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {modules.map((m) => (
             <a key={m.title} href={m.href} className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-linkedin transition-all group">
-              <span className="text-3xl mb-3 block">{m.icon}</span>
+              <span className="text-3xl mb-3 block text-linkedin">{m.icon}</span>
               <h3 className="font-bold text-gray-900 mb-1 group-hover:text-linkedin">{m.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{m.desc}</p>
             </a>

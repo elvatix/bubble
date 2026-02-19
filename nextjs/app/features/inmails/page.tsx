@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import { MessageSquareIcon } from '@/components/icons/Icons';
 import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
@@ -24,7 +25,7 @@ export default function InMailsPage() {
         <p className="page-subtitle">
           Genereer hyper-gepersonaliseerde LinkedIn InMails op basis van het profiel van je kandidaat . In seconden, niet in minuten.
         </p>
-        <div className="text-8xl my-10">💬</div>
+        <div className="my-10 text-linkedin"><MessageSquareIcon size={80} /></div>
       </Container>
 
       <Container className="max-w-4xl mb-20">

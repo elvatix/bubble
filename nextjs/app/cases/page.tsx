@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import { BuildingIcon, ZapIcon } from '@/components/icons/Icons';
 import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
@@ -12,7 +13,7 @@ const cases = [
   {
     company: 'Manpower',
     industry: 'Uitzenden & Detachering',
-    logo: '🏢',
+    logo: <BuildingIcon size={28} />,
     challenge: 'Het team van 40+ recruiters verstuurde handmatig InMails die te generiek waren. Response rates lagen onder de 15% en de doorlooptijd van vacatures liep op.',
     solution: 'Manpower implementeerde Elvatix voor het volledige recruitment team. Elke recruiter genereert nu gepersonaliseerde berichten op basis van LinkedIn profieldata, met follow-up reminders en analytics per medewerker.',
     results: [
@@ -27,7 +28,7 @@ const cases = [
   {
     company: 'Vibe Group',
     industry: 'IT Recruitment & Detachering',
-    logo: '⚡',
+    logo: <ZapIcon size={28} />,
     challenge: 'Als snelgroeiend IT-recruitmentbureau had Vibe Group moeite om de outreach-kwaliteit te bewaken bij schaalvergroting. Nieuwe recruiters hadden weken nodig om het niveau van seniors te bereiken.',
     solution: 'Met Elvatix kregen juniors direct toegang tot AI-gestuurde berichten die het niveau van senior recruiters evenaarden. Custom GPT werd getraind op de Vibe Group schrijfstijl.',
     results: [

@@ -12,7 +12,7 @@ export default function Error({
   return (
     <main className="pt-40 pb-16">
       <Container className="max-w-2xl text-center">
-        <span className="text-6xl mb-6 block">⚠️</span>
+        <span className="text-6xl mb-6 block text-amber-500"><AlertTriangleIcon size={64} /></span>
         <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
           Er ging iets mis
         </h1>

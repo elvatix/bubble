@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container';
+import { TargetIcon, ZapIcon, UsersIcon, RocketIcon } from '@/components/icons/Icons';
 import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
@@ -9,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { icon: '🎯', title: 'Klantgericht', desc: 'Alles wat we bouwen begint bij het probleem van de recruiter. Niet bij de technologie.' },
-  { icon: '⚡', title: 'Snelheid', desc: 'We geloven dat snelheid een feature is. Release early, iterate fast, deliver value.' },
-  { icon: '🤝', title: 'Transparantie', desc: 'Eerlijke pricing, open communicatie en geen verborgen agenda\'s.' },
-  { icon: '🚀', title: 'Innovatie', desc: 'We pushen de grenzen van wat AI kan doen voor recruitment. Elke dag opnieuw.' },
+  { icon: <TargetIcon size={28} />, title: 'Klantgericht', desc: 'Alles wat we bouwen begint bij het probleem van de recruiter. Niet bij de technologie.' },
+  { icon: <ZapIcon size={28} />, title: 'Snelheid', desc: 'We geloven dat snelheid een feature is. Release early, iterate fast, deliver value.' },
+  { icon: <UsersIcon size={28} />, title: 'Transparantie', desc: 'Eerlijke pricing, open communicatie en geen verborgen agenda\'s.' },
+  { icon: <RocketIcon size={28} />, title: 'Innovatie', desc: 'We pushen de grenzen van wat AI kan doen voor recruitment. Elke dag opnieuw.' },
 ];
 
 export default function OverOnsPage() {
