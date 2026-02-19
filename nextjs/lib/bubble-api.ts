@@ -13,7 +13,7 @@ export interface Blog {
   "SEO title"?: string       // kleine 't', met spatie! (soms afwezig bij oudere blogs)
   "SEO Description"?: string // hoofdletter 'D', met spatie! (soms afwezig bij oudere blogs)
   Title?: string             // Oudere blogs gebruiken Title i.p.v. SEO title
-  Body: string               // Hoofdletter B - bevat HTML
+  Body: string               // Hoofdletter B - bevat volledige HTML documenten
   Date: string               // Format: "Oct 22, 2023 1:41 pm"
   Author: string             // Meestal: "Gianni Linssen"
   Image: string              // URL, kan beginnen met //
@@ -31,8 +31,8 @@ export async function fetchBubble<T>(endpoint: string): Promise<T[]> {
 
   if (!apiKey) throw new Error('BUBBLE_API_KEY is not set')
 
-  // /version-test/api/1.1/ en Blogs (meervoud, hoofdletter B)
-  const url = `${apiUrl}/version-test/api/1.1/${endpoint}`
+  // LIVE API — geen version-test!
+  const url = `${apiUrl}/api/1.1/${endpoint}`
 
   const res = await fetch(url, {
     headers: {
@@ -50,11 +50,22 @@ export async function fetchBubble<T>(endpoint: string): Promise<T[]> {
   return data.response.results
 }
 
+// Haal alle blogs op met paginatie (Bubble max = 100 per request)
 export async function getAllBlogs(): Promise<Blog[]> {
-  const blogs = await fetchBubble<Blog>('obj/Blogs') // Blogs! meervoud, hoofdletter B
+  const allBlogs: Blog[] = []
+  let cursor = 0
+  const limit = 100
+
+  while (true) {
+    const batch = await fetchBubble<Blog>(`obj/Blogs?limit=${limit}&cursor=${cursor}`)
+    allBlogs.push(...batch)
+
+    if (batch.length < limit) break // geen meer resultaten
+    cursor += batch.length
+  }
 
   // Filter blogs without a title or body (test/empty entries)
-  const validBlogs = blogs.filter(b => 
+  const validBlogs = allBlogs.filter(b =>
     (b["SEO title"] || b.Title) && b.Body && b.Date
   )
 
@@ -92,4 +103,47 @@ export function fixImageUrl(url: string): string {
   if (!url) return ''
   if (url.startsWith('//')) return `https:${url}`
   return url
+}
+
+/**
+ * Clean blog HTML body content.
+ * The Body field contains FULL HTML documents (<!DOCTYPE>, <html>, <head>, <style>, <body>).
+ * This function extracts only the body content and strips all CSS/style pollution.
+ */
+export function cleanBlogBody(html: string): string {
+  if (!html) return ''
+
+  let content = html
+
+  // 1. Extract body content if it's a full HTML document
+  const bodyMatch = content.match(/<body[^>]*>([\s\S]*?)<\/body>/i)
+  if (bodyMatch) {
+    content = bodyMatch[1]
+  }
+
+  // 2. Remove all <style> tags and their contents
+  content = content.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+
+  // 3. Remove all <script> tags
+  content = content.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+
+  // 4. Remove all <link> tags (stylesheets etc.)
+  content = content.replace(/<link[^>]*\/?>/gi, '')
+
+  // 5. Remove all <meta> tags
+  content = content.replace(/<meta[^>]*\/?>/gi, '')
+
+  // 6. Remove inline style attributes from all elements
+  content = content.replace(/\s+style\s*=\s*"[^"]*"/gi, '')
+  content = content.replace(/\s+style\s*=\s*'[^']*'/gi, '')
+
+  // 7. Remove class attributes (Bubble-specific classes like "bullets", "checkmarks")
+  // but keep the semantic HTML tags
+  content = content.replace(/\s+class\s*=\s*"[^"]*"/gi, '')
+  content = content.replace(/\s+class\s*=\s*'[^']*'/gi, '')
+
+  // 8. Clean up excessive whitespace
+  content = content.replace(/\n{3,}/g, '\n\n')
+
+  return content.trim()
 }

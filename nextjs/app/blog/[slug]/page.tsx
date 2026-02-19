@@ -1,4 +1,4 @@
-import { getBlogBySlug, getAllBlogs, generateSlug, fixImageUrl, getBlogTitle } from '@/lib/bubble-api'
+import { getBlogBySlug, getAllBlogs, generateSlug, fixImageUrl, getBlogTitle, cleanBlogBody } from '@/lib/bubble-api'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import type { Metadata } from 'next'
@@ -50,22 +50,7 @@ export async function generateStaticParams() {
   }))
 }
 
-// Helper: strip full HTML documents down to just body content
-function extractBodyContent(html: string): string {
-  if (!html) return ''
 
-  // Als het een volledig HTML document is, extract alleen de body content
-  const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)
-  let content = bodyMatch ? bodyMatch[1] : html
-
-  // Strip eventuele <style> tags uit de content
-  content = content.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-
-  // Strip eventuele <script> tags
-  content = content.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-
-  return content.trim()
-}
 
 export default async function BlogPost({ params }: BlogPostProps) {
   const { slug } = await params
@@ -75,7 +60,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   if (!blog) notFound()
 
   const imageUrl = fixImageUrl(blog.Image)
-  const bodyContent = extractBodyContent(blog.Body)
+  const bodyContent = cleanBlogBody(blog.Body)
 
   return (
     <main className="pt-32 pb-16 px-6">
