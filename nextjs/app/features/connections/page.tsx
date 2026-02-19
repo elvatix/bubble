@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Connectieverzoeken — Elvatix',
   description: 'Schrijf LinkedIn connectieverzoeken die opvallen en daadwerkelijk geaccepteerd worden.',
+  alternates: { canonical: '/features/connections' },
 };
 
 const features = [

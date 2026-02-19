@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Contact — Elvatix',
   description: 'Neem contact op met het Elvatix team. We helpen je graag verder.',
+  alternates: { canonical: '/contact' },
 };
 
 export default function ContactPage() {

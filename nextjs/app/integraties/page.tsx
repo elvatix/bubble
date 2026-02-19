@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Integraties — Elvatix',
   description: 'Verbind Elvatix met je bestaande recruitment tools. Naadloze integraties met populaire ATS en CRM systemen.',
+  alternates: { canonical: '/integraties' },
 };
 
 const integrations = [

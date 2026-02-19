@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Solutions — Elvatix',
   description: 'Ontdek hoe Elvatix past bij jouw type organisatie.',
+  alternates: { canonical: '/solutions' },
 };
 
 const segments = [

@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Login — Elvatix',
   description: 'Log in op je Elvatix account.',
+  alternates: { canonical: '/login' },
 };
 
 export default function LoginPage() {
