@@ -1,5 +1,6 @@
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
+import FormWrapper from '@/components/ui/FormWrapper';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -38,24 +39,24 @@ export default function DemoPage() {
 
           <div className="bg-white border border-gray-200 rounded-2xl p-8">
             <h2 className="text-xl font-bold text-gray-900 mb-6">Plan je demo</h2>
-            <form className="flex flex-col gap-4">
+            <FormWrapper className="flex flex-col gap-4" successMessage="Bedankt! We plannen je demo en nemen snel contact op.">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="form-label">Voornaam</label>
-                  <input type="text" placeholder="Jan" className="form-input" />
+                  <input type="text" placeholder="Jan" className="form-input" required />
                 </div>
                 <div>
                   <label className="form-label">Achternaam</label>
-                  <input type="text" placeholder="Jansen" className="form-input" />
+                  <input type="text" placeholder="Jansen" className="form-input" required />
                 </div>
               </div>
               <div>
                 <label className="form-label">Werkmail</label>
-                <input type="email" placeholder="jan@bedrijf.nl" className="form-input" />
+                <input type="email" placeholder="jan@bedrijf.nl" className="form-input" required />
               </div>
               <div>
                 <label className="form-label">Bedrijf</label>
-                <input type="text" placeholder="Bedrijfsnaam" className="form-input" />
+                <input type="text" placeholder="Bedrijfsnaam" className="form-input" required />
               </div>
               <div>
                 <label className="form-label">Teamgrootte</label>
@@ -66,7 +67,7 @@ export default function DemoPage() {
                 </select>
               </div>
               <Button variant="primary" type="submit" className="w-full mt-2">Demo aanvragen</Button>
-            </form>
+            </FormWrapper>
           </div>
         </div>
       </Container>
