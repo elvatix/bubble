@@ -188,12 +188,12 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       }`}
     >
       {compact && (
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#8db600] via-[#a3c520] to-amber-400" />
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-green via-green-light to-amber-400" />
       )}
 
       {compact && (
         <div className="mb-5">
-          <p className="text-[11px] font-bold text-[#8db600] uppercase tracking-[0.12em] mb-2">AI Recruitment Writer</p>
+          <p className="text-[11px] font-bold text-green uppercase tracking-[0.12em] mb-2">AI Recruitment Writer</p>
           <h3 className="text-xl font-extrabold text-gray-900 mb-1">Genereer een bericht</h3>
           <p className="text-xs text-gray-400 leading-normal">{"Plak een LinkedIn URL \u2014 wij schrijven een persoonlijke InMail."}</p>
         </div>
@@ -206,7 +206,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">LinkedIn URL *</label>
             <div className="flex items-center border border-gray-300 rounded-[10px] overflow-hidden transition-colors">
               <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-300 flex items-center">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-text-light" strokeWidth="2">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                   <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
                 </svg>
@@ -233,7 +233,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                 <button key={t} onClick={() => setTone(t)}
                   className={`flex-1 py-[11px] px-4 rounded-lg text-sm font-semibold cursor-pointer transition-all duration-150 font-[inherit] ${
                     tone === t
-                      ? "border-[1.5px] border-[#8db600] bg-[#f0f3ff] text-[#8db600]"
+                      ? "border-[1.5px] border-green bg-linkedin-light text-green"
                       : "border border-gray-300 bg-white text-gray-500"
                   }`}>
                   {t === "informal" ? "Informeel" : "Formeel"}
@@ -257,8 +257,8 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
               !email || !linkedinUrl
                 ? "bg-gray-300 cursor-not-allowed"
                 : compact
-                  ? "bg-gradient-to-br from-[#8db600] to-[#7aa300] shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
-                  : "bg-[#8db600]"
+                  ? "bg-gradient-to-br from-green to-green-dark shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
+                  : "bg-green"
             } ${compact ? "py-3 px-5 text-sm" : "py-3.5 px-6 text-[15px]"}`}>
             Genereer berichten
           </button>
@@ -272,12 +272,12 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
               return (
                 <div key={step.key} className="flex-1">
                   <div className={`h-[3px] rounded-sm mb-2 transition-colors duration-400 ${
-                    status === "done" ? "bg-[#8db600]"
-                    : status === "active" ? "bg-[length:200%_100%] bg-[linear-gradient(90deg,#8db600_0%,#93a6f5_50%,#8db600_100%)] animate-[lm-shimmer_1.5s_infinite]"
+                    status === "done" ? "bg-green"
+                    : status === "active" ? "bg-[length:200%_100%] bg-[linear-gradient(90deg,var(--color-green)_0%,#93a6f5_50%,var(--color-green)_100%)] animate-[lm-shimmer_1.5s_infinite]"
                     : "bg-gray-200"
                   }`} />
                   <span className={`text-[10px] font-semibold uppercase tracking-[0.5px] ${
-                    status === "done" ? "text-[#8db600]" : status === "active" ? "text-[#4361ee]" : "text-gray-300"
+                    status === "done" ? "text-green" : status === "active" ? "text-[#4361ee]" : "text-gray-300"
                   }`}>{step.label}</span>
                 </div>
               );
@@ -318,13 +318,13 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                   <button key={tab} onClick={() => setActiveTab(tab)}
                     className={`flex-1 py-2.5 rounded-t-lg text-[13px] font-semibold cursor-pointer font-[inherit] flex items-center justify-center gap-1.5 ${
                       activeTab === tab
-                        ? "bg-[#fafbfc] border border-gray-200 border-b-[#fafbfc] text-gray-900"
+                        ? "bg-surface-alt border border-gray-200 border-b-surface-alt text-gray-900"
                         : "bg-transparent border border-transparent border-b-gray-200 text-gray-400"
                     }`}>
                     {tab === "inmail" ? "InMail" : "Connectieverzoek"}
                     {((tab === "inmail" && (phase === "done" || phase === "writing-conn")) || (tab === "connection" && phase === "done")) && (
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <circle cx="7" cy="7" r="7" fill="#10b981"/>
+                        <circle cx="7" cy="7" r="7" fill="currentColor" className="text-success"/>
                         <path d="M4.5 7l1.5 1.5 3.5-3.5" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     )}
@@ -334,12 +334,12 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
               {/* InMail content */}
               {activeTab === "inmail" && (
-                <div ref={messageRef} className="bg-[#fafbfc] border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-sm leading-[1.8] text-gray-700 font-[inherit] max-h-[280px] overflow-y-auto">
+                <div ref={messageRef} className="bg-surface-alt border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-sm leading-[1.8] text-gray-700 font-[inherit] max-h-[280px] overflow-y-auto">
                   {inmailDisplayed || (
                     <span className="text-gray-300 italic">{"Bericht wordt geschreven\u2026"}</span>
                   )}
                   {phase === "writing-inmail" && inmailDisplayed && (
-                    <span className="text-[#8db600] animate-[lm-blink_0.7s_step-end_infinite]">|</span>
+                    <span className="text-green animate-[lm-blink_0.7s_step-end_infinite]">|</span>
                   )}
                 </div>
               )}
@@ -347,14 +347,14 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
               {/* Connection content */}
               {activeTab === "connection" && (
                 <div>
-                  <div className="bg-[#fafbfc] border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-sm leading-[1.8] text-gray-700 font-[inherit] min-h-[72px]">
+                  <div className="bg-surface-alt border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-sm leading-[1.8] text-gray-700 font-[inherit] min-h-[72px]">
                     {phase === "done" || phase === "writing-conn" ? (
                       <>
                         {connectionDisplayed || (
                           <span className="text-gray-300 italic">{"Wordt opgesteld\u2026"}</span>
                         )}
                         {phase === "writing-conn" && connectionDisplayed && (
-                          <span className="text-[#8db600] animate-[lm-blink_0.7s_step-end_infinite]">|</span>
+                          <span className="text-green animate-[lm-blink_0.7s_step-end_infinite]">|</span>
                         )}
                       </>
                     ) : (
@@ -379,7 +379,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
               <div className="flex gap-2.5">
                 <button onClick={() => { setActiveTab("inmail"); handleCopy("inmail"); }}
                   className={`flex-1 py-3 px-4 rounded-lg text-[13px] font-semibold cursor-pointer transition-all font-[inherit] border-none whitespace-nowrap text-white ${
-                    copiedInmail ? "bg-emerald-500" : "bg-[#8db600]"
+                    copiedInmail ? "bg-emerald-500" : "bg-green"
                   }`}>
                   {copiedInmail ? "\u2713 Gekopieerd" : "Kopieer InMail"}
                 </button>
@@ -406,7 +406,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                       Ontdek wat Elvatix voor jouw recruitment kan doen.
                     </p>
                   </div>
-                  <a href="/demo" className="py-2.5 px-5 bg-[#8db600] text-white rounded-lg font-semibold text-[13px] no-underline whitespace-nowrap shrink-0">
+                  <a href="/demo" className="py-2.5 px-5 bg-green text-white rounded-lg font-semibold text-[13px] no-underline whitespace-nowrap shrink-0">
                     {"Vraag demo aan \u2192"}
                   </a>
                 </div>
@@ -440,7 +440,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           @keyframes lm-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
           @keyframes lm-blink { 50% { opacity: 0; } }
           @keyframes lm-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-          #lead-magnet input:focus { outline: none; border-color: #8db600 !important; box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.08); }
+          #lead-magnet input:focus { outline: none; border-color: var(--color-green) !important; box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.08); }
         `}</style>
       </>
     );
@@ -451,7 +451,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       <div className="max-w-[720px] mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="inline-block text-xs font-semibold text-[#8db600] tracking-[1px] uppercase mb-4">
+          <span className="inline-block text-xs font-semibold text-green tracking-[1px] uppercase mb-4">
             AI Recruitment Writer
           </span>
           <h2 className="text-[clamp(26px,3.5vw,42px)] font-extrabold text-gray-900 mb-3 leading-[1.15] tracking-tight">
@@ -483,7 +483,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         @keyframes lm-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
         @keyframes lm-blink { 50% { opacity: 0; } }
         @keyframes lm-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-        #lead-magnet input:focus { outline: none; border-color: #8db600 !important; box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.08); }
+        #lead-magnet input:focus { outline: none; border-color: var(--color-green) !important; box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.08); }
         @media (max-width: 640px) { #lead-magnet .lm-actions { flex-direction: column; } }
       `}</style>
     </section>

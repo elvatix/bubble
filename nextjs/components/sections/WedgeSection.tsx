@@ -12,7 +12,7 @@ export default function WedgeSection() {
   ];
 
   return (
-    <section className="section-padding bg-gradient-to-br from-[#7aa300] via-[#8db600] to-[#1a2e05] relative overflow-hidden">
+    <section className="section-padding bg-gradient-to-br from-green-dark via-green to-[#1a2e05] relative overflow-hidden">
       <div className="section-inner relative z-[2]">
         <div className="grid-2">
           <div>

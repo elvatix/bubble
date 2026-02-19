@@ -26,7 +26,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="section-padding bg-[#f8fafc]">
+    <section className="section-padding bg-surface">
       <div className="section-inner">
         <AnimateOnScroll variant="fadeUp">
           <div className="text-center mb-12">
@@ -46,7 +46,7 @@ export default function Testimonials() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#8db600] to-[#6a9a00] text-white flex items-center justify-center font-bold text-base">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-green to-green-gradient-end text-white flex items-center justify-center font-bold text-base">
                     {t.avatar}
                   </div>
                   <div>

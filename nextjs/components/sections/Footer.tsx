@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="footer-grid mb-12">
             <div>
               <h3 className="text-xl font-extrabold mb-4">
-                <Link href="/" className="text-[#8db600] no-underline">Elvatix</Link>
+                <Link href="/" className="text-green no-underline">Elvatix</Link>
               </h3>
               <p className="text-sm text-white/50 leading-relaxed">
                 De #1 AI-Powered LinkedIn Recruitment Copilot. Schrijf persoonlijke InMails en connectieverzoeken in seconden.
