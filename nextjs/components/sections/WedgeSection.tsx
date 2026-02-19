@@ -12,46 +12,30 @@ export default function WedgeSection() {
   ];
 
   return (
-    <section
-      className="section-padding"
-      style={{
-        background: "linear-gradient(135deg, #7aa300 0%, #8db600 50%, #1a2e05 100%)",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 2 }}>
+    <section className="section-padding bg-gradient-to-br from-[#7aa300] via-[#8db600] to-[#1a2e05] relative overflow-hidden">
+      <div className="section-inner relative z-[2]">
         <div className="grid-2">
           <div>
             <AnimateOnScroll variant="fadeUp">
-              <p style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
+              <p className="text-sm font-semibold text-white/50 uppercase tracking-[0.1em] mb-4">
                 Bewezen resultaten
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.15}>
-              <h2 style={{ fontSize: "clamp(28px, 4vw, 56px)", fontWeight: 900, color: "white", marginBottom: 20, lineHeight: 1.1 }}>
+              <h2 className="text-[clamp(28px,4vw,56px)] font-black text-white mb-5 leading-[1.1]">
                 Van uren typen naar{" "}
-                <span style={{ color: "#fbbf24" }}>seconden.</span>
+                <span className="text-amber-400">seconden.</span>
               </h2>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.3}>
-              <p style={{ fontSize: "clamp(14px, 1.5vw, 17px)", color: "rgba(255,255,255,0.7)", maxWidth: 460, marginBottom: 36, lineHeight: 1.7 }}>
+              <p className="text-[clamp(14px,1.5vw,17px)] text-white/70 max-w-[460px] mb-9 leading-relaxed">
                 500+ recruiters besparen dagelijks uren met Elvatix. Van copy-paste frustratie naar persoonlijke berichten in één klik.
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.45}>
               <motion.a
                 href="/cases"
-                className="pill-btn"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  background: "rgba(255,255,255,0.15)",
-                  color: "white",
-                  border: "1px solid rgba(255,255,255,0.3)",
-                  backdropFilter: "blur(10px)",
-                }}
+                className="pill-btn inline-flex items-center gap-2 bg-white/15 text-white border border-white/30 backdrop-blur-[10px]"
                 whileHover={{ scale: 1.05, background: "rgba(255,255,255,0.25)" }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -61,30 +45,21 @@ export default function WedgeSection() {
             </AnimateOnScroll>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <div className="flex flex-col gap-4">
             {stats.map((item, i) => (
               <AnimateOnScroll key={i} variant="fadeRight" delay={0.15 * i}>
                 <motion.div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 20,
-                    background: "rgba(255,255,255,0.08)",
-                    borderRadius: 16,
-                    padding: "20px 24px",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    backdropFilter: "blur(10px)",
-                  }}
+                  className="flex items-center gap-5 bg-white/8 rounded-2xl py-5 px-6 border border-white/10 backdrop-blur-[10px]"
                   whileHover={{ background: "rgba(255,255,255,0.15)", x: 8, transition: { duration: 0.2 } }}
                 >
-                  <span style={{ fontSize: 28 }}>{item.icon}</span>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
-                      <span style={{ fontSize: 28, fontWeight: 800, color: "#fbbf24" }}>{item.value}</span>
-                      <span style={{ fontSize: 16, fontWeight: 700, color: "#fbbf24" }}>{item.suffix}</span>
+                  <span className="text-[28px]">{item.icon}</span>
+                  <div className="flex-1">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-[28px] font-extrabold text-amber-400">{item.value}</span>
+                      <span className="text-base font-bold text-amber-400">{item.suffix}</span>
                     </div>
-                    <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", marginTop: 2, fontWeight: 500 }}>{item.label}</p>
-                    <p style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginTop: 2 }}>{item.sub}</p>
+                    <p className="text-sm text-white/85 mt-0.5 font-medium">{item.label}</p>
+                    <p className="text-[11px] text-white/45 mt-0.5">{item.sub}</p>
                   </div>
                 </motion.div>
               </AnimateOnScroll>
@@ -93,16 +68,7 @@ export default function WedgeSection() {
         </div>
       </div>
 
-      <div style={{
-        position: "absolute",
-        top: -100,
-        right: -100,
-        width: 400,
-        height: 400,
-        background: "radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 70%)",
-        borderRadius: "50%",
-        zIndex: 1,
-      }} />
+      <div className="absolute -top-[100px] -right-[100px] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(251,191,36,0.15)_0%,transparent_70%)] rounded-full z-[1]" />
     </section>
   );
 }

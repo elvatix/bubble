@@ -12,15 +12,15 @@ const items = [
 
 export default function Stats() {
   return (
-    <section className="section-padding" style={{ background: "#fff" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+    <section className="section-padding bg-white">
+      <div className="section-inner">
         <AnimateOnScroll variant="fadeUp">
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <p style={{ fontSize: 13, fontWeight: 700, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 12 }}>In cijfers</p>
-            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 900, color: "#111", marginBottom: 12 }}>
+          <div className="text-center mb-12">
+            <p className="text-[13px] font-bold text-[#8db600] uppercase tracking-[0.12em] mb-3">In cijfers</p>
+            <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
               Cijfers die voor zich spreken
             </h2>
-            <p style={{ color: "#6b7280", fontSize: 16, maxWidth: 500, margin: "0 auto" }}>
+            <p className="text-gray-500 text-base max-w-[500px] mx-auto">
               Sluit je aan bij honderden recruiters die elke dag tijd besparen.
             </p>
           </div>
@@ -30,22 +30,16 @@ export default function Stats() {
             {items.map((s, i) => (
               <StaggerItem key={i}>
                 <motion.div
-                  style={{
-                    textAlign: "center",
-                    padding: 32,
-                    borderRadius: 20,
-                    background: "linear-gradient(135deg, #fafafa, #f5f5f5)",
-                    border: "1px solid #f3f4f6",
-                  }}
+                  className="text-center p-8 rounded-[20px] bg-gradient-to-br from-[#fafafa] to-[#f5f5f5] border border-gray-100"
                   whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(0,0,0,0.08)", borderColor: "rgba(141,182,0,0.2)" }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: 2 }}>
-                    <span style={{ fontSize: 48, fontWeight: 900, color: "#111" }}>{s.value}</span>
-                    {s.suffix && <span style={{ fontSize: 22, fontWeight: 700, color: "#8db600" }}>{s.suffix}</span>}
+                  <div className="flex items-baseline justify-center gap-0.5">
+                    <span className="text-5xl font-black text-gray-900">{s.value}</span>
+                    {s.suffix && <span className="text-[22px] font-bold text-[#8db600]">{s.suffix}</span>}
                   </div>
-                  <p style={{ fontSize: 16, fontWeight: 700, color: "#111", marginTop: 8 }}>{s.label}</p>
-                  <p style={{ fontSize: 13, color: "#9ca3af", marginTop: 4 }}>{s.sub}</p>
+                  <p className="text-base font-bold text-gray-900 mt-2">{s.label}</p>
+                  <p className="text-[13px] text-gray-400 mt-1">{s.sub}</p>
                 </motion.div>
               </StaggerItem>
             ))}

@@ -50,7 +50,7 @@ const XCircleIcon = () => (
 
 const pains = [
   { icon: <ClockIcon />, title: "Handmatig typen", description: "10–15 minuten per InMail, profiel voor profiel. Onhoudbaar." },
-  { icon: <ClipboardIcon />, title: "Kopi\u00ebren & plakken", description: "Templates uit ChatGPT kopi\u00ebren, plakken in LinkedIn, handmatig bijschaven." },
+  { icon: <ClipboardIcon />, title: "Kopiëren & plakken", description: "Templates uit ChatGPT kopiëren, plakken in LinkedIn, handmatig bijschaven." },
   { icon: <UserXIcon />, title: "Geen personalisatie", description: "Standaard connectieverzoeken die niemand accepteert." },
   { icon: <TrendDownIcon />, title: "Lage response rates", description: "Generieke outreach = lage reactiepercentages en frustratie." },
   { icon: <AlertIcon />, title: "Gemiste follow-ups", description: "Vergeten om op te volgen. Kandidaten vallen tussen wal en schip." },
@@ -58,27 +58,27 @@ const pains = [
 
 export default function PainPoints() {
   return (
-    <section className="section-padding" style={{ background: "#f8f9fa" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 20 }}>
-          <p style={{ fontSize: 13, fontWeight: 700, color: "#dc2626", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 12 }}>
+    <section className="section-padding bg-[#f8f9fa]">
+      <div className="section-inner">
+        <div className="text-center mb-5">
+          <p className="text-[13px] font-bold text-red-600 uppercase tracking-[0.12em] mb-3">
             Herkenbaar?
           </p>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 700, margin: "0 auto" }}>
+        <div className="flex flex-col gap-3 max-w-[700px] mx-auto">
           {pains.map((pain, i) => (
             <motion.div
               key={i}
-              style={{ display: "flex", alignItems: "center", gap: 16, padding: "18px 24px", borderRadius: 16, background: "#ffffff", border: "1px solid #e5e7eb" }}
+              className="flex items-center gap-4 py-[18px] px-6 rounded-2xl bg-white border border-gray-200"
               whileHover={{ x: 6, background: "#fff5f5", borderColor: "#fecaca" }}
               transition={{ duration: 0.2 }}
             >
-              <span style={{ flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: 10, background: "#fef2f2" }}>{pain.icon}</span>
+              <span className="shrink-0 flex items-center justify-center w-10 h-10 rounded-[10px] bg-red-50">{pain.icon}</span>
               <div>
-                <p style={{ fontSize: 15, fontWeight: 700, color: "#111", marginBottom: 2 }}>{pain.title}</p>
-                <p style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.5 }}>{pain.description}</p>
+                <p className="text-[15px] font-bold text-gray-900 mb-0.5">{pain.title}</p>
+                <p className="text-[13px] text-gray-500 leading-normal">{pain.description}</p>
               </div>
-              <span style={{ marginLeft: "auto", flexShrink: 0, display: "flex" }}><XCircleIcon /></span>
+              <span className="ml-auto shrink-0 flex"><XCircleIcon /></span>
             </motion.div>
           ))}
         </div>

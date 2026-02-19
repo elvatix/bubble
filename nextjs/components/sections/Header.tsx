@@ -47,7 +47,7 @@ export default function Header() {
             letterSpacing: "-0.02em",
             textDecoration: "none",
             flexShrink: 0,
-            color: "#0a66c2",
+            color: "var(--linkedin-blue)",
             zIndex: 1,
           }}
         >

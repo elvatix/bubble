@@ -61,7 +61,6 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const typewriterRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const messageRef = useRef<HTMLDivElement>(null);
 
-  // Typewriter for InMail
   useEffect(() => {
     if (phase === "writing-inmail" && inmailFull) {
       let i = 0;
@@ -78,7 +77,6 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     }
   }, [phase, inmailFull]);
 
-  // Typewriter for connection request
   useEffect(() => {
     if (phase === "writing-conn" && connectionFull) {
       let i = 0;
@@ -180,43 +178,34 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     return "pending";
   };
 
-  // The form card content (shared between compact and full modes)
   const formContent = (
-    <div id="lead-magnet" style={{
-      background: "#ffffff", borderRadius: compact ? 20 : 16, padding: compact ? "28px 24px" : "36px 32px",
-      boxShadow: compact
-        ? "0 25px 50px -12px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.03)"
-        : "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
-      border: "1px solid #e5e7eb",
-      position: "relative" as const,
-      overflow: "hidden" as const,
-    }}>
+    <div
+      id="lead-magnet"
+      className={`bg-white border border-gray-200 relative overflow-hidden ${
+        compact
+          ? "rounded-[20px] p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.03)]"
+          : "rounded-2xl p-9 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)]"
+      }`}
+    >
       {compact && (
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, #8db600, #a3c520, #fbbf24)" }} />
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#8db600] via-[#a3c520] to-amber-400" />
       )}
 
       {compact && (
-        <div style={{ marginBottom: 20 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 8 }}>AI Recruitment Writer</p>
-          <h3 style={{ fontSize: 20, fontWeight: 800, color: "#111", marginBottom: 4 }}>Genereer een bericht</h3>
-          <p style={{ fontSize: 12, color: "#9ca3af", lineHeight: 1.5 }}>{"Plak een LinkedIn URL \u2014 wij schrijven een persoonlijke InMail."}</p>
+        <div className="mb-5">
+          <p className="text-[11px] font-bold text-[#8db600] uppercase tracking-[0.12em] mb-2">AI Recruitment Writer</p>
+          <h3 className="text-xl font-extrabold text-gray-900 mb-1">Genereer een bericht</h3>
+          <p className="text-xs text-gray-400 leading-normal">{"Plak een LinkedIn URL \u2014 wij schrijven een persoonlijke InMail."}</p>
         </div>
       )}
 
       {phase === "idle" ? (
         <>
           {/* LinkedIn URL */}
-          <div style={{ marginBottom: compact ? 14 : 20 }}>
-            <label style={labelStyle}>LinkedIn URL *</label>
-            <div style={{
-              display: "flex", alignItems: "center",
-              border: "1px solid #d1d5db", borderRadius: 10, overflow: "hidden",
-              transition: "border-color 0.2s",
-            }}>
-              <span style={{
-                padding: "12px 14px", background: "#f9fafb", borderRight: "1px solid #d1d5db",
-                display: "flex", alignItems: "center",
-              }}>
+          <div className={compact ? "mb-3.5" : "mb-5"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">LinkedIn URL *</label>
+            <div className="flex items-center border border-gray-300 rounded-[10px] overflow-hidden transition-colors">
+              <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-300 flex items-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                   <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
@@ -224,31 +213,29 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
               </span>
               <input type="url" placeholder="https://linkedin.com/in/jan-jansen"
                 value={linkedinUrl} onChange={(e) => setLinkedinUrl(e.target.value)}
-                style={inputStyle} />
+                className="flex-1 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit]" />
             </div>
           </div>
 
           {/* Job title */}
-          <div style={{ marginBottom: compact ? 14 : 20 }}>
-            <label style={labelStyle}>Functie waarvoor je werft</label>
+          <div className={compact ? "mb-3.5" : "mb-5"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Functie waarvoor je werft</label>
             <input type="text" placeholder="bijv. Senior Software Engineer"
               value={jobTitle} onChange={(e) => setJobTitle(e.target.value)}
-              style={{ ...inputStyle, ...fullInputStyle }} />
+              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border" />
           </div>
 
           {/* Tone */}
-          <div style={{ marginBottom: compact ? 14 : 20 }}>
-            <label style={labelStyle}>Toon</label>
-            <div style={{ display: "flex", gap: 10 }}>
+          <div className={compact ? "mb-3.5" : "mb-5"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Toon</label>
+            <div className="flex gap-2.5">
               {(["informal", "formal"] as const).map((t) => (
-                <button key={t} onClick={() => setTone(t)} style={{
-                  flex: 1, padding: "11px 16px", borderRadius: 8,
-                  border: tone === t ? "1.5px solid #8db600" : "1px solid #d1d5db",
-                  background: tone === t ? "#f0f3ff" : "#fff",
-                  color: tone === t ? "#8db600" : "#6b7280",
-                  fontWeight: 600, fontSize: 14, cursor: "pointer",
-                  transition: "all 0.15s ease", fontFamily: "inherit",
-                }}>
+                <button key={t} onClick={() => setTone(t)}
+                  className={`flex-1 py-[11px] px-4 rounded-lg text-sm font-semibold cursor-pointer transition-all duration-150 font-[inherit] ${
+                    tone === t
+                      ? "border-[1.5px] border-[#8db600] bg-[#f0f3ff] text-[#8db600]"
+                      : "border border-gray-300 bg-white text-gray-500"
+                  }`}>
                   {t === "informal" ? "Informeel" : "Formeel"}
                 </button>
               ))}
@@ -256,51 +243,42 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           </div>
 
           {/* Email */}
-          <div style={{ marginBottom: compact ? 18 : 28 }}>
-            <label style={labelStyle}>E-mailadres *</label>
+          <div className={compact ? "mb-[18px]" : "mb-7"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">E-mailadres *</label>
             <input type="email" placeholder="naam@bedrijf.nl"
               value={email} onChange={(e) => setEmail(e.target.value)}
-              style={{ ...inputStyle, ...fullInputStyle }} />
+              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border" />
           </div>
 
-          {error && <div style={errorStyle}>{error}</div>}
+          {error && <div className="py-2.5 px-3.5 bg-red-50 border border-red-200 rounded-lg text-red-600 text-[13px] mb-4">{error}</div>}
 
-          <button onClick={handleGenerate} disabled={!email || !linkedinUrl} style={{
-            width: "100%", padding: compact ? "12px 20px" : "14px 24px",
-            background: !email || !linkedinUrl ? "#d1d5db" : compact ? "linear-gradient(135deg, #8db600, #7aa300)" : "#8db600",
-            color: "white", border: "none", borderRadius: 10,
-            fontSize: compact ? 14 : 15, fontWeight: 700, cursor: !email || !linkedinUrl ? "not-allowed" : "pointer",
-            transition: "background 0.2s", fontFamily: "inherit",
-            boxShadow: compact ? "0 4px 14px rgba(141,182,0,0.3)" : "none",
-          }}>
+          <button onClick={handleGenerate} disabled={!email || !linkedinUrl}
+            className={`w-full border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white ${
+              !email || !linkedinUrl
+                ? "bg-gray-300 cursor-not-allowed"
+                : compact
+                  ? "bg-gradient-to-br from-[#8db600] to-[#7aa300] shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
+                  : "bg-[#8db600]"
+            } ${compact ? "py-3 px-5 text-sm" : "py-3.5 px-6 text-[15px]"}`}>
             Genereer berichten
           </button>
         </>
       ) : (
         <>
           {/* Progress steps */}
-          <div style={{ display: "flex", gap: 2, marginBottom: 28 }}>
+          <div className="flex gap-0.5 mb-7">
             {STEPS.map((step) => {
               const status = getStepStatus(step.key);
               return (
-                <div key={step.key} style={{ flex: 1 }}>
-                  <div style={{
-                    height: 3, borderRadius: 2, marginBottom: 8,
-                    background: status === "done" ? "#8db600"
-                      : status === "active" ? "#93a6f5"
-                      : "#e5e7eb",
-                    transition: "background 0.4s ease",
-                    ...(status === "active" ? {
-                      backgroundSize: "200% 100%",
-                      backgroundImage: "linear-gradient(90deg, #8db600 0%, #93a6f5 50%, #8db600 100%)",
-                      animation: "lm-shimmer 1.5s infinite",
-                    } : {}),
-                  }} />
-                  <span style={{
-                    fontSize: 10, fontWeight: 600,
-                    color: status === "done" ? "#8db600" : status === "active" ? "#4361ee" : "#d1d5db",
-                    textTransform: "uppercase", letterSpacing: "0.5px",
-                  }}>{step.label}</span>
+                <div key={step.key} className="flex-1">
+                  <div className={`h-[3px] rounded-sm mb-2 transition-colors duration-400 ${
+                    status === "done" ? "bg-[#8db600]"
+                    : status === "active" ? "bg-[length:200%_100%] bg-[linear-gradient(90deg,#8db600_0%,#93a6f5_50%,#8db600_100%)] animate-[lm-shimmer_1.5s_infinite]"
+                    : "bg-gray-200"
+                  }`} />
+                  <span className={`text-[10px] font-semibold uppercase tracking-[0.5px] ${
+                    status === "done" ? "text-[#8db600]" : status === "active" ? "text-[#4361ee]" : "text-gray-300"
+                  }`}>{step.label}</span>
                 </div>
               );
             })}
@@ -308,31 +286,23 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
           {/* Status */}
           {STATUS_TEXT[phase] && (
-            <div style={{ marginBottom: 24, padding: "16px 20px", background: "#f9fafb", borderRadius: 10, border: "1px solid #e5e7eb" }}>
-              <p style={{ fontSize: 14, fontWeight: 700, color: "#111827", marginBottom: 4 }}>
-                {STATUS_TEXT[phase].title}
-              </p>
-              <p style={{ fontSize: 12, color: "#9ca3af" }}>
-                {STATUS_TEXT[phase].sub}
-              </p>
+            <div className="mb-6 py-4 px-5 bg-gray-50 rounded-[10px] border border-gray-200">
+              <p className="text-sm font-bold text-gray-900 mb-1">{STATUS_TEXT[phase].title}</p>
+              <p className="text-xs text-gray-400">{STATUS_TEXT[phase].sub}</p>
             </div>
           )}
 
           {/* Profile card */}
           {profile && phase !== "connecting" && phase !== "scanning" && (
-            <div style={{
-              padding: "16px 20px", background: "#f9fafb", borderRadius: 10,
-              border: "1px solid #e5e7eb", marginBottom: 20,
-              animation: "lm-fade-in 0.3s ease",
-            }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+            <div className="py-4 px-5 bg-gray-50 rounded-[10px] border border-gray-200 mb-5 animate-[lm-fade-in_0.3s_ease]">
+              <div className="flex justify-between items-start mb-2">
                 <div>
-                  <p style={{ fontSize: 15, fontWeight: 700, color: "#111827", marginBottom: 2 }}>{profile.fullName}</p>
-                  <p style={{ fontSize: 13, color: "#6b7280" }}>{profile.currentTitle}</p>
-                  {profile.companyName && <p style={{ fontSize: 12, color: "#9ca3af" }}>{profile.companyName}</p>}
+                  <p className="text-[15px] font-bold text-gray-900 mb-0.5">{profile.fullName}</p>
+                  <p className="text-[13px] text-gray-500">{profile.currentTitle}</p>
+                  {profile.companyName && <p className="text-xs text-gray-400">{profile.companyName}</p>}
                 </div>
                 {enriched && (
-                  <span style={{ fontSize: 10, padding: "4px 8px", background: "#ecfdf5", color: "#059669", borderRadius: 6, fontWeight: 600 }}>
+                  <span className="text-[10px] py-1 px-2 bg-emerald-50 text-emerald-600 rounded-md font-semibold">
                     Enriched
                   </span>
                 )}
@@ -343,17 +313,14 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           {/* Generated messages */}
           {(phase === "writing-inmail" || phase === "writing-conn" || phase === "done") && (
             <div>
-              <div style={{ display: "flex", gap: 4, marginBottom: 0 }}>
+              <div className="flex gap-1 mb-0">
                 {(["inmail", "connection"] as const).map(tab => (
-                  <button key={tab} onClick={() => setActiveTab(tab)} style={{
-                    flex: 1, padding: "10px", borderRadius: "8px 8px 0 0",
-                    background: activeTab === tab ? "#fafbfc" : "transparent",
-                    border: activeTab === tab ? "1px solid #e5e7eb" : "1px solid transparent",
-                    borderBottom: activeTab === tab ? "1px solid #fafbfc" : "1px solid #e5e7eb",
-                    color: activeTab === tab ? "#111827" : "#9ca3af",
-                    fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
-                    display: "flex", alignItems: "center", gap: 6,
-                  }}>
+                  <button key={tab} onClick={() => setActiveTab(tab)}
+                    className={`flex-1 py-2.5 rounded-t-lg text-[13px] font-semibold cursor-pointer font-[inherit] flex items-center justify-center gap-1.5 ${
+                      activeTab === tab
+                        ? "bg-[#fafbfc] border border-gray-200 border-b-[#fafbfc] text-gray-900"
+                        : "bg-transparent border border-transparent border-b-gray-200 text-gray-400"
+                    }`}>
                     {tab === "inmail" ? "InMail" : "Connectieverzoek"}
                     {((tab === "inmail" && (phase === "done" || phase === "writing-conn")) || (tab === "connection" && phase === "done")) && (
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -367,14 +334,12 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
               {/* InMail content */}
               {activeTab === "inmail" && (
-                <div ref={messageRef} style={{
-                  ...messageBoxStyle, maxHeight: 280, overflowY: "auto",
-                }}>
+                <div ref={messageRef} className="bg-[#fafbfc] border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-sm leading-[1.8] text-gray-700 font-[inherit] max-h-[280px] overflow-y-auto">
                   {inmailDisplayed || (
-                    <span style={{ color: "#d1d5db", fontStyle: "italic" }}>{"Bericht wordt geschreven\u2026"}</span>
+                    <span className="text-gray-300 italic">{"Bericht wordt geschreven\u2026"}</span>
                   )}
                   {phase === "writing-inmail" && inmailDisplayed && (
-                    <span style={{ color: "#8db600", animation: "lm-blink 0.7s step-end infinite" }}>|</span>
+                    <span className="text-[#8db600] animate-[lm-blink_0.7s_step-end_infinite]">|</span>
                   )}
                 </div>
               )}
@@ -382,24 +347,24 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
               {/* Connection content */}
               {activeTab === "connection" && (
                 <div>
-                  <div style={{ ...messageBoxStyle, minHeight: 72 }}>
+                  <div className="bg-[#fafbfc] border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-sm leading-[1.8] text-gray-700 font-[inherit] min-h-[72px]">
                     {phase === "done" || phase === "writing-conn" ? (
                       <>
                         {connectionDisplayed || (
-                          <span style={{ color: "#d1d5db", fontStyle: "italic" }}>{"Wordt opgesteld\u2026"}</span>
+                          <span className="text-gray-300 italic">{"Wordt opgesteld\u2026"}</span>
                         )}
                         {phase === "writing-conn" && connectionDisplayed && (
-                          <span style={{ color: "#8db600", animation: "lm-blink 0.7s step-end infinite" }}>|</span>
+                          <span className="text-[#8db600] animate-[lm-blink_0.7s_step-end_infinite]">|</span>
                         )}
                       </>
                     ) : (
-                      <span style={{ color: "#d1d5db", fontStyle: "italic" }}>
+                      <span className="text-gray-300 italic">
                         {"Wordt na InMail gegenereerd\u2026"}
                       </span>
                     )}
                   </div>
                   {phase === "done" && connectionFull && (
-                    <p style={{ fontSize: 11, color: "#9ca3af", margin: "8px 4px 0", textAlign: "right" }}>
+                    <p className="text-[11px] text-gray-400 mt-2 mr-1 text-right">
                       {connectionFull.length}/300 karakters
                     </p>
                   )}
@@ -410,56 +375,38 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
           {/* Done actions */}
           {phase === "done" && (
-            <div style={{ marginTop: 24, animation: "lm-fade-in 0.3s ease" }}>
-              <div style={{ display: "flex", gap: 10 }}>
+            <div className="mt-6 animate-[lm-fade-in_0.3s_ease]">
+              <div className="flex gap-2.5">
                 <button onClick={() => { setActiveTab("inmail"); handleCopy("inmail"); }}
-                  style={{
-                    ...actionBtnStyle,
-                    flex: 1,
-                    background: copiedInmail ? "#10b981" : "#8db600",
-                    color: "white",
-                  }}>
+                  className={`flex-1 py-3 px-4 rounded-lg text-[13px] font-semibold cursor-pointer transition-all font-[inherit] border-none whitespace-nowrap text-white ${
+                    copiedInmail ? "bg-emerald-500" : "bg-[#8db600]"
+                  }`}>
                   {copiedInmail ? "\u2713 Gekopieerd" : "Kopieer InMail"}
                 </button>
                 <button onClick={() => { setActiveTab("connection"); handleCopy("connection"); }}
-                  style={{
-                    ...actionBtnStyle,
-                    flex: 1,
-                    background: copiedConn ? "#10b981" : "#111827",
-                    color: "white",
-                  }}>
+                  className={`flex-1 py-3 px-4 rounded-lg text-[13px] font-semibold cursor-pointer transition-all font-[inherit] border-none whitespace-nowrap text-white ${
+                    copiedConn ? "bg-emerald-500" : "bg-gray-800"
+                  }`}>
                   {copiedConn ? "\u2713 Gekopieerd" : "Kopieer connectieverzoek"}
                 </button>
                 <button onClick={handleReset}
-                  style={{
-                    ...actionBtnStyle,
-                    background: "#f3f4f6", color: "#374151", border: "1px solid #d1d5db",
-                  }}>
+                  className="py-3 px-4 rounded-lg text-[13px] font-semibold cursor-pointer transition-all font-[inherit] bg-gray-100 text-gray-700 border border-gray-300 whitespace-nowrap">
                   Nieuw
                 </button>
               </div>
 
               {/* Upsell */}
               {!compact && (
-                <div style={{
-                  marginTop: 20, padding: "20px", background: "#f9fafb",
-                  border: "1px solid #e5e7eb", borderRadius: 10,
-                  display: "flex", alignItems: "center", justifyContent: "space-between",
-                  gap: 16, flexWrap: "wrap",
-                }}>
+                <div className="mt-5 p-5 bg-gray-50 border border-gray-200 rounded-[10px] flex items-center justify-between gap-4 flex-wrap">
                   <div>
-                    <p style={{ fontSize: 14, fontWeight: 700, color: "#111827", margin: "0 0 4px" }}>
+                    <p className="text-sm font-bold text-gray-900 mb-1">
                       Onbeperkt berichten + automatische follow-ups?
                     </p>
-                    <p style={{ fontSize: 13, color: "#6b7280", margin: 0 }}>
+                    <p className="text-[13px] text-gray-500">
                       Ontdek wat Elvatix voor jouw recruitment kan doen.
                     </p>
                   </div>
-                  <a href="/demo" style={{
-                    padding: "10px 20px", background: "#8db600", color: "white",
-                    borderRadius: 8, fontWeight: 600, fontSize: 13,
-                    textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0,
-                  }}>
+                  <a href="/demo" className="py-2.5 px-5 bg-[#8db600] text-white rounded-lg font-semibold text-[13px] no-underline whitespace-nowrap shrink-0">
                     {"Vraag demo aan \u2192"}
                   </a>
                 </div>
@@ -467,24 +414,23 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             </div>
           )}
 
-          {error && <div style={{ ...errorStyle, marginTop: 16 }}>{error}</div>}
+          {error && <div className="py-2.5 px-3.5 bg-red-50 border border-red-200 rounded-lg text-red-600 text-[13px] mt-4">{error}</div>}
         </>
       )}
     </div>
   );
 
-  // Compact mode: just render the card directly
   if (compact) {
     return (
       <>
         {formContent}
-        <div style={{ display: "flex", justifyContent: "center", gap: 20, marginTop: 14 }}>
+        <div className="flex justify-center gap-5 mt-3.5">
           {[
-            { icon: "\ud83d\udd12", text: "Veilig & priv\u00e9" },
+            { icon: "\ud83d\udd12", text: "Veilig & privé" },
             { icon: "\u26a1", text: "Klaar in ~15 sec" },
             { icon: "\ud83c\udfaf", text: "5x gratis per uur" },
           ].map((item, i) => (
-            <span key={i} style={{ fontSize: 11, color: "#9ca3af", display: "flex", alignItems: "center", gap: 4 }}>
+            <span key={i} className="text-[11px] text-gray-400 flex items-center gap-1">
               <span>{item.icon}</span> {item.text}
             </span>
           ))}
@@ -500,29 +446,18 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     );
   }
 
-  // Full mode: section wrapper with header
   return (
-    <section style={{
-      padding: "100px 24px",
-      background: "#f9fafb",
-      position: "relative",
-    }}>
-      <div style={{ maxWidth: 720, margin: "0 auto" }}>
+    <section className="py-[100px] px-6 bg-gray-50 relative">
+      <div className="max-w-[720px] mx-auto">
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <span style={{
-            display: "inline-block", fontSize: 12, fontWeight: 600, color: "#8db600",
-            letterSpacing: "1px", textTransform: "uppercase", marginBottom: 16,
-          }}>
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-semibold text-[#8db600] tracking-[1px] uppercase mb-4">
             AI Recruitment Writer
           </span>
-          <h2 style={{
-            fontSize: "clamp(26px, 3.5vw, 42px)", fontWeight: 800, color: "#111827",
-            marginBottom: 12, lineHeight: 1.15, letterSpacing: "-0.025em",
-          }}>
+          <h2 className="text-[clamp(26px,3.5vw,42px)] font-extrabold text-gray-900 mb-3 leading-[1.15] tracking-tight">
             Genereer een gepersonaliseerd bericht
           </h2>
-          <p style={{ fontSize: 16, color: "#6b7280", maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>
+          <p className="text-base text-gray-500 max-w-[520px] mx-auto leading-relaxed">
             {"Plak een LinkedIn URL \u2014 wij scrapen het profiel en schrijven een InMail en connectieverzoek op maat."}
           </p>
         </div>
@@ -530,13 +465,13 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         {formContent}
 
         {/* Trust */}
-        <div style={{ display: "flex", justifyContent: "center", gap: 24, marginTop: 28, flexWrap: "wrap" }}>
+        <div className="flex justify-center gap-6 mt-7 flex-wrap">
           {[
-            { icon: "\ud83d\udd12", text: "Veilig & priv\u00e9" },
+            { icon: "\ud83d\udd12", text: "Veilig & privé" },
             { icon: "\u26a1", text: "Klaar in ~15 sec" },
             { icon: "\ud83c\udfaf", text: "5x gratis per uur" },
           ].map((item, i) => (
-            <span key={i} style={{ fontSize: 12, color: "#9ca3af", display: "flex", alignItems: "center", gap: 5 }}>
+            <span key={i} className="text-xs text-gray-400 flex items-center gap-1.5">
               <span>{item.icon}</span> {item.text}
             </span>
           ))}
@@ -554,37 +489,3 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     </section>
   );
 }
-
-// Shared styles
-const labelStyle: React.CSSProperties = {
-  display: "block", fontSize: 13, fontWeight: 600, color: "#374151",
-  marginBottom: 6,
-};
-
-const inputStyle: React.CSSProperties = {
-  flex: 1, padding: "12px 14px", border: "none", outline: "none",
-  fontSize: 14, background: "transparent", color: "#111827", fontFamily: "inherit",
-};
-
-const fullInputStyle: React.CSSProperties = {
-  width: "100%", border: "1px solid #d1d5db", borderRadius: 10,
-  background: "#ffffff", boxSizing: "border-box" as const,
-};
-
-const messageBoxStyle: React.CSSProperties = {
-  background: "#fafbfc", borderLeft: "1px solid #e5e7eb", borderRight: "1px solid #e5e7eb",
-  borderBottom: "1px solid #e5e7eb", borderTop: "none",
-  borderRadius: "0 0 10px 10px", padding: "20px",
-  whiteSpace: "pre-wrap" as const, fontSize: 14, lineHeight: 1.8, color: "#374151", fontFamily: "inherit",
-};
-
-const errorStyle: React.CSSProperties = {
-  padding: "10px 14px", background: "#fef2f2", border: "1px solid #fecaca",
-  borderRadius: 8, color: "#dc2626", fontSize: 13, marginBottom: 16,
-};
-
-const actionBtnStyle: React.CSSProperties = {
-  padding: "12px 16px", borderRadius: 8, fontSize: 13, fontWeight: 600,
-  cursor: "pointer", transition: "all 0.15s ease", fontFamily: "inherit",
-  border: "none", whiteSpace: "nowrap" as const,
-};

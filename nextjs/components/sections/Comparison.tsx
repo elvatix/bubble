@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-const CheckCircleIcon = ({ color = "#0a66c2" }: { color?: string }) => (
+const CheckCircleIcon = ({ color = "var(--linkedin-blue)" }: { color?: string }) => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
     <polyline points="22 4 12 14.01 9 11.01" />
@@ -26,66 +26,52 @@ const rows = [
 
 export default function Comparison() {
   return (
-    <section className="section-padding" style={{ background: "#fff" }}>
-      <div style={{ maxWidth: 900, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 900, color: "#111", marginBottom: 12 }}>
+    <section className="section-padding bg-white">
+      <div className="max-w-[900px] mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
             Van uren typen naar seconden.
           </h2>
-          <p style={{ color: "#6b7280", fontSize: 16, maxWidth: 520, margin: "0 auto" }}>
+          <p className="text-gray-500 text-base max-w-[520px] mx-auto">
             Vergelijk handmatig recruiten met Elvatix.
           </p>
         </div>
 
         {/* Proof stats bar */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 48,
-            marginBottom: 40,
-            padding: "20px 32px",
-            borderRadius: 16,
-            background: "linear-gradient(135deg, #0a66c2 0%, #004182 100%)",
-          }}
-        >
-          <div style={{ textAlign: "center" }}>
-            <p style={{ fontSize: 32, fontWeight: 900, color: "#fff" }}>260</p>
-            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.8)" }}>InMails verstuurd</p>
+        <div className="flex justify-center gap-12 mb-10 py-5 px-8 rounded-2xl bg-gradient-to-br from-linkedin to-linkedin-dark max-md:gap-6 max-md:px-4 max-sm:flex-col max-sm:gap-4 max-sm:items-center">
+          <div className="text-center">
+            <p className="text-[32px] font-black text-white">260</p>
+            <p className="text-[13px] text-white/80">InMails verstuurd</p>
           </div>
-          <div style={{ textAlign: "center" }}>
-            <p style={{ fontSize: 32, fontWeight: 900, color: "#fff" }}>1.7 uur</p>
-            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.8)" }}>totale tijd</p>
+          <div className="text-center">
+            <p className="text-[32px] font-black text-white">1.7 uur</p>
+            <p className="text-[13px] text-white/80">totale tijd</p>
           </div>
-          <div style={{ textAlign: "center" }}>
-            <p style={{ fontSize: 32, fontWeight: 900, color: "#fff" }}>Manpower</p>
-            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.8)" }}>klant case</p>
+          <div className="text-center">
+            <p className="text-[32px] font-black text-white">Manpower</p>
+            <p className="text-[13px] text-white/80">klant case</p>
           </div>
         </div>
 
         {/* Comparison table */}
-        <div style={{ borderRadius: 20, border: "1px solid #e5e7eb", overflow: "hidden" }}>
+        <div className="rounded-[20px] border border-gray-200 overflow-hidden">
           {/* Header */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 140px 140px", background: "#f8f9fa", padding: "14px 24px", borderBottom: "1px solid #e5e7eb" }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#6b7280", textTransform: "uppercase", letterSpacing: "0.05em" }}>Feature</span>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#ef4444", textAlign: "center" }}>Handmatig</span>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#0a66c2", textAlign: "center" }}>Elvatix</span>
+          <div className="grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] bg-[#f8f9fa] py-3.5 px-6 border-b border-gray-200">
+            <span className="text-[13px] font-bold text-gray-500 uppercase tracking-wide">Feature</span>
+            <span className="text-[13px] font-bold text-red-500 text-center">Handmatig</span>
+            <span className="text-[13px] font-bold text-linkedin text-center">Elvatix</span>
           </div>
           {rows.map((row, i) => (
             <motion.div
               key={i}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 140px 140px",
-                padding: "16px 24px",
-                borderBottom: i < rows.length - 1 ? "1px solid #f3f4f6" : "none",
-                alignItems: "center",
-              }}
+              className={`grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] py-4 px-6 items-center ${
+                i < rows.length - 1 ? "border-b border-gray-100" : ""
+              }`}
               whileHover={{ background: "#f0f7fe" }}
             >
-              <span style={{ fontSize: 14, color: "#374151" }}>{row.label}</span>
-              <span style={{ display: "flex", justifyContent: "center" }}>{row.zonder ? <CheckCircleIcon /> : <XIcon />}</span>
-              <span style={{ display: "flex", justifyContent: "center" }}>{row.met ? <CheckCircleIcon /> : <XIcon />}</span>
+              <span className="text-sm text-gray-700">{row.label}</span>
+              <span className="flex justify-center">{row.zonder ? <CheckCircleIcon /> : <XIcon />}</span>
+              <span className="flex justify-center">{row.met ? <CheckCircleIcon /> : <XIcon />}</span>
             </motion.div>
           ))}
         </div>

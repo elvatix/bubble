@@ -4,22 +4,22 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#111", color: "white", padding: "64px 24px 32px" }}>
+    <footer className="bg-gray-900 text-white pt-16 pb-8 px-6">
       <AnimateOnScroll variant="fadeUp">
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div className="footer-grid" style={{ marginBottom: 48 }}>
+        <div className="section-inner">
+          <div className="footer-grid mb-12">
             <div>
-              <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 16 }}>
-                <Link href="/" style={{ color: "#8db600", textDecoration: "none" }}>Elvatix</Link>
+              <h3 className="text-xl font-extrabold mb-4">
+                <Link href="/" className="text-[#8db600] no-underline">Elvatix</Link>
               </h3>
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
+              <p className="text-sm text-white/50 leading-relaxed">
                 De #1 AI-Powered LinkedIn Recruitment Copilot. Schrijf persoonlijke InMails en connectieverzoeken in seconden.
               </p>
             </div>
 
             <div>
-              <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16, color: "rgba(255,255,255,0.4)" }}>Modules</h4>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+              <h4 className="text-sm font-semibold mb-4 text-white/40">Modules</h4>
+              <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
                 {[
                   { label: "InMails", href: "/features/inmails" },
                   { label: "Connectieverzoeken", href: "/features/connections" },
@@ -27,30 +27,30 @@ export default function Footer() {
                   { label: "Analytics", href: "/features/analytics" },
                 ].map((item) => (
                   <li key={item.label}>
-                    <Link href={item.href} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 14 }}>{item.label}</Link>
+                    <Link href={item.href} className="text-white/60 no-underline text-sm hover:text-white transition-colors">{item.label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16, color: "rgba(255,255,255,0.4)" }}>Voor Wie</h4>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+              <h4 className="text-sm font-semibold mb-4 text-white/40">Voor Wie</h4>
+              <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
                 {[
                   { label: "Recruitmentbureaus", href: "/solutions" },
                   { label: "Corporate Recruiters", href: "/solutions" },
                   { label: "Detacheringsbureaus", href: "/solutions" },
                 ].map((item) => (
                   <li key={item.label}>
-                    <Link href={item.href} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 14 }}>{item.label}</Link>
+                    <Link href={item.href} className="text-white/60 no-underline text-sm hover:text-white transition-colors">{item.label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16, color: "rgba(255,255,255,0.4)" }}>Bedrijf</h4>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+              <h4 className="text-sm font-semibold mb-4 text-white/40">Bedrijf</h4>
+              <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
                 {[
                   { label: "Over Ons", href: "/over-ons" },
                   { label: "Case Studies", href: "/cases" },
@@ -58,18 +58,18 @@ export default function Footer() {
                   { label: "Contact", href: "/contact" },
                 ].map((item) => (
                   <li key={item.label}>
-                    <Link href={item.href} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 14 }}>{item.label}</Link>
+                    <Link href={item.href} className="text-white/60 no-underline text-sm hover:text-white transition-colors">{item.label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <div className="footer-bottom" style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>&copy; 2025 Elvatix. Alle rechten voorbehouden.</p>
-            <div style={{ display: "flex", gap: 16 }}>
-              <Link href="/privacy" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", fontSize: 13 }}>Privacy</Link>
-              <Link href="/terms" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", fontSize: 13 }}>Voorwaarden</Link>
+          <div className="footer-bottom border-t border-white/10 pt-6 flex justify-between items-center flex-wrap gap-3">
+            <p className="text-[13px] text-white/40">&copy; 2025 Elvatix. Alle rechten voorbehouden.</p>
+            <div className="flex gap-4">
+              <Link href="/privacy" className="text-white/40 no-underline text-[13px] hover:text-white/70 transition-colors">Privacy</Link>
+              <Link href="/terms" className="text-white/40 no-underline text-[13px] hover:text-white/70 transition-colors">Voorwaarden</Link>
             </div>
           </div>
         </div>
