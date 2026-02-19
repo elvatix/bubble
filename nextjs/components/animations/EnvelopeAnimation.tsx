@@ -357,7 +357,7 @@ export default function EnvelopeAnimation() {
                 <div className="w-5 h-5 rounded bg-[#0A66C2] flex items-center justify-center flex-shrink-0">
                   <span className="text-white text-[8px] font-bold">in</span>
                 </div>
-                <span className="text-[11px] text-gray-500 font-semibold">InMail</span>
+                <span className="text-[11px] text-gray-500 font-semibold normal-case" style={{ textTransform: "none" }}>InMail</span>
               </div>
 
               <div className="text-[10px] text-gray-500 mb-0.5">
@@ -412,8 +412,8 @@ export default function EnvelopeAnimation() {
           {isDeliver && (
             <motion.div
               className="absolute z-20 left-[30px]"
-              initial={{ top: -70, rotate: -8, opacity: 1 }}
-              animate={{ top: 20, rotate: -3, opacity: 0.4 }}
+              initial={{ top: -90, rotate: -10, opacity: 1 }}
+              animate={{ top: 15, rotate: -3, opacity: 0.85 }}
               transition={{ duration: 1.5, ease: [0.3, 0, 0.2, 1] }}
             >
               <div className="w-[150px] bg-white rounded-xl shadow-md border border-gray-200 p-3">
@@ -421,7 +421,7 @@ export default function EnvelopeAnimation() {
                   <div className="w-3.5 h-3.5 rounded bg-[#0A66C2] flex items-center justify-center">
                     <span className="text-white text-[5px] font-bold">in</span>
                   </div>
-                  <span className="text-[7px] text-gray-500 font-semibold">InMail</span>
+                  <span className="text-[7px] text-gray-500 font-semibold normal-case" style={{ textTransform: "none" }}>InMail</span>
                 </div>
                 <div className="h-[2px] w-[65%] bg-gray-200 rounded-full mb-1" />
                 <div className="h-[2px] w-[85%] bg-gray-100 rounded-full mb-1" />
