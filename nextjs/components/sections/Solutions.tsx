@@ -31,7 +31,7 @@ const solutions = [
   {
     icon: <BuildingIcon />,
     title: "Recruitmentbureaus",
-    description: "Versnel het bereiken van kandidaten. Schrijf persoonlijke InMails en connectieverzoeken in seconden. Bespaar 4–6 uur per week per recruiter.",
+    description: "Versnel het bereiken van kandidaten. Schrijf persoonlijke InMails en connectieverzoeken in seconden. Bespaar 4-6 uur per week per recruiter.",
   },
   {
     icon: <BriefcaseIcon />,

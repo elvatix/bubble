@@ -17,10 +17,10 @@ function formatPeriod(startYear: number | null, startMonth: number | null, endYe
   const months = ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
   const start = startYear ? `${startMonth ? months[startMonth - 1] + " " : ""}${startYear}` : null;
   if (!endYear && !endMonth) {
-    return start ? `${start} – heden` : "geen periode";
+    return start ? `${start} - heden` : "geen periode";
   }
   const end = endYear ? `${endMonth ? months[endMonth - 1] + " " : ""}${endYear}` : "?";
-  return `${start || "?"} – ${end}`;
+  return `${start || "?"} - ${end}`;
 }
 
 function formatDuration(months: number | null): string {
