@@ -9,7 +9,7 @@ interface BubbleResponse<T> {
 
 export interface Blog {
   _id: string
-  slug: string
+  Slug: string
   "SEO title": string
   "SEO Description": string
   Body: string
@@ -48,7 +48,7 @@ export async function fetchBubble<T>(endpoint: string): Promise<T[]> {
 }
 
 export async function getAllBlogs(): Promise<Blog[]> {
-  const blogs = await fetchBubble<Blog>('obj/blog')
+  const blogs = await fetchBubble<Blog>('obj/blogs')
 
   return blogs.sort((a, b) => {
     const dateA = new Date(a.Date).getTime()
@@ -57,16 +57,16 @@ export async function getAllBlogs(): Promise<Blog[]> {
   })
 }
 
-export async function getBlogBySlug(slug: string): Promise<Blog | null> {
+export async function getBlogBySlug(Slug: string): Promise<Blog | null> {
   const constraint = encodeURIComponent(
     JSON.stringify([{
-      key: "slug",
+      key: "Slug",
       constraint_type: "equals",
       value: slug
     }])
   )
 
-  const blogs = await fetchBubble<Blog>(`obj/blog?constraints=${constraint}`)
+  const blogs = await fetchBubble<Blog>(`obj/blogs?constraints=${constraint}`)
   return blogs[0] || null
 }
 
