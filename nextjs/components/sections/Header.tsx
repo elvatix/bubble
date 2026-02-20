@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -18,9 +19,16 @@ export default function Header() {
       {/* Logo */}
       <Link
         href="/"
-        className="font-extrabold text-[22px] tracking-tight no-underline shrink-0 text-linkedin z-[1]"
+        className="no-underline shrink-0 z-[1]"
       >
-        Elvatix
+        <Image
+          src="/images/logo-elvatix.svg"
+          alt="Elvatix"
+          width={140}
+          height={32}
+          priority
+          className="h-8 w-auto"
+        />
       </Link>
 
       {/* Nav links */}
