@@ -52,6 +52,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
   const imageUrl = blog.Image?.startsWith('//') ? 'https:' + blog.Image : blog.Image;
   const cleanBody = sanitizeBlogHtml(blog.Body);
+  const wordCount = cleanBody.replace(/<[^>]*>/g, '').split(/\s+/).length;
+  const readTime = Math.max(1, Math.ceil(wordCount / 200));
 
   return (
     <main className="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
@@ -65,18 +67,22 @@ export default async function BlogPost({ params }: BlogPostProps) {
         {/* Article header */}
         <article>
           <header className="mb-10">
-            <div className="flex items-center gap-3 mb-4">
-              <time className="text-sm text-gray-400">
+            <div className="flex items-center gap-3 mb-6">
+              <time className="text-sm font-semibold text-elvatix-dark bg-elvatix/10 px-3 py-1 rounded-full">
                 {new Date(blog.Date).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
               </time>
-              <span className="text-gray-300">|</span>
-              <span className="text-sm text-gray-400">{blog.Author}</span>
+              <span className="text-sm font-medium text-gray-500 flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                {readTime} min leestijd
+              </span>
+              <span className="text-gray-300 hidden sm:inline">|</span>
+              <span className="text-sm text-gray-500 hidden sm:inline">{blog.Author}</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-5xl font-black text-gray-900 leading-tight mb-6 tracking-tight">
               {blog['SEO title']}
             </h1>
             {blog['SEO Description'] && (
-              <p className="text-lg text-gray-500 leading-relaxed">
+              <p className="text-xl text-gray-600 leading-relaxed font-medium">
                 {blog['SEO Description']}
               </p>
             )}

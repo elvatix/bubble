@@ -37,7 +37,7 @@ export default async function BlogOverviewPage() {
                 <Link
                   key={blog._id}
                   href={`/blog/${slug}`}
-                  className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-elvatix transition-all h-full"
+                  className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-elvatix transition-all duration-300 h-full"
                 >
                   {blog.Image && (
                     <div className="aspect-video relative overflow-hidden">
@@ -50,13 +50,15 @@ export default async function BlogOverviewPage() {
                     </div>
                   )}
                   <div className="p-6 flex flex-col flex-1">
-                    <time className="text-xs text-gray-400 mb-2 block">
-                      {new Date(blog.Date).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
-                    </time>
-                    <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-elvatix transition-colors">
+                    <div className="flex items-center gap-2 mb-3">
+                      <time className="text-xs font-semibold text-elvatix-dark bg-elvatix/10 px-2 py-1 rounded-md">
+                        {new Date(blog.Date).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
+                      </time>
+                    </div>
+                    <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-elvatix transition-colors leading-snug">
                       {blog['SEO title']}
                     </h2>
-                    <p className="text-sm text-gray-600 line-clamp-2 flex-1">{blog['SEO Description']}</p>
+                    <p className="text-base text-gray-600 line-clamp-3 flex-1 leading-relaxed">{blog['SEO Description']}</p>
                     <div className="mt-auto pt-4 flex items-center justify-between">
                       <span className="text-xs text-gray-500">{blog.Author}</span>
                       <span className="text-sm text-elvatix font-semibold">

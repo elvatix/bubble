@@ -27,9 +27,7 @@ export function sanitizeBlogHtml(html: string): string {
   clean = clean.replace(/\sstyle='[^']*'/gi, '');
   
   // Remove class attributes (Bubble-specific classes)
-  clean = clean.replace(/\sclass="[^"]*"/gi, '');
-  clean = clean.replace(/\sclass='[^']*'/gi, '');
-  
+      
   // Clean up excessive whitespace
   clean = clean.replace(/\n{3,}/g, '\n\n');
   
