@@ -18,16 +18,28 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
 
   if (!blog) return { title: 'Blog niet gevonden' };
 
+  const imageUrl = blog.Image ? (blog.Image.startsWith('//') ? 'https:' + blog.Image : blog.Image) : '';
+  const blogUrl = `https://elvatix.com/blog/${slug}`;
+
   return {
     title: blog['SEO title'] + ' | Elvatix',
     description: blog['SEO Description'],
-    alternates: { canonical: `/blog/${slug}` },
+    authors: [{ name: blog.Author || 'Elvatix' }],
+    alternates: { canonical: blogUrl },
     openGraph: {
       title: blog['SEO title'],
       description: blog['SEO Description'],
+      url: blogUrl,
       type: 'article',
       publishedTime: blog.Date,
-      images: blog.Image ? [blog.Image.startsWith('//') ? 'https:' + blog.Image : blog.Image] : [],
+      authors: [blog.Author || 'Elvatix'],
+      images: imageUrl ? [{ url: imageUrl, alt: blog['Alt text'] || blog['SEO title'] }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog['SEO title'],
+      description: blog['SEO Description'],
+      images: imageUrl ? [imageUrl] : [],
     },
   };
 }
@@ -63,6 +75,37 @@ export default async function BlogPost({ params }: BlogPostProps) {
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
           Terug naar overzicht
         </Link>
+
+        {/* JSON-LD Article Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": blog['SEO title'],
+              "description": blog['SEO Description'],
+              "image": imageUrl ? [imageUrl] : [],
+              "datePublished": blog.Date,
+              "author": {
+                "@type": "Person",
+                "name": blog.Author || "Elvatix"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Elvatix",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://elvatix.com/opengraph-image.png"
+                }
+              },
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `https://elvatix.com/blog/${slug}`
+              }
+            }).replace(/</g, '\u003c')
+          }}
+        />
 
         {/* Article header */}
         <article>

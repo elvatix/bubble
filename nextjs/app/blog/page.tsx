@@ -15,8 +15,25 @@ export const metadata: Metadata = {
 export default async function BlogOverviewPage() {
   const blogs = await getAllBlogs();
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": blogs.map((blog, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": `https://elvatix.com/blog/${blog.Slug || generateSlug(blog['SEO title'])}`
+    }))
+  };
+
   return (
     <main className="pt-40 pb-16">
+      {/* JSON-LD ItemList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, '\\u003c')
+        }}
+      />
       <Container className="text-center mb-16">        <h1 className="page-heading">Inzichten & Updates</h1>
         <p className="page-subtitle">
           De laatste artikelen over AI-powered recruitment, LinkedIn strategieën en talent acquisition best practices.
