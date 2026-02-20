@@ -16,18 +16,26 @@ export default function Header() {
 
   return (
     <header className="navbar-floating">
-      {/* Logo */}
+      {/* Logo — full on desktop, icon on mobile */}
       <Link
         href="/"
         className="no-underline shrink-0 z-[1]"
       >
         <Image
-          src="/images/Elvatix - Logo.png"
+          src="/images/elvatix-logo-lightgreen.svg"
           alt="Elvatix"
-          width={160}
-          height={36}
+          width={140}
+          height={32}
           priority
-          className="h-7 w-auto"
+          className="hidden md:block h-7 w-auto"
+        />
+        <Image
+          src="/images/Favicon Elvatix.png"
+          alt="Elvatix"
+          width={32}
+          height={32}
+          priority
+          className="md:hidden h-8 w-8"
         />
       </Link>
 

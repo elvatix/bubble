@@ -65,6 +65,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
   alternates: {
     canonical: "https://elvatix.com",
   },
