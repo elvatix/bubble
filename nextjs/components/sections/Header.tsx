@@ -22,12 +22,12 @@ export default function Header() {
         className="no-underline shrink-0 z-[1]"
       >
         <Image
-          src="/images/logo-elvatix.svg"
+          src="/images/Elvatix - Logo.png"
           alt="Elvatix"
-          width={140}
-          height={32}
+          width={160}
+          height={36}
           priority
-          className="h-8 w-auto"
+          className="h-7 w-auto"
         />
       </Link>
 
