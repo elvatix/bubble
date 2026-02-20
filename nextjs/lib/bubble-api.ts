@@ -57,7 +57,7 @@ export async function getAllBlogs(): Promise<Blog[]> {
   })
 }
 
-export async function getBlogBySlug(Slug: string): Promise<Blog | null> {
+export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   const constraint = encodeURIComponent(
     JSON.stringify([{
       key: "Slug",
