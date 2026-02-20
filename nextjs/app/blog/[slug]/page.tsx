@@ -76,6 +76,37 @@ export default async function BlogPost({ params }: BlogPostProps) {
           Terug naar overzicht
         </Link>
 
+        {/* JSON-LD Breadcrumb Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://elvatix.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Blog",
+                  "item": "https://elvatix.com/blog"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": blog['SEO title'],
+                  "item": `https://elvatix.com/blog/${slug}`
+                }
+              ]
+            }).replace(/</g, '\u003c')
+          }}
+        />
+
         {/* JSON-LD Article Schema */}
         <script
           type="application/ld+json"
