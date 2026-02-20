@@ -32,7 +32,7 @@ export default async function BlogOverviewPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => {
-              const slug = blog.Slug || generateSlug(blog['SEO title']);
+              const slug = blog.slug || generateSlug(blog['SEO title']);
               return (
                 <Link
                   key={blog._id}
