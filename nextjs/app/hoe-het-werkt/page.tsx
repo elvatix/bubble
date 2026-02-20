@@ -4,8 +4,8 @@ import { FileTextIcon, SearchIcon, ZapIcon, CheckIcon, RocketIcon, BarChartIcon,
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hoe het werkt — Elvatix",
-  description: "Ontdek hoe Elvatix in 5 stappen je LinkedIn outreach automatiseert. Van template aanmaken tot berichten versturen — veilig, persoonlijk en razendsnel.",
+  title: "Hoe het werkt - Elvatix",
+  description: "Ontdek hoe Elvatix in 5 stappen je LinkedIn outreach automatiseert. Van template aanmaken tot berichten versturen - veilig, persoonlijk en razendsnel.",
 };
 
 const steps = [
@@ -20,14 +20,14 @@ const steps = [
     number: "02",
     icon: <SearchIcon size={32} />,
     title: "Selecteer je kandidaten",
-    description: "Gebruik je bestaande LinkedIn Recruiter projects, pipelines of Sales Navigator lijsten. Selecteer de kandidaten die je wilt benaderen — Elvatix integreert naadloos met je huidige workflow.",
+    description: "Gebruik je bestaande LinkedIn Recruiter projects, pipelines of Sales Navigator lijsten. Selecteer de kandidaten die je wilt benaderen - Elvatix integreert naadloos met je huidige workflow.",
     highlight: "Werkt met Recruiter, Sales Navigator en LinkedIn Search",
   },
   {
     number: "03",
     icon: <ZapIcon size={32} />,
     title: "Genereer persoonlijke berichten",
-    description: "Klik op de Elvatix Chrome-extensie, kies je template en klik op genereren. Ons AI-systeem analyseert elk profiel — werkervaring, vaardigheden, zelfs recente posts — en schrijft een volledig gepersonaliseerd bericht.",
+    description: "Klik op de Elvatix Chrome-extensie, kies je template en klik op genereren. Ons AI-systeem analyseert elk profiel - werkervaring, vaardigheden, zelfs recente posts - en schrijft een volledig gepersonaliseerd bericht.",
     highlight: "Elk bericht is uniek, gebaseerd op het profiel",
   },
   {
@@ -142,7 +142,7 @@ export default function HoeHetWerktPage() {
               Waarom recruiters kiezen voor Elvatix
             </h2>
             <p className="page-subtitle">
-              Complimenten van kandidaten — zelfs als ze niet geinteresseerd zijn in de rol.
+              Complimenten van kandidaten - zelfs als ze niet geinteresseerd zijn in de rol.
               Dat is het niveau van personalisatie dat Elvatix levert.
             </p>
           </div>
