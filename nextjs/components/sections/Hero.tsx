@@ -34,7 +34,7 @@ export default function Hero() {
                 Plan een demo
               </motion.a>
               <motion.a
-                href="#voor-wie"
+                href="/hoe-het-werkt"
                 className="pill-btn pill-btn-outline"
                 whileHover={{ scale: 1.05, background: "rgba(155,187,10,0.05)" }}
                 whileTap={{ scale: 0.97 }}
