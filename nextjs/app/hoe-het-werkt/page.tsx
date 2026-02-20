@@ -185,7 +185,7 @@ export default function HoeHetWerktPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="white" href="/demo">Plan een demo</Button>
-            <Button variant="outline-white" href="/contact">Neem contact op</Button>
+            <Button variant="outline" href="/contact">Neem contact op</Button>
           </div>
         </Container>
       </section>
