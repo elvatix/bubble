@@ -35,7 +35,7 @@ export async function generateStaticParams() {
   try {
     const blogs = await getAllBlogs();
     return blogs.map((blog) => ({
-      slug: blog.slug || generateSlug(blog['SEO title'])
+      slug: blog.Slug || generateSlug(blog['SEO title'])
     }))
   } catch (error) {
     console.error('Error in generateStaticParams:', error)
