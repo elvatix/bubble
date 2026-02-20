@@ -37,27 +37,27 @@ export default async function BlogOverviewPage() {
                 <Link
                   key={blog._id}
                   href={`/blog/${slug}`}
-                  className="group block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-elvatix transition-all"
+                  className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-elvatix transition-all h-full"
                 >
                   {blog.Image && (
                     <div className="aspect-video relative overflow-hidden">
                       <Image
-                        src={blog.Image}
+                        src={blog.Image?.startsWith('//') ? 'https:' + blog.Image : blog.Image}
                         alt={blog['Alt text'] || blog['SEO title']}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   )}
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col flex-1">
                     <time className="text-xs text-gray-400 mb-2 block">
                       {new Date(blog.Date).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
                     </time>
                     <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-elvatix transition-colors">
                       {blog['SEO title']}
                     </h2>
-                    <p className="text-sm text-gray-600 line-clamp-3">{blog['SEO Description']}</p>
-                    <div className="mt-4 flex items-center justify-between">
+                    <p className="text-sm text-gray-600 line-clamp-2 flex-1">{blog['SEO Description']}</p>
+                    <div className="mt-auto pt-4 flex items-center justify-between">
                       <span className="text-xs text-gray-500">{blog.Author}</span>
                       <span className="text-sm text-elvatix font-semibold">
                         Lees meer →

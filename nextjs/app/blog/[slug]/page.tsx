@@ -55,7 +55,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
         {blog.Image && (
           <div className='aspect-video relative rounded-2xl overflow-hidden mb-8 shadow-lg'>
             <Image
-              src={blog.Image}
+              src={blog.Image?.startsWith('//') ? 'https:' + blog.Image : blog.Image}
               alt={blog['Alt text'] || blog['SEO title']}
               fill
               className='object-cover'

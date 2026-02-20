@@ -47,6 +47,12 @@ export async function fetchBubble<T>(endpoint: string): Promise<T[]> {
   return data.response.results
 }
 
+function normalizeImageUrl(url: string | undefined): string {
+  if (!url) return '';
+  if (url.startsWith('//')) return 'https:' + url;
+  return url;
+}
+
 export async function getAllBlogs(): Promise<Blog[]> {
   const blogs = await fetchBubble<Blog>('obj/blogs')
 
