@@ -1,6 +1,7 @@
 "use client";
 import AnimateOnScroll from "../animations/AnimateOnScroll";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -9,9 +10,15 @@ export default function Footer() {
         <div className="section-inner">
           <div className="footer-grid mb-12">
             <div>
-              <h3 className="text-xl font-extrabold mb-4">
-                <Link href="/" className="text-green no-underline">Elvatix</Link>
-              </h3>
+              <Link href="/" className="no-underline block mb-4">
+                <Image
+                  src="/images/elvatix-logo-lightgreen.svg"
+                  alt="Elvatix"
+                  width={120}
+                  height={28}
+                  className="h-6 w-auto"
+                />
+              </Link>
               <p className="text-sm text-white/50 leading-relaxed">
                 De #1 AI-Powered LinkedIn Recruitment Copilot. Schrijf persoonlijke InMails en connectieverzoeken in seconden.
               </p>
@@ -66,7 +73,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-bottom border-t border-white/10 pt-6 flex justify-between items-center flex-wrap gap-3">
-            <p className="text-[13px] text-white/40">&copy; 2025 Elvatix. Alle rechten voorbehouden.</p>
+            <p className="text-[13px] text-white/40">&copy; 2026 Elvatix. Alle rechten voorbehouden.</p>
             <div className="flex gap-4">
               <Link href="/privacy" className="text-white/40 no-underline text-[13px] hover:text-white/70 transition-colors">Privacy</Link>
               <Link href="/terms" className="text-white/40 no-underline text-[13px] hover:text-white/70 transition-colors">Voorwaarden</Link>
