@@ -30,11 +30,35 @@ export default function EnvelopeAnimation() {
       setTyped(0);
       await wait(500);
       const text = MESSAGES[msgIdx].text;
-      for (let i = 0; i <= text.length; i++) {
-        if (cancelled.current) return;
-        setTyped(i);
-        await wait(30);
-      }
+      
+      await new Promise<void>((resolve) => {
+        const duration = text.length * 30; // 30ms per char
+        let start = performance.now();
+        let frame: number;
+        
+        const step = (now: number) => {
+          if (cancelled.current) {
+            cancelAnimationFrame(frame);
+            resolve();
+            return;
+          }
+          const elapsed = now - start;
+          const newTyped = Math.min(text.length, Math.floor((elapsed / duration) * text.length));
+          
+          setTyped(prev => {
+             if (prev !== newTyped) return newTyped;
+             return prev;
+          });
+
+          if (newTyped < text.length) {
+            frame = requestAnimationFrame(step);
+          } else {
+            resolve();
+          }
+        };
+        frame = requestAnimationFrame(step);
+      });
+      
       if (cancelled.current) return;
 
       // Done — longer pause so status text is readable
@@ -314,10 +338,10 @@ export default function EnvelopeAnimation() {
                 : isDeliver
                   ? {
                       // Letter moves to be ABOVE the envelope, then slides IN
-                      y: 145,
+                      y: 175,
                       x: 25,
                       rotate: -8,
-                      scale: 0.55,
+                      scale: 0.52,
                       transition: { duration: 1.5, ease: [0.3, 0, 0.2, 1] },
                     }
                   : { y: 0, rotate: 0, scale: 1 }
@@ -397,38 +421,14 @@ export default function EnvelopeAnimation() {
 
       {/* ═══════ ENVELOPE ═══════ */}
       {/* The envelope has a TOP FLAP that opens, and the letter slides in from above */}
-      <div className="absolute left-2 bottom-[32px] z-10">
+      <div className="absolute left-2 bottom-[32px]">
         <div className="relative" style={{ width: 270, height: 120 }}>
 
           {/* ─── Back of the envelope (behind everything) ─── */}
-          <svg className="absolute top-0 left-0" viewBox="0 0 270 120" width="270" height="120" fill="none">
+          <svg className="absolute top-0 left-0 z-10" viewBox="0 0 270 120" width="270" height="120" fill="none">
             <rect width="270" height="120" rx="14" fill="#0A66C2" />
             <rect width="270" height="120" rx="14" fill="#1A7AD9" opacity="0.3" />
           </svg>
-
-          {/* ─── Letter that slides INTO the envelope ─── */}
-          {/* This shows during "deliver" — a mini version of the card
-              sliding down INTO the envelope from above, at a slight angle */}
-          {isDeliver && (
-            <motion.div
-              className="absolute z-20 left-[30px]"
-              initial={{ top: -90, rotate: -10, opacity: 1 }}
-              animate={{ top: 15, rotate: -3, opacity: 0.85 }}
-              transition={{ duration: 1.5, ease: [0.3, 0, 0.2, 1] }}
-            >
-              <div className="w-[150px] bg-white rounded-xl shadow-md border border-gray-200 p-3">
-                <div className="flex items-center gap-1.5 mb-2">
-                  <div className="w-3.5 h-3.5 rounded bg-[#0A66C2] flex items-center justify-center">
-                    <span className="text-white text-[5px] font-bold">in</span>
-                  </div>
-                  <span className="text-[7px] text-gray-500 font-semibold normal-case" style={{ textTransform: "none" }}>InMail</span>
-                </div>
-                <div className="h-[2px] w-[65%] bg-gray-200 rounded-full mb-1" />
-                <div className="h-[2px] w-[85%] bg-gray-100 rounded-full mb-1" />
-                <div className="h-[2px] w-[50%] bg-gray-100 rounded-full" />
-              </div>
-            </motion.div>
-          )}
 
           {/* ─── Front of envelope (covers the letter as it enters) ─── */}
           <svg className="absolute top-0 left-0 z-30" viewBox="0 0 270 120" width="270" height="120" fill="none">
