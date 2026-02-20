@@ -31,7 +31,7 @@ export default function LoginPage() {
 
         <p className="text-sm text-gray-500 mt-8">
           Nog geen account?{' '}
-          <Link href="/start" className="text-linkedin font-semibold hover:underline">Start gratis</Link>
+          <Link href="/start" className="text-elvatix font-semibold hover:underline">Start gratis</Link>
         </p>
       </Container>
     </main>

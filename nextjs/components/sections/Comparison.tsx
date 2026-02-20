@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-const CheckCircleIcon = ({ color = "var(--color-linkedin)" }: { color?: string }) => (
+const CheckCircleIcon = ({ color = "var(--color-elvatix)" }: { color?: string }) => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
     <polyline points="22 4 12 14.01 9 11.01" />
@@ -38,7 +38,7 @@ export default function Comparison() {
         </div>
 
         {/* Proof stats bar */}
-        <div className="flex justify-center gap-12 mb-10 py-5 px-8 rounded-2xl bg-gradient-to-br from-linkedin to-linkedin-dark max-md:gap-6 max-md:px-4 max-sm:flex-col max-sm:gap-4 max-sm:items-center">
+        <div className="flex justify-center gap-12 mb-10 py-5 px-8 rounded-2xl bg-gradient-to-br from-elvatix to-elvatix-dark max-md:gap-6 max-md:px-4 max-sm:flex-col max-sm:gap-4 max-sm:items-center">
           <div className="text-center">
             <p className="text-[32px] font-black text-white">260</p>
             <p className="text-[13px] text-white/80">InMails verstuurd</p>
@@ -59,7 +59,7 @@ export default function Comparison() {
           <div className="grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] bg-surface py-3.5 px-6 border-b border-gray-200">
             <span className="text-[13px] font-bold text-gray-500 uppercase tracking-wide">Feature</span>
             <span className="text-[13px] font-bold text-red-500 text-center">Handmatig</span>
-            <span className="text-[13px] font-bold text-linkedin text-center">Elvatix</span>
+            <span className="text-[13px] font-bold text-elvatix text-center">Elvatix</span>
           </div>
           {rows.map((row, i) => (
             <motion.div
@@ -67,7 +67,7 @@ export default function Comparison() {
               className={`grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] py-4 px-6 items-center ${
                 i < rows.length - 1 ? "border-b border-gray-100" : ""
               }`}
-              whileHover={{ background: "var(--color-linkedin-light)" }}
+              whileHover={{ background: "var(--color-elvatix-light)" }}
             >
               <span className="text-sm text-gray-700">{row.label}</span>
               <span className="flex justify-center text-danger">{row.zonder ? <CheckCircleIcon /> : <XIcon />}</span>

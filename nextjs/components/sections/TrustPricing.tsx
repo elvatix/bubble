@@ -44,7 +44,7 @@ export default function TrustPricing() {
     <section className="section-padding bg-surface">
       <div className="section-inner">
         <div className="text-center mb-12">
-          <p className="text-[13px] font-bold text-linkedin uppercase tracking-[0.12em] mb-3">
+          <p className="text-[13px] font-bold text-elvatix uppercase tracking-[0.12em] mb-3">
             Drempels weg
           </p>
           <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
@@ -59,20 +59,20 @@ export default function TrustPricing() {
           {trustItems.map((item, i) => (
             <motion.div
               key={i}
-              className="p-8 rounded-[20px] bg-white border border-linkedin/15 text-center relative overflow-hidden"
-              whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(10,102,194,0.1)", borderColor: "var(--color-linkedin)" }}
+              className="p-8 rounded-[20px] bg-white border border-elvatix/15 text-center relative overflow-hidden"
+              whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(155,187,10,0.1)", borderColor: "var(--color-elvatix)" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               {i === 2 && (
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-linkedin to-linkedin-dark" />
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-elvatix to-elvatix-dark" />
               )}
-              <div className="flex justify-center items-center w-16 h-16 rounded-2xl bg-linkedin-light text-linkedin mx-auto mb-4">{item.icon}</div>
+              <div className="flex justify-center items-center w-16 h-16 rounded-2xl bg-elvatix-light text-elvatix mx-auto mb-4">{item.icon}</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
               <p className={`text-sm text-gray-500 leading-relaxed ${item.badges ? "mb-4" : ""}`}>{item.description}</p>
               {item.badges && (
                 <div className="flex gap-2 justify-center flex-wrap">
                   {item.badges.map((badge, j) => (
-                    <span key={j} className="text-[11px] font-bold text-linkedin bg-linkedin-light px-3 py-1 rounded-full tracking-wide">
+                    <span key={j} className="text-[11px] font-bold text-elvatix bg-elvatix-light px-3 py-1 rounded-full tracking-wide">
                       {badge}
                     </span>
                   ))}
@@ -81,8 +81,8 @@ export default function TrustPricing() {
               {i === 2 && (
                 <motion.a
                   href="/demo"
-                  className="pill-btn pill-btn-linkedin mt-5 py-3 px-7"
-                  whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(10,102,194,0.3)" }}
+                  className="pill-btn pill-btn-elvatix mt-5 py-3 px-7"
+                  whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(155,187,10,0.3)" }}
                   whileTap={{ scale: 0.97 }}
                 >
                   Start gratis

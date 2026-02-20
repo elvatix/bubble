@@ -42,9 +42,9 @@ export default function PlatformPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {modules.map((m) => (
-            <a key={m.title} href={m.href} className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-linkedin transition-all group">
-              <span className="text-3xl mb-3 block text-linkedin">{m.icon}</span>
-              <h3 className="font-bold text-gray-900 mb-1 group-hover:text-linkedin">{m.title}</h3>
+            <a key={m.title} href={m.href} className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-elvatix transition-all group">
+              <span className="text-3xl mb-3 block text-elvatix">{m.icon}</span>
+              <h3 className="font-bold text-gray-900 mb-1 group-hover:text-elvatix">{m.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{m.desc}</p>
             </a>
           ))}
@@ -57,7 +57,7 @@ export default function PlatformPage() {
           <div className="flex flex-col gap-8">
             {howItWorks.map((step) => (
               <div key={step.num} className="flex items-start gap-5">
-                <span className="text-3xl font-black text-linkedin flex-shrink-0 w-12">{step.num}</span>
+                <span className="text-3xl font-black text-elvatix flex-shrink-0 w-12">{step.num}</span>
                 <div>
                   <h3 className="font-bold text-gray-900 mb-1">{step.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>

@@ -81,7 +81,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
         />
 
         <div className="mt-16 pt-8 border-t">
-          <Link href="/blog" className="text-linkedin font-semibold hover:underline">
+          <Link href="/blog" className="text-elvatix font-semibold hover:underline">
             ← Terug naar overzicht
           </Link>
         </div>

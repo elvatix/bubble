@@ -28,7 +28,7 @@ export default function FormWrapper({
         <p className="text-lg font-semibold text-gray-900">{successMessage}</p>
         <button
           onClick={() => setSubmitted(false)}
-          className="text-sm text-linkedin font-medium hover:underline"
+          className="text-sm text-elvatix font-medium hover:underline"
         >
           Nog een keer invullen
         </button>

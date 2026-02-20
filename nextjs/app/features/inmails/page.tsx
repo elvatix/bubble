@@ -23,7 +23,7 @@ export default function InMailsPage() {
         <p className="page-subtitle">
           Genereer hyper-gepersonaliseerde LinkedIn InMails op basis van het profiel van je kandidaat . In seconden, niet in minuten.
         </p>
-        <div className="my-10 text-linkedin"><MessageSquareIcon size={80} /></div>
+        <div className="my-10 text-elvatix"><MessageSquareIcon size={80} /></div>
       </Container>
 
       <Container className="max-w-4xl mb-20">

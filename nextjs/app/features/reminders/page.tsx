@@ -23,7 +23,7 @@ export default function RemindersPage() {
         <p className="page-subtitle">
           Automatische follow-up reminders op basis van eerdere interacties. Elke opvolging voelt persoonlijk en relevant.
         </p>
-        <div className="my-10 text-linkedin"><ClockIcon size={80} /></div>
+        <div className="my-10 text-elvatix"><ClockIcon size={80} /></div>
       </Container>
 
       <Container className="max-w-4xl mb-20">

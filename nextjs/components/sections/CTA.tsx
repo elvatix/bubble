@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function CTA() {
   return (
-    <section className="section-padding bg-gradient-to-br from-linkedin to-linkedin-dark text-center">
+    <section className="section-padding bg-gradient-to-br from-elvatix to-elvatix-dark text-center">
       <div className="max-w-[700px] mx-auto">
         <h2 className="text-[clamp(28px,3.5vw,44px)] font-black text-white mb-4 leading-tight">
           Klaar om 4-6 uur per week te besparen?
@@ -15,7 +15,7 @@ export default function CTA() {
         <div className="flex gap-3 justify-center flex-wrap">
           <motion.a
             href="/demo"
-            className="pill-btn px-9 py-3.5 text-base bg-white text-linkedin border-none font-bold"
+            className="pill-btn px-9 py-3.5 text-base bg-white text-elvatix border-none font-bold"
             whileHover={{ scale: 1.05, boxShadow: "0 8px 24px rgba(0,0,0,0.2)" }}
             whileTap={{ scale: 0.97 }}
           >

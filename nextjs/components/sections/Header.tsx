@@ -45,7 +45,7 @@ export default function Header() {
           <Link
             key={link.label}
             href={link.href}
-            className="text-gray-700 no-underline text-sm font-medium transition-colors duration-200 hover:text-linkedin"
+            className="text-gray-700 no-underline text-sm font-medium transition-colors duration-200 hover:text-elvatix"
           >
             {link.label}
           </Link>
@@ -56,7 +56,7 @@ export default function Header() {
       <div className="nav-cta">
         <Link
           href="/demo"
-          className="pill-btn pill-btn-linkedin py-2.5 px-6 text-sm"
+          className="pill-btn pill-btn-elvatix py-2.5 px-6 text-sm"
         >
           Plan een demo
         </Link>
@@ -82,7 +82,7 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/demo" className="pill-btn pill-btn-linkedin" onClick={() => setOpen(false)}>
+            <Link href="/demo" className="pill-btn pill-btn-elvatix" onClick={() => setOpen(false)}>
               Plan een demo
             </Link>
           </>

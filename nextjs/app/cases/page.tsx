@@ -75,12 +75,12 @@ export default function CasesPage() {
                     <div key={r.label} className="bg-gray-50 rounded-xl p-4 text-center">
                       <p className="text-xs text-gray-500 mb-1">{r.label}</p>
                       <p className="text-xs text-gray-400 line-through">{r.before}</p>
-                      <p className="text-2xl font-black text-linkedin">{r.after}</p>
+                      <p className="text-2xl font-black text-elvatix">{r.after}</p>
                     </div>
                   ))}
                 </div>
 
-                <blockquote className="border-l-4 border-linkedin pl-4 italic text-gray-600 text-sm mb-2">
+                <blockquote className="border-l-4 border-elvatix pl-4 italic text-gray-600 text-sm mb-2">
                   &ldquo;{c.quote}&rdquo;
                 </blockquote>
                 <p className="text-sm font-bold text-gray-900">{c.quotePerson}</p>

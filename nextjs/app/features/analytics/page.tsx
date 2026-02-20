@@ -23,7 +23,7 @@ export default function AnalyticsPage() {
         <p className="page-subtitle">
           Diepgaande analytics die je laten zien wat werkt en wat niet. Optimaliseer je outreach met echte data.
         </p>
-        <div className="my-10 text-linkedin"><BarChartIcon size={80} /></div>
+        <div className="my-10 text-elvatix"><BarChartIcon size={80} /></div>
       </Container>
 
       <Container className="max-w-4xl mb-20">

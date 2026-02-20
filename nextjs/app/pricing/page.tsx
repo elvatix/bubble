@@ -52,7 +52,7 @@ export default function PricingPage() {
       <Container className="max-w-5xl mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {plans.map((plan) => (
-            <div key={plan.name} className={`rounded-2xl p-8 flex flex-col ${plan.highlight ? 'bg-linkedin text-white shadow-xl scale-105' : 'bg-white border border-gray-200'}`}>
+            <div key={plan.name} className={`rounded-2xl p-8 flex flex-col ${plan.highlight ? 'bg-elvatix text-white shadow-xl scale-105' : 'bg-white border border-gray-200'}`}>
               <h2 className="text-xl font-bold mb-1">{plan.name}</h2>
               <div className="mb-1">
                 <span className="text-4xl font-black">{plan.price}</span>

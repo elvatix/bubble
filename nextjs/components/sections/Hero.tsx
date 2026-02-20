@@ -5,7 +5,7 @@ import EnvelopeAnimation from "@/components/animations/EnvelopeAnimation";
 
 export default function Hero() {
   return (
-    <section className="pt-[120px] pb-[60px] px-6 bg-gradient-to-b from-linkedin-light to-white">
+    <section className="pt-[120px] pb-[60px] px-6 bg-gradient-to-b from-elvatix-light to-white">
       <div className="max-w-[1100px] mx-auto">
         {/* Split layout: text left, animation right */}
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-12">
@@ -27,7 +27,7 @@ export default function Hero() {
             <div className="flex gap-3 justify-center lg:justify-start flex-wrap">
               <motion.a
                 href="/demo"
-                className="pill-btn pill-btn-linkedin"
+                className="pill-btn pill-btn-elvatix"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -36,7 +36,7 @@ export default function Hero() {
               <motion.a
                 href="#voor-wie"
                 className="pill-btn pill-btn-outline"
-                whileHover={{ scale: 1.05, background: "rgba(10,102,194,0.05)" }}
+                whileHover={{ scale: 1.05, background: "rgba(155,187,10,0.05)" }}
                 whileTap={{ scale: 0.97 }}
               >
                 Bekijk hoe het werkt
@@ -57,7 +57,7 @@ export default function Hero() {
 
         {/* LeadMagnet below, full width */}
         <div className="max-w-[800px] mx-auto">
-          <div className="rounded-[20px] border border-linkedin/20 shadow-[0_4px_24px_rgba(10,102,194,0.08)] overflow-hidden">
+          <div className="rounded-[20px] border border-elvatix/20 shadow-[0_4px_24px_rgba(155,187,10,0.08)] overflow-hidden">
             <LeadMagnet compact />
           </div>
         </div>

@@ -41,7 +41,7 @@ export default function StartPage() {
 
         <p className="text-sm text-gray-500 mt-8">
           Al een account?{' '}
-          <Link href="/login" className="text-linkedin font-semibold hover:underline">Log in</Link>
+          <Link href="/login" className="text-elvatix font-semibold hover:underline">Log in</Link>
         </p>
       </Container>
     </main>

@@ -235,7 +235,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                 <button key={t} onClick={() => setTone(t)}
                   className={`flex-1 py-[11px] px-4 rounded-lg text-sm font-semibold cursor-pointer transition-all duration-150 font-[inherit] ${
                     tone === t
-                      ? "border-[1.5px] border-green bg-linkedin-light text-green"
+                      ? "border-[1.5px] border-green bg-elvatix-light text-green"
                       : "border border-gray-300 bg-white text-gray-500"
                   }`}>
                   {t === "informal" ? "Informeel" : "Formeel"}
@@ -275,11 +275,11 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                 <div key={step.key} className="flex-1">
                   <div className={`h-[3px] rounded-sm mb-2 transition-colors duration-400 ${
                     status === "done" ? "bg-green"
-                    : status === "active" ? "bg-[length:200%_100%] bg-[linear-gradient(90deg,var(--color-green)_0%,var(--color-linkedin)_50%,var(--color-green)_100%)] animate-[lm-shimmer_1.5s_infinite]"
+                    : status === "active" ? "bg-[length:200%_100%] bg-[linear-gradient(90deg,var(--color-green)_0%,var(--color-elvatix)_50%,var(--color-green)_100%)] animate-[lm-shimmer_1.5s_infinite]"
                     : "bg-gray-200"
                   }`} />
                   <span className={`text-[10px] font-semibold uppercase tracking-[0.5px] ${
-                    status === "done" ? "text-green" : status === "active" ? "text-linkedin" : "text-gray-300"
+                    status === "done" ? "text-green" : status === "active" ? "text-elvatix" : "text-gray-300"
                   }`}>{step.label}</span>
                 </div>
               );

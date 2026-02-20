@@ -62,10 +62,10 @@ export default function Solutions() {
             <motion.div
               key={i}
               className="p-8 rounded-[20px] bg-surface-card border border-gray-200 text-center"
-              whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(10,102,194,0.12)", borderColor: "var(--color-linkedin)" }}
+              whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(155,187,10,0.12)", borderColor: "var(--color-elvatix)" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="flex justify-center items-center w-16 h-16 rounded-2xl bg-linkedin-light text-linkedin mx-auto mb-4">{s.icon}</div>
+              <div className="flex justify-center items-center w-16 h-16 rounded-2xl bg-elvatix-light text-elvatix mx-auto mb-4">{s.icon}</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">{s.title}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">{s.description}</p>
             </motion.div>
