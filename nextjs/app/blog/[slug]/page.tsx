@@ -79,7 +79,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               <span className="text-sm text-gray-500 hidden sm:inline">{blog.Author}</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-5xl font-black text-gray-900 leading-tight mb-6 tracking-tight">
-              {blog['SEO title']}
+              {blog.Title}
             </h1>
             {blog['SEO Description'] && (
               <p className="text-xl text-gray-600 leading-relaxed font-medium">

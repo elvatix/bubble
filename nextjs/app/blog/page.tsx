@@ -56,7 +56,7 @@ export default async function BlogOverviewPage() {
                       </time>
                     </div>
                     <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-elvatix transition-colors leading-snug">
-                      {blog['SEO title']}
+                      {blog.Title}
                     </h2>
                     <p className="text-base text-gray-600 line-clamp-3 flex-1 leading-relaxed">{blog['SEO Description']}</p>
                     <div className="mt-auto pt-4 flex items-center justify-between">

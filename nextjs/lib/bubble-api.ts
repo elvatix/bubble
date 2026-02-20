@@ -10,6 +10,7 @@ interface BubbleResponse<T> {
 export interface Blog {
   _id: string
   Slug: string
+  Title: string
   "SEO title": string
   "SEO Description": string
   Body: string
@@ -54,7 +55,7 @@ function normalizeImageUrl(url: string | undefined): string {
 }
 
 export async function getAllBlogs(): Promise<Blog[]> {
-  const blogs = await fetchBubble<Blog>('obj/blogs')
+  const blogs = await fetchBubble<Blog>('obj/blogs?limit=200&sort_field=Date&descending=true')
 
   return blogs.sort((a, b) => {
     const dateA = new Date(a.Date).getTime()
