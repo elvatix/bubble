@@ -55,13 +55,45 @@ function normalizeImageUrl(url: string | undefined): string {
 }
 
 export async function getAllBlogs(): Promise<Blog[]> {
-  const blogs = await fetchBubble<Blog>('obj/blogs?limit=200&sort_field=Date&descending=true')
+  const allBlogs: Blog[] = [];
+  let cursor = 0;
+  let remaining = 1;
+  const apiUrl = process.env.BUBBLE_API_URL || 'https://elvatix.com';
+  const apiKey = process.env.BUBBLE_API_KEY;
 
-  return blogs.sort((a, b) => {
-    const dateA = new Date(a.Date).getTime()
-    const dateB = new Date(b.Date).getTime()
-    return dateB - dateA
-  })
+  if (!apiKey) {
+    console.warn('BUBBLE_API_KEY is not set, returning empty results');
+    return [];
+  }
+
+  while (remaining > 0) {
+    const url = `${apiUrl}/api/1.1/obj/blogs?limit=100&sort_field=Date&descending=true&cursor=${cursor}`;
+    const res = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      next: { revalidate: 3600 }
+    });
+
+    if (!res.ok) {
+      console.error(`Bubble API error: ${res.status}`);
+      break;
+    }
+
+    const data = await res.json();
+    if (!data.response) break;
+    
+    allBlogs.push(...data.response.results);
+    remaining = data.response.remaining || 0;
+    cursor += data.response.count || 0;
+  }
+
+  return allBlogs.sort((a, b) => {
+    const dateA = new Date(a.Date).getTime();
+    const dateB = new Date(b.Date).getTime();
+    return dateB - dateA;
+  });
 }
 
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {

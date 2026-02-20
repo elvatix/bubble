@@ -206,7 +206,7 @@ body {
   font-size: 1.125rem;
   line-height: 1.85;
   color: #374151;
-  max-width: 65ch; /* Optimal reading width */
+  max-width: 75ch; /* Optimal reading width - widened per user request */
   margin: 0 auto;
 }
 
