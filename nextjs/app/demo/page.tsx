@@ -68,33 +68,25 @@ export default function DemoPage() {
             {/* Glowing Backdrop */}
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/30 to-[#0A66C2]/20 rounded-[2rem] blur-2xl opacity-50 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
             
-            {/* 
-              THE TRICK: The Calendly badge sits at the top-right corner of the iframe.
-              No overlay, z-index, or pseudo-element can paint over an iframe.
-              
-              Solution: Make the iframe WIDER than its clipping container.
-              The iframe extends 120px past the right edge of the container.
-              overflow:hidden on the container clips everything beyond its boundary,
-              which physically removes the badge from view.
-              
-              The bottom is also clipped by making the container shorter than the iframe
-              (container height < iframe height), hiding Cookie-instellingen.
-            */}
-            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl w-full relative z-10 overflow-hidden" style={{ height: '480px' }}>
+            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative z-10 overflow-hidden">
               <div
-                className="calendly-inline-widget"
+                className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=afce26"
-                style={{ 
-                  minWidth: '280px', 
-                  height: '540px',
-                  width: 'calc(100% + 120px)',
-                  marginRight: '-120px'
-                }}
+                style={{ minWidth: '280px', height: '480px' }}
               />
               <Script
                 src="https://assets.calendly.com/assets/external/widget.js"
                 strategy="lazyOnload"
               />
+
+              {/* White triangle overlay — hides badge on desktop & mobile */}
+              <div
+                className="absolute top-0 right-0 w-[120px] h-[120px] bg-white z-50 pointer-events-none"
+                style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }}
+              />
+
+              {/* Bottom gradient — hides Cookie-instellingen */}
+              <div className="absolute bottom-0 left-0 right-0 h-[50px] bg-gradient-to-t from-white via-white to-transparent z-50 pointer-events-none" />
             </div>
           </div>
 
