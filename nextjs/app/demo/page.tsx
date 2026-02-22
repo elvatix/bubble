@@ -68,8 +68,9 @@ export default function DemoPage() {
             {/* Glowing Backdrop */}
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/30 to-[#0A66C2]/20 rounded-[2rem] blur-2xl opacity-50 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
             
-            {/* Outer container: NO padding so the overlay aligns flush with iframe edges */}
             <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl w-full relative z-10 overflow-hidden">
+              {/* The ::after pseudo-element in globals.css handles the branding overlay.
+                  The ::before pseudo-element in globals.css handles the bottom cookie-link overlay. */}
               <div
                 className="calendly-inline-widget w-full"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=afce26"
@@ -79,20 +80,6 @@ export default function DemoPage() {
                 src="https://assets.calendly.com/assets/external/widget.js"
                 strategy="lazyOnload"
               />
-
-              {/* White corner overlay — hides "Gecreëerd door Calendly" branding ribbon.
-                  The Calendly badge extends ~100px diagonally from the corner.
-                  Using a 200x100px rectangle positioned at the top-right ensures 
-                  full coverage on all viewports (mobile, iPad, desktop).
-                  We use a rectangle instead of a triangle because the ribbon 
-                  sits flush against the top edge. */}
-              <div
-                className="absolute top-0 right-0 z-50 pointer-events-none bg-white"
-                style={{ width: '200px', height: '100px', clipPath: 'polygon(30% 0, 100% 0, 100% 100%)' }}
-              />
-
-              {/* White bar overlay — hides "Cookie-instellingen" link at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 h-[50px] bg-gradient-to-t from-white via-white to-transparent z-50 pointer-events-none" />
             </div>
           </div>
 
