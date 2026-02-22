@@ -69,24 +69,30 @@ export default function DemoPage() {
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/30 to-[#0A66C2]/20 rounded-[2rem] blur-2xl opacity-50 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
             
             <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative z-10 overflow-hidden">
+              {/*
+                Heights: compact as possible while still fully showing the calendar.
+                Desktop calendar content = ~480px, so 540px gives a small cushion.
+                Mobile stacks date+time vertically when a date is clicked, needs ~580px.
+              */}
               <div
                 className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=afce26"
-                style={{ minWidth: '280px', height: '700px' }}
+                style={{ minWidth: '280px', height: '540px' }}
               />
               <Script
                 src="https://assets.calendly.com/assets/external/widget.js"
                 strategy="lazyOnload"
               />
 
-              {/* White triangle overlay — hides "Gecreëerd door Calendly" branding ribbon (top-right) */}
+              {/* White triangle overlay — hides "Gecreëerd door Calendly" ribbon.
+                  Made 140px to fully cover the ribbon on iPad/tablet viewports too. */}
               <div
-                className="absolute top-0 right-0 w-[120px] h-[120px] bg-white z-50 pointer-events-none"
+                className="absolute top-0 right-0 w-[140px] h-[140px] bg-white z-50 pointer-events-none"
                 style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }}
               />
 
-              {/* White bar overlay — hides "Cookie-instellingen" link (bottom) */}
-              <div className="absolute bottom-0 left-0 right-0 h-[60px] bg-gradient-to-t from-white via-white to-transparent z-50 pointer-events-none" />
+              {/* White bar overlay — hides "Cookie-instellingen" link at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-[50px] bg-gradient-to-t from-white via-white to-transparent z-50 pointer-events-none" />
             </div>
           </div>
 
