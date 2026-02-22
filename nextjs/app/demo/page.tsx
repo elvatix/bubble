@@ -69,20 +69,23 @@ export default function DemoPage() {
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/30 to-[#0A66C2]/20 rounded-[2rem] blur-2xl opacity-50 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
             
             {/* 
-              The ONLY way to hide content inside an iframe from outside is to CLIP it.
-              Iframes create their own compositor layer — no z-index or overlay can paint over them.
+              CLIP-PATH STRATEGY:
+              Iframes create their own compositor layer — no z-index, pseudo-element,
+              or sibling overlay can paint over iframe content.
+              The ONLY way is to physically CLIP the container.
               
-              We use inset() to crop:
-              - top: 0 (show everything)  
-              - right: 0 (show everything)
-              - bottom: 40px (clips away the Cookie-instellingen link)
-              - left: 0 (show everything)
-              - round 24px 4px 24px 24px (large radius everywhere except top-right 
-                which clips away the diagonal Calendly branding banner)
+              polygon() points (clockwise from top-left):
+              1. (0, 0)         → top-left corner
+              2. (calc(100% - 120px), 0) → top edge stops 120px before right edge
+              3. (100%, 120px)  → right edge starts 120px below top
+                 ↑ This diagonal line clips off the branding badge triangle
+              4. (100%, calc(100% - 40px)) → right edge stops 40px before bottom
+              5. (0, calc(100% - 40px))    → bottom-left, 40px up from actual bottom
+                 ↑ This clips off Cookie-instellingen at the bottom
             */}
             <div 
               className="bg-white border border-gray-100 rounded-3xl shadow-2xl w-full relative z-10"
-              style={{ clipPath: 'inset(0 0 40px 0 round 24px 4px 24px 24px)' }}
+              style={{ clipPath: 'polygon(0 0, calc(100% - 120px) 0, 100% 120px, 100% calc(100% - 40px), 0 calc(100% - 40px))' }}
             >
               <div
                 className="calendly-inline-widget w-full"
