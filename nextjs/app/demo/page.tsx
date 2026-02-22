@@ -26,9 +26,8 @@ export default function DemoPage() {
       <Container className="max-w-6xl relative z-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* LEFT COLUMN: Copy & Conversion Elements */}
+          {/* LEFT COLUMN */}
           <div className="lg:col-span-5 flex flex-col justify-center">
-
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-[1.15] tracking-tight">
               Klaar om je <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A66C2] to-[#afce26]">recruitment</span> te transformeren?
             </h1>
@@ -72,7 +71,7 @@ export default function DemoPage() {
             <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative z-10 overflow-hidden">
               <div
                 className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
-                data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&primary_color=afce26"
+                data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=afce26"
                 style={{ minWidth: '280px', height: '700px' }}
               />
               <Script
@@ -80,11 +79,14 @@ export default function DemoPage() {
                 strategy="lazyOnload"
               />
 
-              {/* White corner overlay to hide "Gecreëerd door Calendly" branding ribbon */}
+              {/* White triangle overlay — hides "Gecreëerd door Calendly" branding ribbon (top-right) */}
               <div
                 className="absolute top-0 right-0 w-[120px] h-[120px] bg-white z-50 pointer-events-none"
                 style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }}
               />
+
+              {/* White bar overlay — hides "Cookie-instellingen" link (bottom) */}
+              <div className="absolute bottom-0 left-0 right-0 h-[60px] bg-gradient-to-t from-white via-white to-transparent z-50 pointer-events-none" />
             </div>
           </div>
 
