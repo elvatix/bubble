@@ -69,13 +69,7 @@ export default function DemoPage() {
             {/* Glowing Backdrop */}
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/30 to-[#0A66C2]/20 rounded-[2rem] blur-2xl opacity-50 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
             
-            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative z-10">
-              {/*
-                The Calendly widget needs an explicit pixel height.
-                IMPORTANT: globals.css has a rule on <=768px that sets `main iframe { height: auto }`
-                which overrides the iframe's height:100%. We added a CSS override in globals.css
-                specifically for `.calendly-inline-widget iframe` to counteract this.
-              */}
+            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative z-10 overflow-hidden">
               <div
                 className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&primary_color=afce26"
@@ -84,6 +78,12 @@ export default function DemoPage() {
               <Script
                 src="https://assets.calendly.com/assets/external/widget.js"
                 strategy="lazyOnload"
+              />
+
+              {/* White corner overlay to hide "Gecreëerd door Calendly" branding ribbon */}
+              <div
+                className="absolute top-0 right-0 w-[120px] h-[120px] bg-white z-50 pointer-events-none"
+                style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }}
               />
             </div>
           </div>
