@@ -72,7 +72,7 @@ export default function DemoPage() {
               <div
                 className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=afce26"
-                style={{ minWidth: '280px', height: '480px' }}
+                style={{ minWidth: '280px', height: '580px' }}
               />
               <Script
                 src="https://assets.calendly.com/assets/external/widget.js"

@@ -384,7 +384,7 @@ body {
 .calendly-inline-widget,
 .calendly-inline-widget iframe {
   height: 100% !important;
-  min-height: 480px;
+  min-height: 580px;
 }
 
 /* Branding ribbon + cookie link hidden via clip-path on container in app/demo/page.tsx
