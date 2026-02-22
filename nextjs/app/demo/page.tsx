@@ -68,9 +68,22 @@ export default function DemoPage() {
             {/* Glowing Backdrop */}
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/30 to-[#0A66C2]/20 rounded-[2rem] blur-2xl opacity-50 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
             
-            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl w-full relative z-10 overflow-hidden">
-              {/* The ::after pseudo-element in globals.css handles the branding overlay.
-                  The ::before pseudo-element in globals.css handles the bottom cookie-link overlay. */}
+            {/* 
+              The ONLY way to hide content inside an iframe from outside is to CLIP it.
+              Iframes create their own compositor layer — no z-index or overlay can paint over them.
+              
+              We use inset() to crop:
+              - top: 0 (show everything)  
+              - right: 0 (show everything)
+              - bottom: 40px (clips away the Cookie-instellingen link)
+              - left: 0 (show everything)
+              - round 24px 4px 24px 24px (large radius everywhere except top-right 
+                which clips away the diagonal Calendly branding banner)
+            */}
+            <div 
+              className="bg-white border border-gray-100 rounded-3xl shadow-2xl w-full relative z-10"
+              style={{ clipPath: 'inset(0 0 40px 0 round 24px 4px 24px 24px)' }}
+            >
               <div
                 className="calendly-inline-widget w-full"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=afce26"

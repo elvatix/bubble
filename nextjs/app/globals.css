@@ -387,33 +387,5 @@ body {
   min-height: 540px;
 }
 
-/* Hide Calendly "Gecreëerd door Calendly" branding ribbon via pseudo-element.
-   This sits directly on the widget boundary so it aligns perfectly at all viewports. */
-.calendly-inline-widget {
-  position: relative;
-}
-.calendly-inline-widget::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 150px;
-  height: 150px;
-  background: white;
-  clip-path: polygon(100% 0, 0 0, 100% 100%);
-  z-index: 999999;
-  pointer-events: none;
-}
-
-/* Hide "Cookie-instellingen" link at bottom of Calendly widget */
-.calendly-inline-widget::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(to top, white 60%, transparent);
-  z-index: 999999;
-  pointer-events: none;
-}
+/* Branding ribbon + cookie link hidden via clip-path on container in app/demo/page.tsx
+   (iframes create their own compositor layer; z-index/pseudo-elements cannot overlay them) */
