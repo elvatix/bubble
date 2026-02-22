@@ -78,7 +78,7 @@ export default function DemoPage() {
             */}
             <div 
               className="bg-white border border-gray-100 shadow-2xl w-full relative z-10 overflow-hidden"
-              style={{ borderRadius: '24px 90px 24px 24px', height: '480px' }}
+              style={{ borderRadius: '24px 150px 24px 24px', height: '480px' }}
             >
               <div
                 className="calendly-inline-widget w-full h-full"
