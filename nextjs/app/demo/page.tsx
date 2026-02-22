@@ -68,14 +68,10 @@ export default function DemoPage() {
             {/* Glowing Backdrop */}
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/30 to-[#0A66C2]/20 rounded-[2rem] blur-2xl opacity-50 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
             
-            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative z-10 overflow-hidden">
-              {/*
-                Heights: compact as possible while still fully showing the calendar.
-                Desktop calendar content = ~480px, so 540px gives a small cushion.
-                Mobile stacks date+time vertically when a date is clicked, needs ~580px.
-              */}
+            {/* Outer container: NO padding so the overlay aligns flush with iframe edges */}
+            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl w-full relative z-10 overflow-hidden">
               <div
-                className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
+                className="calendly-inline-widget w-full"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=afce26"
                 style={{ minWidth: '280px', height: '540px' }}
               />
@@ -84,11 +80,15 @@ export default function DemoPage() {
                 strategy="lazyOnload"
               />
 
-              {/* White triangle overlay — hides "Gecreëerd door Calendly" ribbon.
-                  Made 140px to fully cover the ribbon on iPad/tablet viewports too. */}
+              {/* White corner overlay — hides "Gecreëerd door Calendly" branding ribbon.
+                  The Calendly badge extends ~100px diagonally from the corner.
+                  Using a 200x100px rectangle positioned at the top-right ensures 
+                  full coverage on all viewports (mobile, iPad, desktop).
+                  We use a rectangle instead of a triangle because the ribbon 
+                  sits flush against the top edge. */}
               <div
-                className="absolute top-0 right-0 w-[140px] h-[140px] bg-white z-50 pointer-events-none"
-                style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }}
+                className="absolute top-0 right-0 z-50 pointer-events-none bg-white"
+                style={{ width: '200px', height: '100px', clipPath: 'polygon(30% 0, 100% 0, 100% 100%)' }}
               />
 
               {/* White bar overlay — hides "Cookie-instellingen" link at bottom */}
