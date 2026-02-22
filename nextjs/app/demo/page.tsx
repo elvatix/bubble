@@ -18,7 +18,7 @@ const benefits = [
 
 export default function DemoPage() {
   return (
-    <main className="pt-32 pb-24 overflow-hidden relative">
+    <main className="pt-32 pb-24 relative overflow-clip lg:overflow-visible">
       {/* Subtle Background Glows */}
       <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-[#afce26]/10 rounded-full blur-3xl -z-10 pointer-events-none mix-blend-multiply" />
       <div className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] bg-[#0A66C2]/5 rounded-full blur-3xl -z-10 pointer-events-none mix-blend-multiply" />
@@ -28,15 +28,6 @@ export default function DemoPage() {
           
           {/* LEFT COLUMN: Copy & Conversion Elements */}
           <div className="lg:col-span-6 flex flex-col justify-center">
-
-            {/* Urgency Badge */}
-            <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-100 text-orange-600 px-3 py-1.5 rounded-full text-sm font-medium mb-8 w-fit shadow-sm">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
-              </span>
-              Beperkte plekken beschikbaar deze week
-            </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-5xl font-black text-gray-900 mb-6 leading-[1.15] tracking-tight">
               Klaar om je <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A66C2] to-[#afce26]">recruitment</span> te transformeren?
@@ -82,12 +73,12 @@ export default function DemoPage() {
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/40 to-[#0A66C2]/30 rounded-[2rem] blur-2xl opacity-50 animate-pulse" style={{ animationDuration: '4s' }} />
             
             {/* Height Fix: Mobile needs way more vertical space for Calendly because the calendar stacks. 
-                Using min-height 1050px ensures mobile users can scroll inside the widget frame without cutoff.
-                On large screens (lg), 750px is perfectly sufficient for side-by-side calendar and times. */}
-            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative overflow-hidden flex flex-col z-10 min-h-[1050px] lg:min-h-[750px] lg:h-[750px]">
+                Using h-[1050px] ensures mobile users can see the full widget.
+                On large screens (lg), 750px is perfectly sufficient. */}
+            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative overflow-clip flex flex-col z-10 h-[1050px] lg:h-[750px]">
               
               <div
-                className="calendly-inline-widget w-full min-h-[1050px] lg:min-h-[750px]"
+                className="calendly-inline-widget w-full h-full"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&primary_color=afce26"
                 style={{ minWidth: '320px', height: '100%' }}
               />
@@ -95,14 +86,6 @@ export default function DemoPage() {
                 src="https://assets.calendly.com/assets/external/widget.js"
                 strategy="lazyOnload"
               />
-            </div>
-            
-            {/* Conversion indicator pointing to calendar */}
-            <div className="absolute -left-8 top-1/2 -translate-y-1/2 hidden xl:flex items-center gap-2 text-[#afce26] font-bold z-20">
-              Kies je tijdvak
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="animate-bounce" style={{ animationDirection: 'alternate-reverse', animationDuration: '1s' }}>
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
             </div>
           </div>
 
