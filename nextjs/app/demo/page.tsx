@@ -58,11 +58,12 @@ export default function DemoPage() {
             </div>
 
             {/* Social Proof */}
+            {/* Note: In a Server Component, React onClick/onError listeners crash the build. We use hardcoded avatar fallbacks. */}
             <div className="flex items-center gap-4 pt-8 border-t border-gray-100">
               <div className="flex -space-x-3">
-                <img src="/images/avatar-1.webp" alt="Recruiter Avatar" className="w-12 h-12 rounded-full border-2 border-white shadow-sm bg-gray-200" onError={(e) => { e.currentTarget.src = "https://i.pravatar.cc/100?img=1" }} />
-                <img src="/images/avatar-2.webp" alt="Recruiter Avatar" className="w-12 h-12 rounded-full border-2 border-white shadow-sm bg-gray-200" onError={(e) => { e.currentTarget.src = "https://i.pravatar.cc/100?img=5" }} />
-                <img src="/images/avatar-3.webp" alt="Recruiter Avatar" className="w-12 h-12 rounded-full border-2 border-white shadow-sm bg-gray-200" onError={(e) => { e.currentTarget.src = "https://i.pravatar.cc/100?img=9" }} />
+                <img src="https://i.pravatar.cc/100?img=1" alt="Recruiter Avatar" className="w-12 h-12 rounded-full border-2 border-white shadow-sm bg-gray-200" />
+                <img src="https://i.pravatar.cc/100?img=5" alt="Recruiter Avatar" className="w-12 h-12 rounded-full border-2 border-white shadow-sm bg-gray-200" />
+                <img src="https://i.pravatar.cc/100?img=9" alt="Recruiter Avatar" className="w-12 h-12 rounded-full border-2 border-white shadow-sm bg-gray-200" />
               </div>
               <div className="flex flex-col gap-0.5">
                 <div className="flex items-center text-yellow-400 text-sm tracking-widest">
@@ -80,13 +81,15 @@ export default function DemoPage() {
             {/* Glowing Backdrop */}
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/40 to-[#0A66C2]/30 rounded-[2rem] blur-2xl opacity-50 animate-pulse" style={{ animationDuration: '4s' }} />
             
-            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative overflow-hidden flex flex-col z-10">
-              {/* Calendly Inline Widget without scrollbar */}
-              {/* minWidth > 320px and height >= 750px completely removes internal Calendly scroll jumping */}
+            {/* Height Fix: Mobile needs way more vertical space for Calendly because the calendar stacks. 
+                Using min-height 1050px ensures mobile users can scroll inside the widget frame without cutoff.
+                On large screens (lg), 750px is perfectly sufficient for side-by-side calendar and times. */}
+            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative overflow-hidden flex flex-col z-10 min-h-[1050px] lg:min-h-[750px] lg:h-[750px]">
+              
               <div
-                className="calendly-inline-widget w-full"
+                className="calendly-inline-widget w-full min-h-[1050px] lg:min-h-[750px]"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&primary_color=afce26"
-                style={{ minWidth: '320px', height: '750px' }}
+                style={{ minWidth: '320px', height: '100%' }}
               />
               <Script
                 src="https://assets.calendly.com/assets/external/widget.js"
