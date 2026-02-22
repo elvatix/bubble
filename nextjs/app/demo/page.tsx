@@ -69,21 +69,27 @@ export default function DemoPage() {
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/30 to-[#0A66C2]/20 rounded-[2rem] blur-2xl opacity-50 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
             
             {/* 
-              APPROACH: Large top-right border-radius (90px) + overflow:hidden.
-              This creates a smooth rounded corner that clips the diagonal
-              "Gecreëerd door Calendly" badge naturally.
-              overflow:hidden on a border-radius container DOES clip iframe content
-              because it defines the painting boundary for all children.
-              Height: 480px (compact, just enough for the calendar grid).
+              THE TRICK: The Calendly badge sits at the top-right corner of the iframe.
+              No overlay, z-index, or pseudo-element can paint over an iframe.
+              
+              Solution: Make the iframe WIDER than its clipping container.
+              The iframe extends 120px past the right edge of the container.
+              overflow:hidden on the container clips everything beyond its boundary,
+              which physically removes the badge from view.
+              
+              The bottom is also clipped by making the container shorter than the iframe
+              (container height < iframe height), hiding Cookie-instellingen.
             */}
-            <div 
-              className="bg-white border border-gray-100 shadow-2xl w-full relative z-10 overflow-hidden"
-              style={{ borderRadius: '24px 150px 24px 24px', height: '480px' }}
-            >
+            <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl w-full relative z-10 overflow-hidden" style={{ height: '480px' }}>
               <div
-                className="calendly-inline-widget w-full h-full"
+                className="calendly-inline-widget"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=afce26"
-                style={{ minWidth: '280px', height: '100%' }}
+                style={{ 
+                  minWidth: '280px', 
+                  height: '540px',
+                  width: 'calc(100% + 120px)',
+                  marginRight: '-120px'
+                }}
               />
               <Script
                 src="https://assets.calendly.com/assets/external/widget.js"
