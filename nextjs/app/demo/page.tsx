@@ -70,13 +70,11 @@ export default function DemoPage() {
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/30 to-[#0A66C2]/20 rounded-[2rem] blur-2xl opacity-50 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
             
             <div className="bg-white border border-gray-100 rounded-3xl shadow-2xl p-2 w-full relative z-10">
-              {/* 
-                CRITICAL: Calendly's widget.js injects an iframe with height:100%.
-                Percentage heights ONLY resolve when the parent has an explicit pixel height.
-                Using inline style (not Tailwind classes) ensures the computed height is always
-                a real pixel value that the iframe can inherit from.
-                700px = perfect for mobile (calendar + time slots stacked).
-                On desktop Calendly renders side-by-side so 700px is also sufficient.
+              {/*
+                The Calendly widget needs an explicit pixel height.
+                IMPORTANT: globals.css has a rule on <=768px that sets `main iframe { height: auto }`
+                which overrides the iframe's height:100%. We added a CSS override in globals.css
+                specifically for `.calendly-inline-widget iframe` to counteract this.
               */}
               <div
                 className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
