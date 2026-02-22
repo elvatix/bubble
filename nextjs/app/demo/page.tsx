@@ -69,28 +69,21 @@ export default function DemoPage() {
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#afce26]/30 to-[#0A66C2]/20 rounded-[2rem] blur-2xl opacity-50 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
             
             {/* 
-              CLIP-PATH STRATEGY:
-              Iframes create their own compositor layer — no z-index, pseudo-element,
-              or sibling overlay can paint over iframe content.
-              The ONLY way is to physically CLIP the container.
-              
-              polygon() points (clockwise from top-left):
-              1. (0, 0)         → top-left corner
-              2. (calc(100% - 120px), 0) → top edge stops 120px before right edge
-              3. (100%, 120px)  → right edge starts 120px below top
-                 ↑ This diagonal line clips off the branding badge triangle
-              4. (100%, calc(100% - 40px)) → right edge stops 40px before bottom
-              5. (0, calc(100% - 40px))    → bottom-left, 40px up from actual bottom
-                 ↑ This clips off Cookie-instellingen at the bottom
+              APPROACH: Large top-right border-radius (90px) + overflow:hidden.
+              This creates a smooth rounded corner that clips the diagonal
+              "Gecreëerd door Calendly" badge naturally.
+              overflow:hidden on a border-radius container DOES clip iframe content
+              because it defines the painting boundary for all children.
+              Height: 480px (compact, just enough for the calendar grid).
             */}
             <div 
-              className="bg-white border border-gray-100 rounded-3xl shadow-2xl w-full relative z-10"
-              style={{ clipPath: 'polygon(0 0, calc(100% - 120px) 0, 100% 120px, 100% calc(100% - 40px), 0 calc(100% - 40px))' }}
+              className="bg-white border border-gray-100 shadow-2xl w-full relative z-10 overflow-hidden"
+              style={{ borderRadius: '24px 90px 24px 24px', height: '480px' }}
             >
               <div
-                className="calendly-inline-widget w-full"
+                className="calendly-inline-widget w-full h-full"
                 data-url="https://calendly.com/gianni-elvatix/demo?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=afce26"
-                style={{ minWidth: '280px', height: '540px' }}
+                style={{ minWidth: '280px', height: '100%' }}
               />
               <Script
                 src="https://assets.calendly.com/assets/external/widget.js"
