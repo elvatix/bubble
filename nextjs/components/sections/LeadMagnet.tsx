@@ -63,6 +63,27 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const typewriterRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const messageRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [statusMsgIdx, setStatusMsgIdx] = useState(0);
+
+  const WRITING_MESSAGES = [
+    "Profiel analyseren en beste insteek bepalen\u2026",
+    "Werkervaring en skills doorlopen\u2026",
+    "Persoonlijke aanknopingspunten zoeken\u2026",
+    "Toon en stijl afstemmen op kandidaat\u2026",
+    "Gepersonaliseerd InMail bericht schrijven\u2026",
+    "Bericht optimaliseren voor hogere response\u2026",
+  ];
+
+  useEffect(() => {
+    if (phase === "writing-inmail" || phase === "analyzing") {
+      const interval = setInterval(() => {
+        setStatusMsgIdx((prev) => (prev + 1) % WRITING_MESSAGES.length);
+      }, 2500);
+      return () => clearInterval(interval);
+    } else {
+      setStatusMsgIdx(0);
+    }
+  }, [phase]);
   const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Smooth progress animation — calibrated to real Flash API timings (~18s total)
@@ -309,10 +330,16 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         <>
           {/* Progress bar with percentage */}
           <div className="mb-6">
-            <div className="flex items-center justify-between mb-2">
-              {STATUS_TEXT[phase] && (
-                <p className="text-sm font-semibold text-gray-700">{STATUS_TEXT[phase].title}</p>
-              )}
+            <div className="flex items-center justify-between mb-2.5">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-elvatix opacity-60"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-elvatix"></span>
+                </span>
+                <p className="text-sm font-semibold text-gray-700 transition-all">
+                  {(phase === "writing-inmail" || phase === "analyzing") ? WRITING_MESSAGES[statusMsgIdx] : STATUS_TEXT[phase]?.title}
+                </p>
+              </div>
               <span className="text-sm font-bold text-elvatix tabular-nums">{Math.round(progress)}%</span>
             </div>
             <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -321,24 +348,75 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                 style={{ width: `${progress}%` }}
               />
             </div>
-            {STATUS_TEXT[phase] && (
-              <p className="text-xs text-gray-400 mt-1.5">{STATUS_TEXT[phase].sub}</p>
-            )}
           </div>
 
           {/* Profile card */}
           {profile && phase !== "connecting" && phase !== "scanning" && (
-            <div className="py-4 px-5 bg-gray-50 rounded-[10px] border border-gray-200 mb-5 animate-[lm-fade-in_0.3s_ease]">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <p className="text-[15px] font-bold text-gray-900 mb-0.5">{profile.fullName}</p>
-                  <p className="text-[13px] text-gray-500">{profile.currentTitle}</p>
-                  {profile.companyName && <p className="text-xs text-gray-400">{profile.companyName}</p>}
+            <div className="bg-white rounded-xl border border-gray-200 mb-5 overflow-hidden animate-[lm-fade-in_0.3s_ease] shadow-sm">
+              {/* Header */}
+              <div className="p-4 pb-3 border-b border-gray-100">
+                <div className="flex justify-between items-start">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-elvatix to-green flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                      {(profile.firstName || profile.fullName)?.[0]?.toUpperCase() || "?"}
+                    </div>
+                    <div>
+                      <p className="text-[15px] font-bold text-gray-900 leading-tight">{profile.fullName}</p>
+                      <p className="text-[13px] text-gray-500 leading-snug">{profile.currentTitle}{profile.companyName ? ` bij ${profile.companyName}` : ""}</p>
+                    </div>
+                  </div>
+                  {enriched && (
+                    <span className="text-[10px] py-1 px-2 bg-emerald-50 text-emerald-600 rounded-md font-semibold flex-shrink-0">
+                      Enriched
+                    </span>
+                  )}
                 </div>
-                {enriched && (
-                  <span className="text-[10px] py-1 px-2 bg-emerald-50 text-emerald-600 rounded-md font-semibold">
-                    Enriched
-                  </span>
+              </div>
+
+              {/* Details */}
+              <div className="px-4 py-3 space-y-2.5">
+                {/* Headline */}
+                {profile.headline && (
+                  <div className="flex items-start gap-2">
+                    <svg className="w-3.5 h-3.5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" /></svg>
+                    <p className="text-xs text-gray-600 leading-relaxed">{profile.headline}</p>
+                  </div>
+                )}
+                {/* Location */}
+                {profile.location && (
+                  <div className="flex items-center gap-2">
+                    <svg className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <p className="text-xs text-gray-500">{profile.location}</p>
+                  </div>
+                )}
+                {/* Recent job history */}
+                {profile.jobHistory && profile.jobHistory.length > 0 && (
+                  <div className="flex items-start gap-2">
+                    <svg className="w-3.5 h-3.5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" /></svg>
+                    <div className="flex flex-col gap-0.5">
+                      {profile.jobHistory.slice(0, 3).map((job: string, idx: number) => (
+                        <p key={idx} className="text-xs text-gray-500 leading-relaxed">
+                          {job.replace(/^\[(HUIDIG|VORIG|ONBEKEND)\]\s*/, (_, tag) =>
+                            tag === "HUIDIG" ? "⬤ " : tag === "VORIG" ? "○ " : "◌ "
+                          )}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {/* Skills */}
+                {profile.skills && profile.skills.length > 0 && (
+                  <div className="flex items-start gap-2">
+                    <svg className="w-3.5 h-3.5 text-gray-400 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                    <div className="flex flex-wrap gap-1.5">
+                      {profile.skills.slice(0, 6).map((skill: string, idx: number) => (
+                        <span key={idx} className="text-[10px] py-0.5 px-2 bg-elvatix-light text-elvatix-dark rounded-full font-medium">{skill}</span>
+                      ))}
+                      {profile.skills.length > 6 && (
+                        <span className="text-[10px] py-0.5 px-2 bg-gray-100 text-gray-400 rounded-full font-medium">+{profile.skills.length - 6}</span>
+                      )}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
@@ -370,7 +448,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
               {activeTab === "inmail" && (
                 <div ref={messageRef} className="bg-surface-alt border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-[15px] leading-[1.85] text-gray-800 font-[inherit] max-h-[280px] overflow-y-auto">
                   {inmailDisplayed || (
-                    <span className="text-gray-300 italic">{"Bericht wordt geschreven\u2026"}</span>
+                    <span className="text-gray-500 italic animate-pulse">{"Bericht wordt geschreven\u2026"}</span>
                   )}
                   {phase === "writing-inmail" && inmailDisplayed && (
                     <span className="text-green animate-[lm-blink_0.7s_step-end_infinite]">|</span>
@@ -385,16 +463,14 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                     {phase === "done" || phase === "writing-conn" ? (
                       <>
                         {connectionDisplayed || (
-                          <span className="text-gray-300 italic">{"Wordt opgesteld\u2026"}</span>
+                          <span className="text-gray-500 italic animate-pulse">{"Wordt opgesteld\u2026"}</span>
                         )}
                         {phase === "writing-conn" && connectionDisplayed && (
                           <span className="text-green animate-[lm-blink_0.7s_step-end_infinite]">|</span>
                         )}
                       </>
                     ) : (
-                      <span className="text-gray-300 italic">
-                        {"Wordt na InMail gegenereerd\u2026"}
-                      </span>
+                      <span className="text-gray-500 italic">{"Wordt na InMail gegenereerd\u2026"}</span>
                     )}
                   </div>
                   {phase === "done" && connectionFull && (
