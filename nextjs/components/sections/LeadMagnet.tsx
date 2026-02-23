@@ -103,10 +103,10 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   ];
 
   useEffect(() => {
-    if (phase === "writing-inmail" || phase === "analyzing" || phase === "writing-conn") {
+    if (phase === "analyzing") {
       const interval = setInterval(() => {
-        setStatusMsgIdx((prev) => (prev + 1) % WRITING_MESSAGES.length);
-      }, 2500);
+        setStatusMsgIdx((prev) => (prev + 1) % ANALYZING_MESSAGES.length);
+      }, 2000);
       return () => clearInterval(interval);
     } else {
       setStatusMsgIdx(0);
@@ -432,7 +432,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-elvatix"></span>
                 </span>
                 <p className="text-sm font-semibold text-gray-700 transition-all">
-                  {phase === "analyzing" ? ANALYZING_MESSAGES[statusMsgIdx % ANALYZING_MESSAGES.length] : phase === "writing-inmail" ? WRITING_MESSAGES[statusMsgIdx % WRITING_MESSAGES.length] : STATUS_TEXT[phase]?.title}
+                  {phase === "analyzing" ? ANALYZING_MESSAGES[statusMsgIdx % ANALYZING_MESSAGES.length] : STATUS_TEXT[phase]?.title}
                 </p>
               </div>
               <span className="text-sm font-bold text-elvatix tabular-nums">{Math.round(progress)}%</span>
