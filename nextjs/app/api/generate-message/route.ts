@@ -79,12 +79,12 @@ Skills: ${(profile.skills || []).join(", ") || "niet beschikbaar"}`;
       ? "INVALSHOEK: SALES. Je benadert deze persoon vanuit een commerciele / sales insteek. Je wilt een product, dienst of samenwerking voorstellen. Focus op de waarde die je kunt bieden, niet op recruitment."
       : "INVALSHOEK: RECRUITMENT. Je benadert deze persoon vanuit recruitment : je hebt een interessante rol en denkt dat zij een goede match zijn.";
 
-    const vacancyContext = vacancyText ? "
+    const vacancyContext = vacancyText ? `
 VACATURETEKST (gebruik deze context om het bericht relevanter te maken):
-" + vacancyText.slice(0, 2000) : "";
-    const customInstr = customInstruction ? "
+${vacancyText.slice(0, 2000)}` : "";
+    const customInstr = customInstruction ? `
 EXTRA INSTRUCTIE VAN DE GEBRUIKER (volg deze op):
-" + customInstruction.slice(0, 500) : "";
+${customInstruction.slice(0, 500)}` : "";
 
     const prompt = `${langConfig.write} Schrijf zoals een native speaker echt schrijft : vlot, direct, en met persoonlijkheid.
 
