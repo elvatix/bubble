@@ -29,8 +29,7 @@ type Phase =
 const ROLE_SUGGESTIONS = [
   "Software Engineer", "Data Engineer", "Product Manager", "UX Designer",
   "DevOps Engineer", "Sales Manager", "Account Manager", "Marketing Manager",
-  "HR Manager", "Finance Controller", "Project Manager", "Business Analyst",
-  "Full Stack Developer", "Cloud Engineer", "HR Manager",
+  "Finance Controller", "Project Manager", "Full Stack Developer", "Cloud Engineer",
 ];
 
 const TONE_OPTIONS = [
@@ -285,9 +284,9 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
       {compact && (
         <div className="mb-5">
-          <p className="text-[11px] font-bold text-green uppercase tracking-[0.12em] mb-2">AI Recruitment Writer</p>
-          <h3 className="text-xl font-extrabold text-gray-900 mb-1">Genereer een bericht</h3>
-          <p className="text-xs text-gray-400 leading-normal">Plak een LinkedIn URL en wij schrijven een persoonlijke InMail.</p>
+          <p className="text-[11px] font-bold text-green uppercase tracking-[0.12em] mb-2">Probeer het zelf</p>
+          <h3 className="text-xl font-extrabold text-gray-900 mb-1">Test Elvatix gratis</h3>
+          <p className="text-xs text-gray-400 leading-normal">Plak een LinkedIn profiel en ontvang direct een gepersonaliseerd bericht.</p>
         </div>
       )}
 
@@ -375,7 +374,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             <div className="grid grid-cols-4 gap-1.5">
               {TONE_OPTIONS.map((t) => (
                 <button key={t.value} onClick={() => setTone(t.value)}
-                  className={`py-2 px-2 rounded-lg text-[12px] font-semibold cursor-pointer transition-all duration-150 font-[inherit] text-center ${
+                  className={`py-2 px-1.5 rounded-lg text-[11px] font-semibold cursor-pointer truncate transition-all duration-150 font-[inherit] text-center ${
                     tone === t.value
                       ? "border-[1.5px] border-green bg-elvatix-light text-green"
                       : "border border-gray-300 bg-white text-gray-500 hover:border-gray-400"
