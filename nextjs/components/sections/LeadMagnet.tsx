@@ -39,12 +39,6 @@ const TONE_OPTIONS = [
   { value: "enthousiast", label: "Enthousiast" },
 ];
 
-const LANGUAGE_OPTIONS = [
-  { value: "nl", label: "NL" },
-  { value: "en", label: "EN" },
-  { value: "de", label: "DE" },
-];
-
 const STEPS = [
   { key: "connecting", label: "Verbinden" },
   { key: "scanning", label: "Scannen" },
@@ -70,9 +64,8 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const [jobTitle, setJobTitle] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [tone, setTone] = useState("informeel");
-  const [language, setLanguage] = useState("nl");
-  const [approach, setApproach] = useState<"recruitment" | "sales">("recruitment");
-  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [senderName, setSenderName] = useState("");
+  const [isAdvanced, setIsAdvanced] = useState(false);
   const [vacancyText, setVacancyText] = useState("");
   const [customInstruction, setCustomInstruction] = useState("");
   const [phase, setPhase] = useState<Phase>("idle");
@@ -91,9 +84,18 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const [progress, setProgress] = useState(0);
   const [statusMsgIdx, setStatusMsgIdx] = useState(0);
 
+  const profileFacts = profile ? [
+    profile.currentTitle ? `Huidige rol: ${profile.currentTitle}` : null,
+    profile.companyName ? `Werkt bij: ${profile.companyName}` : null,
+    profile.location ? `Locatie: ${profile.location}` : null,
+    profile.skills?.length > 0 ? `Top skill: ${profile.skills[0]}` : null,
+    profile.jobHistory?.length > 0 ? `${profile.jobHistory.length} functies in werkervaring` : null,
+    profile.skills?.length > 2 ? `Skills: ${profile.skills.slice(0, 3).join(", ")}` : null,
+  ].filter(Boolean) as string[] : [];
+
   const WRITING_MESSAGES = [
     "Profiel analyseren en beste insteek bepalen\u2026",
-    "Werkervaring en skills doorlopen\u2026",
+    ...(profileFacts.length > 0 ? profileFacts : []),
     "Persoonlijke aanknopingspunten zoeken\u2026",
     "Toon en stijl afstemmen op kandidaat\u2026",
     "Gepersonaliseerd InMail bericht schrijven\u2026",
@@ -222,7 +224,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       const genRes = await fetch("/api/generate-message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, jobTitle, tone, language, approach, vacancyText, customInstruction, profile: scrapeData.profile }),
+        body: JSON.stringify({ email, jobTitle, tone, senderName, vacancyText, customInstruction, profile: scrapeData.profile }),
       });
       const genData = await genRes.json();
 
@@ -238,7 +240,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       setError("Er is een fout opgetreden. Probeer het opnieuw.");
       setPhase("idle");
     }
-  }, [linkedinUrl, email, jobTitle, tone]);
+  }, [linkedinUrl, email, jobTitle, tone, senderName, vacancyText, customInstruction]);
 
   const handleCopy = (type: "inmail" | "connection") => {
     const text = type === "inmail" ? inmailFull : connectionFull;
@@ -255,8 +257,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     setEnriched(false); setProfile(null);
     setActiveTab("inmail");
     setProgress(0);
-    setShowAdvanced(false);
-    setShowAdvanced(false);
+
   };
 
   const phaseOrder: Phase[] = ["connecting", "scanning", "found", "analyzing", "writing-inmail", "writing-conn", "done"];
@@ -292,6 +293,19 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
       {phase === "idle" ? (
         <>
+          {/* Simple / Advanced toggle */}
+          <div className="flex items-center justify-end mb-4">
+            <button onClick={() => setIsAdvanced(!isAdvanced)}
+              className="flex items-center gap-2 text-[12px] text-gray-400 hover:text-gray-600 font-medium cursor-pointer bg-transparent border-none font-[inherit] transition-colors">
+              <span className={isAdvanced ? "text-gray-400" : "text-green font-semibold"}>Simpel</span>
+              <div className={`relative w-9 h-5 rounded-full transition-colors cursor-pointer ${isAdvanced ? "bg-green" : "bg-gray-300"}`}
+                onClick={(e) => { e.stopPropagation(); setIsAdvanced(!isAdvanced); }}>
+                <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${isAdvanced ? "translate-x-[18px]" : "translate-x-0.5"}`} />
+              </div>
+              <span className={isAdvanced ? "text-green font-semibold" : "text-gray-400"}>Advanced</span>
+            </button>
+          </div>
+
           {/* LinkedIn URL */}
           <div className={compact ? "mb-3.5" : "mb-4"}>
             <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">LinkedIn URL *</label>
@@ -331,53 +345,6 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             )}
           </div>
 
-          {/* Approach + Language row */}
-          <div className={`flex gap-3 ${compact ? "mb-3.5" : "mb-4"}`}>
-            {/* Approach */}
-            <div className="flex-1">
-              <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Invalshoek</label>
-              <div className="flex gap-1.5">
-                {(["recruitment", "sales"] as const).map((a) => (
-                  <button key={a} onClick={() => setApproach(a)}
-                    className={`flex-1 py-2.5 px-3 rounded-lg text-[13px] font-semibold cursor-pointer transition-all duration-150 font-[inherit] ${
-                      approach === a
-                        ? "border-[1.5px] border-green bg-elvatix-light text-green"
-                        : "border border-gray-300 bg-white text-gray-500 hover:border-gray-400"
-                    }`}>
-                    {a === "recruitment" ? "Recruitment" : "Sales"}
-                  </button>
-                ))}
-              </div>
-            </div>
-            {/* Language */}
-            <div className="flex-1">
-              <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Taal</label>
-              <select value={language} onChange={(e) => setLanguage(e.target.value)}
-                className="w-full h-[42px] py-2.5 px-3 border border-gray-300 rounded-lg bg-white text-sm text-gray-700 font-[inherit] outline-none cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m2%204%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_12px_center] bg-no-repeat pr-8 focus:border-green">
-                {LANGUAGE_OPTIONS.map((l) => (
-                  <option key={l.value} value={l.value}>{l.label}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          {/* Tone of voice */}
-          <div className={compact ? "mb-3.5" : "mb-4"}>
-            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Tone of voice</label>
-            <div className="grid grid-cols-4 gap-1.5">
-              {TONE_OPTIONS.map((t) => (
-                <button key={t.value} onClick={() => setTone(t.value)}
-                  className={`py-2 px-1.5 rounded-lg text-[11px] font-semibold cursor-pointer truncate transition-all duration-150 font-[inherit] text-center ${
-                    tone === t.value
-                      ? "border-[1.5px] border-green bg-elvatix-light text-green"
-                      : "border border-gray-300 bg-white text-gray-500 hover:border-gray-400"
-                  }`}>
-                  {t.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* Email */}
           <div className={compact ? "mb-3.5" : "mb-4"}>
             <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">E-mailadres *</label>
@@ -386,39 +353,50 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
               className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
           </div>
 
-          {/* Advanced options toggle */}
-          <button onClick={() => setShowAdvanced(!showAdvanced)}
-            className="flex items-center gap-1.5 text-[12px] text-gray-400 hover:text-gray-600 font-medium cursor-pointer bg-transparent border-none font-[inherit] mb-3 transition-colors">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" className={`transition-transform duration-200 ${showAdvanced ? "rotate-90" : ""}`}>
-              <path d="M4.5 2.5l3.5 3.5-3.5 3.5" />
-            </svg>
-            Meer opties
-          </button>
+          {/* Naam (optional) */}
+          <div className={compact ? "mb-3.5" : "mb-4"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">
+              Jouw naam <span className="text-gray-400 font-normal">(optioneel)</span>
+            </label>
+            <input type="text" placeholder="bijv. Jan Jansen"
+              value={senderName} onChange={(e) => setSenderName(e.target.value)}
+              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
+          </div>
 
-          {/* Advanced options */}
-          {showAdvanced && (
-            <div className="space-y-3.5 mb-4 animate-[lm-fade-in_0.2s_ease]">
-              {/* Vacancy text */}
+          {/* Advanced fields */}
+          {isAdvanced && (
+            <div className="space-y-3.5 mb-4 animate-[lm-fade-in_0.2s_ease] border-t border-gray-100 pt-4">
+              {/* Tone of voice */}
               <div>
-                <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">
-                  Vacaturetekst
-                  <span className="text-gray-400 font-normal ml-1">(optioneel)</span>
-                </label>
-                <textarea placeholder="Plak hier de vacaturetekst voor meer context en een gerichter bericht..."
-                  value={vacancyText} onChange={(e) => setVacancyText(e.target.value)}
-                  rows={3}
-                  className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border resize-y min-h-[80px] focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
+                <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Tone of voice</label>
+                <select value={tone} onChange={(e) => setTone(e.target.value)}
+                  className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border cursor-pointer focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]">
+                  {TONE_OPTIONS.map((t) => (
+                    <option key={t.value} value={t.value}>{t.label}</option>
+                  ))}
+                </select>
               </div>
-              {/* Custom instruction */}
+
+              {/* Extra instructie - prominent */}
               <div>
                 <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">
                   Extra instructie
-                  <span className="text-gray-400 font-normal ml-1">(optioneel)</span>
                 </label>
-                <textarea placeholder="bijv. &#34;Benoem hun ervaring bij Google&#34; of &#34;Houd het bericht kort en puntig&#34;"
+                <textarea placeholder={'bijv. "Benoem hun ervaring bij Google" of "Houd het kort en puntig"'}
                   value={customInstruction} onChange={(e) => setCustomInstruction(e.target.value)}
-                  rows={2}
-                  className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border resize-y min-h-[64px] focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
+                  rows={3}
+                  className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border resize-y min-h-[80px] focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
+              </div>
+
+              {/* Vacaturetekst */}
+              <div>
+                <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">
+                  Vacaturetekst <span className="text-gray-400 font-normal">(optioneel)</span>
+                </label>
+                <textarea placeholder="Plak hier de vacaturetekst voor meer context..."
+                  value={vacancyText} onChange={(e) => setVacancyText(e.target.value)}
+                  rows={3}
+                  className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border resize-y min-h-[80px] focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
               </div>
             </div>
           )}

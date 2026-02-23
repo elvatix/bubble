@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { email, jobTitle, tone, language, approach, vacancyText, customInstruction, profile } = body;
+    const { email, jobTitle, tone, senderName, vacancyText, customInstruction, profile } = body;
 
     if (!email || !email.includes("@")) {
       return NextResponse.json({ error: "Een geldig e-mailadres is vereist." }, { status: 400 });
@@ -68,16 +68,7 @@ Skills: ${(profile.skills || []).join(", ") || "niet beschikbaar"}`;
     };
     const toneInstruction = toneInstructions[tone] || toneInstructions.informeel;
 
-    const langInstructions: Record<string, { write: string; lang: string }> = {
-      nl: { write: "Schrijf in vloeiend, natuurlijk Nederlands. Geen vertaaltaal, geen stijve zinnen.", lang: "Nederlands" },
-      en: { write: "Write in fluent, natural English. No stiff phrasing, no filler.", lang: "English" },
-      de: { write: "Schreibe in fliessendem, natuerlichem Deutsch. Keine steifen Saetze, keine Fuellwoerter.", lang: "Deutsch" },
-    };
-    const langConfig = langInstructions[language] || langInstructions.nl;
-
-    const approachInstruction = approach === "sales"
-      ? "INVALSHOEK: SALES. Je benadert deze persoon vanuit een commerciele / sales insteek. Je wilt een product, dienst of samenwerking voorstellen. Focus op de waarde die je kunt bieden, niet op recruitment."
-      : "INVALSHOEK: RECRUITMENT. Je benadert deze persoon vanuit recruitment : je hebt een interessante rol en denkt dat zij een goede match zijn.";
+    const senderSignoff = senderName ? `\nAFSLUITING: Sluit het InMail bericht af met de naam "${senderName}". Gebruik ALLEEN de naam, geen "Groet", "Met vriendelijke groet" of andere beleefdheidsformules. Gewoon de naam op een nieuwe regel.` : "";
 
     const vacancyContext = vacancyText ? `
 VACATURETEKST (gebruik deze context om het bericht relevanter te maken):
@@ -88,7 +79,7 @@ PRIORITAIRE INSTRUCTIE (DIT IS VERPLICHT, VOLG DIT OP ONGEACHT ANDERE REGELS):
 >>> ${customInstruction.slice(0, 500)} <<<
 Je MOET bovenstaande instructie verwerken in het bericht. Dit is de belangrijkste eis van de gebruiker.` : "";
 
-    const prompt = `${langConfig.write} Schrijf zoals een native speaker echt schrijft : vlot, direct, en met persoonlijkheid.
+    const prompt = `Schrijf in vloeiend, natuurlijk Nederlands. Schrijf zoals een Nederlander echt schrijft : vlot, direct, en met persoonlijkheid.
 
 KANDIDAAT:
 - Naam: ${candidateName} (voornaam: ${firstName})
@@ -109,7 +100,7 @@ TOON & STIJL:
 - Noem de functie/rol waarvoor je schrijft ("${jobTitle || "niet gespecificeerd"}"), maar zonder te zeggen "ik werf" of "ik zoek kandidaten".
 - Schrijf alsof je oprecht geïnteresseerd bent in deze persoon. Geen verkooppraatjes.
 
-${approachInstruction}${vacancyContext}
+${vacancyContext}${senderSignoff}
 
 VERBODEN ZINNEN (gebruik deze NOOIT):
 - "Ik zag je profiel"
