@@ -25,36 +25,6 @@ type Phase =
   | "writing-conn"
   | "done";
 
-const ROLE_SUGGESTIONS = [
-  "Software Engineer",
-  "Data Engineer",
-  "Product Manager",
-  "UX Designer",
-  "DevOps Engineer",
-  "Sales Manager",
-  "Account Manager",
-  "Marketing Manager",
-  "HR Manager",
-  "Finance Controller",
-  "Project Manager",
-  "Business Analyst",
-  "Consultant",
-  "Full Stack Developer",
-  "Cloud Engineer",
-];
-
-const TONE_OPTIONS = [
-  { value: "informeel", label: "Informeel", desc: "Vlot en persoonlijk" },
-  { value: "professioneel", label: "Professioneel", desc: "Zakelijk maar warm" },
-  { value: "formeel", label: "Formeel", desc: "Strak en zakelijk" },
-  { value: "enthousiast", label: "Enthousiast", desc: "Energiek en positief" },
-];
-
-const LANGUAGE_OPTIONS = [
-  { value: "nl", label: "🇳🇱 Nederlands" },
-  { value: "en", label: "🇬🇧 English" },
-  { value: "de", label: "🇩�� Deutsch" },
-];
 
 const ROLE_SUGGESTIONS = [
   "Software Engineer", "Data Engineer", "Product Manager", "UX Designer",
