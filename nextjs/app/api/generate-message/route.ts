@@ -121,11 +121,11 @@ ANTWOORD FORMAT (volg EXACT, geen extra tekst):
     }
 
     const genAI = new GoogleGenerativeAI(geminiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
     const genStart = Date.now();
     const result = await model.generateContent(prompt);
     const genDuration = Date.now() - genStart;
-    console.log(`[Generate] Model: gemini-2.5-flash-preview-05-20 | Duration: ${genDuration}ms`);
+    console.log(`[Generate] Model: gemini-3-flash-preview | Duration: ${genDuration}ms`);
     const rawText = result.response.text();
 
     if (!rawText) {
