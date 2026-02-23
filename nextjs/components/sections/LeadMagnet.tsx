@@ -426,17 +426,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     return (
       <>
         {formContent}
-        <div className="flex justify-center gap-5 mt-3.5">
-          {[
-            { icon: <ShieldIcon size={14} />, text: "Veilig & privé" },
-            { icon: <ZapIcon size={14} />, text: "Klaar in ~15 sec" },
-            { icon: <TargetIcon size={14} />, text: "5x gratis per uur" },
-          ].map((item, i) => (
-            <span key={i} className="text-[11px] text-gray-400 flex items-center gap-1">
-              <span>{item.icon}</span> {item.text}
-            </span>
-          ))}
-        </div>
+
         <style>{`
           @keyframes lm-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
           @keyframes lm-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
@@ -466,18 +456,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
         {formContent}
 
-        {/* Trust */}
-        <div className="flex justify-center gap-6 mt-7 flex-wrap">
-          {[
-            { icon: <ShieldIcon size={14} />, text: "Veilig & privé" },
-            { icon: <ZapIcon size={14} />, text: "Klaar in ~15 sec" },
-            { icon: <TargetIcon size={14} />, text: "5x gratis per uur" },
-          ].map((item, i) => (
-            <span key={i} className="text-xs text-gray-400 flex items-center gap-1.5">
-              <span>{item.icon}</span> {item.text}
-            </span>
-          ))}
-        </div>
+
       </div>
 
       <style>{`

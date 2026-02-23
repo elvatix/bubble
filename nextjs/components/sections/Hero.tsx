@@ -57,7 +57,7 @@ export default function Hero() {
         </div>
 
         {/* LeadMagnet below, full width */}
-        <div className="max-w-[800px] mx-auto">
+        <div className="max-w-[900px] mx-auto">
           <div className="rounded-[20px] border border-elvatix/20 shadow-[0_4px_24px_rgba(155,187,10,0.08)] overflow-hidden">
             <LeadMagnet compact />
           </div>
