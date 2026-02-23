@@ -62,6 +62,45 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const [activeTab, setActiveTab] = useState<"inmail" | "connection">("inmail");
   const typewriterRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const messageRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+  const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Smooth progress animation — calibrated to real Flash API timings (~18s total)
+  const PHASE_TARGETS: Record<string, number> = {
+    connecting: 8,
+    scanning: 20,
+    found: 30,
+    analyzing: 40,
+    "writing-inmail": 85,
+    "writing-conn": 93,
+    done: 100,
+  };
+
+  useEffect(() => {
+    if (phase === "idle") {
+      setProgress(0);
+      if (progressRef.current) clearInterval(progressRef.current);
+      return;
+    }
+
+    const target = PHASE_TARGETS[phase] || 0;
+    if (progressRef.current) clearInterval(progressRef.current);
+
+    progressRef.current = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= target) {
+          if (progressRef.current) clearInterval(progressRef.current);
+          return target;
+        }
+        // Speed depends on how far we need to go
+        const diff = target - prev;
+        const step = Math.max(0.15, diff * 0.03);
+        return Math.min(prev + step, target);
+      });
+    }, 80);
+
+    return () => { if (progressRef.current) clearInterval(progressRef.current); };
+  }, [phase]);
 
   useEffect(() => {
     if (phase === "writing-inmail" && inmailFull) {
@@ -168,6 +207,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     setLinkedinUrl(""); setJobTitle(""); setError("");
     setEnriched(false); setProfile(null);
     setActiveTab("inmail");
+    setProgress(0);
   };
 
   const phaseOrder: Phase[] = ["connecting", "scanning", "found", "analyzing", "writing-inmail", "writing-conn", "done"];
@@ -267,32 +307,24 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         </>
       ) : (
         <>
-          {/* Progress steps */}
-          <div className="flex gap-0.5 mb-7">
-            {STEPS.map((step) => {
-              const status = getStepStatus(step.key);
-              return (
-                <div key={step.key} className="flex-1">
-                  <div className={`h-[3px] rounded-sm mb-2 transition-colors duration-400 ${
-                    status === "done" ? "bg-green"
-                    : status === "active" ? "bg-[length:200%_100%] bg-[linear-gradient(90deg,var(--color-green)_0%,var(--color-elvatix)_50%,var(--color-green)_100%)] animate-[lm-shimmer_1.5s_infinite]"
-                    : "bg-gray-200"
-                  }`} />
-                  <span className={`text-[10px] font-semibold uppercase tracking-[0.5px] ${
-                    status === "done" ? "text-green" : status === "active" ? "text-elvatix" : "text-gray-300"
-                  }`}>{step.label}</span>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Status */}
-          {STATUS_TEXT[phase] && (
-            <div className="mb-6 py-4 px-5 bg-gray-50 rounded-[10px] border border-gray-200">
-              <p className="text-sm font-bold text-gray-900 mb-1">{STATUS_TEXT[phase].title}</p>
-              <p className="text-xs text-gray-400">{STATUS_TEXT[phase].sub}</p>
+          {/* Progress bar with percentage */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-2">
+              {STATUS_TEXT[phase] && (
+                <p className="text-sm font-semibold text-gray-700">{STATUS_TEXT[phase].title}</p>
+              )}
+              <span className="text-sm font-bold text-elvatix tabular-nums">{Math.round(progress)}%</span>
             </div>
-          )}
+            <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-elvatix to-green transition-all duration-200 ease-out"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            {STATUS_TEXT[phase] && (
+              <p className="text-xs text-gray-400 mt-1.5">{STATUS_TEXT[phase].sub}</p>
+            )}
+          </div>
 
           {/* Profile card */}
           {profile && phase !== "connecting" && phase !== "scanning" && (
@@ -336,7 +368,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
               {/* InMail content */}
               {activeTab === "inmail" && (
-                <div ref={messageRef} className="bg-surface-alt border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-sm leading-[1.8] text-gray-700 font-[inherit] max-h-[280px] overflow-y-auto">
+                <div ref={messageRef} className="bg-surface-alt border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-[15px] leading-[1.85] text-gray-800 font-[inherit] max-h-[280px] overflow-y-auto">
                   {inmailDisplayed || (
                     <span className="text-gray-300 italic">{"Bericht wordt geschreven\u2026"}</span>
                   )}
@@ -349,7 +381,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
               {/* Connection content */}
               {activeTab === "connection" && (
                 <div>
-                  <div className="bg-surface-alt border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-sm leading-[1.8] text-gray-700 font-[inherit] min-h-[72px]">
+                  <div className="bg-surface-alt border-x border-b border-gray-200 border-t-0 rounded-b-[10px] p-5 whitespace-pre-wrap text-[15px] leading-[1.85] text-gray-800 font-[inherit] min-h-[72px]">
                     {phase === "done" || phase === "writing-conn" ? (
                       <>
                         {connectionDisplayed || (
