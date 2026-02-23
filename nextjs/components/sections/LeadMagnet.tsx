@@ -294,25 +294,23 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       {phase === "idle" ? (
         <>
           {/* Simple / Advanced toggle */}
-          <div className="flex mb-5">
-            <div className="flex w-full bg-gray-100 rounded-[10px] p-1">
-              <button onClick={() => setIsAdvanced(false)}
-                className={`flex-1 py-2.5 rounded-lg text-[13px] font-semibold cursor-pointer transition-all duration-200 font-[inherit] border-none ${
-                  !isAdvanced
-                    ? "bg-white text-gray-900 shadow-sm"
-                    : "bg-transparent text-gray-400 hover:text-gray-600"
-                }`}>
-                Simpel
-              </button>
-              <button onClick={() => setIsAdvanced(true)}
-                className={`flex-1 py-2.5 rounded-lg text-[13px] font-semibold cursor-pointer transition-all duration-200 font-[inherit] border-none ${
-                  isAdvanced
-                    ? "bg-white text-gray-900 shadow-sm"
-                    : "bg-transparent text-gray-400 hover:text-gray-600"
-                }`}>
-                Advanced
-              </button>
-            </div>
+          <div className="grid grid-cols-2 gap-2 mb-5">
+            <button onClick={() => setIsAdvanced(false)}
+              className={`py-3 rounded-[10px] text-sm font-bold cursor-pointer transition-all duration-200 font-[inherit] ${
+                !isAdvanced
+                  ? "bg-green text-white border-2 border-green shadow-[0_2px_8px_rgba(141,182,0,0.25)]"
+                  : "bg-white text-gray-500 border-2 border-gray-200 hover:border-gray-300"
+              }`}>
+              Simpel
+            </button>
+            <button onClick={() => setIsAdvanced(true)}
+              className={`py-3 rounded-[10px] text-sm font-bold cursor-pointer transition-all duration-200 font-[inherit] ${
+                isAdvanced
+                  ? "bg-green text-white border-2 border-green shadow-[0_2px_8px_rgba(141,182,0,0.25)]"
+                  : "bg-white text-gray-500 border-2 border-gray-200 hover:border-gray-300"
+              }`}>
+              Advanced
+            </button>
           </div>
 
           {/* LinkedIn URL */}
