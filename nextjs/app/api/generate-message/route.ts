@@ -121,8 +121,11 @@ ANTWOORD FORMAT (volg EXACT, geen extra tekst):
     }
 
     const genAI = new GoogleGenerativeAI(geminiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-3-pro-preview" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" });
+    const genStart = Date.now();
     const result = await model.generateContent(prompt);
+    const genDuration = Date.now() - genStart;
+    console.log(`[Generate] Model: gemini-2.5-flash-preview-05-20 | Duration: ${genDuration}ms`);
     const rawText = result.response.text();
 
     if (!rawText) {
@@ -147,6 +150,7 @@ ANTWOORD FORMAT (volg EXACT, geen extra tekst):
     return NextResponse.json({
       message: inmail,
       connectionRequest,
+      generationTimeMs: genDuration,
     });
   } catch (error) {
     console.error("Error generating message:", error);
