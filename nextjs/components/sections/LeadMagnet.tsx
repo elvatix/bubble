@@ -294,16 +294,25 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       {phase === "idle" ? (
         <>
           {/* Simple / Advanced toggle */}
-          <div className="flex items-center justify-end mb-4">
-            <button onClick={() => setIsAdvanced(!isAdvanced)}
-              className="flex items-center gap-2 text-[12px] text-gray-400 hover:text-gray-600 font-medium cursor-pointer bg-transparent border-none font-[inherit] transition-colors">
-              <span className={isAdvanced ? "text-gray-400" : "text-green font-semibold"}>Simpel</span>
-              <div className={`relative w-9 h-5 rounded-full transition-colors cursor-pointer ${isAdvanced ? "bg-green" : "bg-gray-300"}`}
-                onClick={(e) => { e.stopPropagation(); setIsAdvanced(!isAdvanced); }}>
-                <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${isAdvanced ? "translate-x-[18px]" : "translate-x-0.5"}`} />
-              </div>
-              <span className={isAdvanced ? "text-green font-semibold" : "text-gray-400"}>Advanced</span>
-            </button>
+          <div className="flex mb-5">
+            <div className="flex w-full bg-gray-100 rounded-[10px] p-1">
+              <button onClick={() => setIsAdvanced(false)}
+                className={`flex-1 py-2.5 rounded-lg text-[13px] font-semibold cursor-pointer transition-all duration-200 font-[inherit] border-none ${
+                  !isAdvanced
+                    ? "bg-white text-gray-900 shadow-sm"
+                    : "bg-transparent text-gray-400 hover:text-gray-600"
+                }`}>
+                Simpel
+              </button>
+              <button onClick={() => setIsAdvanced(true)}
+                className={`flex-1 py-2.5 rounded-lg text-[13px] font-semibold cursor-pointer transition-all duration-200 font-[inherit] border-none ${
+                  isAdvanced
+                    ? "bg-white text-gray-900 shadow-sm"
+                    : "bg-transparent text-gray-400 hover:text-gray-600"
+                }`}>
+                Advanced
+              </button>
+            </div>
           </div>
 
           {/* LinkedIn URL */}
@@ -380,7 +389,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
               {/* Extra instructie - prominent */}
               <div>
                 <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">
-                  Extra instructie
+                  Extra instructie <span className="text-gray-400 font-normal">(optioneel)</span>
                 </label>
                 <textarea placeholder={'bijv. "Benoem hun ervaring bij Google" of "Houd het kort en puntig"'}
                   value={customInstruction} onChange={(e) => setCustomInstruction(e.target.value)}

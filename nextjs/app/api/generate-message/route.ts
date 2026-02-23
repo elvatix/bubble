@@ -68,7 +68,14 @@ Skills: ${(profile.skills || []).join(", ") || "niet beschikbaar"}`;
     };
     const toneInstruction = toneInstructions[tone] || toneInstructions.informeel;
 
-    const senderSignoff = senderName ? `\nAFSLUITING: Sluit het InMail bericht af met de naam "${senderName}". Gebruik ALLEEN de naam, geen "Groet", "Met vriendelijke groet" of andere beleefdheidsformules. Gewoon de naam op een nieuwe regel.` : "";
+    const toneGreetings: Record<string, string> = {
+      informeel: "Groetjes",
+      professioneel: "Met vriendelijke groet",
+      formeel: "Met vriendelijke groet",
+      enthousiast: "Groetjes",
+    };
+    const greeting = toneGreetings[tone] || "Groet";
+    const senderSignoff = senderName ? `\nAFSLUITING: Sluit het InMail bericht af met:\n${greeting},\n${senderName}` : "";
 
     const vacancyContext = vacancyText ? `
 VACATURETEKST (gebruik deze context om het bericht relevanter te maken):
