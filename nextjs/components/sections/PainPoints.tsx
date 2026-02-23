@@ -2,99 +2,136 @@
 import { motion } from "framer-motion";
 import Container from "../ui/Container";
 
+const ClockIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <polyline points="12 6 12 12 16 14" />
+  </svg>
+);
+
+const ClipboardIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="8" y="2" width="8" height="4" rx="1" />
+    <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" />
+    <path d="M12 11h4M12 16h4M8 11h.01M8 16h.01" />
+  </svg>
+);
+
+const TrendDownIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" />
+    <polyline points="16 17 22 17 22 11" />
+  </svg>
+);
+
+const AlertIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+    <line x1="12" y1="9" x2="12" y2="13" />
+    <line x1="12" y1="17" x2="12.01" y2="17" />
+  </svg>
+);
+
+const UserXIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <line x1="17" y1="8" x2="22" y2="13" />
+    <line x1="22" y1="8" x2="17" y2="13" />
+  </svg>
+);
+
 const pains = [
   {
-    emoji: "⏱️",
-    stat: "10-15 min",
-    statLabel: "per InMail",
-    title: "Handmatig typen kost je uren per dag",
-    description: "Profiel openen, lezen, bericht schrijven, toon aanpassen, verzenden. Dat maal 20. Elke. Dag. Weer.",
+    icon: <ClockIcon />,
+    number: "01",
+    title: "10-15 minuten per InMail typen",
+    description: "Profiel openen. Lezen. Bericht schrijven. Toon aanpassen. Verzenden. Dat maal 20 kandidaten. Elke dag. Elke week.",
+    highlight: "= 5+ uur per week verspild",
   },
   {
-    emoji: "📋",
-    stat: "0%",
-    statLabel: "personalisatie",
+    icon: <ClipboardIcon />,
+    number: "02",
     title: "Copy-paste berichten die niemand leest",
-    description: "Templates uit ChatGPT kopiëren en plakken in LinkedIn. Kandidaten prikken er direct doorheen.",
+    description: "Templates uit ChatGPT kopiëren en plakken in LinkedIn. Kandidaten prikken er direct doorheen — het voelt onpersoonlijk.",
+    highlight: "= 0% personalisatie",
   },
   {
-    emoji: "📉",
-    stat: "<5%",
-    statLabel: "response rate",
+    icon: <UserXIcon />,
+    number: "03",
+    title: "Connectieverzoeken die worden genegeerd",
+    description: "\"Ik zou je graag toevoegen aan mijn netwerk.\" Klinkt bekend? Standaard verzoeken converteren onder de 5%.",
+    highlight: "= gemiste kandidaten",
+  },
+  {
+    icon: <TrendDownIcon />,
+    number: "04",
     title: "Lage response rates en frustratie",
-    description: "Generieke berichten = lage reactiepercentages. Je team raakt gedemotiveerd, targets worden niet gehaald.",
+    description: "Generieke outreach leidt tot lage reactiepercentages. Je team raakt gedemotiveerd. Targets worden niet gehaald.",
+    highlight: "= dalende productiviteit",
   },
   {
-    emoji: "🕳️",
-    stat: "40%",
-    statLabel: "gemist",
-    title: "Kandidaten vallen tussen wal en schip",
-    description: "Vergeten op te volgen, geen systeem voor follow-ups. Warme leads worden koud. Kansen gaan verloren.",
+    icon: <AlertIcon />,
+    number: "05",
+    title: "Follow-ups vergeten, leads worden koud",
+    description: "Geen systeem, geen reminders. Kandidaten die wél geïnteresseerd waren vallen tussen wal en schip.",
+    highlight: "= kansen die verloren gaan",
   },
 ];
 
 export default function PainPoints() {
   return (
-    <section className="py-20 bg-gray-950 relative overflow-hidden">
-      {/* Subtle red glow behind the cards */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
-
-      <Container className="max-w-[900px] relative z-10">
-        <div className="text-center mb-12">
-          <motion.p
-            className="text-xs font-bold text-red-400 uppercase tracking-[0.2em] mb-4"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <Container className="max-w-[900px]">
+        <motion.div
+          className="text-center mb-14"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-xs font-bold text-elvatix uppercase tracking-[0.2em] mb-4">
             Herkenbaar?
-          </motion.p>
-          <motion.h2
-            className="text-[clamp(28px,3.5vw,44px)] font-black text-white mb-4 leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
+          </p>
+          <h2 className="text-[clamp(28px,3.5vw,44px)] font-black text-gray-900 mb-4 leading-tight">
             Dit kost je team{" "}
-            <span className="text-red-400">elke week opnieuw</span>
-          </motion.h2>
-          <motion.p
-            className="text-white/50 text-base max-w-[520px] mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            80% van de recruiters herkent deze problemen. De meeste accepteren het.
+            <span className="gradient-text">elke week opnieuw</span>
+          </h2>
+          <p className="text-gray-500 text-base max-w-[520px] mx-auto">
+            De meeste recruiters herkennen deze problemen.
             De slimste lossen het op.
-          </motion.p>
-        </div>
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Sequential pain points — each slides in one by one */}
+        <div className="flex flex-col gap-4">
           {pains.map((pain, i) => (
             <motion.div
               key={i}
-              className="group relative bg-white/[0.04] border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.07] hover:border-red-500/20 transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 * i }}
+              className="group flex items-start gap-5 p-5 md:p-6 rounded-2xl bg-white border border-gray-200 hover:border-elvatix/30 hover:shadow-lg transition-all duration-300"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
             >
-              <div className="flex items-start gap-4">
-                {/* Stat badge */}
-                <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-red-500/10 border border-red-500/20 flex flex-col items-center justify-center">
-                  <span className="text-red-400 font-black text-base leading-none">{pain.stat}</span>
-                  <span className="text-red-400/60 text-[10px] mt-0.5">{pain.statLabel}</span>
+              {/* Number + Icon */}
+              <div className="flex-shrink-0 flex flex-col items-center gap-1">
+                <span className="text-[11px] font-bold text-elvatix/40">{pain.number}</span>
+                <div className="w-11 h-11 rounded-xl bg-elvatix/8 border border-elvatix/15 flex items-center justify-center text-elvatix group-hover:bg-elvatix/12 transition-colors">
+                  {pain.icon}
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-white font-bold text-[15px] mb-1.5 leading-snug">
-                    {pain.title}
-                  </h3>
-                  <p className="text-white/40 text-sm leading-relaxed">
-                    {pain.description}
-                  </p>
-                </div>
+              </div>
+
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-[15px] font-bold text-gray-900 mb-1 leading-snug">
+                  {pain.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-1.5">
+                  {pain.description}
+                </p>
+                <p className="text-xs font-semibold text-elvatix-dark tracking-wide">
+                  {pain.highlight}
+                </p>
               </div>
             </motion.div>
           ))}
