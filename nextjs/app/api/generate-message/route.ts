@@ -83,8 +83,10 @@ Skills: ${(profile.skills || []).join(", ") || "niet beschikbaar"}`;
 VACATURETEKST (gebruik deze context om het bericht relevanter te maken):
 ${vacancyText.slice(0, 2000)}` : "";
     const customInstr = customInstruction ? `
-EXTRA INSTRUCTIE VAN DE GEBRUIKER (volg deze op):
-${customInstruction.slice(0, 500)}` : "";
+
+PRIORITAIRE INSTRUCTIE (DIT IS VERPLICHT, VOLG DIT OP ONGEACHT ANDERE REGELS):
+>>> ${customInstruction.slice(0, 500)} <<<
+Je MOET bovenstaande instructie verwerken in het bericht. Dit is de belangrijkste eis van de gebruiker.` : "";
 
     const prompt = `${langConfig.write} Schrijf zoals een native speaker echt schrijft : vlot, direct, en met persoonlijkheid.
 
@@ -107,7 +109,7 @@ TOON & STIJL:
 - Noem de functie/rol waarvoor je schrijft ("${jobTitle || "niet gespecificeerd"}"), maar zonder te zeggen "ik werf" of "ik zoek kandidaten".
 - Schrijf alsof je oprecht geïnteresseerd bent in deze persoon. Geen verkooppraatjes.
 
-${approachInstruction}${vacancyContext}${customInstr}
+${approachInstruction}${vacancyContext}
 
 VERBODEN ZINNEN (gebruik deze NOOIT):
 - "Ik zag je profiel"
@@ -117,6 +119,8 @@ VERBODEN ZINNEN (gebruik deze NOOIT):
 - "Ik kwam je profiel tegen"
 - "Namens mijn klant"
 - Elke zin die begint met "Ik" als openingszin
+
+${customInstr}
 
 BERICHTEN:
 
