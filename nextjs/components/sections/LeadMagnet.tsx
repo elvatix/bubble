@@ -30,7 +30,7 @@ const ROLE_SUGGESTIONS = [
   "Software Engineer", "Data Engineer", "Product Manager", "UX Designer",
   "DevOps Engineer", "Sales Manager", "Account Manager", "Marketing Manager",
   "HR Manager", "Finance Controller", "Project Manager", "Business Analyst",
-  "Consultant", "Full Stack Developer", "Cloud Engineer",
+  "Full Stack Developer", "Cloud Engineer", "HR Manager",
 ];
 
 const TONE_OPTIONS = [
@@ -309,34 +309,33 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             </div>
           </div>
 
-          {/* Job title with suggestions */}
+          {/* Role selector */}
           <div className={`relative ${compact ? "mb-3.5" : "mb-4"}`}>
-            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Functie / Vacature</label>
-            <input type="text" placeholder="bijv. Senior Software Engineer"
-              value={jobTitle} onChange={(e) => { setJobTitle(e.target.value); setShowSuggestions(true); }}
-              onFocus={() => setShowSuggestions(true)}
-              onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
-              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
-            {showSuggestions && jobTitle.length < 3 && (
-              <div className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-[180px] overflow-y-auto">
-                <p className="text-[10px] text-gray-400 px-3 pt-2 pb-1 uppercase tracking-wider font-semibold">Populaire functies</p>
-                {ROLE_SUGGESTIONS.map((role) => (
-                  <button key={role} onMouseDown={() => { setJobTitle(role); setShowSuggestions(false); }}
-                    className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-elvatix-light hover:text-elvatix cursor-pointer font-[inherit] border-none bg-transparent">
-                    {role}
-                  </button>
-                ))}
-              </div>
-            )}
-            {showSuggestions && jobTitle.length >= 3 && ROLE_SUGGESTIONS.filter(r => r.toLowerCase().includes(jobTitle.toLowerCase())).length > 0 && (
-              <div className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-[140px] overflow-y-auto">
-                {ROLE_SUGGESTIONS.filter(r => r.toLowerCase().includes(jobTitle.toLowerCase())).map((role) => (
-                  <button key={role} onMouseDown={() => { setJobTitle(role); setShowSuggestions(false); }}
-                    className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-elvatix-light hover:text-elvatix cursor-pointer font-[inherit] border-none bg-transparent">
-                    {role}
-                  </button>
-                ))}
-              </div>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-2">Functie / Vacature</label>
+            <div className="flex flex-wrap gap-1.5 mb-2">
+              {ROLE_SUGGESTIONS.map((role) => (
+                <button key={role} onClick={() => { setJobTitle(role); setShowSuggestions(false); }}
+                  className={`py-1.5 px-3 rounded-full text-[12px] font-medium cursor-pointer transition-all duration-150 font-[inherit] ${
+                    jobTitle === role
+                      ? "border-[1.5px] border-green bg-elvatix-light text-green"
+                      : "border border-gray-200 bg-white text-gray-500 hover:border-gray-400"
+                  }`}>
+                  {role}
+                </button>
+              ))}
+              <button onClick={() => { setShowSuggestions(true); setJobTitle(""); }}
+                className={`py-1.5 px-3 rounded-full text-[12px] font-medium cursor-pointer transition-all duration-150 font-[inherit] ${
+                  showSuggestions && !ROLE_SUGGESTIONS.includes(jobTitle)
+                    ? "border-[1.5px] border-green bg-elvatix-light text-green"
+                    : "border border-dashed border-gray-300 bg-white text-gray-400 hover:border-gray-400 hover:text-gray-500"
+                }`}>
+                + Anders
+              </button>
+            </div>
+            {showSuggestions && !ROLE_SUGGESTIONS.includes(jobTitle) && (
+              <input type="text" placeholder="Typ de functienaam..." autoFocus
+                value={jobTitle} onChange={(e) => setJobTitle(e.target.value)}
+                className="w-full py-2.5 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
             )}
           </div>
 
@@ -362,7 +361,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             <div className="flex-1">
               <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Taal</label>
               <select value={language} onChange={(e) => setLanguage(e.target.value)}
-                className="w-full py-2.5 px-3 border border-gray-300 rounded-lg bg-white text-sm text-gray-700 font-[inherit] outline-none cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m2%204%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_12px_center] bg-no-repeat pr-8 focus:border-green">
+                className="w-full h-[42px] py-2.5 px-3 border border-gray-300 rounded-lg bg-white text-sm text-gray-700 font-[inherit] outline-none cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m2%204%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_12px_center] bg-no-repeat pr-8 focus:border-green">
                 {LANGUAGE_OPTIONS.map((l) => (
                   <option key={l.value} value={l.value}>{l.label}</option>
                 ))}
