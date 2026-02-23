@@ -309,32 +309,25 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           </div>
 
           {/* Role selector */}
-          <div className={`relative ${compact ? "mb-3.5" : "mb-4"}`}>
-            <label className="block text-[13px] font-semibold text-gray-700 mb-2">Functie / Vacature</label>
-            <div className="flex flex-wrap gap-1.5 mb-2">
+          <div className={compact ? "mb-3.5" : "mb-4"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Functie / Vacature</label>
+            <select
+              value={ROLE_SUGGESTIONS.includes(jobTitle) ? jobTitle : (showSuggestions ? "__custom__" : "")}
+              onChange={(e) => {
+                if (e.target.value === "__custom__") { setShowSuggestions(true); setJobTitle(""); }
+                else { setJobTitle(e.target.value); setShowSuggestions(false); }
+              }}
+              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border cursor-pointer focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]">
+              <option value="" disabled>Selecteer een functie...</option>
               {ROLE_SUGGESTIONS.map((role) => (
-                <button key={role} onClick={() => { setJobTitle(role); setShowSuggestions(false); }}
-                  className={`py-1.5 px-3 rounded-full text-[12px] font-medium cursor-pointer transition-all duration-150 font-[inherit] ${
-                    jobTitle === role
-                      ? "border-[1.5px] border-green bg-elvatix-light text-green"
-                      : "border border-gray-200 bg-white text-gray-500 hover:border-gray-400"
-                  }`}>
-                  {role}
-                </button>
+                <option key={role} value={role}>{role}</option>
               ))}
-              <button onClick={() => { setShowSuggestions(true); setJobTitle(""); }}
-                className={`py-1.5 px-3 rounded-full text-[12px] font-medium cursor-pointer transition-all duration-150 font-[inherit] ${
-                  showSuggestions && !ROLE_SUGGESTIONS.includes(jobTitle)
-                    ? "border-[1.5px] border-green bg-elvatix-light text-green"
-                    : "border border-dashed border-gray-300 bg-white text-gray-400 hover:border-gray-400 hover:text-gray-500"
-                }`}>
-                + Anders
-              </button>
-            </div>
+              <option value="__custom__">Anders (zelf invullen)</option>
+            </select>
             {showSuggestions && !ROLE_SUGGESTIONS.includes(jobTitle) && (
               <input type="text" placeholder="Typ de functienaam..." autoFocus
                 value={jobTitle} onChange={(e) => setJobTitle(e.target.value)}
-                className="w-full py-2.5 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
+                className="w-full mt-2 py-2.5 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
             )}
           </div>
 
