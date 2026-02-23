@@ -86,19 +86,30 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
   const ANALYZING_MESSAGES = profile ? [
     "Profiel analyseren\u2026",
-    profile.currentTitle ? `Huidige rol: ${profile.currentTitle}` : "Werkervaring doorlopen\u2026",
-    profile.companyName ? `Werkt bij: ${profile.companyName}` : "Achtergrond bekijken\u2026",
-    profile.location ? `Locatie: ${profile.location}` : "Extra context ophalen\u2026",
-    profile.skills?.length > 0 ? `Top skill: ${profile.skills[0]}` : "Skills analyseren\u2026",
+    profile.currentTitle ? `\ud83d\udcbc ${profile.currentTitle}` : "Werkervaring doorlopen\u2026",
+    profile.companyName ? `\ud83c\udfe2 Werkt bij ${profile.companyName}` : "Achtergrond bekijken\u2026",
+    profile.location ? `\ud83d\udccd ${profile.location}` : "Extra context ophalen\u2026",
+    profile.skills?.length > 0 ? `\u2b50 Top skill: ${profile.skills[0]}` : "Skills analyseren\u2026",
     "Beste insteek bepalen\u2026",
   ] : ["Profiel analyseren\u2026", "Beste insteek bepalen\u2026"];
 
+  const WRITING_INMAIL_MESSAGES = [
+    "Persoonlijke aanknopingspunten zoeken\u2026",
+    "Toon en stijl afstemmen\u2026",
+    "Openingszin perfectioneren\u2026",
+    "Gepersonaliseerd InMail schrijven\u2026",
+    "Bericht optimaliseren voor hogere response\u2026",
+    "Laatste details toevoegen\u2026",
+  ];
+
 
   useEffect(() => {
-    if (phase === "analyzing") {
+    if (phase === "analyzing" || phase === "writing-inmail") {
+      setStatusMsgIdx(0);
+      const msgs = phase === "analyzing" ? ANALYZING_MESSAGES : WRITING_INMAIL_MESSAGES;
       const interval = setInterval(() => {
-        setStatusMsgIdx((prev) => (prev + 1) % ANALYZING_MESSAGES.length);
-      }, 2000);
+        setStatusMsgIdx((prev) => (prev + 1) % msgs.length);
+      }, 2200);
       return () => clearInterval(interval);
     } else {
       setStatusMsgIdx(0);
@@ -108,11 +119,11 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
   // Smooth progress animation — calibrated to real Flash API timings (~18s total)
   const PHASE_TARGETS: Record<string, number> = {
-    connecting: 8,
-    scanning: 20,
-    found: 30,
-    analyzing: 40,
-    "writing-inmail": 85,
+    connecting: 5,
+    scanning: 12,
+    found: 18,
+    analyzing: 28,
+    "writing-inmail": 75,
     "writing-conn": 98,
     done: 100,
   };
@@ -135,7 +146,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         }
         // Speed depends on how far we need to go
         const diff = target - prev;
-        const step = Math.max(0.15, diff * 0.03);
+        const step = Math.max(0.1, diff * 0.02);
         return Math.min(prev + step, target);
       });
     }, 80);
@@ -424,7 +435,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-elvatix"></span>
                 </span>
                 <p className="text-sm font-semibold text-gray-700 transition-all">
-                  {phase === "analyzing" ? ANALYZING_MESSAGES[statusMsgIdx % ANALYZING_MESSAGES.length] : STATUS_TEXT[phase]?.title}
+                  {phase === "analyzing" ? ANALYZING_MESSAGES[statusMsgIdx % ANALYZING_MESSAGES.length] : phase === "writing-inmail" ? WRITING_INMAIL_MESSAGES[statusMsgIdx % WRITING_INMAIL_MESSAGES.length] : STATUS_TEXT[phase]?.title}
                 </p>
               </div>
               <span className="text-sm font-bold text-elvatix tabular-nums">{Math.round(progress)}%</span>
