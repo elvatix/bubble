@@ -113,7 +113,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     found: 30,
     analyzing: 40,
     "writing-inmail": 85,
-    "writing-conn": 93,
+    "writing-conn": 98,
     done: 100,
   };
 
