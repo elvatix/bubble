@@ -84,23 +84,15 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const [progress, setProgress] = useState(0);
   const [statusMsgIdx, setStatusMsgIdx] = useState(0);
 
-  const profileFacts = profile ? [
-    profile.currentTitle ? `Huidige rol: ${profile.currentTitle}` : null,
-    profile.companyName ? `Werkt bij: ${profile.companyName}` : null,
-    profile.location ? `Locatie: ${profile.location}` : null,
-    profile.skills?.length > 0 ? `Top skill: ${profile.skills[0]}` : null,
-    profile.jobHistory?.length > 0 ? `${profile.jobHistory.length} functies in werkervaring` : null,
-    profile.skills?.length > 2 ? `Skills: ${profile.skills.slice(0, 3).join(", ")}` : null,
-  ].filter(Boolean) as string[] : [];
+  const ANALYZING_MESSAGES = profile ? [
+    "Profiel analyseren\u2026",
+    profile.currentTitle ? `Huidige rol: ${profile.currentTitle}` : "Werkervaring doorlopen\u2026",
+    profile.companyName ? `Werkt bij: ${profile.companyName}` : "Achtergrond bekijken\u2026",
+    profile.location ? `Locatie: ${profile.location}` : "Extra context ophalen\u2026",
+    profile.skills?.length > 0 ? `Top skill: ${profile.skills[0]}` : "Skills analyseren\u2026",
+    "Beste insteek bepalen\u2026",
+  ] : ["Profiel analyseren\u2026", "Beste insteek bepalen\u2026"];
 
-  const WRITING_MESSAGES = [
-    "Profiel analyseren en beste insteek bepalen\u2026",
-    ...(profileFacts.length > 0 ? profileFacts : []),
-    "Persoonlijke aanknopingspunten zoeken\u2026",
-    "Toon en stijl afstemmen op kandidaat\u2026",
-    "Gepersonaliseerd InMail bericht schrijven\u2026",
-    "Bericht optimaliseren voor hogere response\u2026",
-  ];
 
   useEffect(() => {
     if (phase === "analyzing") {
