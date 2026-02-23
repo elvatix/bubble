@@ -7,11 +7,17 @@ export default function JsonLd() {
     logo: "https://elvatix.com/opengraph-image.png",
     description:
       "AI-Powered LinkedIn Recruitment Copilot. Schrijf persoonlijke InMails in seconden.",
-    sameAs: ["https://www.linkedin.com/company/elvatix"],
+    foundingDate: "2023",
+    sameAs: [
+      "https://www.linkedin.com/company/elvatix",
+      "https://www.instagram.com/elvatix_ai/",
+      "https://twitter.com/elvatix"
+    ],
     contactPoint: {
       "@type": "ContactPoint",
-      contactType: "sales",
+      contactType: "customer support",
       url: "https://elvatix.com/contact",
+      availableLanguage: ["Dutch", "English"]
     },
   };
 

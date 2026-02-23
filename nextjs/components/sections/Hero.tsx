@@ -1,12 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
+import Container from "@/components/ui/Container";
 import LeadMagnet from "@/components/sections/LeadMagnet";
 import EnvelopeAnimation from "@/components/animations/EnvelopeAnimation";
 
 export default function Hero() {
   return (
-    <section className="pt-[120px] pb-[60px] px-6 bg-gradient-to-b from-elvatix-light to-white">
-      <div className="max-w-[1100px] mx-auto">
+    <section className="pt-40 pb-[60px] bg-gradient-to-b from-elvatix-light to-white">
+      <Container>
         {/* Split layout: text left, animation right */}
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-12">
           {/* Left: Text content */}
@@ -61,7 +62,7 @@ export default function Hero() {
             <LeadMagnet compact />
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

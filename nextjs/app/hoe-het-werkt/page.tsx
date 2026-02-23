@@ -58,7 +58,7 @@ export default function HoeHetWerktPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-[140px] pb-20 px-6 bg-gradient-to-b from-elvatix-light to-white">
+      <section className="pt-40 pb-20 px-6 bg-gradient-to-b from-elvatix-light to-white">
         <Container className="max-w-4xl text-center">
           <span className="page-badge">Hoe het werkt</span>
           <h1 className="page-heading">

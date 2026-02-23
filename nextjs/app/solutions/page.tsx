@@ -42,7 +42,7 @@ export default function SolutionsPage() {
       <Container className="max-w-5xl mb-20">
         <div className="flex flex-col gap-8">
           {segments.map((s) => (
-            <div key={s.title} className="bg-white border border-gray-200 rounded-2xl p-8">
+            <div key={s.title} className="bg-white border border-gray-200 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl">{s.icon}</span>
                 <h2 className="text-2xl font-bold text-gray-900">{s.title}</h2>

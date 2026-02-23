@@ -18,7 +18,7 @@ const benefits = [
 
 export default function DemoPage() {
   return (
-    <main className="pt-32 pb-24 relative">
+    <main className="pt-40 pb-16 relative">
       {/* Subtle Background Glows */}
       <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-[#afce26]/10 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] bg-[#0A66C2]/5 rounded-full blur-3xl -z-10 pointer-events-none" />

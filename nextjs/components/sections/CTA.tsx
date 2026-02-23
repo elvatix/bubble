@@ -1,11 +1,12 @@
 "use client";
+import Container from "@/components/ui/Container";
 import { motion } from "framer-motion";
 
 export default function CTA() {
   return (
     <section className="section-padding bg-gradient-to-br from-elvatix to-elvatix-dark text-center">
-      <div className="max-w-[700px] mx-auto">
-        <h2 className="text-[clamp(28px,3.5vw,44px)] font-black text-white mb-4 leading-tight">
+      <Container className="max-w-[700px]">
+        <h2 className="text-2xl font-extrabold text-white mb-3">
           Klaar om 4-6 uur per week te besparen?
         </h2>
         <p className="text-white/85 text-base mb-8 leading-relaxed">
@@ -30,7 +31,7 @@ export default function CTA() {
             Neem contact op
           </motion.a>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
