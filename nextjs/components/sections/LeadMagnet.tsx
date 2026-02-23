@@ -25,6 +25,57 @@ type Phase =
   | "writing-conn"
   | "done";
 
+const ROLE_SUGGESTIONS = [
+  "Software Engineer",
+  "Data Engineer",
+  "Product Manager",
+  "UX Designer",
+  "DevOps Engineer",
+  "Sales Manager",
+  "Account Manager",
+  "Marketing Manager",
+  "HR Manager",
+  "Finance Controller",
+  "Project Manager",
+  "Business Analyst",
+  "Consultant",
+  "Full Stack Developer",
+  "Cloud Engineer",
+];
+
+const TONE_OPTIONS = [
+  { value: "informeel", label: "Informeel", desc: "Vlot en persoonlijk" },
+  { value: "professioneel", label: "Professioneel", desc: "Zakelijk maar warm" },
+  { value: "formeel", label: "Formeel", desc: "Strak en zakelijk" },
+  { value: "enthousiast", label: "Enthousiast", desc: "Energiek en positief" },
+];
+
+const LANGUAGE_OPTIONS = [
+  { value: "nl", label: "🇳🇱 Nederlands" },
+  { value: "en", label: "🇬🇧 English" },
+  { value: "de", label: "🇩�� Deutsch" },
+];
+
+const ROLE_SUGGESTIONS = [
+  "Software Engineer", "Data Engineer", "Product Manager", "UX Designer",
+  "DevOps Engineer", "Sales Manager", "Account Manager", "Marketing Manager",
+  "HR Manager", "Finance Controller", "Project Manager", "Business Analyst",
+  "Consultant", "Full Stack Developer", "Cloud Engineer",
+];
+
+const TONE_OPTIONS = [
+  { value: "informeel", label: "Informeel" },
+  { value: "professioneel", label: "Professioneel" },
+  { value: "formeel", label: "Formeel" },
+  { value: "enthousiast", label: "Enthousiast" },
+];
+
+const LANGUAGE_OPTIONS = [
+  { value: "nl", label: "NL" },
+  { value: "en", label: "EN" },
+  { value: "de", label: "DE" },
+];
+
 const STEPS = [
   { key: "connecting", label: "Verbinden" },
   { key: "scanning", label: "Scannen" },
@@ -48,7 +99,13 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const [linkedinUrl, setLinkedinUrl] = useState("");
   const [email, setEmail] = useState("");
   const [jobTitle, setJobTitle] = useState("");
-  const [tone, setTone] = useState<"informal" | "formal">("informal");
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [tone, setTone] = useState("informeel");
+  const [language, setLanguage] = useState("nl");
+  const [approach, setApproach] = useState<"recruitment" | "sales">("recruitment");
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [vacancyText, setVacancyText] = useState("");
+  const [customInstruction, setCustomInstruction] = useState("");
   const [phase, setPhase] = useState<Phase>("idle");
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [enriched, setEnriched] = useState(false);
@@ -196,7 +253,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       const genRes = await fetch("/api/generate-message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, jobTitle, tone, profile: scrapeData.profile }),
+        body: JSON.stringify({ email, jobTitle, tone, language, approach, vacancyText, customInstruction, profile: scrapeData.profile }),
       });
       const genData = await genRes.json();
 
@@ -229,6 +286,8 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     setEnriched(false); setProfile(null);
     setActiveTab("inmail");
     setProgress(0);
+    setShowAdvanced(false);
+    setShowAdvanced(false);
   };
 
   const phaseOrder: Phase[] = ["connecting", "scanning", "found", "analyzing", "writing-inmail", "writing-conn", "done"];
@@ -265,9 +324,9 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       {phase === "idle" ? (
         <>
           {/* LinkedIn URL */}
-          <div className={compact ? "mb-3.5" : "mb-5"}>
+          <div className={compact ? "mb-3.5" : "mb-4"}>
             <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">LinkedIn URL *</label>
-            <div className="flex items-center border border-gray-300 rounded-sm overflow-hidden transition-colors">
+            <div className="flex items-center border border-gray-300 rounded-[10px] overflow-hidden transition-colors focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]">
               <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-300 flex items-center text-text-light">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -280,38 +339,128 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             </div>
           </div>
 
-          {/* Job title */}
-          <div className={compact ? "mb-3.5" : "mb-5"}>
-            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Functie waarvoor je werft</label>
+          {/* Job title with suggestions */}
+          <div className={`relative ${compact ? "mb-3.5" : "mb-4"}`}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Functie / Vacature</label>
             <input type="text" placeholder="bijv. Senior Software Engineer"
-              value={jobTitle} onChange={(e) => setJobTitle(e.target.value)}
-              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border" />
+              value={jobTitle} onChange={(e) => { setJobTitle(e.target.value); setShowSuggestions(true); }}
+              onFocus={() => setShowSuggestions(true)}
+              onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
+            {showSuggestions && jobTitle.length < 3 && (
+              <div className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-[180px] overflow-y-auto">
+                <p className="text-[10px] text-gray-400 px-3 pt-2 pb-1 uppercase tracking-wider font-semibold">Populaire functies</p>
+                {ROLE_SUGGESTIONS.map((role) => (
+                  <button key={role} onMouseDown={() => { setJobTitle(role); setShowSuggestions(false); }}
+                    className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-elvatix-light hover:text-elvatix cursor-pointer font-[inherit] border-none bg-transparent">
+                    {role}
+                  </button>
+                ))}
+              </div>
+            )}
+            {showSuggestions && jobTitle.length >= 3 && ROLE_SUGGESTIONS.filter(r => r.toLowerCase().includes(jobTitle.toLowerCase())).length > 0 && (
+              <div className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-[140px] overflow-y-auto">
+                {ROLE_SUGGESTIONS.filter(r => r.toLowerCase().includes(jobTitle.toLowerCase())).map((role) => (
+                  <button key={role} onMouseDown={() => { setJobTitle(role); setShowSuggestions(false); }}
+                    className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-elvatix-light hover:text-elvatix cursor-pointer font-[inherit] border-none bg-transparent">
+                    {role}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Tone */}
-          <div className={compact ? "mb-3.5" : "mb-5"}>
-            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Toon</label>
-            <div className="flex gap-2.5">
-              {(["informal", "formal"] as const).map((t) => (
-                <button key={t} onClick={() => setTone(t)}
-                  className={`flex-1 py-[11px] px-4 rounded-lg text-sm font-semibold cursor-pointer transition-all duration-150 font-[inherit] ${
-                    tone === t
+          {/* Approach + Language row */}
+          <div className={`flex gap-3 ${compact ? "mb-3.5" : "mb-4"}`}>
+            {/* Approach */}
+            <div className="flex-1">
+              <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Invalshoek</label>
+              <div className="flex gap-1.5">
+                {(["recruitment", "sales"] as const).map((a) => (
+                  <button key={a} onClick={() => setApproach(a)}
+                    className={`flex-1 py-2.5 px-3 rounded-lg text-[13px] font-semibold cursor-pointer transition-all duration-150 font-[inherit] ${
+                      approach === a
+                        ? "border-[1.5px] border-green bg-elvatix-light text-green"
+                        : "border border-gray-300 bg-white text-gray-500 hover:border-gray-400"
+                    }`}>
+                    {a === "recruitment" ? "Recruitment" : "Sales"}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {/* Language */}
+            <div className="flex-1">
+              <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Taal</label>
+              <select value={language} onChange={(e) => setLanguage(e.target.value)}
+                className="w-full py-2.5 px-3 border border-gray-300 rounded-lg bg-white text-sm text-gray-700 font-[inherit] outline-none cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m2%204%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_12px_center] bg-no-repeat pr-8 focus:border-green">
+                {LANGUAGE_OPTIONS.map((l) => (
+                  <option key={l.value} value={l.value}>{l.label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Tone of voice */}
+          <div className={compact ? "mb-3.5" : "mb-4"}>
+            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Tone of voice</label>
+            <div className="grid grid-cols-4 gap-1.5">
+              {TONE_OPTIONS.map((t) => (
+                <button key={t.value} onClick={() => setTone(t.value)}
+                  className={`py-2 px-2 rounded-lg text-[12px] font-semibold cursor-pointer transition-all duration-150 font-[inherit] text-center ${
+                    tone === t.value
                       ? "border-[1.5px] border-green bg-elvatix-light text-green"
-                      : "border border-gray-300 bg-white text-gray-500"
+                      : "border border-gray-300 bg-white text-gray-500 hover:border-gray-400"
                   }`}>
-                  {t === "informal" ? "Informeel" : "Formeel"}
+                  {t.label}
                 </button>
               ))}
             </div>
           </div>
 
           {/* Email */}
-          <div className={compact ? "mb-[18px]" : "mb-7"}>
+          <div className={compact ? "mb-3.5" : "mb-4"}>
             <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">E-mailadres *</label>
             <input type="email" placeholder="naam@bedrijf.nl"
               value={email} onChange={(e) => setEmail(e.target.value)}
-              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border" />
+              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
           </div>
+
+          {/* Advanced options toggle */}
+          <button onClick={() => setShowAdvanced(!showAdvanced)}
+            className="flex items-center gap-1.5 text-[12px] text-gray-400 hover:text-gray-600 font-medium cursor-pointer bg-transparent border-none font-[inherit] mb-3 transition-colors">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" className={`transition-transform duration-200 ${showAdvanced ? "rotate-90" : ""}`}>
+              <path d="M4.5 2.5l3.5 3.5-3.5 3.5" />
+            </svg>
+            Meer opties
+          </button>
+
+          {/* Advanced options */}
+          {showAdvanced && (
+            <div className="space-y-3.5 mb-4 animate-[lm-fade-in_0.2s_ease]">
+              {/* Vacancy text */}
+              <div>
+                <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">
+                  Vacaturetekst
+                  <span className="text-gray-400 font-normal ml-1">(optioneel)</span>
+                </label>
+                <textarea placeholder="Plak hier de vacaturetekst voor meer context en een gerichter bericht..."
+                  value={vacancyText} onChange={(e) => setVacancyText(e.target.value)}
+                  rows={3}
+                  className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border resize-y min-h-[80px] focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
+              </div>
+              {/* Custom instruction */}
+              <div>
+                <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">
+                  Extra instructie
+                  <span className="text-gray-400 font-normal ml-1">(optioneel)</span>
+                </label>
+                <textarea placeholder="bijv. &#34;Benoem hun ervaring bij Google&#34; of &#34;Houd het bericht kort en puntig&#34;"
+                  value={customInstruction} onChange={(e) => setCustomInstruction(e.target.value)}
+                  rows={2}
+                  className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border resize-y min-h-[64px] focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
+              </div>
+            </div>
+          )}
 
           {error && <div className="py-2.5 px-3.5 bg-red-50 border border-red-200 rounded-lg text-red-600 text-[13px] mb-4">{error}</div>}
 

@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { email, jobTitle, tone, profile } = body;
+    const { email, jobTitle, tone, language, approach, vacancyText, customInstruction, profile } = body;
 
     if (!email || !email.includes("@")) {
       return NextResponse.json({ error: "Een geldig e-mailadres is vereist." }, { status: 400 });
@@ -60,11 +60,33 @@ Skills: ${(profile.skills || []).join(", ") || "niet beschikbaar"}`;
     const candidateName = profile?.fullName || profile?.firstName || "de kandidaat";
     const firstName = profile?.firstName || candidateName.split(" ")[0] || "de kandidaat";
 
-    const toneInstruction = tone === "formal"
-      ? "Schrijf professioneel maar menselijk : zoals een senior professional die een gelijkwaardige aanspreekt."
-      : "Schrijf warm, vlot en persoonlijk : zoals een goed gesprek tussen twee professionals bij een kop koffie.";
+    const toneInstructions: Record<string, string> = {
+      informeel: "Schrijf warm, vlot en persoonlijk : zoals een goed gesprek tussen twee professionals bij een kop koffie.",
+      professioneel: "Schrijf zakelijk maar warm en menselijk : respectvol, to the point, met oprechte interesse.",
+      formeel: "Schrijf strak, zakelijk en professioneel : als een senior executive die een gelijkwaardige aanspreekt.",
+      enthousiast: "Schrijf energiek, positief en enthousiast : laat je oprechte enthousiasme voor deze persoon doorklinken.",
+    };
+    const toneInstruction = toneInstructions[tone] || toneInstructions.informeel;
 
-    const prompt = `Je schrijft LinkedIn-berichten in vloeiend, natuurlijk Nederlands. Geen vertaaltaal, geen stijve zinnen. Schrijf zoals een Nederlander echt schrijft : vlot, direct, en met persoonlijkheid.
+    const langInstructions: Record<string, { write: string; lang: string }> = {
+      nl: { write: "Schrijf in vloeiend, natuurlijk Nederlands. Geen vertaaltaal, geen stijve zinnen.", lang: "Nederlands" },
+      en: { write: "Write in fluent, natural English. No stiff phrasing, no filler.", lang: "English" },
+      de: { write: "Schreibe in fliessendem, natuerlichem Deutsch. Keine steifen Saetze, keine Fuellwoerter.", lang: "Deutsch" },
+    };
+    const langConfig = langInstructions[language] || langInstructions.nl;
+
+    const approachInstruction = approach === "sales"
+      ? "INVALSHOEK: SALES. Je benadert deze persoon vanuit een commerciele / sales insteek. Je wilt een product, dienst of samenwerking voorstellen. Focus op de waarde die je kunt bieden, niet op recruitment."
+      : "INVALSHOEK: RECRUITMENT. Je benadert deze persoon vanuit recruitment : je hebt een interessante rol en denkt dat zij een goede match zijn.";
+
+    const vacancyContext = vacancyText ? "
+VACATURETEKST (gebruik deze context om het bericht relevanter te maken):
+" + vacancyText.slice(0, 2000) : "";
+    const customInstr = customInstruction ? "
+EXTRA INSTRUCTIE VAN DE GEBRUIKER (volg deze op):
+" + customInstruction.slice(0, 500) : "";
+
+    const prompt = `${langConfig.write} Schrijf zoals een native speaker echt schrijft : vlot, direct, en met persoonlijkheid.
 
 KANDIDAAT:
 - Naam: ${candidateName} (voornaam: ${firstName})
@@ -84,6 +106,8 @@ TOON & STIJL:
 - Noem NOOIT dat je recruiter bent, niet "als recruiter", niet "vanuit mijn rol", niets daarover. Je bent gewoon iemand met een interessant voorstel.
 - Noem de functie/rol waarvoor je schrijft ("${jobTitle || "niet gespecificeerd"}"), maar zonder te zeggen "ik werf" of "ik zoek kandidaten".
 - Schrijf alsof je oprecht geïnteresseerd bent in deze persoon. Geen verkooppraatjes.
+
+${approachInstruction}${vacancyContext}${customInstr}
 
 VERBODEN ZINNEN (gebruik deze NOOIT):
 - "Ik zag je profiel"
