@@ -3,8 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Rate limiting
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT = 5;
-const RATE_WINDOW = 60 * 60 * 1000;
+const RATE_LIMIT = 2;
+const RATE_WINDOW = 24 * 60 * 60 * 1000; // 24 hours
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || req.headers.get("x-real-ip") || "unknown";
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
-        { error: "Je hebt het maximum aantal berichten bereikt (5 per uur). Probeer het later opnieuw." },
+        { error: "Je hebt het maximale aantal gratis berichten bereikt (2 per dag). Neem contact op voor onbeperkt gebruik." },
         { status: 429 }
       );
     }
