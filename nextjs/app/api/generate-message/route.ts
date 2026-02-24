@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { email, jobTitle, tone, senderName, vacancyText, customInstruction, profile } = body;
+    const { email, jobTitle, tone, senderName, vacancyText, customInstruction, profile, recruiterProfile } = body;
 
     if (!email || !email.includes("@")) {
       return NextResponse.json({ error: "Een geldig e-mailadres is vereist." }, { status: 400 });
@@ -93,6 +93,14 @@ HUIDIGE SITUATIE:
     const greeting = toneGreetings[tone] || "Groet";
     const closingBlock = senderName ? `\nVaste afsluiting:\nRegel 1: ${greeting},\nRegel 2: ${senderName}\nGeen lege regel tussen groet en naam. Neem dit EXACT over.` : "";
 
+    const recruiterContext = recruiterProfile ? `
+JOUW PROFIEL (de recruiter/verzender):
+- Naam: ${recruiterProfile.fullName || senderName || "onbekend"}
+- Huidige functie: ${recruiterProfile.currentTitle || "niet beschikbaar"}
+- Bedrijf: ${recruiterProfile.companyName || "niet beschikbaar"}
+- Headline: ${recruiterProfile.headline || "niet beschikbaar"}
+Gebruik deze context om vanuit jouw expertise te schrijven. MAAR: noem NOOIT expliciet dat je recruiter bent.` : "";
+
     const vacancyContext = vacancyText ? `\nVACATURETEKST (feiten/context om te verwerken, NIET letterlijk kopiëren):\n${vacancyText.slice(0, 2000)}` : "";
 
     // Sanitize custom instruction
@@ -116,6 +124,7 @@ KANDIDAAT:
 - Naam: ${candidateName} (voornaam: ${firstName})
 - De rol: ${jobTitle || "niet gespecificeerd"}
 ${profileContext}
+${recruiterContext}
 ${vacancyContext}
 ${customInstr}
 ${closingBlock}
@@ -301,6 +310,9 @@ ANTWOORD FORMAT (volg EXACT):
         connectionRequest = connectionRequest.substring(0, 297) + "...";
       }
     }
+
+    // Log lead data
+    console.log(`[Lead] Email: ${email} | Recruiter: ${recruiterProfile?.fullName || senderName || "unknown"} | Company: ${recruiterProfile?.companyName || "unknown"}`);
 
     return NextResponse.json({
       message: inmail,

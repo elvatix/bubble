@@ -61,6 +61,11 @@ const STATUS_TEXT: Record<string, { title: string; sub: string }> = {
 export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const [linkedinUrl, setLinkedinUrl] = useState("");
   const [email, setEmail] = useState("");
+  const [formStep, setFormStep] = useState<1 | 2>(1);
+  const [recruiterInput, setRecruiterInput] = useState("");
+  const [recruiterUrl, setRecruiterUrl] = useState("");
+  const [recruiterProfile, setRecruiterProfile] = useState<ProfileData | null>(null);
+  const [isLoadingRecruiter, setIsLoadingRecruiter] = useState(false);
   const [candidateInput, setCandidateInput] = useState("");
   const [searchResults, setSearchResults] = useState<Array<{
     fullName: string; linkedinUrl: string | null; jobTitle: string | null;
@@ -207,6 +212,34 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       messageRef.current.scrollTop = messageRef.current.scrollHeight;
     }
   }, [inmailDisplayed, connectionDisplayed]);
+
+  // Scrape recruiter profile (Step 1)
+  const handleRecruiterSubmit = useCallback(async () => {
+    if (!recruiterUrl || !recruiterUrl.includes("linkedin.com")) return;
+    setIsLoadingRecruiter(true);
+    try {
+      const res = await fetch("/api/scrape-profile", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ linkedinUrl: recruiterUrl }),
+      });
+      const data = await res.json();
+      if (data.profile) {
+        setRecruiterProfile(data.profile);
+        setSenderName(data.profile.firstName || data.profile.fullName?.split(" ")[0] || "");
+        setEmail(data.profile.email || "");
+        setFormStep(2);
+      }
+    } catch { /* ignore */ }
+    setIsLoadingRecruiter(false);
+  }, [recruiterUrl]);
+
+  const handleRecruiterInput = useCallback((value: string) => {
+    setRecruiterInput(value);
+    if (/linkedin\.com|^https?:\/\//i.test(value)) {
+      setRecruiterUrl(value);
+    }
+  }, []);
 
   // Universal candidate input handler — detects URL vs name
   const isUrl = (text: string) => /linkedin\.com|^https?:\/\//i.test(text);
@@ -362,6 +395,85 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
       {phase === "idle" ? (
         <>
+          {/* Step indicator */}
+          <div className="flex items-center gap-3 mb-5">
+            <div className={`flex items-center gap-2 cursor-pointer ${formStep === 1 ? "opacity-100" : "opacity-40"}`} onClick={() => !recruiterProfile && setFormStep(1)}>
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${formStep === 1 ? "bg-green text-white" : recruiterProfile ? "bg-emerald-100 text-emerald-600" : "bg-gray-200 text-gray-500"}`}>
+                {recruiterProfile ? "✓" : "1"}
+              </span>
+              <span className={`text-xs font-semibold ${formStep === 1 ? "text-gray-900" : "text-gray-400"}`}>Jouw profiel</span>
+            </div>
+            <div className="flex-1 h-px bg-gray-200"/>
+            <div className={`flex items-center gap-2 ${formStep === 2 ? "opacity-100" : "opacity-40"}`}>
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${formStep === 2 ? "bg-green text-white" : "bg-gray-200 text-gray-500"}`}>2</span>
+              <span className={`text-xs font-semibold ${formStep === 2 ? "text-gray-900" : "text-gray-400"}`}>Kandidaat</span>
+            </div>
+          </div>
+
+          {/* STEP 1: Recruiter profile */}
+          {formStep === 1 && (
+            <div className="animate-[lm-fade-in_0.2s_ease]">
+              {!recruiterProfile ? (
+                <>
+                  <p className="text-xs text-gray-400 mb-3">Plak je eigen LinkedIn URL zodat we je berichten persoonlijk kunnen maken.</p>
+                  <div className="mb-4">
+                    <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Jouw LinkedIn URL *</label>
+                    <div className="flex items-center border border-gray-300 rounded-[10px] overflow-hidden transition-colors focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]">
+                      <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-200 flex items-center text-gray-400">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                          <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                        </svg>
+                      </span>
+                      <input type="url" placeholder="https://linkedin.com/in/jouw-profiel"
+                        value={recruiterInput}
+                        onChange={(e) => handleRecruiterInput(e.target.value)}
+                        className="flex-1 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit]" />
+                    </div>
+                  </div>
+
+                  {/* Email for lead capture */}
+                  <div className="mb-4">
+                    <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Jouw e-mailadres *</label>
+                    <input type="email" placeholder="naam@bedrijf.nl"
+                      value={email} onChange={(e) => setEmail(e.target.value)}
+                      className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
+                  </div>
+
+                  <button onClick={handleRecruiterSubmit}
+                    disabled={!recruiterUrl || !email || !email.includes("@") || isLoadingRecruiter}
+                    className={`w-full py-3.5 border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white ${
+                      !recruiterUrl || !email || !email.includes("@") ? "bg-gray-300 cursor-not-allowed" : "bg-green shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
+                    } text-[15px]`}>
+                    {isLoadingRecruiter ? "Profiel laden..." : "Volgende stap"}
+                  </button>
+                </>
+              ) : (
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green to-green-dark flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                      {recruiterProfile.firstName?.[0]?.toUpperCase() || "?"}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-bold text-gray-900 truncate">{recruiterProfile.fullName}</p>
+                      <p className="text-xs text-gray-500 truncate">{recruiterProfile.currentTitle}</p>
+                    </div>
+                    <button onClick={() => { setRecruiterProfile(null); setRecruiterInput(""); setRecruiterUrl(""); setFormStep(1); }}
+                      className="text-xs text-gray-400 hover:text-gray-600 bg-transparent border-none cursor-pointer font-[inherit]">Wijzig</button>
+                  </div>
+                  <button onClick={() => setFormStep(2)}
+                    className="w-full py-2.5 border-none rounded-lg font-semibold cursor-pointer transition-colors font-[inherit] text-white bg-green text-sm">
+                    Ga naar stap 2
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* STEP 2: Candidate */}
+          {formStep === 2 && (
+            <div className="animate-[lm-fade-in_0.2s_ease]">
+
           {/* Simple / Advanced toggle */}
           <div className="grid grid-cols-2 gap-2 mb-5">
             <button onClick={() => setIsAdvanced(false)}
@@ -404,7 +516,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                   </span>
                 )}
                 {selectedPerson && (
-                  <button onClick={() => { setLinkedinUrl(""); setCandidateInput(""); setSelectedPerson(""); setSearchResults([]); }}
+                  <button onClick={() => { setLinkedinUrl(""); setCandidateInput(""); setSelectedPerson(""); setSearchResults([]); setFormStep(2); }}
                     className="pr-3 text-gray-400 hover:text-gray-600 bg-transparent border-none cursor-pointer p-0 mr-1">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
                   </button>
@@ -471,23 +583,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             )}
           </div>
 
-          {/* Email */}
-          <div className={compact ? "mb-3.5" : "mb-4"}>
-            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">E-mailadres *</label>
-            <input type="email" placeholder="naam@bedrijf.nl"
-              value={email} onChange={(e) => setEmail(e.target.value)}
-              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
-          </div>
 
-          {/* Naam (optional) */}
-          <div className={compact ? "mb-3.5" : "mb-4"}>
-            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">
-              Jouw naam <span className="text-gray-400 font-normal">(optioneel)</span>
-            </label>
-            <input type="text" placeholder="bijv. Jan Jansen"
-              value={senderName} onChange={(e) => setSenderName(e.target.value)}
-              className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
-          </div>
 
           {/* Advanced fields */}
           {isAdvanced && (
@@ -529,9 +625,9 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
           {error && <div className="py-2.5 px-3.5 bg-red-50 border border-red-200 rounded-lg text-red-600 text-[13px] mb-4">{error}</div>}
 
-          <button onClick={handleGenerate} disabled={!email || !linkedinUrl}
+          <button onClick={handleGenerate} disabled={!linkedinUrl}
             className={`w-full border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white ${
-              !email || !linkedinUrl
+              !linkedinUrl
                 ? "bg-gray-300 cursor-not-allowed"
                 : compact
                   ? "bg-gradient-to-br from-green to-green-dark shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
@@ -539,6 +635,8 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             } ${compact ? "py-3 px-5 text-sm" : "py-3.5 px-6 text-[15px]"}`}>
             Genereer berichten
           </button>
+          </div>
+          )}
         </>
       ) : (
         <>
