@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Rate limiting for search
 const searchRateLimitMap = new Map<string, { count: number; resetTime: number }>();
-const SEARCH_RATE_LIMIT = 10;
-const SEARCH_RATE_WINDOW = 60 * 60 * 1000; // 1 hour
+const SEARCH_RATE_LIMIT = 20;
+const SEARCH_RATE_WINDOW = 60 * 60 * 1000;
 
 function checkSearchRateLimit(ip: string): boolean {
   const now = Date.now();
@@ -17,49 +16,25 @@ function checkSearchRateLimit(ip: string): boolean {
   return true;
 }
 
-interface ProspeoLocation {
-  city?: string;
-  country?: string;
-}
-
-interface ProspeoJob {
-  title?: string;
-  company_name?: string;
-}
-
+interface ProspeoLocation { city?: string; country?: string; }
+interface ProspeoJob { title?: string; company_name?: string; }
 interface ProspeoPerson {
-  full_name?: string;
-  first_name?: string;
-  last_name?: string;
-  linkedin_url?: string;
-  current_job_title?: string;
-  headline?: string;
-  location?: ProspeoLocation;
-  job_history?: ProspeoJob[];
+  full_name?: string; first_name?: string; last_name?: string;
+  linkedin_url?: string; current_job_title?: string; headline?: string;
+  location?: ProspeoLocation; job_history?: ProspeoJob[];
 }
-
-interface ProspeoCompany {
-  name?: string;
-}
-
-interface ProspeoResult {
-  person?: ProspeoPerson;
-  company?: ProspeoCompany;
-}
+interface ProspeoCompany { name?: string; }
+interface ProspeoResult { person?: ProspeoPerson; company?: ProspeoCompany; }
 
 export async function POST(req: NextRequest) {
   try {
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || req.headers.get("x-real-ip") || "unknown";
     if (!checkSearchRateLimit(ip)) {
-      return NextResponse.json(
-        { error: "Zoeklimiet bereikt. Probeer het later opnieuw." },
-        { status: 429 }
-      );
+      return NextResponse.json({ error: "Zoeklimiet bereikt." }, { status: 429 });
     }
 
     const body = await req.json();
     const { query } = body;
-
     if (!query || query.length < 2) {
       return NextResponse.json({ error: "Voer minimaal 2 karakters in." }, { status: 400 });
     }
@@ -69,30 +44,53 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "API key niet geconfigureerd." }, { status: 500 });
     }
 
+    // Smart parsing: try to separate name from company/job keywords
+    // Heuristic: if 3+ words, last word(s) might be company/job
+    const words = query.trim().split(/\s+/);
+    
+    // Build filters based on input
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const filters: Record<string, any> = {};
+    
+    if (words.length <= 2) {
+      // Just a name — use person_name filter
+      filters.person_name = { include: [query.trim()] };
+    } else {
+      // 3+ words: first 2 words = name, rest = company or job context
+      const namePart = words.slice(0, 2).join(" ");
+      const contextPart = words.slice(2).join(" ");
+      
+      filters.person_name = { include: [namePart] };
+      // Try both company name and job title for the context
+      filters.company = { names: { include: [contextPart] } };
+    }
+
     const response = await fetch("https://api.prospeo.io/search-person", {
       method: "POST",
-      headers: {
-        "X-KEY": apiKey,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        page: 1,
-        filters: {
-          person_name_or_job_title: query,
-        },
-      }),
+      headers: { "X-KEY": apiKey, "Content-Type": "application/json" },
+      body: JSON.stringify({ page: 1, filters }),
     });
 
-    const data = await response.json();
+    let data = await response.json();
+
+    // If company filter returns no results, retry with just the name
+    if (data.error && data.error_code === "NO_RESULTS" && words.length > 2) {
+      const fallbackRes = await fetch("https://api.prospeo.io/search-person", {
+        method: "POST",
+        headers: { "X-KEY": apiKey, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          page: 1,
+          filters: { person_name: { include: [query.trim()] } },
+        }),
+      });
+      data = await fallbackRes.json();
+    }
 
     if (data.error) {
       if (data.error_code === "NO_RESULTS") {
         return NextResponse.json({ results: [] });
       }
-      return NextResponse.json(
-        { error: data.error_code || "Zoeken mislukt." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: data.error_code || "Zoeken mislukt." }, { status: 400 });
     }
 
     const results = (data.results || []).slice(0, 8).map((r: ProspeoResult) => {
