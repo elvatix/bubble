@@ -711,24 +711,27 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
           {error && <div className="py-2.5 px-3.5 bg-red-50 border border-red-200 rounded-lg text-red-600 text-[13px] mb-4">{error}</div>}
 
-          {formStep === 1 && linkedinUrl && (
+          {linkedinUrl && (
             <button onClick={() => setFormStep(2)}
               className="w-full py-3.5 border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white bg-green shadow-[0_4px_14px_rgba(141,182,0,0.3)] text-[15px] mb-2">
               Volgende stap
             </button>
           )}
-
-          {formStep === 2 && <button onClick={handleGenerate} disabled={!linkedinUrl}
-            className={`w-full border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white ${
-              !linkedinUrl
-                ? "bg-gray-300 cursor-not-allowed"
-                : compact
-                  ? "bg-gradient-to-br from-green to-green-dark shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
-                  : "bg-green"
-            } ${compact ? "py-3 px-5 text-sm" : "py-3.5 px-6 text-[15px]"}`}>
-            Genereer berichten
-          </button>}
           </div>
+          )}
+
+          {/* Generate button — shown in Step 2 after recruiter profile */}
+          {formStep === 2 && recruiterProfile && (
+            <button onClick={handleGenerate} disabled={!linkedinUrl}
+              className={`w-full border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white ${
+                !linkedinUrl
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : compact
+                    ? "bg-gradient-to-br from-green to-green-dark shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
+                    : "bg-green"
+              } ${compact ? "py-3 px-5 text-sm" : "py-3.5 px-6 text-[15px]"}`}>
+              Genereer berichten
+            </button>
           )}
         </>
       ) : (
