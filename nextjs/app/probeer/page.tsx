@@ -33,13 +33,12 @@ export default function ProbeerPage() {
             Gratis uitproberen
           </p>
           <h1 className="text-[clamp(28px,5vw,44px)] font-black leading-[1.1] mb-4 text-gray-900">
-            Eén bericht. 30 seconden.{" "}
-            <span className="gradient-text">Oordeel zelf.</span>
+            Twee stappen. 30 seconden.{" "}
+            <span className="gradient-text">Jouw eerste AI-bericht.</span>
           </h1>
           <p className="text-base text-gray-500 leading-relaxed max-w-[540px] mx-auto mb-10">
-            Plak het LinkedIn-profiel van een kandidaat en ontvang direct een persoonlijk
-            bericht. Geen account nodig, geen verplichtingen. Gewoon zelf ervaren wat
-            Elvatix kan.
+            Zoek je kandidaat, vul je eigen profiel in en ontvang direct een
+            persoonlijke InMail en connectieverzoek. Geen account nodig.
           </p>
         </Container>
       </section>
@@ -61,12 +60,12 @@ export default function ProbeerPage() {
               Dit was het voorproefje
             </p>
             <h2 className="text-[clamp(24px,3.5vw,36px)] font-black text-gray-900 mb-4 leading-tight">
-              Stel je voor dat je dit doet voor{" "}
-              <span className="gradient-text">25 kandidaten tegelijk.</span>
+              Dit deed je net voor één kandidaat.{" "}
+              <span className="gradient-text">Nu voor je hele pool.</span>
             </h2>
             <p className="text-base text-gray-500 leading-relaxed max-w-[500px] mx-auto">
-              Wat je net deed voor één kandidaat, doet Elvatix voor je hele pipeline.
-              Volledig geïntegreerd in Recruiter Seat, met jouw templates en jouw toon.
+              Elvatix draait volledig in Recruiter Seat. Jij maakt de pools,
+              wij schrijven alle berichten. Met jouw templates, jouw toon en meer context.
             </p>
           </div>
 
