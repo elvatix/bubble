@@ -71,6 +71,11 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({ page: 1, filters }),
     });
 
+    // Check HTTP-level rate limit from Prospeo
+    if (response.status === 429 || response.status === 402) {
+      return NextResponse.json({ error: "Zoekservice tijdelijk niet beschikbaar. Plak een LinkedIn URL om verder te gaan.", fallback: true }, { status: 429 });
+    }
+
     let data = await response.json();
 
     // If company filter returns no results, retry with just the name
@@ -90,7 +95,11 @@ export async function POST(req: NextRequest) {
       if (data.error_code === "NO_RESULTS") {
         return NextResponse.json({ results: [] });
       }
-      return NextResponse.json({ error: data.error_code || "Zoeken mislukt." }, { status: 400 });
+      // Prospeo rate limit or quota exceeded
+      if (response.status === 429 || data.error_code === "RATE_LIMIT" || (data.message && data.message.toLowerCase().includes("rate"))) {
+        return NextResponse.json({ error: "Zoekservice tijdelijk niet beschikbaar. Probeer het over een paar minuten opnieuw of plak een LinkedIn URL.", fallback: true }, { status: 429 });
+      }
+      return NextResponse.json({ error: "Zoeken niet beschikbaar. Plak een LinkedIn URL om verder te gaan.", fallback: true }, { status: 400 });
     }
 
     const results = (data.results || []).slice(0, 8).map((r: ProspeoResult) => {

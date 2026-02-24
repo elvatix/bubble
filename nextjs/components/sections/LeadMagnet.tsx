@@ -321,6 +321,10 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         if (data.results) {
           setSearchResults(data.results);
           setShowSearchResults(true);
+        } else if (data.fallback) {
+          setSearchResults([]);
+          setShowSearchResults(false);
+          setError(data.error);
         }
       } catch { /* ignore */ }
       setIsSearching(false);
