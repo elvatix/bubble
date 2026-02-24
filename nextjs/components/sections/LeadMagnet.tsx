@@ -392,7 +392,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                     <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                   </svg>
                 </span>
-                <input type="text" placeholder="Plak URL of typ een naam..."
+                <input type="text" placeholder="Typ een naam of plak een LinkedIn URL"
                   value={candidateInput}
                   onChange={(e) => handleCandidateInput(e.target.value)}
                   onFocus={() => searchResults.length > 0 && !selectedPerson && setShowSearchResults(true)}
