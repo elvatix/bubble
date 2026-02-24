@@ -29,6 +29,7 @@ const linkColumns = [
       { label: "Case Studies", href: "/cases" },
       { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },
+      { label: "Probeer gratis", href: "/probeer" },
     ],
   },
 ];

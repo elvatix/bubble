@@ -11,6 +11,7 @@ export default function Header() {
     { label: "Voor Wie", href: "/solutions" },
     { label: "Case Studies", href: "/cases" },
     { label: "Pricing", href: "/pricing" },
+    { label: "Probeer gratis", href: "/probeer" },
     { label: "Contact", href: "/contact" },
   ];
 
