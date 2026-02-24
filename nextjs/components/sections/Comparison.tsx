@@ -18,7 +18,7 @@ const XIcon = () => (
 
 const rows = [
   { label: "Personalisatie op basis van profiel", zonder: false, met: true },
-  { label: "Werkt direct in LinkedIn Recruiter", zonder: false, met: true },
+  { label: "Bericht op basis van het LinkedIn-profiel", zonder: false, met: true },
   { label: "Tone of voice instellen", zonder: false, met: true },
   { label: "Taal automatisch detecteren", zonder: false, met: true },
   { label: "30 seconden per InMail", zonder: false, met: true },
@@ -30,26 +30,26 @@ export default function Comparison() {
       <div className="max-w-[900px] mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
-            Van uren typen naar seconden.
+            Het verschil is meetbaar.
           </h2>
           <p className="text-gray-500 text-base max-w-[520px] mx-auto">
-            Vergelijk handmatig recruiten met Elvatix.
+            Handmatig schrijven versus Elvatix. Jij kiest.
           </p>
         </div>
 
         {/* Proof stats bar */}
         <div className="flex justify-center gap-12 mb-10 py-5 px-8 rounded-2xl bg-gradient-to-br from-elvatix to-elvatix-dark max-md:gap-6 max-md:px-4 max-sm:flex-col max-sm:gap-4 max-sm:items-center">
           <div className="text-center">
-            <p className="text-[32px] font-black text-white">260</p>
-            <p className="text-[13px] text-white/80">InMails verstuurd</p>
+            <p className="text-[32px] font-black text-white">30 sec</p>
+            <p className="text-[13px] text-white/80">per bericht</p>
           </div>
           <div className="text-center">
-            <p className="text-[32px] font-black text-white">1.7 uur</p>
-            <p className="text-[13px] text-white/80">totale tijd</p>
+            <p className="text-[32px] font-black text-white">95%</p>
+            <p className="text-[13px] text-white/80">tijdsbesparing</p>
           </div>
           <div className="text-center">
-            <p className="text-[32px] font-black text-white">Manpower</p>
-            <p className="text-[13px] text-white/80">klant case</p>
+            <p className="text-[32px] font-black text-white">100%</p>
+            <p className="text-[13px] text-white/80">persoonlijk</p>
           </div>
         </div>
 

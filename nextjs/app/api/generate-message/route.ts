@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Rate limiting
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT = 2;
+const RATE_LIMIT = 5;
 const RATE_WINDOW = 24 * 60 * 60 * 1000; // 24 hours
 
 function checkRateLimit(ip: string): boolean {

@@ -24,8 +24,8 @@ export default function WedgeSection() {
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.15}>
               <h2 className="text-[clamp(28px,4vw,56px)] font-black text-white mb-5 leading-[1.1]">
-                Van uren typen naar{" "}
-                <span className="text-amber-400">seconden.</span>
+                Minder typen.{" "}
+                <span className="text-amber-400">Meer bereiken.</span>
               </h2>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.3}>

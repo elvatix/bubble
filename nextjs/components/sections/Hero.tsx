@@ -13,16 +13,16 @@ export default function Hero() {
           {/* Left: Text content */}
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-[clamp(32px,5vw,56px)] font-black leading-[1.1] mb-5 text-gray-900">
-              Elk bericht met de hand typen?{" "}
+              Jij kent je kandidaten.{" "}
               <span className="gradient-text">
-                Dat hoeft niet meer.
+                Wij schrijven het bericht.
               </span>
             </h1>
 
             <p className="text-lg text-gray-500 leading-relaxed max-w-[600px] mb-8 mx-auto lg:mx-0">
-              Elvatix schrijft persoonlijke InMails en connectieverzoeken op basis van
-              het LinkedIn-profiel van je kandidaat. In jouw toon, met de juiste
-              personalisatie. Klaar in 30 seconden.
+              Plak een LinkedIn-profiel, kies je toon en ontvang een
+              persoonlijk bericht. Geschreven alsof je er zelf voor bent gaan
+              zitten. In 30 seconden klaar.
             </p>
 
             <div className="flex gap-3 justify-center lg:justify-start flex-wrap">

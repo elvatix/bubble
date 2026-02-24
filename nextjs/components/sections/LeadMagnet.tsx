@@ -419,7 +419,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const formContent = (
     <div
       id="lead-magnet"
-      className={`bg-white border border-gray-200 relative overflow-hidden ${
+      className={`bg-white border border-gray-200 relative overflow-visible ${
         compact
           ? "rounded-[20px] p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.03)]"
           : "rounded-2xl p-9 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)]"
@@ -465,7 +465,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                   <div className="mb-4">
                     <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Jouw LinkedIn profiel *</label>
                     <div className="relative">
-                      <div className={`flex items-center border rounded-[10px] overflow-hidden transition-colors ${recruiterUrl ? "border-green bg-elvatix-light/30" : "border-gray-300"} focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]`}>
+                      <div className={`flex items-center border rounded-[10px] transition-colors ${recruiterUrl ? "border-green bg-elvatix-light/30" : "border-gray-300"} focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]`}>
                         <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-200 flex items-center text-gray-400">
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -499,10 +499,10 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
                       {/* Recruiter search results dropdown */}
                       {showRecruiterResults && recruiterSearchResults.length > 0 && (
-                        <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-[10px] shadow-xl max-h-[60vh] overflow-y-auto">
+                        <div className="absolute z-50 top-full left-0 right-0 mt-1.5 bg-white border border-gray-200 rounded-[10px] shadow-2xl max-h-[50vh] overflow-y-auto overscroll-contain -webkit-overflow-scrolling-touch">
                           {recruiterSearchResults.map((person, idx) => (
                             <button key={idx} onMouseDown={() => handleSelectRecruiter(person)}
-                              className="w-full text-left px-4 py-3 hover:bg-gray-50 cursor-pointer font-[inherit] border-none bg-transparent transition-colors"
+                              className="w-full text-left px-4 py-4 hover:bg-gray-50 cursor-pointer font-[inherit] border-none bg-transparent transition-colors"
                               style={{ borderBottom: idx < recruiterSearchResults.length - 1 ? "1px solid #f3f4f6" : "none" }}>
                               <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green to-green-dark flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
@@ -584,7 +584,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           <div className={compact ? "mb-3.5" : "mb-4"}>
             <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">LinkedIn profiel *</label>
             <div className="relative">
-              <div className={`flex items-center border rounded-[10px] overflow-hidden transition-colors ${selectedPerson ? "border-green bg-elvatix-light/30" : "border-gray-300"} focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]`}>
+              <div className={`flex items-center border rounded-[10px] transition-colors ${selectedPerson ? "border-green bg-elvatix-light/30" : "border-gray-300"} focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]`}>
                 <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-200 flex items-center text-gray-400">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -619,10 +619,10 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
               {/* Search results dropdown */}
               {showSearchResults && searchResults.length > 0 && (
-                <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-[10px] shadow-xl max-h-[60vh] overflow-y-auto">
+                <div className="absolute z-50 top-full left-0 right-0 mt-1.5 bg-white border border-gray-200 rounded-[10px] shadow-2xl max-h-[50vh] overflow-y-auto overscroll-contain -webkit-overflow-scrolling-touch">
                   {searchResults.map((person, idx) => (
                     <button key={idx} onMouseDown={() => handleSelectPerson(person)}
-                      className="w-full text-left px-4 py-3 hover:bg-gray-50 cursor-pointer font-[inherit] border-none bg-transparent transition-colors"
+                      className="w-full text-left px-4 py-4 hover:bg-gray-50 cursor-pointer font-[inherit] border-none bg-transparent transition-colors"
                       style={{ borderBottom: idx < searchResults.length - 1 ? "1px solid #f3f4f6" : "none" }}>
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green to-green-dark flex items-center justify-center text-white font-bold text-sm flex-shrink-0">

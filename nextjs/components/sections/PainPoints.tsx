@@ -10,8 +10,8 @@ const pains = [
         <polyline points="12 6 12 12 16 14" />
       </svg>
     ),
-    title: "Je bent 10-15 minuten bezig per InMail",
-    description: "Profiel openen in LinkedIn Recruiter. Werkervaring doorlezen. Een bericht schrijven dat persoonlijk klinkt. Toon aanpassen. Verzenden. En dat doe je 20 keer per dag.",
+    title: "10 minuten per InMail. 20 keer per dag.",
+    description: "Profiel openen. Werkervaring doorlezen. Een bericht schrijven dat persoonlijk klinkt. Afsluiting kiezen. Versturen. Volgende kandidaat. Herhaal.",
   },
   {
     icon: (
@@ -21,8 +21,8 @@ const pains = [
         <path d="M12 11h4M12 16h4M8 11h.01M8 16h.01" />
       </svg>
     ),
-    title: "Je plakt templates die kandidaten direct herkennen",
-    description: "Een bericht uit ChatGPT kopiëren en in LinkedIn plakken. Het klinkt generiek, en je kandidaten prikken er doorheen. Ze openen je bericht, maar reageren niet.",
+    title: "Templates die iedereen herkent als template",
+    description: "Copy-paste uit ChatGPT. Het klinkt generiek en je kandidaten prikken er direct doorheen. Ze openen je bericht, maar reageren niet.",
   },
   {
     icon: (
@@ -32,7 +32,7 @@ const pains = [
       </svg>
     ),
     title: "Je response rate blijft onder de 10%",
-    description: "Generieke berichten converteren niet. Je stuurt tientallen InMails per dag, maar krijgt amper reactie. Je targets worden niet gehaald en het team raakt gefrustreerd.",
+    description: "Tientallen InMails per dag, amper reactie. De targets worden niet gehaald. Het team raakt gefrustreerd. En jij weet: het ligt niet aan de kandidaten.",
   },
   {
     icon: (
@@ -42,8 +42,8 @@ const pains = [
         <line x1="12" y1="17" x2="12.01" y2="17" />
       </svg>
     ),
-    title: "Je vergeet op te volgen en kandidaten haken af",
-    description: "Geen systeem voor follow-ups. Die ene kandidaat die wél geïnteresseerd was? Die hoor je nooit meer. Warme leads worden koud. Kansen gaan verloren.",
+    title: "Warme kandidaten worden koud",
+    description: "Die ene kandidaat die wél geïnteresseerd was? Vergeten op te volgen. Geen systeem, geen reminder. Warme leads worden koud.",
   },
   {
     icon: (
@@ -54,8 +54,8 @@ const pains = [
         <line x1="22" y1="8" x2="17" y2="13" />
       </svg>
     ),
-    title: "Connectieverzoeken worden massaal genegeerd",
-    description: "\"Ik zou je graag toevoegen.\" Elke recruiter stuurt hetzelfde. Jouw verzoek verdwijnt tussen de tientallen andere. Zonder persoonlijke noot accepteert niemand.",
+    title: "Connectieverzoeken die niemand accepteert",
+    description: "\"Ik zou je graag toevoegen aan mijn netwerk.\" Elke recruiter stuurt hetzelfde. Zonder persoonlijke noot accepteert niemand.",
   },
 ];
 
@@ -78,8 +78,8 @@ export default function PainPoints() {
             <span className="text-red-500">elke week uren.</span>
           </h2>
           <p className="text-gray-500 text-base max-w-[520px] mx-auto">
-            Recruiters besteden het grootste deel van hun dag aan handmatig werk.
-            Herken jij deze situaties?
+            Als recruiter wil je bezig zijn met mensen. Niet met het eindeloos
+            typen van berichten.
           </p>
         </motion.div>
 

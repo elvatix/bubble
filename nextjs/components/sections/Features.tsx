@@ -8,9 +8,9 @@ const tabs = [
   {
     id: "inmails",
     label: "InMails",
-    title: "Persoonlijke InMails in 30 seconden",
+    title: "InMails die gelezen worden",
     description:
-      "Elvatix analyseert het LinkedIn-profiel van je kandidaat en schrijft een volledig gepersonaliseerd bericht. In jouw toon, zonder houterige AI-taal.",
+      "Plak een LinkedIn-profiel en Elvatix schrijft een bericht dat aansluit bij de werkervaring, achtergrond en interesses van je kandidaat. In jouw toon, in natuurlijk Nederlands.",
     features: [
       "Schrijf in jouw eigen tone-of-voice",
       "30 seconden per gepersonaliseerd bericht",
@@ -20,9 +20,9 @@ const tabs = [
   {
     id: "connecties",
     label: "Connectieverzoeken",
-    title: "Gepersonaliseerde connectieverzoeken",
+    title: "Connectieverzoeken die opvallen",
     description:
-      "Gepersonaliseerde connectieverzoeken op basis van het profiel van je kandidaat. Geen standaard templates meer. Elk verzoek is uniek en relevant.",
+      "Elvatix schrijft een connectieverzoek dat verwijst naar iets concreets uit het profiel van je kandidaat. Geen \"Ik wil je graag toevoegen\" meer.",
     features: [
       "Hogere acceptatiegraad",
       "Automatisch gepersonaliseerd",
@@ -32,7 +32,7 @@ const tabs = [
   {
     id: "reminders",
     label: "Reminders",
-    title: "Geautomatiseerde follow-ups",
+    title: "Slimme follow-ups",
     description:
       "Vergeet nooit meer om op te volgen. Elvatix helpt je om op het juiste moment de juiste kandidaat opnieuw te benaderen.",
     features: [
@@ -44,9 +44,9 @@ const tabs = [
   {
     id: "templates",
     label: "Templates",
-    title: "Slimme templates met AI",
+    title: "Templates die wél persoonlijk zijn",
     description:
-      "Maak templates voor terugkerende berichten. Jij bepaalt de structuur, Elvatix vult dynamisch de personalisatie in op basis van het profiel.",
+      "Maak templates voor terugkerende berichten. Jij bepaalt de structuur, Elvatix maakt elk bericht uniek op basis van het profiel.",
     features: [
       "Jij bepaalt de structuur",
       "AI vult dynamisch in",
