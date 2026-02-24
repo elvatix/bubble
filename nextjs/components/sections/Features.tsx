@@ -10,11 +10,11 @@ const tabs = [
     label: "InMails",
     title: "Persoonlijke InMails in 30 seconden",
     description:
-      "Elvatix leest het LinkedIn-profiel van je kandidaat en schrijft een volledig gepersonaliseerd bericht . In jouw toon, zonder houterige AI-vertalingen. Geen kopiëren en plakken meer.",
+      "Elvatix analyseert het LinkedIn-profiel van je kandidaat en schrijft een volledig gepersonaliseerd bericht. In jouw toon, zonder houterige AI-taal.",
     features: [
       "Schrijf in jouw eigen tone-of-voice",
       "30 seconden per gepersonaliseerd bericht",
-      "Werkt direct in LinkedIn Recruiter",
+      "Gebaseerd op het echte LinkedIn-profiel",
     ],
   },
   {
@@ -22,11 +22,11 @@ const tabs = [
     label: "Connectieverzoeken",
     title: "Gepersonaliseerde connectieverzoeken",
     description:
-      "In één klik gepersonaliseerde uitnodigingen op basis van profielinformatie. Geen standaard templates meer . Elk verzoek is uniek en relevant.",
+      "Gepersonaliseerde connectieverzoeken op basis van het profiel van je kandidaat. Geen standaard templates meer. Elk verzoek is uniek en relevant.",
     features: [
-      "2x hogere acceptatiegraad",
+      "Hogere acceptatiegraad",
       "Automatisch gepersonaliseerd",
-      "Eén klik vanuit Sales Navigator",
+      "Max 300 karakters, maximale impact",
     ],
   },
   {
@@ -34,7 +34,7 @@ const tabs = [
     label: "Reminders",
     title: "Geautomatiseerde follow-ups",
     description:
-      "Vergeet nooit meer om op te volgen. Elvatix helpt je om op het juiste moment de juiste kandidaat weer te bereiken.",
+      "Vergeet nooit meer om op te volgen. Elvatix helpt je om op het juiste moment de juiste kandidaat opnieuw te benaderen.",
     features: [
       "Automatische herinneringen",
       "Nooit meer gemiste follow-ups",
@@ -68,7 +68,7 @@ export default function Features() {
               Modules
             </p>
             <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
-              Alles wat je nodig hebt, direct in LinkedIn
+              Alles wat je nodig hebt voor betere outreach
             </h2>
             <p className="text-gray-500 text-base max-w-[560px] mx-auto">
               Vier krachtige modules die samenwerken om jouw LinkedIn outreach te versnellen.

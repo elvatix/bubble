@@ -75,7 +75,7 @@ export default function PainPoints() {
           </p>
           <h2 className="text-[clamp(28px,3.5vw,44px)] font-black text-gray-900 mb-4 leading-tight">
             Dit kost jou en je team{" "}
-            <span className="text-red-500">elke week opnieuw</span>
+            <span className="text-red-500">elke week uren.</span>
           </h2>
           <p className="text-gray-500 text-base max-w-[520px] mx-auto">
             Recruiters besteden het grootste deel van hun dag aan handmatig werk.

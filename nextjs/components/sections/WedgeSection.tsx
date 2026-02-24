@@ -9,7 +9,7 @@ export default function WedgeSection() {
     { icon: <StopwatchIcon size={28} />, value: "30", suffix: " sec", label: "Per gepersonaliseerd bericht", sub: "Was 10-15 minuten" },
     { icon: <TrendingUpIcon size={28} />, value: "2", suffix: "x", label: "Meer respons op InMails", sub: "Vergeleken met standaard berichten" },
     { icon: <ClockIcon size={28} />, value: "4-6", suffix: " uur", label: "Besparing per week", sub: "Per recruiter, per week" },
-    { icon: <TrophyIcon size={28} />, value: "260", suffix: " InMails", label: "In slechts 1,7 uur", sub: "Manpower case study" },
+    { icon: <TrophyIcon size={28} />, value: "95", suffix: "%", label: "Tijdsbesparing per bericht", sub: "Vergeleken met handmatig schrijven" },
   ];
 
   return (
@@ -30,18 +30,18 @@ export default function WedgeSection() {
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.3}>
               <p className="text-[clamp(14px,1.5vw,17px)] text-white/70 max-w-[460px] mb-9 leading-relaxed">
-                500+ recruiters besparen dagelijks uren met Elvatix. Van copy-paste frustratie naar persoonlijke berichten in één klik.
+                Van copy-paste frustratie naar persoonlijke berichten in seconden. Elvatix schrijft, jij verstuurt.
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.45}>
               <motion.a
-                href="/cases"
+                href="/demo"
                 className="pill-btn inline-flex items-center gap-2 bg-white/15 text-white border border-white/30 backdrop-blur-[10px]"
                 whileHover={{ scale: 1.05, background: "rgba(255,255,255,0.25)" }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Bekijk de Manpower case study →
+                Probeer het zelf →
               </motion.a>
             </AnimateOnScroll>
           </div>

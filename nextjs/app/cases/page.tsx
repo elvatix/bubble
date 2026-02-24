@@ -21,7 +21,7 @@ const cases = [
       { label: 'Time-to-fill', before: '34 dagen', after: '21 dagen' },
       { label: 'Tijd per bericht', before: '8 min', after: '30 sec' },
     ],
-    quote: 'Elvatix heeft de manier waarop ons team kandidaten benadert compleet veranderd. De berichten voelen echt persoonlijk . Kandidaten merken niet dat AI meehielp.',
+    quote: 'Elvatix heeft de manier waarop ons team kandidaten benadert compleet veranderd. De berichten voelen echt persoonlijk. Kandidaten merken niet dat AI meehielp.',
     quotePerson: 'Lisa van der Berg',
     quoteRole: 'Head of Talent Acquisition, Manpower Nederland',
   },

@@ -13,16 +13,16 @@ export default function Hero() {
           {/* Left: Text content */}
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-[clamp(32px,5vw,56px)] font-black leading-[1.1] mb-5 text-gray-900">
-              Stop met uren typen.{" "}
+              Elk bericht met de hand typen?{" "}
               <span className="gradient-text">
-                Genereer persoonlijke InMails in 30 seconden.
+                Dat hoeft niet meer.
               </span>
             </h1>
 
             <p className="text-lg text-gray-500 leading-relaxed max-w-[600px] mb-8 mx-auto lg:mx-0">
-              Elvatix werkt direct in je LinkedIn Recruiter. Schrijf connectieverzoeken en
-              InMails die klinken alsof je ze zelf hebt geschreven. Aangevuld met de
-              juiste toon, taal en personalisatie.
+              Elvatix schrijft persoonlijke InMails en connectieverzoeken op basis van
+              het LinkedIn-profiel van je kandidaat. In jouw toon, met de juiste
+              personalisatie. Klaar in 30 seconden.
             </p>
 
             <div className="flex gap-3 justify-center lg:justify-start flex-wrap">

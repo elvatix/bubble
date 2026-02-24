@@ -21,7 +21,7 @@ export default function ConnectionsPage() {
     <main className="pt-40 pb-0">
       <Container className="text-center mb-16">        <h1 className="page-heading">Connectieverzoeken die wél geaccepteerd worden</h1>
         <p className="page-subtitle">
-          Geen standaard &ldquo;Ik zou je graag toevoegen&rdquo; meer. Elvatix schrijft connectieverzoeken die opvallen . Gebaseerd op het echte profiel.
+          Geen standaard &ldquo;Ik zou je graag toevoegen&rdquo; meer. Elvatix schrijft connectieverzoeken die opvallen. Gebaseerd op het echte profiel.
         </p>
         <div className="my-10 text-elvatix"><UsersIcon size={80} /></div>
       </Container>
@@ -40,7 +40,7 @@ export default function ConnectionsPage() {
       <section className="cta-section">
         <Container className="text-center text-white">
           <h2 className="text-2xl font-extrabold mb-3">Probeer het zelf</h2>
-          <p className="text-white/80 mb-6">Genereer je eerste connectieverzoek . Helemaal gratis.</p>
+          <p className="text-white/80 mb-6">Genereer je eerste connectieverzoek. Helemaal gratis.</p>
           <Button variant="white" href="/">Start nu →</Button>
         </Container>
       </section>
