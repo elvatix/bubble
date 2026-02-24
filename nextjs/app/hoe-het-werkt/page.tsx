@@ -14,14 +14,14 @@ const steps = [
     number: "01",
     icon: <FileTextIcon size={32} />,
     title: "Maak je template aan",
-    description: "Stel je berichttemplate in, net zoals je een InMail-sjabloon maakt in LinkedIn Recruiter. Voeg de vacature-informatie toe en bepaal de toon. Elvatix gebruikt dit als basis om elk bericht uniek te maken.",
+    description: "Stel je berichttemplate in, net zoals je een InMail-sjabloon maakt in Recruiter Seat. Voeg de vacature-informatie toe en bepaal de toon. Elvatix gebruikt dit als basis om elk bericht uniek te maken.",
     highlight: "Eenmalig instellen, eindeloos hergebruiken",
   },
   {
     number: "02",
     icon: <SearchIcon size={32} />,
     title: "Selecteer je kandidaten",
-    description: "Gebruik je bestaande LinkedIn Recruiter projects, pipelines of Sales Navigator lijsten. Selecteer de kandidaten die je wilt benaderen - Elvatix integreert naadloos met je huidige workflow.",
+    description: "Selecteer de kandidaten die je wilt benaderen. Elvatix analyseert hun profiel en schrijft een persoonlijk bericht.",
     highlight: "Werkt met Recruiter, Sales Navigator en LinkedIn Search",
   },
   {

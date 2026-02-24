@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const integrations = [
-  { name: 'LinkedIn Recruiter', desc: 'Direct koppelen met je LinkedIn Recruiter-account voor naadloze candidate sourcing.', status: 'Live' },
+  { name: 'LinkedIn Recruiter Seat', desc: 'Direct koppelen met je Recruiter Seat voor naadloze candidate sourcing.', status: 'Live' },
   { name: 'Bullhorn', desc: 'Synchroniseer kandidaatdata en activiteiten automatisch met Bullhorn CRM.', status: 'Live' },
   { name: 'Salesforce', desc: 'Push recruitment data naar Salesforce voor complet overzicht van je pipeline.', status: 'Beta' },
   { name: 'Greenhouse', desc: 'Integreer met Greenhouse ATS voor end-to-end recruitment workflow.', status: 'Coming soon' },

@@ -36,7 +36,7 @@ const solutions = [
   {
     icon: <BriefcaseIcon />,
     title: "Corporate Recruiters",
-    description: "Efficiënter intern talent sourcen. Elvatix werkt direct in LinkedIn Recruiter . Geen extra tools of tabbladen nodig.",
+    description: "Efficiënter intern talent sourcen. Elvatix werkt samen met Recruiter Seat. Geen gedoe met extra tools.",
   },
   {
     icon: <RocketIcon />,
