@@ -225,7 +225,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     }
 
     // Otherwise treat it as a name search
-    setLinkedinUrl(""); setCandidateInput(""); setSelectedPerson(""); setSearchResults([]);
+    setLinkedinUrl("");
     if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
     if (value.length < 2) {
       setSearchResults([]);
