@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const searchRateLimitMap = new Map<string, { count: number; resetTime: number }>();
-const SEARCH_RATE_LIMIT = 20;
+const SEARCH_RATE_LIMIT = 100;
 const SEARCH_RATE_WINDOW = 60 * 60 * 1000;
 
 function checkSearchRateLimit(ip: string): boolean {
