@@ -61,6 +61,15 @@ const STATUS_TEXT: Record<string, { title: string; sub: string }> = {
 export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const [linkedinUrl, setLinkedinUrl] = useState("");
   const [email, setEmail] = useState("");
+  const [searchMode, setSearchMode] = useState<"url" | "name">("url");
+  const [nameQuery, setNameQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<Array<{
+    fullName: string; linkedinUrl: string | null; jobTitle: string | null;
+    companyName: string | null; location: string | null;
+  }>>([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [jobTitle, setJobTitle] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [tone, setTone] = useState("informeel");
@@ -199,6 +208,41 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     }
   }, [inmailDisplayed, connectionDisplayed]);
 
+  // Debounced name search
+  const handleNameSearch = useCallback((query: string) => {
+    setNameQuery(query);
+    if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
+    if (query.length < 2) {
+      setSearchResults([]);
+      setShowSearchResults(false);
+      return;
+    }
+    searchTimerRef.current = setTimeout(async () => {
+      setIsSearching(true);
+      try {
+        const res = await fetch("/api/search-person", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query }),
+        });
+        const data = await res.json();
+        if (data.results) {
+          setSearchResults(data.results);
+          setShowSearchResults(true);
+        }
+      } catch { /* ignore */ }
+      setIsSearching(false);
+    }, 400);
+  }, []);
+
+  const handleSelectPerson = useCallback((person: typeof searchResults[0]) => {
+    if (person.linkedinUrl) {
+      setLinkedinUrl(person.linkedinUrl);
+    }
+    setNameQuery(person.fullName);
+    setShowSearchResults(false);
+  }, []);
+
   const handleGenerate = useCallback(async () => {
     setError("");
     setPhase("connecting");
@@ -296,7 +340,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         <div className="mb-5">
           <p className="text-[11px] font-bold text-green uppercase tracking-[0.12em] mb-2">Probeer het zelf</p>
           <h3 className="text-xl font-extrabold text-gray-900 mb-1">Test Elvatix gratis</h3>
-          <p className="text-xs text-gray-400 leading-normal">Plak een LinkedIn profiel en ontvang direct een gepersonaliseerd bericht.</p>
+          <p className="text-xs text-gray-400 leading-normal">Zoek iemand op naam of plak een LinkedIn URL en ontvang direct een gepersonaliseerd bericht.</p>
         </div>
       )}
 
@@ -322,20 +366,96 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             </button>
           </div>
 
-          {/* LinkedIn URL */}
+          {/* LinkedIn URL or Name Search */}
           <div className={compact ? "mb-3.5" : "mb-4"}>
-            <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">LinkedIn URL *</label>
-            <div className="flex items-center border border-gray-300 rounded-[10px] overflow-hidden transition-colors focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]">
-              <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-300 flex items-center text-text-light">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                  <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-                </svg>
-              </span>
-              <input type="url" placeholder="https://linkedin.com/in/jan-jansen"
-                value={linkedinUrl} onChange={(e) => setLinkedinUrl(e.target.value)}
-                className="flex-1 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit]" />
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="text-[13px] font-semibold text-gray-700">Kandidaat zoeken *</label>
+              <div className="flex bg-gray-100 rounded-md p-0.5">
+                <button onClick={() => setSearchMode("url")} className={`px-2.5 py-1 rounded text-[11px] font-medium cursor-pointer transition-all font-[inherit] border-none ${searchMode === "url" ? "bg-white text-gray-700 shadow-sm" : "bg-transparent text-gray-400"}`}>URL</button>
+                <button onClick={() => setSearchMode("name")} className={`px-2.5 py-1 rounded text-[11px] font-medium cursor-pointer transition-all font-[inherit] border-none ${searchMode === "name" ? "bg-white text-gray-700 shadow-sm" : "bg-transparent text-gray-400"}`}>Naam</button>
+              </div>
             </div>
+
+            {searchMode === "url" ? (
+              <div className="flex items-center border border-gray-300 rounded-[10px] overflow-hidden transition-colors focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]">
+                <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-300 flex items-center text-text-light">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                    <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                  </svg>
+                </span>
+                <input type="url" placeholder="https://linkedin.com/in/jan-jansen"
+                  value={linkedinUrl} onChange={(e) => setLinkedinUrl(e.target.value)}
+                  className="flex-1 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit]" />
+              </div>
+            ) : (
+              <div className="relative">
+                <div className="flex items-center border border-gray-300 rounded-[10px] overflow-hidden transition-colors focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]">
+                  <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-300 flex items-center text-gray-400">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                  </span>
+                  <input type="text" placeholder="Zoek op naam, bijv. Jan Jansen"
+                    value={nameQuery}
+                    onChange={(e) => handleNameSearch(e.target.value)}
+                    onFocus={() => searchResults.length > 0 && setShowSearchResults(true)}
+                    onBlur={() => setTimeout(() => setShowSearchResults(false), 200)}
+                    className="flex-1 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit]" />
+                  {isSearching && (
+                    <span className="pr-3 text-gray-400">
+                      <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+                    </span>
+                  )}
+                </div>
+
+                {/* Search results dropdown */}
+                {showSearchResults && searchResults.length > 0 && (
+                  <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-[10px] shadow-xl max-h-[320px] overflow-y-auto">
+                    {searchResults.map((person, idx) => (
+                      <button key={idx} onMouseDown={() => handleSelectPerson(person)}
+                        className="w-full text-left px-4 py-3 hover:bg-gray-50 cursor-pointer font-[inherit] border-none bg-transparent border-b border-gray-100 last:border-b-0 transition-colors">
+                        <div className="flex items-start gap-3">
+                          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-green to-green-dark flex items-center justify-center text-white font-bold text-xs flex-shrink-0 mt-0.5">
+                            {person.fullName?.[0]?.toUpperCase() || "?"}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-sm font-semibold text-gray-900 truncate">{person.fullName}</p>
+                            {person.jobTitle && <p className="text-xs text-gray-500 truncate">{person.jobTitle}{person.companyName ? ` bij ${person.companyName}` : ""}</p>}
+                            {person.location && <p className="text-[11px] text-gray-400 truncate">{person.location}</p>}
+                          </div>
+                          {person.linkedinUrl && (
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8db600" strokeWidth="2" className="flex-shrink-0 mt-1">
+                              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                            </svg>
+                          )}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                )}
+                {showSearchResults && searchResults.length === 0 && nameQuery.length >= 2 && !isSearching && (
+                  <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-[10px] shadow-lg p-4 text-center">
+                    <p className="text-sm text-gray-400">Geen resultaten gevonden</p>
+                  </div>
+                )}
+
+                {/* Show selected LinkedIn URL */}
+                {linkedinUrl && (
+                  <div className="mt-2 flex items-center gap-2 py-2 px-3 bg-elvatix-light rounded-lg">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8db600" strokeWidth="2">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                      <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    <span className="text-xs text-green font-medium truncate flex-1">{linkedinUrl}</span>
+                    <button onClick={() => { setLinkedinUrl(""); setNameQuery(""); }} className="text-gray-400 hover:text-gray-600 bg-transparent border-none cursor-pointer p-0">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Role selector */}
