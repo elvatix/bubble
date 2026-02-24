@@ -78,9 +78,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         page: 1,
         filters: {
-          person_name: {
-            include: [query],
-          },
+          person_name_or_job_title: query,
         },
       }),
     });
