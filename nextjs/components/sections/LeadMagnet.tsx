@@ -66,6 +66,13 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const [recruiterUrl, setRecruiterUrl] = useState("");
   const [recruiterProfile, setRecruiterProfile] = useState<ProfileData | null>(null);
   const [isLoadingRecruiter, setIsLoadingRecruiter] = useState(false);
+  const [recruiterSearchResults, setRecruiterSearchResults] = useState<Array<{
+    fullName: string; linkedinUrl: string | null; jobTitle: string | null;
+    companyName: string | null; location: string | null;
+  }>>([]);
+  const [isSearchingRecruiter, setIsSearchingRecruiter] = useState(false);
+  const [showRecruiterResults, setShowRecruiterResults] = useState(false);
+  const recruiterSearchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [candidateInput, setCandidateInput] = useState("");
   const [searchResults, setSearchResults] = useState<Array<{
     fullName: string; linkedinUrl: string | null; jobTitle: string | null;
@@ -215,7 +222,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
   // Scrape recruiter profile (Step 1)
   const handleRecruiterSubmit = useCallback(async () => {
-    if (!recruiterUrl || !recruiterUrl.includes("linkedin.com")) return;
+    if (!recruiterUrl) return;
     setIsLoadingRecruiter(true);
     try {
       const res = await fetch("/api/scrape-profile", {
@@ -236,9 +243,46 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
   const handleRecruiterInput = useCallback((value: string) => {
     setRecruiterInput(value);
-    if (/linkedin\.com|^https?:\/\//i.test(value)) {
+
+    if (isUrl(value)) {
       setRecruiterUrl(value);
+      setRecruiterSearchResults([]);
+      setShowRecruiterResults(false);
+      if (recruiterSearchTimerRef.current) clearTimeout(recruiterSearchTimerRef.current);
+      return;
     }
+
+    setRecruiterUrl("");
+    if (recruiterSearchTimerRef.current) clearTimeout(recruiterSearchTimerRef.current);
+    if (value.length < 2) {
+      setRecruiterSearchResults([]);
+      setShowRecruiterResults(false);
+      return;
+    }
+    recruiterSearchTimerRef.current = setTimeout(async () => {
+      setIsSearchingRecruiter(true);
+      try {
+        const res = await fetch("/api/search-person", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: value }),
+        });
+        const data = await res.json();
+        if (data.results) {
+          setRecruiterSearchResults(data.results);
+          setShowRecruiterResults(true);
+        }
+      } catch { /* ignore */ }
+      setIsSearchingRecruiter(false);
+    }, 500);
+  }, []);
+
+  const handleSelectRecruiter = useCallback((person: typeof recruiterSearchResults[0]) => {
+    if (person.linkedinUrl) {
+      setRecruiterUrl(person.linkedinUrl);
+    }
+    setRecruiterInput(person.fullName);
+    setShowRecruiterResults(false);
   }, []);
 
   // Universal candidate input handler — detects URL vs name
@@ -410,40 +454,80 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             </div>
           </div>
 
-          {/* STEP 1: Recruiter profile */}
+          {/* STEP 1: Recruiter profile — same universal search as candidate */}
           {formStep === 1 && (
             <div className="animate-[lm-fade-in_0.2s_ease]">
               {!recruiterProfile ? (
                 <>
-                  <p className="text-xs text-gray-400 mb-3">Plak je eigen LinkedIn URL zodat we je berichten persoonlijk kunnen maken.</p>
+                  <p className="text-xs text-gray-400 mb-3">Zoek jezelf of plak je LinkedIn URL. We gebruiken je profiel als context voor de berichten.</p>
                   <div className="mb-4">
-                    <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Jouw LinkedIn URL *</label>
-                    <div className="flex items-center border border-gray-300 rounded-[10px] overflow-hidden transition-colors focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]">
-                      <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-200 flex items-center text-gray-400">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                          <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-                        </svg>
-                      </span>
-                      <input type="url" placeholder="https://linkedin.com/in/jouw-profiel"
-                        value={recruiterInput}
-                        onChange={(e) => handleRecruiterInput(e.target.value)}
-                        className="flex-1 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit]" />
+                    <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Jouw LinkedIn profiel *</label>
+                    <div className="relative">
+                      <div className={`flex items-center border rounded-[10px] overflow-hidden transition-colors ${recruiterUrl ? "border-green bg-elvatix-light/30" : "border-gray-300"} focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]`}>
+                        <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-200 flex items-center text-gray-400">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                          </svg>
+                        </span>
+                        <input type="text" placeholder="Typ je naam of plak je LinkedIn URL"
+                          value={recruiterInput}
+                          onChange={(e) => handleRecruiterInput(e.target.value)}
+                          onFocus={() => recruiterSearchResults.length > 0 && !recruiterUrl && setShowRecruiterResults(true)}
+                          onBlur={() => setTimeout(() => setShowRecruiterResults(false), 200)}
+                          className="flex-1 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit]" />
+                        {isSearchingRecruiter && (
+                          <span className="pr-3 text-gray-400">
+                            <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+                          </span>
+                        )}
+                        {recruiterUrl && (
+                          <button onClick={() => { setRecruiterUrl(""); setRecruiterInput(""); setRecruiterSearchResults([]); }}
+                            className="pr-3 text-gray-400 hover:text-gray-600 bg-transparent border-none cursor-pointer p-0 mr-1">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                          </button>
+                        )}
+                      </div>
+
+                      {recruiterUrl && (
+                        <div className="mt-1.5 flex items-center gap-2 text-xs text-green font-medium">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                          LinkedIn profiel gevonden
+                        </div>
+                      )}
+
+                      {/* Recruiter search results dropdown */}
+                      {showRecruiterResults && recruiterSearchResults.length > 0 && (
+                        <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-[10px] shadow-xl max-h-[320px] overflow-y-auto">
+                          {recruiterSearchResults.map((person, idx) => (
+                            <button key={idx} onMouseDown={() => handleSelectRecruiter(person)}
+                              className="w-full text-left px-4 py-3 hover:bg-gray-50 cursor-pointer font-[inherit] border-none bg-transparent transition-colors"
+                              style={{ borderBottom: idx < recruiterSearchResults.length - 1 ? "1px solid #f3f4f6" : "none" }}>
+                              <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green to-green-dark flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                                  {person.fullName?.[0]?.toUpperCase() || "?"}
+                                </div>
+                                <div className="min-w-0 flex-1">
+                                  <p className="text-sm font-semibold text-gray-900 truncate">{person.fullName}</p>
+                                  {person.jobTitle && <p className="text-xs text-gray-500 truncate">{person.jobTitle}{person.companyName ? ` bij ${person.companyName}` : ""}</p>}
+                                  {person.location && <p className="text-[11px] text-gray-400 truncate mt-0.5">{person.location}</p>}
+                                </div>
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                      {showRecruiterResults && recruiterSearchResults.length === 0 && recruiterInput.length >= 2 && !isSearchingRecruiter && !isUrl(recruiterInput) && (
+                        <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-[10px] shadow-lg p-4 text-center">
+                          <p className="text-sm text-gray-400">Geen resultaten gevonden</p>
+                        </div>
+                      )}
                     </div>
                   </div>
 
-                  {/* Email for lead capture */}
-                  <div className="mb-4">
-                    <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Jouw e-mailadres *</label>
-                    <input type="email" placeholder="naam@bedrijf.nl"
-                      value={email} onChange={(e) => setEmail(e.target.value)}
-                      className="w-full py-3 px-3.5 border border-gray-300 rounded-[10px] bg-white text-sm text-gray-900 font-[inherit] outline-none box-border focus:border-green focus:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]" />
-                  </div>
-
                   <button onClick={handleRecruiterSubmit}
-                    disabled={!recruiterUrl || !email || !email.includes("@") || isLoadingRecruiter}
+                    disabled={!recruiterUrl || isLoadingRecruiter}
                     className={`w-full py-3.5 border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white ${
-                      !recruiterUrl || !email || !email.includes("@") ? "bg-gray-300 cursor-not-allowed" : "bg-green shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
+                      !recruiterUrl ? "bg-gray-300 cursor-not-allowed" : "bg-green shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
                     } text-[15px]`}>
                     {isLoadingRecruiter ? "Profiel laden..." : "Volgende stap"}
                   </button>

@@ -57,9 +57,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { email, jobTitle, tone, senderName, vacancyText, customInstruction, profile, recruiterProfile } = body;
 
-    if (!email || !email.includes("@")) {
-      return NextResponse.json({ error: "Een geldig e-mailadres is vereist." }, { status: 400 });
-    }
+    // Email no longer required — lead captured via recruiter LinkedIn URL in Step 1
 
     let profileContext = "";
     if (profile && profile.fullName) {
@@ -312,7 +310,7 @@ ANTWOORD FORMAT (volg EXACT):
     }
 
     // Log lead data
-    console.log(`[Lead] Email: ${email} | Recruiter: ${recruiterProfile?.fullName || senderName || "unknown"} | Company: ${recruiterProfile?.companyName || "unknown"}`);
+    console.log(`[Lead] Recruiter: ${recruiterProfile?.fullName || senderName || "unknown"} | Company: ${recruiterProfile?.companyName || "unknown"} | Email: ${email || "n/a"}`);
 
     return NextResponse.json({
       message: inmail,
