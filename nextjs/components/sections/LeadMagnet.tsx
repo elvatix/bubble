@@ -441,22 +441,24 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         <>
           {/* Step indicator */}
           <div className="flex items-center gap-3 mb-5">
-            <div className={`flex items-center gap-2 cursor-pointer ${formStep === 1 ? "opacity-100" : "opacity-40"}`} onClick={() => !recruiterProfile && setFormStep(1)}>
-              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${formStep === 1 ? "bg-green text-white" : recruiterProfile ? "bg-emerald-100 text-emerald-600" : "bg-gray-200 text-gray-500"}`}>
-                {recruiterProfile ? "✓" : "1"}
+            <div className={`flex items-center gap-2 cursor-pointer ${formStep === 1 ? "opacity-100" : "opacity-40"}`} onClick={() => setFormStep(1)}>
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${formStep === 1 ? "bg-green text-white" : linkedinUrl ? "bg-emerald-100 text-emerald-600" : "bg-gray-200 text-gray-500"}`}>
+                {linkedinUrl && formStep === 2 ? "✓" : "1"}
               </span>
-              <span className={`text-xs font-semibold ${formStep === 1 ? "text-gray-900" : "text-gray-400"}`}>Jouw profiel</span>
+              <span className={`text-xs font-semibold ${formStep === 1 ? "text-gray-900" : "text-gray-400"}`}>Kandidaat</span>
             </div>
             <div className="flex-1 h-px bg-gray-200"/>
-            <div className={`flex items-center gap-2 ${formStep === 2 ? "opacity-100" : "opacity-40"}`}>
-              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${formStep === 2 ? "bg-green text-white" : "bg-gray-200 text-gray-500"}`}>2</span>
-              <span className={`text-xs font-semibold ${formStep === 2 ? "text-gray-900" : "text-gray-400"}`}>Kandidaat</span>
+            <div className={`flex items-center gap-2 cursor-pointer ${formStep === 2 ? "opacity-100" : "opacity-40"}`} onClick={() => linkedinUrl && setFormStep(2)}>
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${formStep === 2 ? "bg-green text-white" : recruiterProfile ? "bg-emerald-100 text-emerald-600" : "bg-gray-200 text-gray-500"}`}>
+                {recruiterProfile ? "✓" : "2"}
+              </span>
+              <span className={`text-xs font-semibold ${formStep === 2 ? "text-gray-900" : "text-gray-400"}`}>Jouw profiel</span>
             </div>
           </div>
 
-          {/* STEP 1: Recruiter profile — same universal search as candidate */}
-          {formStep === 1 && (
-            <div className="animate-[lm-fade-in_0.2s_ease]">
+          {/* STEP 2: Jouw profiel */}
+          {formStep === 2 && (
+            <div className="animate-[lm-fade-in_0.2s_ease]" style={{minHeight: "200px"}}>
               {!recruiterProfile ? (
                 <>
                   <p className="text-xs text-gray-400 mb-3">Zoek jezelf of plak je LinkedIn URL. We gebruiken je profiel als context voor de berichten.</p>
@@ -474,7 +476,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                           onChange={(e) => handleRecruiterInput(e.target.value)}
                           onFocus={() => recruiterSearchResults.length > 0 && !recruiterUrl && setShowRecruiterResults(true)}
                           onBlur={() => setTimeout(() => setShowRecruiterResults(false), 200)}
-                          className="flex-1 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit]" />
+                          className="flex-1 py-3 px-3.5 border-none outline-none text-base sm:text-sm bg-transparent text-gray-900 font-[inherit]" />
                         {isSearchingRecruiter && (
                           <span className="pr-3 text-gray-400">
                             <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
@@ -497,7 +499,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
                       {/* Recruiter search results dropdown */}
                       {showRecruiterResults && recruiterSearchResults.length > 0 && (
-                        <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-[10px] shadow-xl max-h-[320px] overflow-y-auto">
+                        <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-[10px] shadow-xl max-h-[60vh] overflow-y-auto">
                           {recruiterSearchResults.map((person, idx) => (
                             <button key={idx} onMouseDown={() => handleSelectRecruiter(person)}
                               className="w-full text-left px-4 py-3 hover:bg-gray-50 cursor-pointer font-[inherit] border-none bg-transparent transition-colors"
@@ -524,7 +526,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                     </div>
                   </div>
 
-                  <button onClick={handleRecruiterSubmit}
+                  <button onClick={() => { handleRecruiterSubmit(); }}
                     disabled={!recruiterUrl || isLoadingRecruiter}
                     className={`w-full py-3.5 border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white ${
                       !recruiterUrl ? "bg-gray-300 cursor-not-allowed" : "bg-green shadow-[0_4px_14px_rgba(141,182,0,0.3)]"
@@ -542,21 +544,21 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                       <p className="text-sm font-bold text-gray-900 truncate">{recruiterProfile.fullName}</p>
                       <p className="text-xs text-gray-500 truncate">{recruiterProfile.currentTitle}</p>
                     </div>
-                    <button onClick={() => { setRecruiterProfile(null); setRecruiterInput(""); setRecruiterUrl(""); setFormStep(1); }}
+                    <button onClick={() => { setRecruiterProfile(null); setRecruiterInput(""); setRecruiterUrl(""); }}
                       className="text-xs text-gray-400 hover:text-gray-600 bg-transparent border-none cursor-pointer font-[inherit]">Wijzig</button>
                   </div>
-                  <button onClick={() => setFormStep(2)}
+                  <button onClick={() => { /* already on step 2 */ }}
                     className="w-full py-2.5 border-none rounded-lg font-semibold cursor-pointer transition-colors font-[inherit] text-white bg-green text-sm">
-                    Ga naar stap 2
+                    Profiel geladen ✓
                   </button>
                 </div>
               )}
             </div>
           )}
 
-          {/* STEP 2: Candidate */}
-          {formStep === 2 && (
-            <div className="animate-[lm-fade-in_0.2s_ease]">
+          {/* STEP 1: Kandidaat */}
+          {formStep === 1 && (
+            <div className="animate-[lm-fade-in_0.2s_ease]" style={{minHeight: "200px"}}>
 
           {/* Simple / Advanced toggle */}
           <div className="grid grid-cols-2 gap-2 mb-5">
@@ -593,14 +595,14 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                   onChange={(e) => handleCandidateInput(e.target.value)}
                   onFocus={() => searchResults.length > 0 && !selectedPerson && setShowSearchResults(true)}
                   onBlur={() => setTimeout(() => setShowSearchResults(false), 200)}
-                  className="flex-1 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit]" />
+                  className="flex-1 py-3 px-3.5 border-none outline-none text-base sm:text-sm bg-transparent text-gray-900 font-[inherit]" />
                 {isSearching && (
                   <span className="pr-3 text-gray-400">
                     <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
                   </span>
                 )}
                 {selectedPerson && (
-                  <button onClick={() => { setLinkedinUrl(""); setCandidateInput(""); setSelectedPerson(""); setSearchResults([]); setFormStep(2); }}
+                  <button onClick={() => { setLinkedinUrl(""); setCandidateInput(""); setSelectedPerson(""); setSearchResults([]); setFormStep(1); }}
                     className="pr-3 text-gray-400 hover:text-gray-600 bg-transparent border-none cursor-pointer p-0 mr-1">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
                   </button>
@@ -617,7 +619,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
               {/* Search results dropdown */}
               {showSearchResults && searchResults.length > 0 && (
-                <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-[10px] shadow-xl max-h-[320px] overflow-y-auto">
+                <div className="absolute z-30 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-[10px] shadow-xl max-h-[60vh] overflow-y-auto">
                   {searchResults.map((person, idx) => (
                     <button key={idx} onMouseDown={() => handleSelectPerson(person)}
                       className="w-full text-left px-4 py-3 hover:bg-gray-50 cursor-pointer font-[inherit] border-none bg-transparent transition-colors"
@@ -709,7 +711,14 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
           {error && <div className="py-2.5 px-3.5 bg-red-50 border border-red-200 rounded-lg text-red-600 text-[13px] mb-4">{error}</div>}
 
-          <button onClick={handleGenerate} disabled={!linkedinUrl}
+          {formStep === 1 && linkedinUrl && (
+            <button onClick={() => setFormStep(2)}
+              className="w-full py-3.5 border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white bg-green shadow-[0_4px_14px_rgba(141,182,0,0.3)] text-[15px] mb-2">
+              Volgende stap
+            </button>
+          )}
+
+          {formStep === 2 && <button onClick={handleGenerate} disabled={!linkedinUrl}
             className={`w-full border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white ${
               !linkedinUrl
                 ? "bg-gray-300 cursor-not-allowed"
@@ -718,7 +727,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                   : "bg-green"
             } ${compact ? "py-3 px-5 text-sm" : "py-3.5 px-6 text-[15px]"}`}>
             Genereer berichten
-          </button>
+          </button>}
           </div>
           )}
         </>
