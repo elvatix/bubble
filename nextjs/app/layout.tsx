@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
