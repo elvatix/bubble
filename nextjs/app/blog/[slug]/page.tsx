@@ -145,18 +145,18 @@ export default async function BlogPost({ params }: BlogPostProps) {
               <time className="text-sm font-semibold text-elvatix-dark bg-elvatix/10 px-3 py-1 rounded-full">
                 {new Date(blog.Date).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
               </time>
-              <span className="text-sm font-medium text-gray-500 flex items-center gap-1.5">
+              <span className="text-sm font-medium text-text-muted flex items-center gap-1.5">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 {readTime} min leestijd
               </span>
               <span className="text-gray-300 hidden sm:inline">|</span>
-              <span className="text-sm text-gray-500 hidden sm:inline">{blog.Author}</span>
+              <span className="text-sm text-text-muted hidden sm:inline">{blog.Author}</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-5xl font-black text-gray-900 leading-tight mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-5xl font-black text-text-primary leading-tight mb-6 tracking-tight">
               {blog.Title}
             </h1>
             {blog['SEO Description'] && (
-              <p className="text-xl text-gray-600 leading-relaxed font-medium">
+              <p className="text-xl text-text-secondary leading-relaxed font-medium">
                 {blog['SEO Description']}
               </p>
             )}
@@ -182,11 +182,11 @@ export default async function BlogPost({ params }: BlogPostProps) {
           />
 
           {/* Bottom CTA */}
-          <div className="mt-16 pt-8 border-t border-gray-200">
+          <div className="mt-16 pt-8 border-t border-border">
             <div className="bg-gradient-to-r from-elvatix-light to-white rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <h3 className="font-bold text-lg text-gray-900 mb-1">Meer weten over Elvatix?</h3>
-                <p className="text-sm text-gray-500">Plan een demo en ontdek hoe AI jouw LinkedIn outreach transformeert.</p>
+                <h3 className="font-bold text-lg text-text-primary mb-1">Meer weten over Elvatix?</h3>
+                <p className="text-sm text-text-muted">Plan een demo en ontdek hoe AI jouw LinkedIn outreach transformeert.</p>
               </div>
               <Link href="/demo" className="pill-btn pill-btn-elvatix whitespace-nowrap no-underline">
                 Plan een demo

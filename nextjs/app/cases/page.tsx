@@ -54,37 +54,37 @@ export default function CasesPage() {
       <Container className="max-w-4xl mb-20">
         <div className="flex flex-col gap-16">
           {cases.map((c) => (
-            <div key={c.company} className="border border-gray-200 rounded-2xl overflow-hidden">
+            <div key={c.company} className="border border-border rounded-2xl overflow-hidden">
               <div className="p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-3xl">{c.logo}</span>
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-900">{c.company}</h2>
-                    <p className="text-sm text-gray-500">{c.industry}</p>
+                    <h2 className="text-2xl font-bold text-text-primary">{c.company}</h2>
+                    <p className="text-sm text-text-muted">{c.industry}</p>
                   </div>
                 </div>
 
-                <h3 className="font-bold text-gray-900 mb-2">De uitdaging</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">{c.challenge}</p>
+                <h3 className="font-bold text-text-primary mb-2">De uitdaging</h3>
+                <p className="text-text-secondary text-sm leading-relaxed mb-6">{c.challenge}</p>
 
-                <h3 className="font-bold text-gray-900 mb-2">De oplossing</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-8">{c.solution}</p>
+                <h3 className="font-bold text-text-primary mb-2">De oplossing</h3>
+                <p className="text-text-secondary text-sm leading-relaxed mb-8">{c.solution}</p>
 
                 <div className="grid grid-cols-3 gap-4 mb-8">
                   {c.results.map((r) => (
-                    <div key={r.label} className="bg-gray-50 rounded-xl p-4 text-center">
-                      <p className="text-xs text-gray-500 mb-1">{r.label}</p>
-                      <p className="text-xs text-gray-400 line-through">{r.before}</p>
+                    <div key={r.label} className="bg-surface rounded-xl p-4 text-center">
+                      <p className="text-xs text-text-muted mb-1">{r.label}</p>
+                      <p className="text-xs text-text-light line-through">{r.before}</p>
                       <p className="text-2xl font-black text-elvatix">{r.after}</p>
                     </div>
                   ))}
                 </div>
 
-                <blockquote className="border-l-4 border-elvatix pl-4 italic text-gray-600 text-sm mb-2">
+                <blockquote className="border-l-4 border-elvatix pl-4 italic text-text-secondary text-sm mb-2">
                   &ldquo;{c.quote}&rdquo;
                 </blockquote>
-                <p className="text-sm font-bold text-gray-900">{c.quotePerson}</p>
-                <p className="text-xs text-gray-500">{c.quoteRole}</p>
+                <p className="text-sm font-bold text-text-primary">{c.quotePerson}</p>
+                <p className="text-xs text-text-muted">{c.quoteRole}</p>
               </div>
             </div>
           ))}

@@ -28,10 +28,10 @@ export default function Comparison() {
     <section className="section-padding bg-white">
       <div className="max-w-[900px] mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
+          <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-text-primary mb-3">
             Terug naar de tekentafel.
           </h2>
-          <p className="text-gray-500 text-base max-w-[520px] mx-auto">
+          <p className="text-text-muted text-base max-w-[520px] mx-auto">
             Waarom de ouderwetse manier je groei saboteert.
           </p>
         </div>
@@ -53,10 +53,10 @@ export default function Comparison() {
         </div>
 
         {/* Comparison table */}
-        <div className="rounded-[20px] border border-gray-200 overflow-hidden">
+        <div className="rounded-[20px] border border-border overflow-hidden">
           {/* Header */}
-          <div className="grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] bg-surface py-3.5 px-6 border-b border-gray-200">
-            <span className="text-[13px] font-bold text-gray-500 uppercase tracking-wide">Feature</span>
+          <div className="grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] bg-surface py-3.5 px-6 border-b border-border">
+            <span className="text-[13px] font-bold text-text-muted uppercase tracking-wide">Feature</span>
             <span className="text-[13px] font-bold text-red-500 text-center">Handmatig</span>
             <span className="text-[13px] font-bold text-elvatix text-center">Elvatix</span>
           </div>
@@ -64,11 +64,11 @@ export default function Comparison() {
             <motion.div
               key={i}
               className={`grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] py-4 px-6 items-center ${
-                i < rows.length - 1 ? "border-b border-gray-100" : ""
+                i < rows.length - 1 ? "border-b border-border-light" : ""
               }`}
               whileHover={{ background: "var(--color-elvatix-light)" }}
             >
-              <span className="text-sm text-gray-700">{row.label}</span>
+              <span className="text-sm text-text-secondary">{row.label}</span>
               <span className="flex justify-center text-danger">{row.zonder ? <CheckCircleIcon /> : <XIcon />}</span>
               <span className="flex justify-center">{row.met ? <CheckCircleIcon /> : <XIcon />}</span>
             </motion.div>

@@ -37,30 +37,30 @@ export default function PlatformPage() {
 
       <Container className="max-w-5xl mb-20">
         <div className="text-center mb-10">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Alles wat je nodig hebt</h2>
-          <p className="text-gray-600">Elk onderdeel is een volwaardig product en samen vormen ze het krachtigste recruitment platform.</p>
+          <h2 className="text-2xl font-extrabold text-text-primary mb-4">Alles wat je nodig hebt</h2>
+          <p className="text-text-secondary">Elk onderdeel is een volwaardig product en samen vormen ze het krachtigste recruitment platform.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {modules.map((m) => (
-            <a key={m.title} href={m.href} className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-elvatix transition-all group">
+            <a key={m.title} href={m.href} className="bg-white border border-border rounded-2xl p-6 hover:shadow-lg hover:border-elvatix transition-all group">
               <span className="text-3xl mb-3 block text-elvatix">{m.icon}</span>
-              <h3 className="font-bold text-gray-900 mb-2 group-hover:text-elvatix">{m.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{m.desc}</p>
+              <h3 className="font-bold text-text-primary mb-2 group-hover:text-elvatix">{m.title}</h3>
+              <p className="text-text-secondary text-sm leading-relaxed">{m.desc}</p>
             </a>
           ))}
         </div>
       </Container>
 
-      <section className="bg-gray-50 py-16">
+      <section className="bg-surface py-16">
         <Container className="max-w-4xl">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-4 text-center">Hoe het werkt</h2>
+          <h2 className="text-2xl font-extrabold text-text-primary mb-4 text-center">Hoe het werkt</h2>
           <div className="flex flex-col gap-8">
             {howItWorks.map((step) => (
               <div key={step.num} className="flex items-start gap-5">
                 <span className="text-3xl font-black text-elvatix flex-shrink-0 w-12">{step.num}</span>
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-1">{step.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+                  <h3 className="font-bold text-text-primary mb-1">{step.title}</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}

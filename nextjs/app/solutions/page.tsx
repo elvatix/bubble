@@ -42,17 +42,17 @@ export default function SolutionsPage() {
       <Container className="max-w-5xl mb-20">
         <div className="flex flex-col gap-8">
           {segments.map((s) => (
-            <div key={s.title} className="bg-white border border-gray-200 rounded-2xl p-6">
+            <div key={s.title} className="bg-white border border-border rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl">{s.icon}</span>
-                <h2 className="text-2xl font-bold text-gray-900">{s.title}</h2>
+                <h2 className="text-2xl font-bold text-text-primary">{s.title}</h2>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">{s.desc}</p>
+              <p className="text-text-secondary mb-6 leading-relaxed">{s.desc}</p>
               <ul className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {s.benefits.map((b) => (
                   <li key={b} className="flex items-start gap-2">
-                    <CheckIcon size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{b}</span>
+                    <CheckIcon size={16} className="text-success mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-text-secondary">{b}</span>
                   </li>
                 ))}
               </ul>

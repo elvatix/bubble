@@ -63,10 +63,10 @@ export default function Features() {
             <p className="text-sm font-semibold text-green uppercase tracking-[0.1em] mb-3">
               Modules
             </p>
-            <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
+            <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-text-primary mb-3">
               Gebouwd voor de workflow van toppresteerders
             </h2>
-            <p className="text-gray-500 text-base max-w-[560px] mx-auto">
+            <p className="text-text-muted text-base max-w-[560px] mx-auto">
               Geen losse tooltjes, maar een geïntegreerd platform dat naadloos aansluit op hoe jij écht werkt.
             </p>
           </div>
@@ -81,7 +81,7 @@ export default function Features() {
                 className={`px-6 py-3 rounded-full border-none cursor-pointer text-sm font-semibold transition-all duration-200 ${
                   activeTab === i
                     ? "bg-green text-white shadow-green-hover"
-                    : "bg-white text-gray-700 shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
+                    : "bg-white text-text-secondary shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
@@ -99,14 +99,14 @@ export default function Features() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white rounded-3xl p-12 max-md:p-6 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] items-center"
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white rounded-3xl p-12 max-md:p-6 border border-border-light shadow-[0_4px_20px_rgba(0,0,0,0.04)] items-center"
           >
             <div>
-              <h3 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-gray-900 mb-4">{active.title}</h3>
-              <p className="text-[15px] text-gray-500 leading-relaxed mb-6">{active.description}</p>
+              <h3 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-text-primary mb-4">{active.title}</h3>
+              <p className="text-[15px] text-text-muted leading-relaxed mb-6">{active.description}</p>
               <ul className="list-none p-0 m-0 flex flex-col gap-3">
                 {active.features.map((f, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-sm text-gray-700">
+                  <li key={i} className="flex items-center gap-2.5 text-sm text-text-secondary">
                     <CheckIcon size={14} className="text-green flex-shrink-0" />
                     {f}
                   </li>

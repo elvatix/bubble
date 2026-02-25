@@ -73,11 +73,11 @@ export default function PainPoints() {
           <p className="text-xs font-bold text-red-500 uppercase tracking-[0.15em] mb-3">
             Herkenbaar?
           </p>
-          <h2 className="text-[clamp(28px,3.5vw,44px)] font-black text-gray-900 mb-4 leading-tight">
+          <h2 className="text-[clamp(28px,3.5vw,44px)] font-black text-text-primary mb-4 leading-tight">
             Dit kost jou en je team{" "}
             <span className="text-red-500">elke week uren.</span>
           </h2>
-          <p className="text-gray-500 text-base max-w-[520px] mx-auto">
+          <p className="text-text-muted text-base max-w-[520px] mx-auto">
             Als recruiter wil je bezig zijn met mensen. Niet met het eindeloos
             typen van berichten.
           </p>
@@ -87,7 +87,7 @@ export default function PainPoints() {
           {pains.map((pain, i) => (
             <motion.div
               key={i}
-              className="flex items-start gap-4 py-5 px-6 rounded-2xl bg-white border border-gray-200 hover:border-red-200 hover:shadow-md transition-all duration-300 group"
+              className="flex items-start gap-4 py-5 px-6 rounded-2xl bg-white border border-border hover:border-red-200 hover:shadow-md transition-all duration-300 group"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -97,10 +97,10 @@ export default function PainPoints() {
                 {pain.icon}
               </span>
               <div className="flex-1 min-w-0">
-                <h3 className="text-[15px] font-bold text-gray-900 mb-1 leading-snug">
+                <h3 className="text-[15px] font-bold text-text-primary mb-1 leading-snug">
                   {pain.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
+                <p className="text-sm text-text-muted leading-relaxed">
                   {pain.description}
                 </p>
               </div>

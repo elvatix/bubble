@@ -47,10 +47,10 @@ export default function TrustPricing() {
           <p className="text-[13px] font-bold text-elvatix uppercase tracking-[0.12em] mb-3">
             Drempels weg
           </p>
-          <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
+          <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-text-primary mb-3">
             Verdien je investering in week 1 terug.
           </h2>
-          <p className="text-gray-500 text-base max-w-[520px] mx-auto">
+          <p className="text-text-muted text-base max-w-[520px] mx-auto">
             Geen ingewikkelde setup, geen risico. Begin vandaag nog.
           </p>
         </div>
@@ -67,8 +67,8 @@ export default function TrustPricing() {
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-elvatix to-elvatix-dark" />
               )}
               <div className="flex justify-center items-center w-16 h-16 rounded-2xl bg-elvatix-light text-elvatix mx-auto mb-4">{item.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-              <p className={`text-sm text-gray-500 leading-relaxed ${item.badges ? "mb-4" : ""}`}>{item.description}</p>
+              <h3 className="text-xl font-bold text-text-primary mb-3">{item.title}</h3>
+              <p className={`text-sm text-text-muted leading-relaxed ${item.badges ? "mb-4" : ""}`}>{item.description}</p>
               {item.badges && (
                 <div className="flex gap-2 justify-center flex-wrap">
                   {item.badges.map((badge, j) => (

@@ -32,11 +32,11 @@ export default function ProbeerPage() {
           <p className="text-xs font-bold text-green uppercase tracking-[0.15em] mb-3">
             Gratis uitproberen
           </p>
-          <h1 className="text-[clamp(28px,5vw,44px)] font-black leading-[1.1] mb-4 text-gray-900">
+          <h1 className="text-[clamp(28px,5vw,44px)] font-black leading-[1.1] mb-4 text-text-primary">
             Jij kent de kandidaat.{" "}
             <span className="gradient-text">Wij schrijven het bericht.</span>
           </h1>
-          <p className="text-base text-gray-500 leading-relaxed max-w-[540px] mx-auto mb-10">
+          <p className="text-base text-text-muted leading-relaxed max-w-[540px] mx-auto mb-10">
             Vul in wie je wilt benaderen en wie jij bent. Wij doen de rest: we lezen de ervaring door en schrijven direct een persoonlijke InMail die je zó kunt versturen. Geen account nodig, probeer het direct.
           </p>
         </Container>
@@ -58,17 +58,17 @@ export default function ProbeerPage() {
             <p className="text-xs font-bold text-green uppercase tracking-[0.15em] mb-3">
               Dit was het voorproefje
             </p>
-            <h2 className="text-[clamp(24px,3.5vw,36px)] font-black text-gray-900 mb-4 leading-tight">
+            <h2 className="text-[clamp(24px,3.5vw,36px)] font-black text-text-primary mb-4 leading-tight">
               Dit deed je net voor één kandidaat.{" "}
               <span className="gradient-text">Nu voor je hele pool.</span>
             </h2>
-            <p className="text-base text-gray-500 leading-relaxed max-w-[500px] mx-auto">
+            <p className="text-base text-text-muted leading-relaxed max-w-[500px] mx-auto">
               Elvatix draait volledig binnen Recruiter Seat. Jij selecteert je kandidaten, en wij genereren voor iedereen een messcherp, persoonlijk bericht. In jouw stijl, met jouw templates.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl border border-gray-200 p-8 mb-8">
-            <h3 className="text-lg font-bold text-gray-900 mb-5">
+          <div className="bg-white rounded-2xl border border-border p-8 mb-8">
+            <h3 className="text-lg font-bold text-text-primary mb-5">
               Met het volledige platform
             </h3>
             <ul className="space-y-3.5">
@@ -78,7 +78,7 @@ export default function ProbeerPage() {
                     size={16}
                     className="text-green flex-shrink-0 mt-0.5"
                   />
-                  <span className="text-[15px] text-gray-700">{a}</span>
+                  <span className="text-[15px] text-text-secondary">{a}</span>
                 </li>
               ))}
             </ul>

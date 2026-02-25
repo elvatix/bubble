@@ -31,10 +31,10 @@ export default function Testimonials() {
       <div className="section-inner">
         <AnimateOnScroll variant="fadeUp">
           <div className="text-center mb-12">
-            <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
+            <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-text-primary mb-3">
               Wat gebruikers zeggen
             </h2>
-            <p className="text-gray-500 text-base">5.0 op Chrome • 4.4 op Trustpilot • 5.0 op Google</p>
+            <p className="text-text-muted text-base">5.0 op Chrome • 4.4 op Trustpilot • 5.0 op Google</p>
           </div>
         </AnimateOnScroll>
         <StaggerChildren staggerDelay={0.15}>
@@ -42,7 +42,7 @@ export default function Testimonials() {
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
-                className="bg-white rounded-[20px] p-8 border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
+                className="bg-white rounded-[20px] p-8 border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
                 whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(0,0,0,0.06)" }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
@@ -51,11 +51,11 @@ export default function Testimonials() {
                     {t.avatar}
                   </div>
                   <div>
-                    <p className="font-bold text-[15px] text-gray-900">{t.name}</p>
-                    <p className="text-[13px] text-gray-400">{t.role}</p>
+                    <p className="font-bold text-[15px] text-text-primary">{t.name}</p>
+                    <p className="text-[13px] text-text-light">{t.role}</p>
                   </div>
                 </div>
-                <p className="text-[15px] text-gray-700 leading-relaxed italic">
+                <p className="text-[15px] text-text-secondary leading-relaxed italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="mt-3">

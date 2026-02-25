@@ -29,16 +29,16 @@ export default function IntegratiesPage() {
       <Container className="max-w-5xl mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {integrations.map((i) => (
-            <div key={i.name} className="bg-white border border-gray-200 rounded-2xl p-6">
+            <div key={i.name} className="bg-white border border-border rounded-2xl p-6">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-bold text-gray-900">{i.name}</h3>
+                <h3 className="font-bold text-text-primary">{i.name}</h3>
                 <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                  i.status === 'Live' ? 'bg-green-100 text-green-700' :
+                  i.status === 'Live' ? 'bg-green-bg text-green-dark' :
                   i.status === 'Beta' ? 'bg-yellow-100 text-yellow-700' :
-                  'bg-gray-100 text-gray-500'
+                  'bg-gray-100 text-text-muted'
                 }`}>{i.status}</span>
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed">{i.desc}</p>
+              <p className="text-text-secondary text-sm leading-relaxed">{i.desc}</p>
             </div>
           ))}
         </div>

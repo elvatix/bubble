@@ -50,10 +50,10 @@ export default function Solutions() {
     <section id="voor-wie" className="section-padding bg-white">
       <div className="section-inner">
         <div className="text-center mb-12">
-          <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
+          <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-text-primary mb-3">
             Voor wie is Elvatix?
           </h2>
-          <p className="text-gray-500 text-base max-w-[560px] mx-auto">
+          <p className="text-text-muted text-base max-w-[560px] mx-auto">
             Of je nu als bureau of in-house recruiter werkt | Elvatix past zich aan jouw werkwijze aan.
           </p>
         </div>
@@ -61,13 +61,13 @@ export default function Solutions() {
           {solutions.map((s, i) => (
             <motion.div
               key={i}
-              className="p-8 rounded-[20px] bg-surface-card border border-gray-200 text-center"
+              className="p-8 rounded-[20px] bg-surface-card border border-border text-center"
               whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(155,187,10,0.12)", borderColor: "var(--color-elvatix)" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <div className="flex justify-center items-center w-16 h-16 rounded-2xl bg-elvatix-light text-elvatix mx-auto mb-4">{s.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{s.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{s.description}</p>
+              <h3 className="text-xl font-bold text-text-primary mb-3">{s.title}</h3>
+              <p className="text-sm text-text-muted leading-relaxed">{s.description}</p>
             </motion.div>
           ))}
         </div>

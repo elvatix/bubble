@@ -52,17 +52,17 @@ export default function PricingPage() {
       <Container className="max-w-5xl mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {plans.map((plan) => (
-            <div key={plan.name} className={`rounded-2xl p-8 flex flex-col ${plan.highlight ? 'bg-elvatix text-white shadow-xl scale-105' : 'bg-white border border-gray-200'}`}>
+            <div key={plan.name} className={`rounded-2xl p-8 flex flex-col ${plan.highlight ? 'bg-elvatix text-white shadow-xl scale-105' : 'bg-white border border-border'}`}>
               <h2 className="text-xl font-bold mb-1">{plan.name}</h2>
               <div className="mb-1">
                 <span className="text-4xl font-black">{plan.price}</span>
-                {plan.period && <span className={`text-sm ml-1 ${plan.highlight ? 'text-white/70' : 'text-gray-500'}`}>{plan.period}</span>}
+                {plan.period && <span className={`text-sm ml-1 ${plan.highlight ? 'text-white/70' : 'text-text-muted'}`}>{plan.period}</span>}
               </div>
-              <p className={`text-sm mb-6 ${plan.highlight ? 'text-white/80' : 'text-gray-600'}`}>{plan.desc}</p>
+              <p className={`text-sm mb-6 ${plan.highlight ? 'text-white/80' : 'text-text-secondary'}`}>{plan.desc}</p>
               <ul className="flex flex-col gap-3 mb-8 flex-grow">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm">
-                    <CheckIcon size={16} className={plan.highlight ? 'text-green-300' : 'text-green-500'} />
+                    <CheckIcon size={16} className={plan.highlight ? 'text-green-light' : 'text-success'} />
                     <span>{f}</span>
                   </li>
                 ))}
@@ -73,10 +73,10 @@ export default function PricingPage() {
         </div>
       </Container>
 
-      <section className="bg-gray-50 py-16">
+      <section className="bg-surface py-16">
         <Container className="text-center">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Nog vragen over pricing?</h2>
-          <p className="text-gray-600 mb-6">Ons team helpt je graag bij het kiezen van het juiste plan.</p>
+          <h2 className="text-2xl font-extrabold text-text-primary mb-3">Nog vragen over pricing?</h2>
+          <p className="text-text-secondary mb-6">Ons team helpt je graag bij het kiezen van het juiste plan.</p>
           <Button variant="outline" href="/contact">Neem contact op</Button>
         </Container>
       </section>

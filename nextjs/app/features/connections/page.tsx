@@ -29,9 +29,9 @@ export default function ConnectionsPage() {
       <Container className="max-w-4xl mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((f) => (
-            <div key={f.title} className="bg-white border border-gray-200 rounded-2xl p-6">
-              <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+            <div key={f.title} className="bg-white border border-border rounded-2xl p-6">
+              <h3 className="font-bold text-text-primary mb-2">{f.title}</h3>
+              <p className="text-text-secondary text-sm leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>

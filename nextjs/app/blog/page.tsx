@@ -44,8 +44,8 @@ export default async function BlogOverviewPage() {
       <Container className="max-w-5xl">
         {blogs.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-xl text-gray-500">Nog geen blogposts beschikbaar.</p>
-            <p className="text-sm text-gray-400 mt-2">Check binnenkort terug voor onze eerste artikelen.</p>
+            <p className="text-xl text-text-muted">Nog geen blogposts beschikbaar.</p>
+            <p className="text-sm text-text-light mt-2">Check binnenkort terug voor onze eerste artikelen.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -55,7 +55,7 @@ export default async function BlogOverviewPage() {
                 <Link
                   key={blog._id}
                   href={`/blog/${slug}`}
-                  className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-elvatix transition-all duration-300 h-full"
+                  className="group flex flex-col bg-white border border-border rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-elvatix transition-all duration-300 h-full"
                 >
                   {blog.Image && (
                     <div className="aspect-video relative overflow-hidden">
@@ -73,12 +73,12 @@ export default async function BlogOverviewPage() {
                         {new Date(blog.Date).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
                       </time>
                     </div>
-                    <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-elvatix transition-colors leading-snug">
+                    <h2 className="text-xl font-bold text-text-primary mb-3 group-hover:text-elvatix transition-colors leading-snug">
                       {blog.Title}
                     </h2>
-                    <p className="text-base text-gray-600 line-clamp-3 flex-1 leading-relaxed">{blog['SEO Description']}</p>
+                    <p className="text-base text-text-secondary line-clamp-3 flex-1 leading-relaxed">{blog['SEO Description']}</p>
                     <div className="mt-auto pt-4 flex items-center justify-between">
-                      <span className="text-xs text-gray-500">{blog.Author}</span>
+                      <span className="text-xs text-text-muted">{blog.Author}</span>
                       <span className="text-sm text-elvatix font-semibold">
                         Lees meer →
                       </span>

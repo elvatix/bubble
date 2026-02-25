@@ -26,13 +26,13 @@ export default function OverOnsPage() {
       </Container>
 
       <Container className="max-w-4xl mb-20">
-        <h2 className="text-2xl font-extrabold text-gray-900 mb-8 text-center">Onze waarden</h2>
+        <h2 className="text-2xl font-extrabold text-text-primary mb-8 text-center">Onze waarden</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {values.map((v) => (
-            <div key={v.title} className="bg-white border border-gray-200 rounded-2xl p-6">
+            <div key={v.title} className="bg-white border border-border rounded-2xl p-6">
               <span className="text-3xl mb-3 block">{v.icon}</span>
-              <h3 className="font-bold text-gray-900 mb-2">{v.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{v.desc}</p>
+              <h3 className="font-bold text-text-primary mb-2">{v.title}</h3>
+              <p className="text-text-secondary text-sm leading-relaxed">{v.desc}</p>
             </div>
           ))}
         </div>
