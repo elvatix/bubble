@@ -2,56 +2,92 @@ import Container from '@/components/ui/Container';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Algemene Voorwaarden | Elvatix',
-  description: 'Lees de algemene voorwaarden van Elvatix.',
-  alternates: { canonical: '/terms' },
+  title: 'Algemene Voorwaarden — Elvatix B.V.',
+  description: 'Lees de algemene voorwaarden van Elvatix B.V. Informatie over gegevensverwerking, beveiliging, bewaring en jouw rechten als gebruiker. AVG-conform.',
+  alternates: { canonical: 'https://elvatix.com/terms' },
 };
-
-const sections = [
-  {
-    title: '1. Definities',
-    content: 'In deze voorwaarden wordt verstaan onder \'Dienst\': het Elvatix platform inclusief alle functionaliteiten. \'Gebruiker\': de natuurlijke of rechtspersoon die een account aanmaakt. \'Overeenkomst\': de overeenkomst tussen Elvatix en Gebruiker.'
-  },
-  {
-    title: '2. Toepasselijkheid',
-    content: 'Deze voorwaarden zijn van toepassing op elk gebruik van de Dienst. Door je account aan te maken, ga je akkoord met deze voorwaarden. We kunnen deze voorwaarden van tijd tot tijd wijzigen; bij substantiele wijzigingen word je hierover geïnformeerd.'
-  },
-  {
-    title: '3. Accountgebruik',
-    content: 'Je bent verantwoordelijk voor het vertrouwelijk houden van je inloggegevens. Je mag je account niet delen met derden. Je bent aansprakelijk voor alle activiteiten onder je account.'
-  },
-  {
-    title: '4. Prijzen & Betaling',
-    content: 'Alle prijzen zijn exclusief BTW tenzij anders vermeld. Betaling geschiedt via automatische incasso of creditcard. Bij niet-tijdige betaling behouden wij ons het recht voor de toegang tot de Dienst op te schorten.'
-  },
-  {
-    title: '5. Intellectueel eigendom',
-    content: 'Alle intellectuele eigendomsrechten op de Dienst berusten bij Elvatix. De door de Dienst gegenereerde berichten zijn eigendom van de Gebruiker. Elvatix mag geanonimiseerde data gebruiken voor het verbeteren van het AI-model.'
-  },
-  {
-    title: '6. Aansprakelijkheid',
-    content: 'Elvatix is niet aansprakelijk voor indirecte of gevolgschade. Onze totale aansprakelijkheid is beperkt tot het bedrag dat je in de afgelopen 12 maanden aan Elvatix hebt betaald.'
-  },
-  {
-    title: '7. Opzegging',
-    content: 'Je kunt je account op elk moment opzeggen via je accountinstellingen. Na opzegging heb je nog 30 dagen toegang tot je data. Daarna wordt je data verwijderd conform ons privacybeleid.'
-  },
-];
 
 export default function TermsPage() {
   return (
     <main className="pt-40 pb-16">
       <Container className="max-w-3xl">
-        <h1 className="text-4xl font-black text-gray-900 mb-3">Algemene Voorwaarden</h1>
-        <p className="text-sm text-gray-500 mb-10">Laatst bijgewerkt: 1 januari 2025</p>
+        <h1 className="text-4xl font-black text-text-primary mb-3">Algemene Voorwaarden</h1>
+        <p className="text-sm text-text-light mb-10">Laatst bijgewerkt: 09/05/2025</p>
 
-        <div className="flex flex-col gap-10">
-          {sections.map((s) => (
-            <div key={s.title}>
-              <h2 className="text-lg font-bold text-gray-900 mb-3">{s.title}</h2>
-              <p className="text-gray-600 text-sm leading-relaxed">{s.content}</p>
-            </div>
-          ))}
+        <div className="flex flex-col gap-10 prose-custom">
+          <section>
+            <h2>1. Introductie</h2>
+            <p>1.1 Welkom op www.elvatix.com (de &apos;Site&apos;), beheerd door Elvatix B.V., geregistreerd onder KVK-nummer: 91816637, met een geregistreerd adres op Fahrenheitweg 24, 6101WR Echt, Nederland.</p>
+            <p>1.2 Dit Privacybeleid legt uit hoe wij omgaan met jouw persoonsgegevens en voldoen aan de AVG en toepasselijke wetgeving wanneer je onze Site en bijbehorende platforms, applicaties en diensten (gezamenlijk &apos;Diensten&apos;) gebruikt.</p>
+            <p>1.3 Door gebruik te maken van onze Diensten geef je toestemming voor het verzamelen, verwerken en behandelen van jouw gegevens zoals hierin beschreven.</p>
+          </section>
+
+          <section>
+            <h2>2. Verwerkingsverantwoordelijke en DPA</h2>
+            <p>2.1 Elvatix B.V. is de verwerkingsverantwoordelijke voor de verwerking van persoonsgegevens die via onze Diensten worden verzameld.</p>
+            <p>2.2 Voor klanten die zelf als verwerkingsverantwoordelijke optreden onder de AVG, bieden wij op verzoek een Verwerkersovereenkomst (DPA) aan.</p>
+          </section>
+
+          <section>
+            <h2>3. Gegevens die wij verzamelen</h2>
+            <p>3.1 Gebruikersgegevens: omvatten naam, e-mailadres, LinkedIn-ID, bedrijfsgegevens, functietitel, berichten, interacties en contactlijsten.</p>
+            <p>3.2 Technische gegevens: omvatten IP-adressen, browsertype, apparaatgegevens, cookies en metadata van interacties.</p>
+            <p>3.3 Prospectgegevens: omvatten openbaar beschikbare LinkedIn-profielinformatie en gegevens toegankelijk via LinkedIn API&apos;s met toestemming van de gebruiker.</p>
+          </section>
+
+          <section>
+            <h2>4. Hoe wij gegevens verzamelen</h2>
+            <p>4.1 Direct van gebruikers bij registratie.</p>
+            <p>4.2 Automatisch via software of plug-ins.</p>
+            <p>4.3 Via integraties met LinkedIn en GPT (OpenAI).</p>
+            <p>4.4 Door gebruik van cookies op onze website.</p>
+          </section>
+
+          <section>
+            <h2>5. Doel van gegevensverzameling</h2>
+            <p>5.1 Om onze Diensten te leveren en te verbeteren.</p>
+            <p>5.2 Voor het genereren van gepersonaliseerde berichten.</p>
+            <p>5.3 Voor het beheren van gebruikersaccounts en afhandeling van betalingen.</p>
+            <p>5.4 Voor het analyseren van interacties en prestatiegegevens.</p>
+            <p>5.5 Om te voldoen aan wettelijke verplichtingen, zoals fraudepreventie.</p>
+          </section>
+
+          <section>
+            <h2>6. Gegevensbeveiliging</h2>
+            <p>6.1 Elvatix maakt gebruik van Bubble voor front-end en back-end operaties, inclusief gegevensopslag. Bubble is SOC 2 Type II- en AVG-conform, gebruikt AES-256-encryptie en is gehost op AWS met Cloudflare voor DDoS-bescherming.</p>
+            <p>6.2 Wij implementeren 2FA, beperken administratieve toegang en monitoren activiteiten handmatig.</p>
+          </section>
+
+          <section>
+            <h2>7. Gegevensdeling met derden</h2>
+            <p>7.1 Wij verkopen of delen geen persoonsgegevens, behalve als dit noodzakelijk is voor het leveren van onze diensten.</p>
+            <p>7.2 Derde partijen omvatten: LinkedIn API, OpenAI API (geen gegevensopslag), Bubble (hosting/infrastructuur) en Stripe (betalingsverwerking).</p>
+          </section>
+
+          <section>
+            <h2>8. Gegevensbewaring</h2>
+            <p>8.1 Persoonsgegevens worden bewaard zolang als nodig is voor het leveren van onze diensten of om te voldoen aan wettelijke verplichtingen.</p>
+            <p>8.2 Gegevens worden binnen 30 dagen na beëindiging van het account verwijderd.</p>
+          </section>
+
+          <section>
+            <h2>9. Jouw rechten</h2>
+            <p>9.1 Je hebt het recht op inzage, correctie of verwijdering van jouw persoonsgegevens.</p>
+            <p>9.2 Je kunt bezwaar maken tegen of beperkingen opleggen aan de verwerking van jouw gegevens en verzoeken om gegevensoverdraagbaarheid.</p>
+            <p>9.3 Je kunt verzoeken om verwijdering van jouw gegevens, onder bepaalde voorwaarden.</p>
+          </section>
+
+          <section>
+            <h2>10. Cookies</h2>
+            <p>10.1 Cookies worden gebruikt om de gebruikerservaring en analyses te verbeteren. Functionele cookies zijn essentieel; overige cookies vereisen jouw toestemming.</p>
+            <p>10.2 Cookies verlopen na maximaal 13 maanden. Voorkeuren kunnen worden aangepast via je browserinstellingen.</p>
+          </section>
+
+          <section>
+            <h2>11. Contact</h2>
+            <p>11.1 Heb je vragen, zorgen of opmerkingen over ons privacybeleid? Neem dan contact met ons op via <a href="mailto:support@elvatix.com" className="text-elvatix hover:underline">support@elvatix.com</a>.</p>
+            <p>Door gebruik te blijven maken van onze diensten, ga je akkoord met dit privacybeleid en eventuele wijzigingen hierin.</p>
+          </section>
         </div>
       </Container>
     </main>
