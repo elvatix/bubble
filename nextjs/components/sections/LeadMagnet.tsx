@@ -146,7 +146,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       scanning: 15,
       found: 20,
       analyzing: 30,
-      "writing-inmail": 90,
+      "writing-inmail": 85,
       "writing-conn": 98,
       done: 100,
     };
@@ -155,7 +155,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     if (progressRef.current) clearInterval(progressRef.current);
 
     // Phase-specific speed: writing-inmail is the longest (~19s), so crawl slowly
-    const speed = phase === "writing-inmail" ? 0.008 : phase === "writing-conn" ? 0.04 : 0.025;
+    const speed = phase === "writing-inmail" ? 0.002 : phase === "writing-conn" ? 0.04 : 0.025;
 
     progressRef.current = setInterval(() => {
       setProgress((prev) => {
@@ -174,9 +174,9 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
   // Boost progress when typewriter is active (inmailFull arrived = API done, typewriter starts)
   useEffect(() => {
-    if (phase === "writing-inmail" && inmailFull && progress < 80) {
-      // API returned — jump progress to 80% so it doesn't feel stuck
-      setProgress(80);
+    if (phase === "writing-inmail" && inmailFull && progress < 85) {
+      // API returned — jump progress to 85% so it doesn't feel stuck
+      setProgress(85);
     }
   }, [inmailFull, phase]);
 
