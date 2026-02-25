@@ -17,11 +17,11 @@ const XIcon = () => (
 );
 
 const rows = [
-  { label: "Benader tot 25 profielen tegelijkertijd", zonder: false, met: true },
-  { label: "Geïntegreerd in Recruiter Seat & Sales Navigator", zonder: false, met: true },
-  { label: "Naadloze switch tussen Sales en Recruitment", zonder: false, met: true },
-  { label: "100% dynamische template invulling", zonder: false, met: true },
-  { label: "Scale je pipeline zonder verlies van kwaliteit", zonder: false, met: true },
+  { label: "25 unieke profielen benaderen per klik", zonder: false, met: true },
+  { label: "Nieuwe tabs, Word documenten en tools overbodig (100% integratie)", zonder: false, met: true },
+  { label: "Respons rates die je wekelijkse targets ruimschoots overtreffen", zonder: false, met: true },
+  { label: "Hyper-personalisatie die niet leest als geforceerde AI", zonder: false, met: true },
+  { label: "Zelfs in bulk behoud je de menselijke touch", zonder: false, met: true },
 ];
 
 export default function Comparison() {
@@ -33,7 +33,7 @@ export default function Comparison() {
             Het verschil is meetbaar.
           </h2>
           <p className="text-gray-500 text-base max-w-[520px] mx-auto">
-            Handmatig schrijven versus Elvatix. Jij kiest.
+            Kwantiteit of Kwaliteit? Je hoeft niet meer te kiezen.
           </p>
         </div>
 

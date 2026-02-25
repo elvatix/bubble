@@ -10,8 +10,8 @@ const pains = [
         <polyline points="12 6 12 12 16 14" />
       </svg>
     ),
-    title: "10 minuten per InMail. Uren per week.",
-    description: "Profielen openen, werkervaring scannen, een persoonlijke invalshoek bedenken. Voor 25 kandidaten tegelijk ben je zo een halve dag kwijt.",
+    title: "De onmogelijke spagaat van targets",
+    description: "Je wéét dat een persoonlijk bericht beter werkt. Maar om je targets te halen, moet je volume draaien. Gevolg? 10 minuten per kandidaat en urenlang saai typewerk.",
   },
   {
     icon: (
@@ -21,8 +21,8 @@ const pains = [
         <path d="M12 11h4M12 16h4M8 11h.01M8 16h.01" />
       </svg>
     ),
-    title: "Templates die direct herkend worden",
-    description: "Copy-paste uit een oud document. Het klinkt generiek en toptalent prikt er direct doorheen. Ze openen je bericht, maar reageren niet.",
+    title: "Templates afgestraft in seconden",
+    description: "Toptalent scant een InMail in twee seconden. Begin je met de zoveelste generieke ChatGPT copy-paste? Dan klikken ze direct weg, hoe goed je vacature ook is.",
   },
   {
     icon: (
@@ -31,8 +31,8 @@ const pains = [
         <polyline points="16 17 22 17 22 11" />
       </svg>
     ),
-    title: "Je workflows zijn niet verbonden",
-    description: "Geen overzicht. Handmatig data overkloppen en continu schakelen tussen programma's. Warme leads vallen daardoor tussen wal en schip.",
+    title: "Een gefragmenteerde workflow",
+    description: "Je switcht continu tussen ChatGPT, documenten vol templates en je Recruiter Seat. Tijdrovend, onoverzichtelijk en de perfecte manier om focus te verliezen.",
   },
   {
     icon: (
@@ -42,8 +42,8 @@ const pains = [
         <line x1="12" y1="17" x2="12.01" y2="17" />
       </svg>
     ),
-    title: "Switchen tussen Sales en Recruitment",
-    description: "Je zoekt opdrachten én kandidaten, maar gebruikt dezelfde onpersoonlijke aanpak. Die context-switch kost moeite en conversie.",
+    title: "Het talent heeft de macht (en haast)",
+    description: "Goede kandidaten krijgen wekelijks talloze berichten. Als jouw benadering grijs of vertraagd is, tekent de droomkandidaat letterlijk bij de concurrent.",
   },
   {
     icon: (
@@ -54,7 +54,7 @@ const pains = [
         <line x1="22" y1="8" x2="17" y2="13" />
       </svg>
     ),
-    title: "Connectieverzoeken zonder impact",
+    title: "Connecties blijven "In afwachting"",
     description: "\"Ik zou je graag toevoegen aan mijn netwerk.\" Elke recruiter stuurt hetzelfde. Zonder persoonlijke noot accepteert niemand.",
   },
 ];

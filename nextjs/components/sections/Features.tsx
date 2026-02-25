@@ -7,9 +7,9 @@ import AnimateOnScroll from "../animations/AnimateOnScroll";
 const tabs = [
   {
     id: "schaal",
-    label: "25 kandidaten tegelijk",
-    title: "Scale je outreach. Behoud de persoonlijke touch.",
-    description: "Selecteer tot 25 kandidaten in één keer. Elvatix analyseert alle profielen en genereert voor elke kandidaat een uniek, messcherp bericht. Niemand krijgt hetzelfde te lezen.",
+    label: "Persoonlijk op schaal (25 tegelijk)",
+    title: "Behoud personalisatie. Ontgrendel schaal.",
+    description: "Selecteer tot 25 kandidaten in je pool. Elvatix leest elk afzonderlijk profiel en schrijft 25 totaal verschillende, messcherpe berichten. Bulk outreach met de kwaliteit van handwerk.",
     features: [
       "25 kandidaten in één run",
       "Unieke profiel-analyse per persoon",
@@ -18,9 +18,9 @@ const tabs = [
   },
   {
     id: "integratie",
-    label: "Naadloze Integratie",
-    title: "Direct in jouw workflow.",
-    description: "Elvatix draait volledig binnen Recruiter Seat, Sales Navigator en jouw pipelines. Geen extra tabbladen of omslachtige exports. Selecteer, genereer en verstuur direct vanuit LinkedIn.",
+    label: "Werkt waar jij al werkt",
+    title: "Geen nieuwe tools leren.",
+    description: "Volledige en directe integratie in LinkedIn Recruiter Seat en Sales Navigator. Selecteer je candidates, genereer en verstuur in één naadloze workflow zonder je tabblad te verlaten.",
     features: [
       "Recruiter Seat & Sales Navigator",
       "Werkt direct in je eigen pools",
@@ -29,20 +29,20 @@ const tabs = [
   },
   {
     id: "switch",
-    label: "Sales & Recruitment",
-    title: "Twee werelden, één platform.",
-    description: "Kandidaten zoeken voor je vacatures? Of klanten zoeken voor je diensten? Met de ingebouwde Sales/Recruitment switch pas je direct de context van de engine aan met één klik.",
+    label: "Follow-ups die converteren",
+    title: "Timing is alles.",
+    description: "80% van de kandidaten reageert pas bij het tweede bericht. Stel je follow-up sequence eenmalig in, leun achterover, en zie je respons rates verdubbelen zonder handmatig werk.",
     features: [
-      "Specifieke Recruitment modus",
-      "Koude acquisitie Sales modus",
+      "Volledig geautomatiseerde follow-up",
+      "Perfect getimede sequence",
       "Direct de juiste tone-of-voice",
     ],
   },
   {
     id: "templates",
-    label: "Eigen Templates",
-    title: "Jouw stijl. Opgeschaald.",
-    description: "Maak templates voor terugkerende berichten met je eigen tone-of-voice. Jij bepaalt de structuur, de vacature en de toon. Elvatix integreert dit dynamisch met de profieldata.",
+    label: "Jij regisseert, AI assisteert",
+    title: "Eigen templates mét ratio.",
+    description: "Bouw je eigen templates in jouw tone of voice. Elvatix leest de kaders, voegt context toe vanuit het cv, en zorgt dat elk bericht klinkt alsof jij er een kwartier voor bent gaan zitten.",
     features: [
       "Jouw eigen tone-of-voice",
       "Flexibele en vaste tekstblokken",

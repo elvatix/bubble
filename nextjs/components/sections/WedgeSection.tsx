@@ -24,13 +24,13 @@ export default function WedgeSection() {
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.15}>
               <h2 className="text-[clamp(28px,4vw,56px)] font-black text-white mb-5 leading-[1.1]">
-                Minder typen.{" "}
-                <span className="text-amber-400">Meer bereiken.</span>
+                Van een uitputtende grind.{" "}
+                <span className="text-amber-400">Naar een oneerlijk voordeel.</span>
               </h2>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.3}>
               <p className="text-[clamp(14px,1.5vw,17px)] text-white/70 max-w-[460px] mb-9 leading-relaxed">
-                Van urenlang handwerk naar één soepele workflow. Elvatix doet het zware werk met 25 kandidaten tegelijk, jij sluit de deals.
+                Stop met handmatig typen en sluit je aan bij bureaus die Elvatix al gebruiken om zich te onderscheiden bij toptalent. 95% sneller. 100% persoonlijk.
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.45}>

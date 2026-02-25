@@ -10,8 +10,8 @@ export default function CTA() {
           Klaar om het zelf te ervaren?
         </h2>
         <p className="text-white/85 text-base mb-8 leading-relaxed">
-          Ervaar de kracht van een geïntegreerd Recruitment & Sales platform.
-          Bereik 25 kandidaten tegelijk, volledig binnen jouw LinkedIn workflow.
+          Ervaar zelf de directe impact op je response rate.
+          Probeer de gratis module vandaag nog en ontdek hoeveel sneller en effectiever je workflow in Recruiter Seat kan zijn.
         </p>
         <div className="flex gap-3 justify-center flex-wrap">
           <motion.a

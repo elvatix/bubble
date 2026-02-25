@@ -13,14 +13,14 @@ export default function Hero() {
           {/* Left: Text content */}
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-[clamp(32px,5vw,56px)] font-black leading-[1.1] mb-5 text-gray-900">
-              Jouw visie op talent.{" "}
+              Toptalent wacht niet.{" "}
               <span className="gradient-text">
-                Wij doen de outreach.
+                Je eerste bericht moet perfect zijn.
               </span>
             </h1>
 
             <p className="text-lg text-gray-500 leading-relaxed max-w-[600px] mb-8 mx-auto lg:mx-0">
-              Elvatix is hét platform voor moderne recruiters. Koppel je Recruiter Seat, selecteer je pipeline, en wij genereren messcherpe, gepersonaliseerde berichten voor 25 kandidaten tegelijk. Binnen jouw workflow.
+              De beste recruiters weigeren in te leveren op personalisatie, maar struggelen met de tijd die het kost. Elvatix lost die spagaat op: genereer in één klik 25 hyper-persoonlijke InMails direct binnen LinkedIn Recruiter.
             </p>
 
             <div className="flex gap-3 justify-center lg:justify-start flex-wrap">
