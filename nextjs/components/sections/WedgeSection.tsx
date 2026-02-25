@@ -30,7 +30,7 @@ export default function WedgeSection() {
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.3}>
               <p className="text-[clamp(14px,1.5vw,17px)] text-white/70 max-w-[460px] mb-9 leading-relaxed">
-                Van copy-paste frustratie naar persoonlijke berichten in seconden. Elvatix schrijft, jij verstuurt.
+                Van urenlang handwerk naar één soepele workflow. Elvatix doet het zware werk met 25 kandidaten tegelijk, jij sluit de deals.
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fadeUp" delay={0.45}>

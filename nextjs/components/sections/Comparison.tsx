@@ -17,11 +17,11 @@ const XIcon = () => (
 );
 
 const rows = [
-  { label: "Personalisatie op basis van profiel", zonder: false, met: true },
-  { label: "Bericht op basis van het LinkedIn-profiel", zonder: false, met: true },
-  { label: "Tone of voice instellen", zonder: false, met: true },
-  { label: "Taal automatisch detecteren", zonder: false, met: true },
-  { label: "30 seconden per InMail", zonder: false, met: true },
+  { label: "Benader tot 25 profielen tegelijkertijd", zonder: false, met: true },
+  { label: "Geïntegreerd in Recruiter Seat & Sales Navigator", zonder: false, met: true },
+  { label: "Naadloze switch tussen Sales en Recruitment", zonder: false, met: true },
+  { label: "100% dynamische template invulling", zonder: false, met: true },
+  { label: "Scale je pipeline zonder verlies van kwaliteit", zonder: false, met: true },
 ];
 
 export default function Comparison() {

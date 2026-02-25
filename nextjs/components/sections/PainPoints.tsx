@@ -10,8 +10,8 @@ const pains = [
         <polyline points="12 6 12 12 16 14" />
       </svg>
     ),
-    title: "10 minuten per InMail. 20 keer per dag.",
-    description: "Profiel openen. Werkervaring doorlezen. Een bericht schrijven dat persoonlijk klinkt. Afsluiting kiezen. Versturen. Volgende kandidaat. Herhaal.",
+    title: "10 minuten per InMail. Uren per week.",
+    description: "Profielen openen, werkervaring scannen, een persoonlijke invalshoek bedenken. Voor 25 kandidaten tegelijk ben je zo een halve dag kwijt.",
   },
   {
     icon: (
@@ -21,8 +21,8 @@ const pains = [
         <path d="M12 11h4M12 16h4M8 11h.01M8 16h.01" />
       </svg>
     ),
-    title: "Templates die iedereen herkent als template",
-    description: "Copy-paste uit ChatGPT. Het klinkt generiek en je kandidaten prikken er direct doorheen. Ze openen je bericht, maar reageren niet.",
+    title: "Templates die direct herkend worden",
+    description: "Copy-paste uit een oud document. Het klinkt generiek en toptalent prikt er direct doorheen. Ze openen je bericht, maar reageren niet.",
   },
   {
     icon: (
@@ -31,8 +31,8 @@ const pains = [
         <polyline points="16 17 22 17 22 11" />
       </svg>
     ),
-    title: "Je response rate blijft onder de 10%",
-    description: "Tientallen InMails per dag, amper reactie. De targets worden niet gehaald. Het team raakt gefrustreerd. En jij weet: het ligt niet aan de kandidaten.",
+    title: "Je workflows zijn niet verbonden",
+    description: "Geen overzicht. Handmatig data overkloppen en continu schakelen tussen programma's. Warme leads vallen daardoor tussen wal en schip.",
   },
   {
     icon: (
@@ -42,8 +42,8 @@ const pains = [
         <line x1="12" y1="17" x2="12.01" y2="17" />
       </svg>
     ),
-    title: "Warme kandidaten worden koud",
-    description: "Die ene kandidaat die wél geïnteresseerd was? Vergeten op te volgen. Geen systeem, geen reminder. Warme leads worden koud.",
+    title: "Switchen tussen Sales en Recruitment",
+    description: "Je zoekt opdrachten én kandidaten, maar gebruikt dezelfde onpersoonlijke aanpak. Die context-switch kost moeite en conversie.",
   },
   {
     icon: (
@@ -54,7 +54,7 @@ const pains = [
         <line x1="22" y1="8" x2="17" y2="13" />
       </svg>
     ),
-    title: "Connectieverzoeken die niemand accepteert",
+    title: "Connectieverzoeken zonder impact",
     description: "\"Ik zou je graag toevoegen aan mijn netwerk.\" Elke recruiter stuurt hetzelfde. Zonder persoonlijke noot accepteert niemand.",
   },
 ];

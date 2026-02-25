@@ -6,51 +6,47 @@ import AnimateOnScroll from "../animations/AnimateOnScroll";
 
 const tabs = [
   {
-    id: "inmails",
-    label: "InMails",
-    title: "InMails die gelezen worden",
-    description:
-      "Plak een LinkedIn-profiel en Elvatix schrijft een bericht dat aansluit bij de werkervaring, achtergrond en interesses van je kandidaat. In jouw toon, in natuurlijk Nederlands.",
+    id: "schaal",
+    label: "25 kandidaten tegelijk",
+    title: "Scale je outreach. Behoud de persoonlijke touch.",
+    description: "Selecteer tot 25 kandidaten in één keer. Elvatix analyseert alle profielen en genereert voor elke kandidaat een uniek, messcherp bericht. Niemand krijgt hetzelfde te lezen.",
     features: [
-      "Schrijf in jouw eigen tone-of-voice",
-      "30 seconden per gepersonaliseerd bericht",
-      "Gebaseerd op het echte LinkedIn-profiel",
+      "25 kandidaten in één run",
+      "Unieke profiel-analyse per persoon",
+      "Scale zonder spam te worden",
     ],
   },
   {
-    id: "connecties",
-    label: "Connectieverzoeken",
-    title: "Connectieverzoeken die opvallen",
-    description:
-      "Elvatix schrijft een connectieverzoek dat verwijst naar iets concreets uit het profiel van je kandidaat. Geen \"Ik wil je graag toevoegen\" meer.",
+    id: "integratie",
+    label: "Naadloze Integratie",
+    title: "Direct in jouw workflow.",
+    description: "Elvatix draait volledig binnen Recruiter Seat, Sales Navigator en jouw pipelines. Geen extra tabbladen of omslachtige exports. Selecteer, genereer en verstuur direct vanuit LinkedIn.",
     features: [
-      "Hogere acceptatiegraad",
-      "Automatisch gepersonaliseerd",
-      "Max 300 karakters, maximale impact",
+      "Recruiter Seat & Sales Navigator",
+      "Werkt direct in je eigen pools",
+      "Geen data exports of extra tabs",
     ],
   },
   {
-    id: "reminders",
-    label: "Reminders",
-    title: "Slimme follow-ups",
-    description:
-      "Vergeet nooit meer om op te volgen. Elvatix helpt je om op het juiste moment de juiste kandidaat opnieuw te benaderen.",
+    id: "switch",
+    label: "Sales & Recruitment",
+    title: "Twee werelden, één platform.",
+    description: "Kandidaten zoeken voor je vacatures? Of klanten zoeken voor je diensten? Met de ingebouwde Sales/Recruitment switch pas je direct de context van de engine aan met één klik.",
     features: [
-      "Automatische herinneringen",
-      "Nooit meer gemiste follow-ups",
-      "Timing geoptimaliseerd",
+      "Specifieke Recruitment modus",
+      "Koude acquisitie Sales modus",
+      "Direct de juiste tone-of-voice",
     ],
   },
   {
     id: "templates",
-    label: "Templates",
-    title: "Templates die wél persoonlijk zijn",
-    description:
-      "Maak templates voor terugkerende berichten. Jij bepaalt de structuur, Elvatix maakt elk bericht uniek op basis van het profiel.",
+    label: "Eigen Templates",
+    title: "Jouw stijl. Opgeschaald.",
+    description: "Maak templates voor terugkerende berichten met je eigen tone-of-voice. Jij bepaalt de structuur, de vacature en de toon. Elvatix integreert dit dynamisch met de profieldata.",
     features: [
-      "Jij bepaalt de structuur",
-      "AI vult dynamisch in",
-      "Consistent en persoonlijk",
+      "Jouw eigen tone-of-voice",
+      "Flexibele en vaste tekstblokken",
+      "Context-bewuste AI invulling",
     ],
   },
 ];
@@ -68,10 +64,10 @@ export default function Features() {
               Modules
             </p>
             <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
-              Alles wat je nodig hebt voor betere outreach
+              Ontworpen voor de moderne recruiter
             </h2>
             <p className="text-gray-500 text-base max-w-[560px] mx-auto">
-              Vier krachtige modules die samenwerken om jouw LinkedIn outreach te versnellen.
+              Een compleet platform dat integreert in jouw workflow en je productiviteit vertienvoudigt.
             </p>
           </div>
         </AnimateOnScroll>

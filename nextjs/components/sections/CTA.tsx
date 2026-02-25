@@ -10,8 +10,8 @@ export default function CTA() {
           Klaar om het zelf te ervaren?
         </h2>
         <p className="text-white/85 text-base mb-8 leading-relaxed">
-          Probeer Elvatix gratis of plan een demo.
-          Binnen 30 seconden heb je je eerste gepersonaliseerde bericht.
+          Ervaar de kracht van een geïntegreerd Recruitment & Sales platform.
+          Bereik 25 kandidaten tegelijk, volledig binnen jouw LinkedIn workflow.
         </p>
         <div className="flex gap-3 justify-center flex-wrap">
           <motion.a
