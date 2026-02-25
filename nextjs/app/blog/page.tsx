@@ -7,9 +7,9 @@ import type { Metadata } from 'next';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Blog | Elvatix',
-  description: 'Lees de laatste inzichten over AI-powered recruitment, LinkedIn outreach en talent acquisition.',
-  alternates: { canonical: '/blog' },
+  title: 'Recruitment blog: tips, trends en inzichten voor recruiters',
+  description: 'Lees de laatste blogs van Elvatix over LinkedIn outreach, recruitment automation en kandidaatbenadering. Praktische tips voor recruiters die slimmer willen werken.',
+  alternates: { canonical: 'https://elvatix.com/blog' },
 };
 
 export default async function BlogOverviewPage() {
@@ -34,9 +34,10 @@ export default async function BlogOverviewPage() {
           __html: JSON.stringify(structuredData).replace(/</g, '\\u003c')
         }}
       />
-      <Container className="text-center mb-16">        <h1 className="page-heading">Inzichten & Updates</h1>
+      <Container className="text-center mb-16">        <span className="page-badge">Blog</span>
+        <h1 className="page-heading">Nieuws</h1>
         <p className="page-subtitle">
-          De laatste artikelen over AI-powered recruitment, LinkedIn strategieën en talent acquisition best practices.
+          Blijf vooroplopen met door experts geschreven content over de laatste ontwikkeling binnen recruitment!
         </p>
       </Container>
 
