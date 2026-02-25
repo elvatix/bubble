@@ -8,28 +8,41 @@ const linkColumns = [
   {
     title: "Modules",
     links: [
-      { label: "InMails", href: "/features/inmails" },
-      { label: "Connectieverzoeken", href: "/features/connections" },
-      { label: "Reminders", href: "/features/reminders" },
-      { label: "Analytics", href: "/features/analytics" },
+      { label: "Recruitment Sales Switch", href: "/module-recruitment-sales-switch" },
+      { label: "Templates Instructions", href: "/module-template-instructies" },
+      { label: "Connectieverzoeken", href: "/module-connectieverzoeken" },
+      { label: "Custom GPT", href: "/module-custom-gpt" },
+      { label: "Reminders", href: "/module-reminders" },
+      { label: "Inmails", href: "/module-inmails" },
     ],
   },
   {
     title: "Voor Wie",
     links: [
-      { label: "Recruitmentbureaus", href: "/solutions" },
-      { label: "Corporate Recruiters", href: "/solutions" },
-      { label: "Detacheringsbureaus", href: "/solutions" },
+      { label: "Detacheringsbureaus", href: "/voor-detacheringsbureaus" },
+      { label: "Corporate Recruiters", href: "/voor-corporate-recruiters" },
+      { label: "Recruitmentbureaus", href: "/voor-recruitmentbureaus" },
     ],
   },
   {
-    title: "Bedrijf",
+    title: "Case Studies",
     links: [
-      { label: "Over Ons", href: "/over-ons" },
-      { label: "Case Studies", href: "/cases" },
-      { label: "Blog", href: "/blog" },
-      { label: "Contact", href: "/contact" },
-      { label: "Probeer gratis", href: "/probeer" },
+      { label: "Manpower", href: "/case-study-manpower" },
+      { label: "Vibe Group", href: "/case-study-vibegroup" },
+    ],
+  },
+  {
+    title: "Documentatie",
+    links: [
+      { label: "Algemene Voorwaarden", href: "/terms" },
+      { label: "Privacy Beleid", href: "/privacy" },
+    ],
+  },
+  {
+    title: "Informatie",
+    links: [
+      { label: "Integraties", href: "/integraties-linkedin" },
+      { label: "Blogs", href: "/blogs" },
     ],
   },
 ];
@@ -39,10 +52,10 @@ export default function Footer() {
     <footer className="bg-gray-900 text-white pt-16 pb-8">
       <AnimateOnScroll variant="fadeUp">
         <Container>
-          {/* Main Grid: Logo + 3 link columns, evenly distributed */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-14">
-            {/* Brand Column */}
-            <div className="col-span-2 md:col-span-1">
+          {/* Main Grid */}
+          <div className="footer-grid">
+            {/* Brand Column — Left */}
+            <div>
               <Link href="/" className="no-underline block mb-5">
                 <Image
                   src="/images/elvatix-logo-lightgreen.svg"
@@ -52,26 +65,35 @@ export default function Footer() {
                   className="h-7 w-auto"
                 />
               </Link>
-              <p className="text-sm text-white/50 leading-relaxed max-w-[260px] mb-6">
-                De #1 AI-Powered LinkedIn Recruitment Copilot. Schrijf persoonlijke InMails en connectieverzoeken in seconden.
-              </p>
-              {/* Social Links */}
-              <div className="flex items-center gap-3">
+              <div className="text-sm text-white/50 leading-relaxed space-y-1 mb-5">
+                <p className="m-0">Elvatix B.V.</p>
+                <p className="m-0">KVK 91816637</p>
+                <p className="m-0">Fahrenheitweg 24</p>
+                <p className="m-0">6101 WR Echt, Nederland</p>
+              </div>
+              {/* Contact & Social */}
+              <div className="flex flex-col gap-2">
+                <Link
+                  href="/contact"
+                  className="text-white/60 no-underline text-sm hover:text-white transition-colors duration-150"
+                >
+                  Contact
+                </Link>
                 <a
-                  href="https://www.linkedin.com/company/elvatix"
+                  href="https://nl.linkedin.com/in/gianni-linssen-742842315"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
-                  aria-label="LinkedIn"
+                  className="flex items-center gap-2 text-white/60 no-underline text-sm hover:text-white transition-colors duration-150"
                 >
-                  <svg className="w-4 h-4 text-white/60" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                   </svg>
+                  LinkedIn
                 </a>
               </div>
             </div>
 
-            {/* Link Columns — each takes equal width */}
+            {/* Link Columns */}
             {linkColumns.map((col) => (
               <div key={col.title}>
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">
@@ -94,16 +116,16 @@ export default function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-white/10 pt-6 flex justify-between items-center flex-wrap gap-4">
-            <p className="text-[13px] text-white/40">
-              &copy; 2026 Elvatix. Alle rechten voorbehouden.
+          <div className="footer-bottom">
+            <p className="text-[13px] text-white/40 m-0">
+              &copy; 2026 Elvatix B.V. Alle rechten voorbehouden.
             </p>
             <div className="flex gap-5">
-              <Link href="/privacy" className="text-white/40 no-underline text-[13px] hover:text-white/60 transition-colors duration-150">
-                Privacy
-              </Link>
               <Link href="/terms" className="text-white/40 no-underline text-[13px] hover:text-white/60 transition-colors duration-150">
-                Voorwaarden
+                Algemene Voorwaarden
+              </Link>
+              <Link href="/privacy" className="text-white/40 no-underline text-[13px] hover:text-white/60 transition-colors duration-150">
+                Privacy Beleid
               </Link>
             </div>
           </div>
