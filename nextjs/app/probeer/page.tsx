@@ -33,12 +33,11 @@ export default function ProbeerPage() {
             Gratis uitproberen
           </p>
           <h1 className="text-[clamp(28px,5vw,44px)] font-black leading-[1.1] mb-4 text-gray-900">
-            Twee stappen. 30 seconden.{" "}
-            <span className="gradient-text">Jouw eerste AI-bericht.</span>
+            Jij kent de kandidaat.{" "}
+            <span className="gradient-text">Wij schrijven het bericht.</span>
           </h1>
           <p className="text-base text-gray-500 leading-relaxed max-w-[540px] mx-auto mb-10">
-            Zoek je kandidaat, vul je eigen profiel in en ontvang direct een
-            persoonlijke InMail en connectieverzoek. Geen account nodig.
+            Vul in wie je wilt benaderen en wie jij bent. Wij doen de rest: we lezen de ervaring door en schrijven direct een persoonlijke InMail die je zó kunt versturen. Geen account nodig, probeer het direct.
           </p>
         </Container>
       </section>
@@ -64,8 +63,7 @@ export default function ProbeerPage() {
               <span className="gradient-text">Nu voor je hele pool.</span>
             </h2>
             <p className="text-base text-gray-500 leading-relaxed max-w-[500px] mx-auto">
-              Elvatix draait volledig in Recruiter Seat. Jij maakt de pools,
-              wij schrijven alle berichten. Met jouw templates, jouw toon en meer context.
+              Elvatix draait volledig binnen Recruiter Seat. Jij selecteert je kandidaten, en wij genereren voor iedereen een messcherp, persoonlijk bericht. In jouw stijl, met jouw templates.
             </p>
           </div>
 
