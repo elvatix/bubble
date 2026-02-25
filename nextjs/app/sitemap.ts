@@ -7,6 +7,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
+    { url: 'https://elvatix.com/case-studies', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: 'https://elvatix.com/case-study-manpower', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
+    { url: 'https://elvatix.com/case-study-vibegroup', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: 'https://elvatix.com/voor-wie', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
     { url: 'https://elvatix.com/voor-recruitmentbureaus', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: 'https://elvatix.com/voor-corporate-recruiters', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
