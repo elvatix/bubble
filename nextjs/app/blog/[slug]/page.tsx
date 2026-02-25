@@ -68,7 +68,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const readTime = Math.max(1, Math.ceil(wordCount / 200));
 
   return (
-    <main className="pt-40 pb-20 bg-gradient-to-b from-gray-50 to-white">
+    <main className="pt-40 pb-20 bg-gradient-to-b from-surface to-white">
       <Container className="max-w-3xl">
         {/* Back link */}
         <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-elvatix font-semibold mb-8 hover:underline no-underline">
