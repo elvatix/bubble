@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "LinkedIn leadgeneratie voor recruitment en sales",
-  description: "Meer leads en betere kandidaten via LinkedIn? Bereik klanten en talent persoonlijk en schaalbaar met \u00e9\u00e9n tool: Elvatix.",
+  description: "Meer leads en betere kandidaten via LinkedIn? Bereik klanten en talent persoonlijk en schaalbaar met één tool: Elvatix.",
   alternates: { canonical: "https://elvatix.com/module-recruitment-sales-switch" },
 };
 
@@ -15,7 +15,7 @@ export default function Page() {
         {/* Hero */}
         <div className="text-center mb-12">
           <span className="page-badge">Module</span>
-          <h1 className="page-heading">LinkedIn leadgeneratie voor recruitment en sales in \u00e9\u00e9n omgeving</h1>
+          <h1 className="page-heading">LinkedIn leadgeneratie voor recruitment en sales in één omgeving</h1>
         </div>
 
         {/* Image */}
@@ -36,7 +36,7 @@ export default function Page() {
           </ul>
 
           <h2>De oplossing: slimme LinkedIn leadgeneratie met Elvatix</h2>
-          <p>Onze Recruitment/Sales switch maakt het mogelijk om binnen \u00e9\u00e9n systeem te wisselen tussen twee soorten leadgeneratie: gerichte outreach naar kandidaten (recruitment) en strategische connecties met prospects of klanten (sales).</p>
+          <p>Onze Recruitment/Sales switch maakt het mogelijk om binnen één systeem te wisselen tussen twee soorten leadgeneratie: gerichte outreach naar kandidaten (recruitment) en strategische connecties met prospects of klanten (sales).</p>
 
           <h2>Voor wie is deze LinkedIn leadgeneratie tool bedoeld?</h2>
           <ul>
@@ -48,14 +48,14 @@ export default function Page() {
           <h2>Zo werkt LinkedIn leadgeneratie via Elvatix</h2>
           <ul>
             <li><strong>Kies het scenario:</strong> recruitment of sales.</li>
-            <li><strong>Laat berichten genereren</strong> \u2014 maximaal 25 gepersonaliseerde berichten, elk uniek en in jouw stijl.</li>
-            <li><strong>Controleer en pas aan</strong> \u2014 jij bepaalt wat er uitgaat.</li>
-            <li><strong>Verzend slim</strong> \u2014 berichten worden verspreid verzonden binnen de LinkedIn-limieten.</li>
+            <li><strong>Laat berichten genereren</strong> — maximaal 25 gepersonaliseerde berichten, elk uniek en in jouw stijl.</li>
+            <li><strong>Controleer en pas aan</strong> — jij bepaalt wat er uitgaat.</li>
+            <li><strong>Verzend slim</strong> — berichten worden verspreid verzonden binnen de LinkedIn-limieten.</li>
           </ul>
 
           <h2>Wat levert deze aanpak jou op?</h2>
           <ul>
-            <li>\u00c9\u00e9n omgeving, twee doelen: klanten en kandidaten vanuit dezelfde interface.</li>
+            <li>Één omgeving, twee doelen: klanten en kandidaten vanuit dezelfde interface.</li>
             <li>Consistente tone-of-voice: berichten klinken alsof jij ze zelf schrijft.</li>
             <li>Schaalbaar zonder generiek te worden: tot 25 unieke berichten per campagne.</li>
             <li>Meer focus op gesprekken, minder repetitief werk.</li>
@@ -80,7 +80,7 @@ export default function Page() {
           </details>
           <details className="faq-item">
             <summary>Hoe veilig is het gebruik van Elvatix binnen LinkedIn?</summary>
-            <p>Elvatix verzendt berichten binnen LinkedIn\u2019s limieten en richtlijnen. Je werkt volledig vanuit jouw LinkedIn Recruiter Seat.</p>
+            <p>Elvatix verzendt berichten binnen LinkedIn’s limieten en richtlijnen. Je werkt volledig vanuit jouw LinkedIn Recruiter Seat.</p>
           </details>
         </article>
 

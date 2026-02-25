@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Recruitment templates automatiseren \u00e9n persoonlijk maken",
+  title: "Recruitment templates automatiseren én persoonlijk maken",
   description: "Maak je recruitment templates automatisch persoonlijker met Elvatix. Meer reacties, minder afwijzingen. Plan gratis een demo en ontdek het zelf.",
   alternates: { canonical: "https://elvatix.com/module-template-instructies" },
 };
@@ -15,7 +15,7 @@ export default function Page() {
         {/* Hero */}
         <div className="text-center mb-12">
           <span className="page-badge">Module</span>
-          <h1 className="page-heading">Recruitment templates die persoonlijk w\u00e9l werken</h1>
+          <h1 className="page-heading">Recruitment templates die persoonlijk wél werken</h1>
         </div>
 
         {/* Image */}
@@ -44,8 +44,8 @@ export default function Page() {
           <p>Alle gegenereerde berichten komen overzichtelijk terug in je dashboard. Jij keurt alles goed. Elvatix integreert soepel in je LinkedIn workflow.</p>
 
           <h2>Voorbeeld: van standaardbericht naar persoonlijk contact</h2>
-          <p><strong>Originele template:</strong> \u201cHi Naam, ik ben recruiter bij Bureau. Ik zie dat je ervaring hebt in functiegebied en heb een interessante rol beschikbaar. Zullen we even bellen?\u201d</p>
-          <p><strong>Herschreven via Elvatix</strong> (vriendelijker, luchtiger, persoonlijker): \u201cHoi Naam, ik zie dat je al een interessante reis hebt gemaakt in de consultancywereld. Van je rol als X naar een nieuwe uitdaging bij X \u2014 dat laat zien hoe gedreven je bent. Je ervaring lijkt goed te passen bij een leuke uitdaging die ik op dit moment heb. Binnenkort even bellen?\u201d</p>
+          <p><strong>Originele template:</strong> “Hi Naam, ik ben recruiter bij Bureau. Ik zie dat je ervaring hebt in functiegebied en heb een interessante rol beschikbaar. Zullen we even bellen?”</p>
+          <p><strong>Herschreven via Elvatix</strong> (vriendelijker, luchtiger, persoonlijker): “Hoi Naam, ik zie dat je al een interessante reis hebt gemaakt in de consultancywereld. Van je rol als X naar een nieuwe uitdaging bij X — dat laat zien hoe gedreven je bent. Je ervaring lijkt goed te passen bij een leuke uitdaging die ik op dit moment heb. Binnenkort even bellen?”</p>
 
           {/* FAQ */}
           <h2>Veelgestelde vragen</h2>

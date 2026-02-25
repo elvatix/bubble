@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const modules = [
   { title: "Connectieverzoeken", href: "/module-connectieverzoeken", image: "/images/modules/connectieverzoeken.png", alt: "Elvatix connectieverzoeken module" },
-  { title: "Custom GPT\u2019s", href: "/module-custom-gpt", image: "/images/modules/custom-gpt.png", alt: "Elvatix custom GPT module" },
+  { title: "Custom GPT’s", href: "/module-custom-gpt", image: "/images/modules/custom-gpt.png", alt: "Elvatix custom GPT module" },
   { title: "InMails", href: "/module-inmails", image: "/images/modules/inmails.png", alt: "Elvatix InMails module" },
   { title: "Reminders", href: "/module-reminders", image: "/images/modules/reminders.png", alt: "Elvatix reminders module" },
   { title: "Template Instructies", href: "/module-template-instructies", image: "/images/modules/templates.png", alt: "Elvatix template instructies module" },
@@ -24,7 +24,7 @@ export default function ModulesPage() {
         {/* Hero */}
         <div className="text-center mb-16">
           <span className="page-badge">Modules</span>
-          <h1 className="page-heading">LinkedIn outreach: zo werf je persoonlijk \u00e9n op schaal</h1>
+          <h1 className="page-heading">LinkedIn outreach: zo werf je persoonlijk én op schaal</h1>
         </div>
 
         {/* Module Grid */}
@@ -44,7 +44,7 @@ export default function ModulesPage() {
         {/* Body Content */}
         <article className="max-w-[720px] mx-auto prose-custom">
           <h2>Wat is LinkedIn outreach?</h2>
-          <p>LinkedIn outreach is het actief benaderen van potenti\u00eble kandidaten via functies als <Link href="/module-connectieverzoeken">connectieverzoeken</Link>, <Link href="/module-inmails">InMails</Link> en vervolgberichten. In plaats van te wachten op sollicitaties neem je zelf het initiatief om contact te leggen met professionals die bij je vacature of doelgroep passen.</p>
+          <p>LinkedIn outreach is het actief benaderen van potentiële kandidaten via functies als <Link href="/module-connectieverzoeken">connectieverzoeken</Link>, <Link href="/module-inmails">InMails</Link> en vervolgberichten. In plaats van te wachten op sollicitaties neem je zelf het initiatief om contact te leggen met professionals die bij je vacature of doelgroep passen.</p>
           <p>Deze vorm van kandidaatbenadering op <Link href="/integraties-linkedin">LinkedIn</Link> is essentieel om latent werkzoekenden te bereiken: mensen die niet actief reageren op vacatures maar wel openstaan voor kansen. Zo vergroot je je bereik in de markt.</p>
 
           <h2>Waarom recruiters LinkedIn outreach nodig hebben</h2>
@@ -62,7 +62,7 @@ export default function ModulesPage() {
           <p>Veel kansen worden gemist doordat recruiters geen <Link href="/module-reminders">follow-up</Link> uitsturen. Een succesvolle LinkedIn outreach strategie bevat dus altijd gestructureerde opvolging.</p>
 
           <h2>Schaalbaar en persoonlijk: LinkedIn outreach met impact</h2>
-          <p>Goed uitgevoerde outreach voelt persoonlijk, zelfs als het effici\u00ebnt en deels geautomatiseerd is. Slimme AI-systemen en templates zorgen ervoor dat je op schaal gepersonaliseerd blijft communiceren.</p>
+          <p>Goed uitgevoerde outreach voelt persoonlijk, zelfs als het efficiënt en deels geautomatiseerd is. Slimme AI-systemen en templates zorgen ervoor dat je op schaal gepersonaliseerd blijft communiceren.</p>
 
           <h2>Elvatix: jouw tool voor schaalbare LinkedIn outreach</h2>
           <p>Elvatix ondersteunt recruiters met alles wat ze nodig hebben voor effectieve, persoonlijke en schaalbare outreach via LinkedIn. Wij werken volledig in LinkedIn Recruiter, dus je hoeft geen nieuwe tools aan te leren of te installeren.</p>

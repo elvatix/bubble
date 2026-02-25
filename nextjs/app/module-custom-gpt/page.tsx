@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Custom GPT\u2019s: ingebouwde AI-assistenten voor recruiters",
-  description: "Ontdek hoe recruiters zonder promptkennis AI slim inzetten met de ingebouwde GPT\u2019s van Elvatix. Meer reacties, minder werk.",
+  title: "Custom GPT’s: ingebouwde AI-assistenten voor recruiters",
+  description: "Ontdek hoe recruiters zonder promptkennis AI slim inzetten met de ingebouwde GPT’s van Elvatix. Meer reacties, minder werk.",
   alternates: { canonical: "https://elvatix.com/module-custom-gpt" },
 };
 
@@ -15,7 +15,7 @@ export default function Page() {
         {/* Hero */}
         <div className="text-center mb-12">
           <span className="page-badge">Module</span>
-          <h1 className="page-heading">Custom GPT\u2019s: ingebouwde AI-assistenten voor recruiters</h1>
+          <h1 className="page-heading">Custom GPT’s: ingebouwde AI-assistenten voor recruiters</h1>
         </div>
 
         {/* Image */}
@@ -26,7 +26,7 @@ export default function Page() {
         {/* Body */}
         <article className="max-w-[720px] mx-auto prose-custom">
           <h2>Wat betekent prompt in AI-context?</h2>
-          <p>Een prompt is een instructie of vraag die je geeft aan een AI zoals ChatGPT. Hoe duidelijker en concreter je bent, hoe beter de uitkomst. Met Elvatix hoef je niet zelf te leren prompt engineering \u2014 onze AI-tools helpen je automatisch.</p>
+          <p>Een prompt is een instructie of vraag die je geeft aan een AI zoals ChatGPT. Hoe duidelijker en concreter je bent, hoe beter de uitkomst. Met Elvatix hoef je niet zelf te leren prompt engineering — onze AI-tools helpen je automatisch.</p>
 
           <h2>AI prompt uitleg voor recruiters</h2>
           <p>In simpele taal: een prompt is wat jij tegen de AI zegt. Goede prompts besparen tijd en verhogen de kwaliteit van je communicatie met kandidaten.</p>
@@ -40,11 +40,11 @@ export default function Page() {
 
           <h2>Wat doet Elvatix met prompts?</h2>
           <h3>1. De Instructie-GPT</h3>
-          <p>De Instructie-GPT helpt je bij het maken van heldere AI-opdrachten. Simpele keuzemenu\u2019s leiden je door vragen als: Moet het korter? Wil je de nadruk op soft skills? Zoek je een luchtige of formele toon? Jij kiest je doel, de AI doet het schrijfwerk.</p>
+          <p>De Instructie-GPT helpt je bij het maken van heldere AI-opdrachten. Simpele keuzemenu’s leiden je door vragen als: Moet het korter? Wil je de nadruk op soft skills? Zoek je een luchtige of formele toon? Jij kiest je doel, de AI doet het schrijfwerk.</p>
           <h3>2. De Template-GPT</h3>
           <p>Werk je liever vanuit je eigen taalgebruik? Upload je eigen teksten of sjablonen. De Template-GPT scant je input en geeft gerichte verbeteringen. De AI leert steeds beter je eigen schrijfstijl herkennen.</p>
 
-          <h2>Wat levert het gebruik van Custom GPT\u2019s op?</h2>
+          <h2>Wat levert het gebruik van Custom GPT’s op?</h2>
           <ul>
             <li>Geen prompt engineering nodig: wij doen het denkwerk voor je.</li>
             <li>Meer reacties van kandidaten: teksten sluiten beter aan.</li>

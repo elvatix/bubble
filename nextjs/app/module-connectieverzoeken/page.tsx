@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "LinkedIn connectieverzoeken die mensen w\u00e9l willen lezen (via Recruiter)",
-  description: "\u201cIk wil u graag toevoegen...\u201d is z\u00f3 2015. Met Elvatix stuur je in \u00e9\u00e9n klik berichten waar mensen van glimlachen. Persoonlijk, origineel en direct vanuit je Recruiter Seat.",
+  title: "LinkedIn connectieverzoeken die mensen wél willen lezen (via Recruiter)",
+  description: "“Ik wil u graag toevoegen...” is zó 2015. Met Elvatix stuur je in één klik berichten waar mensen van glimlachen. Persoonlijk, origineel en direct vanuit je Recruiter Seat.",
   alternates: { canonical: "https://elvatix.com/module-connectieverzoeken" },
 };
 
@@ -15,7 +15,7 @@ export default function Page() {
         {/* Hero */}
         <div className="text-center mb-12">
           <span className="page-badge">Module</span>
-          <h1 className="page-heading">LinkedIn connectieverzoeken die w\u00e9l geaccepteerd worden</h1>
+          <h1 className="page-heading">LinkedIn connectieverzoeken die wél geaccepteerd worden</h1>
         </div>
 
         {/* Image */}
@@ -33,8 +33,8 @@ export default function Page() {
 
           <h2>Voorbeelden van persoonlijke connectieverzoeken</h2>
           <ul>
-            <li>\u201cHoi Karel, je bent bij Ecobliss gestart als young professional en nu sta je als algemeen directeur aan het roer. Bevalt het om nu de eindregie te hebben?\u201d</li>
-            <li>\u201cHa Timo, die 1000+ plaatsingen in anderhalf jaar tijd is nogal wat zeg! Doe je dat puur zelf of zit er al slimme tooling achter?\u201d</li>
+            <li>“Hoi Karel, je bent bij Ecobliss gestart als young professional en nu sta je als algemeen directeur aan het roer. Bevalt het om nu de eindregie te hebben?”</li>
+            <li>“Ha Timo, die 1000+ plaatsingen in anderhalf jaar tijd is nogal wat zeg! Doe je dat puur zelf of zit er al slimme tooling achter?”</li>
           </ul>
 
           <h2>Met Elvatix maak je elke LinkedIn uitnodiging uniek en persoonlijk</h2>

@@ -34,7 +34,7 @@ export default function Page() {
           <h2>Waarom follow-up onmisbaar is in recruitment</h2>
           <h3>Reacties volgen vaak pas na 2 of 3 contactpogingen</h3>
           <p>Een enkel bericht is zelden genoeg. Idealiter stuur je 2 of zelfs 3 berichten over een paar dagen verspreid.</p>
-          <h3>Veel recruiters volgen niet op of kopi\u00ebren hun eerste bericht</h3>
+          <h3>Veel recruiters volgen niet op of kopiëren hun eerste bericht</h3>
           <p>Herhaling werkt niet. Een goede reminder op LinkedIn voegt juist iets toe: nieuwe context, een andere insteek of inhoud die laat zien dat je echt geluisterd hebt.</p>
 
           <h2>Hier gaat follow-up vaak mis</h2>
@@ -47,20 +47,20 @@ export default function Page() {
           <h3>Uniek in Nederland: gepersonaliseerde reminders binnen LinkedIn Recruiter</h3>
           <p>Met Elvatix voeg je direct na je eerste InMail een opvolgbericht toe. Onze AI genereert automatisch een gepersonaliseerde follow-up in jouw tone of voice.</p>
           <h3>Onze reminders bouwen altijd voort op jouw originele bericht</h3>
-          <p>Elvatix leest het eerste bericht en cre\u00ebert een logisch vervolg. Geen herhaling maar een uitbreiding die het gesprek verder brengt.</p>
+          <p>Elvatix leest het eerste bericht en creëert een logisch vervolg. Geen herhaling maar een uitbreiding die het gesprek verder brengt.</p>
           <h3>Jij blijft in controle, onze AI doet het voorwerk</h3>
           <p>Elke reminder klinkt als jou, niet als een bot. Jij leest het voorstel, past het eventueel aan en kiest zelf het verzendmoment.</p>
 
           <h2>Zo werkt follow-up met Elvatix</h2>
-          <p><strong>Stap 1</strong> \u2014 Voeg een reminder toe aan je InMail in LinkedIn Recruiter. Als je werkt met LinkedIn Recruiter Seat kun je direct bij verzending van een InMail een reminder koppelen via Elvatix.</p>
-          <p><strong>Stap 2</strong> \u2014 AI genereert een inhoudelijke en unieke follow-up. Onze technologie gebruikt je originele bericht als input. De AI schrijft een tweede bericht met nieuwe inhoud, afgestemd op jouw stijl en doelgroep.</p>
-          <p><strong>Stap 3</strong> \u2014 Meerdere reminders tegelijk maar nooit hetzelfde. Je kunt tot 25 follow-ups in \u00e9\u00e9n keer voorbereiden. Toch blijft elk bericht uniek.</p>
-          <p><strong>Stap 4</strong> \u2014 Jij reviewt en plant het verzendmoment. Je behoudt altijd de controle.</p>
-          <p><strong>Stap 5</strong> \u2014 Verstuurd binnen de richtlijnen van LinkedIn. Onze reminders worden natuurlijk verspreid verzonden.</p>
+          <p><strong>Stap 1</strong> — Voeg een reminder toe aan je InMail in LinkedIn Recruiter. Als je werkt met LinkedIn Recruiter Seat kun je direct bij verzending van een InMail een reminder koppelen via Elvatix.</p>
+          <p><strong>Stap 2</strong> — AI genereert een inhoudelijke en unieke follow-up. Onze technologie gebruikt je originele bericht als input. De AI schrijft een tweede bericht met nieuwe inhoud, afgestemd op jouw stijl en doelgroep.</p>
+          <p><strong>Stap 3</strong> — Meerdere reminders tegelijk maar nooit hetzelfde. Je kunt tot 25 follow-ups in één keer voorbereiden. Toch blijft elk bericht uniek.</p>
+          <p><strong>Stap 4</strong> — Jij reviewt en plant het verzendmoment. Je behoudt altijd de controle.</p>
+          <p><strong>Stap 5</strong> — Verstuurd binnen de richtlijnen van LinkedIn. Onze reminders worden natuurlijk verspreid verzonden.</p>
 
           <h2>De voordelen op een rij</h2>
           <ul>
-            <li>Volledig ge\u00efntegreerd met LinkedIn Recruiter.</li>
+            <li>Volledig geïntegreerd met LinkedIn Recruiter.</li>
             <li>Meer reacties dankzij relevante follow-ups.</li>
             <li>Alles loopt automatisch mee in je recruitmentflow.</li>
             <li>Jij bepaalt wat er wanneer verzonden wordt.</li>

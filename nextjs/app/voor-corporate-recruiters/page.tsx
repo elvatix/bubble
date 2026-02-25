@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Corporate recruiter: betekenis, taken en effici\u00ebnter werven met Elvatix",
+  title: "Corporate recruiter: betekenis, taken en efficiënter werven met Elvatix",
   description: "Wat is een corporate recruiter? Ontdek het verschil met bureau recruitment en hoe corporate recruitment software van Elvatix jouw werk via LinkedIn makkelijker en persoonlijker maakt.",
   alternates: { canonical: "https://elvatix.com/voor-corporate-recruiters" },
 };

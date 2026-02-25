@@ -29,12 +29,12 @@ export default function Page() {
           <p>Je schrijft elke InMail handmatig en zoekt naar manieren om het persoonlijk te maken. Of je maakt gebruik van AI-tools die generiek en onpersoonlijk overkomen. Elvatix verandert dat volledig binnen LinkedIn Recruiter.</p>
 
           <h2>Zo werken InMails op LinkedIn met Elvatix</h2>
-          <p><strong>1. Je workflow blijft zoals je gewend bent</strong> \u2014 Je werkt rechtstreeks in je bestaande projecten, pipelines en talent pools in LinkedIn Recruiter Seat. Geen extra tabbladen of tools.</p>
-          <p><strong>2. Selecteer tot 25 kandidaten in Recruiter Seat</strong> \u2014 Kies direct in LinkedIn Recruiter wie je wilt benaderen. Perfect voor een gerichte batch outreach binnen een specifieke functie of doelgroep.</p>
-          <p><strong>3. Elvatix schrijft persoonlijke InMails in jouw stijl</strong> \u2014 Op basis van je eigen templates en tone-of-voice genereert Elvatix unieke, persoonlijke InMails per kandidaat. Geen generieke AI-teksten, maar berichten die echt klinken als jij.</p>
-          <p><strong>4. Jij controleert elk bericht</strong> \u2014 Bekijk alle InMails in \u00e9\u00e9n overzicht. Je past ze aan waar nodig. Niets wordt verstuurd zonder jouw goedkeuring.</p>
-          <p><strong>5. Verstuur in bulk binnen LinkedIn-limieten</strong> \u2014 Met \u00e9\u00e9n klik verzend je alle berichten tegelijk. Elvatix houdt automatisch rekening met je beschikbare InMail credits.</p>
-          <p><strong>6. Voeg slimme follow-ups toe</strong> \u2014 Plan meteen een tweede bericht in met onze <Link href="/module-reminders">follow-ups</Link>. Volledig gepersonaliseerd en inhoudelijk relevant.</p>
+          <p><strong>1. Je workflow blijft zoals je gewend bent</strong> — Je werkt rechtstreeks in je bestaande projecten, pipelines en talent pools in LinkedIn Recruiter Seat. Geen extra tabbladen of tools.</p>
+          <p><strong>2. Selecteer tot 25 kandidaten in Recruiter Seat</strong> — Kies direct in LinkedIn Recruiter wie je wilt benaderen. Perfect voor een gerichte batch outreach binnen een specifieke functie of doelgroep.</p>
+          <p><strong>3. Elvatix schrijft persoonlijke InMails in jouw stijl</strong> — Op basis van je eigen templates en tone-of-voice genereert Elvatix unieke, persoonlijke InMails per kandidaat. Geen generieke AI-teksten, maar berichten die echt klinken als jij.</p>
+          <p><strong>4. Jij controleert elk bericht</strong> — Bekijk alle InMails in één overzicht. Je past ze aan waar nodig. Niets wordt verstuurd zonder jouw goedkeuring.</p>
+          <p><strong>5. Verstuur in bulk binnen LinkedIn-limieten</strong> — Met één klik verzend je alle berichten tegelijk. Elvatix houdt automatisch rekening met je beschikbare InMail credits.</p>
+          <p><strong>6. Voeg slimme follow-ups toe</strong> — Plan meteen een tweede bericht in met onze <Link href="/module-reminders">follow-ups</Link>. Volledig gepersonaliseerd en inhoudelijk relevant.</p>
 
           <h2>Wat levert InMailen op LinkedIn met Elvatix je op?</h2>
           <ul>
@@ -48,8 +48,8 @@ export default function Page() {
           <h2>Wat maakt Elvatix anders dan standaard AI-tools?</h2>
           <ul>
             <li>Je werkt volledig binnen LinkedIn Recruiter Seat, geen complexe nieuwe software</li>
-            <li>Tot 25 kandidaten tegelijk \u2014 schaalbaar zonder verlies van persoonlijkheid</li>
-            <li>Jouw eigen stijl, templates en structuur \u2014 geen standaard AI-output</li>
+            <li>Tot 25 kandidaten tegelijk — schaalbaar zonder verlies van persoonlijkheid</li>
+            <li>Jouw eigen stijl, templates en structuur — geen standaard AI-output</li>
             <li>Follow-ups zijn inhoudelijk sterk en sluiten naadloos aan</li>
           </ul>
 
