@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hoe het werkt - Elvatix",
   description: "Ontdek hoe Elvatix in 5 stappen je LinkedIn outreach automatiseert. Van template aanmaken tot berichten versturen - veilig, persoonlijk en razendsnel.",
-  alternates: { canonical: "/hoe-het-werkt" },
+  alternates: { canonical: "https://elvatix.com/hoe-het-werkt" },
 };
 
 const steps = [

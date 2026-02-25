@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Platform | Elvatix',
   description: 'Ontdek het complete Elvatix platform. AI InMails, connectieverzoeken, reminders en analytics in één tool.',
-  alternates: { canonical: '/platform' },
+  alternates: { canonical: 'https://elvatix.com/platform' },
 };
 
 const modules = [

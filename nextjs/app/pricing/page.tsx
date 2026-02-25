@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Pricing | Elvatix',
   description: 'Bekijk de prijzen van Elvatix. Start gratis, upgrade wanneer je klaar bent.',
-  alternates: { canonical: '/pricing' },
+  alternates: { canonical: 'https://elvatix.com/pricing' },
 };
 
 const plans = [
