@@ -395,19 +395,209 @@ body {
 /* Branding ribbon + cookie link hidden via clip-path on container in app/demo/page.tsx
    (iframes create their own compositor layer; z-index/pseudo-elements cannot overlay them) */
 
-/* ── Article prose ── */
-.prose-custom h2 { font-size: 24px; font-weight: 800; color: var(--color-text-primary); margin-top: 40px; margin-bottom: 12px; }
-.prose-custom h3 { font-size: 18px; font-weight: 700; color: var(--color-text-primary); margin-top: 28px; margin-bottom: 8px; }
-.prose-custom p { font-size: 16px; line-height: 1.75; color: var(--color-text-secondary); margin-bottom: 16px; }
-.prose-custom ul { padding-left: 20px; margin-bottom: 16px; }
-.prose-custom li { font-size: 16px; line-height: 1.75; color: var(--color-text-secondary); margin-bottom: 6px; }
-.prose-custom a { color: var(--color-elvatix); text-decoration: underline; text-underline-offset: 2px; }
-.prose-custom a:hover { color: var(--color-elvatix-dark); }
-.prose-custom strong { font-weight: 700; color: var(--color-text-primary); }
+/* ═══════════════════════════════════════════
+   PREMIUM PAGE STYLING
+   Rich visual treatment for content pages
+   matching the homepage quality.
+   ═══════════════════════════════════════════ */
 
-/* ── FAQ ── */
-.faq-item { border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 16px 20px; margin-bottom: 8px; }
-.faq-item summary { font-weight: 600; font-size: 15px; color: var(--color-text-primary); cursor: pointer; list-style: none; }
+/* ── Page Hero (gradient top bg like homepage) ── */
+.page-hero {
+  padding: 140px 24px 64px;
+  background: linear-gradient(180deg, var(--color-elvatix-light) 0%, rgba(240,247,212,0.3) 60%, transparent 100%);
+  text-align: center;
+  position: relative;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, white);
+  pointer-events: none;
+}
+
+/* ── Alternating sections ── */
+.page-section {
+  padding: 64px 24px;
+}
+.page-section--alt {
+  padding: 64px 24px;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* ── Upgraded prose-custom ── */
+.prose-custom h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-top: 56px;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.prose-custom h2:first-child { margin-top: 0; }
+.prose-custom h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-top: 32px;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.prose-custom p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+}
+.prose-custom ul {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 24px;
+}
+.prose-custom li {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: 10px;
+  padding-left: 28px;
+  position: relative;
+}
+.prose-custom li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-elvatix);
+}
+.prose-custom a {
+  color: var(--color-elvatix);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1.5px solid rgba(155,187,10,0.3);
+  transition: all 0.2s ease;
+}
+.prose-custom a:hover {
+  color: var(--color-elvatix-dark);
+  border-bottom-color: var(--color-elvatix-dark);
+}
+.prose-custom strong {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* ── Upgraded FAQ ── */
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  background: white;
+  transition: all 0.25s ease;
+}
+.faq-item:hover {
+  border-color: rgba(155,187,10,0.3);
+  box-shadow: 0 2px 12px rgba(155,187,10,0.06);
+}
+.faq-item summary {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.faq-item summary::after {
+  content: '+';
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after {
+  content: '−';
+  color: var(--color-elvatix);
+}
 .faq-item summary::-webkit-details-marker { display: none; }
-.faq-item[open] summary { margin-bottom: 8px; }
-.faq-item p { font-size: 15px; color: var(--color-text-secondary); margin: 0; }
+.faq-item[open] summary { margin-bottom: 12px; color: var(--color-elvatix); }
+.faq-item p { font-size: 15px; line-height: 1.7; color: var(--color-text-secondary); margin: 0; }
+
+/* ── CTA Section upgrade ── */
+.cta-section {
+  background: linear-gradient(135deg, #2D3B00 0%, #4A6600 40%, #7A9A00 100%);
+  padding: 72px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(155,187,10,0.15);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ── Feature highlight card ── */
+.highlight-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  transition: all 0.3s ease;
+}
+.highlight-card:hover {
+  border-color: rgba(155,187,10,0.3);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+/* ── Stats grid ── */
+.stat-card {
+  text-align: center;
+  padding: 32px 24px;
+  background: white;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+}
+.stat-value {
+  font-size: 36px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--color-elvatix), #5C8A00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* ── Page grid-2 ── */
+.page-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+@media (max-width: 768px) {
+  .page-hero { padding: 120px 16px 48px; }
+  .page-section, .page-section--alt { padding: 48px 16px; }
+  .page-grid-2 { grid-template-columns: 1fr; }
+  .highlight-card { padding: 20px; }
+  .stat-card { padding: 24px 16px; }
+}
