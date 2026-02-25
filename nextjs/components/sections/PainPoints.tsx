@@ -54,7 +54,7 @@ const pains = [
         <line x1="22" y1="8" x2="17" y2="13" />
       </svg>
     ),
-    title: "Connecties blijven "In afwachting"",
+    title: "Connecties blijven \"In afwachting\"",
     description: "\"Ik zou je graag toevoegen aan mijn netwerk.\" Elke recruiter stuurt hetzelfde. Zonder persoonlijke noot accepteert niemand.",
   },
 ];
