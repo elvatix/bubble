@@ -967,10 +967,10 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             AI Recruitment Writer
           </span>
           <h2 className="text-[clamp(26px,3.5vw,42px)] font-extrabold text-gray-900 mb-3 leading-[1.15] tracking-tight">
-            Genereer een gepersonaliseerd bericht
+            Ontdek wat je bespaart
           </h2>
           <p className="text-base text-gray-500 max-w-[520px] mx-auto leading-relaxed">
-            {"Plak een LinkedIn URL en wij scrapen het profiel en schrijven een InMail en connectieverzoek op maat."}
+            {"Jij kent de kandidaat. Wij lezen de ervaring door en schrijven direct een bericht dat je zó kunt versturen."}
           </p>
         </div>
 
