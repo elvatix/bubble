@@ -16,6 +16,19 @@ function checkSearchRateLimit(ip: string): boolean {
   return true;
 }
 
+// Collect all Prospeo API keys from env vars (Prospeo, Prospeo2, Prospeo3, ...)
+function getProspeoKeys(): string[] {
+  const keys: string[] = [];
+  // First key
+  if (process.env.Prospeo) keys.push(process.env.Prospeo);
+  // Numbered keys: Prospeo2, Prospeo3, ...
+  for (let i = 2; i <= 20; i++) {
+    const key = process.env[`Prospeo${i}`];
+    if (key) keys.push(key);
+  }
+  return keys;
+}
+
 interface ProspeoLocation { city?: string; country?: string; }
 interface ProspeoJob { title?: string; company_name?: string; }
 interface ProspeoPerson {
@@ -25,6 +38,36 @@ interface ProspeoPerson {
 }
 interface ProspeoCompany { name?: string; }
 interface ProspeoResult { person?: ProspeoPerson; company?: ProspeoCompany; }
+
+// Try a single Prospeo search with a given API key
+async function tryProspeoSearch(apiKey: string, filters: Record<string, unknown>): Promise<{ success: boolean; data?: unknown; rateLimited?: boolean }> {
+  try {
+    const response = await fetch("https://api.prospeo.io/search-person", {
+      method: "POST",
+      headers: { "X-KEY": apiKey, "Content-Type": "application/json" },
+      body: JSON.stringify({ page: 1, filters }),
+    });
+
+    if (response.status === 429 || response.status === 402) {
+      return { success: false, rateLimited: true };
+    }
+
+    const data = await response.json();
+    
+    // Prospeo returns error with rate limit info
+    if (data.error && (
+      data.error_code === "RATE_LIMIT" ||
+      (typeof data.message === "string" && data.message.toLowerCase().includes("rate")) ||
+      (typeof data.error === "string" && data.error.toLowerCase().includes("rate"))
+    )) {
+      return { success: false, rateLimited: true };
+    }
+
+    return { success: true, data };
+  } catch {
+    return { success: false, rateLimited: false };
+  }
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -39,67 +82,75 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Voer minimaal 2 karakters in." }, { status: 400 });
     }
 
-    const apiKey = process.env.Prospeo;
-    if (!apiKey) {
+    const apiKeys = getProspeoKeys();
+    if (apiKeys.length === 0) {
       return NextResponse.json({ error: "API key niet geconfigureerd." }, { status: 500 });
     }
 
-    // Smart parsing: try to separate name from company/job keywords
-    // Heuristic: if 3+ words, last word(s) might be company/job
+    // Build filters
     const words = query.trim().split(/\s+/);
-    
-    // Build filters based on input
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const filters: Record<string, any> = {};
     
     if (words.length <= 2) {
-      // Just a name — use person_name filter
       filters.person_name = { include: [query.trim()] };
     } else {
-      // 3+ words: first 2 words = name, rest = company or job context
       const namePart = words.slice(0, 2).join(" ");
       const contextPart = words.slice(2).join(" ");
-      
       filters.person_name = { include: [namePart] };
-      // Try both company name and job title for the context
       filters.company = { names: { include: [contextPart] } };
     }
 
-    const response = await fetch("https://api.prospeo.io/search-person", {
-      method: "POST",
-      headers: { "X-KEY": apiKey, "Content-Type": "application/json" },
-      body: JSON.stringify({ page: 1, filters }),
-    });
+    // Try each API key until one works (automatic failover)
+    let lastData: unknown = null;
+    let allRateLimited = true;
 
-    // Check HTTP-level rate limit from Prospeo
-    if (response.status === 429 || response.status === 402) {
-      return NextResponse.json({ error: "Zoekservice tijdelijk niet beschikbaar. Plak een LinkedIn URL om verder te gaan.", fallback: true }, { status: 429 });
+    for (const key of apiKeys) {
+      const result = await tryProspeoSearch(key, filters);
+      
+      if (result.success) {
+        lastData = result.data;
+        allRateLimited = false;
+        break;
+      }
+      
+      if (!result.rateLimited) {
+        allRateLimited = false;
+      }
     }
 
-    let data = await response.json();
+    // All keys rate limited
+    if (allRateLimited && !lastData) {
+      return NextResponse.json({ 
+        error: "Zoekservice tijdelijk niet beschikbaar. Plak een LinkedIn URL om verder te gaan.", 
+        fallback: true 
+      }, { status: 429 });
+    }
 
-    // If company filter returns no results, retry with just the name
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let data = lastData as any;
+
+    if (!data) {
+      return NextResponse.json({ error: "Zoeken niet beschikbaar. Plak een LinkedIn URL.", fallback: true }, { status: 500 });
+    }
+
+    // If company filter returns no results, retry with just the name (try all keys again)
     if (data.error && data.error_code === "NO_RESULTS" && words.length > 2) {
-      const fallbackRes = await fetch("https://api.prospeo.io/search-person", {
-        method: "POST",
-        headers: { "X-KEY": apiKey, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          page: 1,
-          filters: { person_name: { include: [query.trim()] } },
-        }),
-      });
-      data = await fallbackRes.json();
+      const fallbackFilters = { person_name: { include: [query.trim()] } };
+      for (const key of apiKeys) {
+        const result = await tryProspeoSearch(key, fallbackFilters);
+        if (result.success) {
+          data = result.data;
+          break;
+        }
+      }
     }
 
     if (data.error) {
       if (data.error_code === "NO_RESULTS") {
         return NextResponse.json({ results: [] });
       }
-      // Prospeo rate limit or quota exceeded
-      if (response.status === 429 || data.error_code === "RATE_LIMIT" || (data.message && data.message.toLowerCase().includes("rate"))) {
-        return NextResponse.json({ error: "Zoekservice tijdelijk niet beschikbaar. Probeer het over een paar minuten opnieuw of plak een LinkedIn URL.", fallback: true }, { status: 429 });
-      }
-      return NextResponse.json({ error: "Zoeken niet beschikbaar. Plak een LinkedIn URL om verder te gaan.", fallback: true }, { status: 400 });
+      return NextResponse.json({ error: "Zoeken niet beschikbaar. Plak een LinkedIn URL.", fallback: true }, { status: 400 });
     }
 
     const results = (data.results || []).slice(0, 8).map((r: ProspeoResult) => {
@@ -108,13 +159,13 @@ export async function POST(req: NextRequest) {
       const currentJob = person.job_history?.[0];
 
       return {
-        fullName: person.full_name || `${person.first_name || ""} ${person.last_name || ""}`.trim(),
+        fullName: person.full_name || \`\${person.first_name || ""} \${person.last_name || ""}\`.trim(),
         linkedinUrl: person.linkedin_url || null,
         jobTitle: person.current_job_title || currentJob?.title || null,
         headline: person.headline || null,
         companyName: currentJob?.company_name || company.name || null,
         location: person.location
-          ? `${person.location.city || ""}, ${person.location.country || ""}`.replace(/^, |, $/g, "")
+          ? \`\${person.location.city || ""}, \${person.location.country || ""}\`.replace(/^, |, $/g, "")
           : null,
       };
     });
