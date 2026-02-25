@@ -15,64 +15,54 @@ export default function Page() {
         {/* Hero */}
         <div className="text-center mb-12">
           <span className="page-badge">Module</span>
-          <h1 className="page-heading">InMails op LinkedIn slimmer gebruiken: sneller, persoonlijker en volledig in Recruiter Seat</h1>
+          <h1 className="page-heading">InMails op LinkedIn: sneller, persoonlijker en schaalbaar</h1>
         </div>
 
         {/* Image */}
         <div className="relative aspect-video max-w-[800px] mx-auto mb-16 rounded-card overflow-hidden border border-border">
-          <Image src="/images/modules/inmails.png" alt="Elvatix InMails module in LinkedIn Recruiter Seat" fill className="object-contain p-4 bg-surface" />
+          <Image src="/images/modules/inmails.png" alt="Elvatix InMails module voor LinkedIn Recruiter" fill className="object-contain p-4 bg-surface" />
         </div>
 
         {/* Body */}
         <article className="max-w-[720px] mx-auto prose-custom">
-          <h2>Herkenbaar? InMails op LinkedIn kosten vaak meer tijd dan het oplevert</h2>
-          <p>Je schrijft elke InMail handmatig en zoekt naar manieren om het persoonlijk te maken. Of je maakt gebruik van AI-tools die generiek en onpersoonlijk overkomen. Elvatix verandert dat volledig binnen LinkedIn Recruiter.</p>
+          <h2>Waarom InMails op LinkedIn zo krachtig zijn</h2>
+          <p>InMails zijn LinkedIn&apos;s directe berichtfunctie voor mensen buiten je netwerk. Als recruiter met een Recruiter Seat heb je een maandelijks budget aan InMail-credits. Elke credit telt. Berichten die worden gelezen en beantwoord leveren direct waarde op. Berichten die worden genegeerd zijn verspilde credits en tijd.</p>
+          <p>Het verschil zit in personalisatie. En dat is precies waar Elvatix helpt.</p>
 
-          <h2>Zo werken InMails op LinkedIn met Elvatix</h2>
-          <p><strong>1. Je workflow blijft zoals je gewend bent</strong> — Je werkt rechtstreeks in je bestaande projecten, pipelines en talent pools in LinkedIn Recruiter Seat. Geen extra tabbladen of tools.</p>
-          <p><strong>2. Selecteer tot 25 kandidaten in Recruiter Seat</strong> — Kies direct in LinkedIn Recruiter wie je wilt benaderen. Perfect voor een gerichte batch outreach binnen een specifieke functie of doelgroep.</p>
-          <p><strong>3. Elvatix schrijft persoonlijke InMails in jouw stijl</strong> — Op basis van je eigen templates en tone-of-voice genereert Elvatix unieke, persoonlijke InMails per kandidaat. Geen generieke AI-teksten, maar berichten die echt klinken als jij.</p>
-          <p><strong>4. Jij controleert elk bericht</strong> — Bekijk alle InMails in één overzicht. Je past ze aan waar nodig. Niets wordt verstuurd zonder jouw goedkeuring.</p>
-          <p><strong>5. Verstuur in bulk binnen LinkedIn-limieten</strong> — Met één klik verzend je alle berichten tegelijk. Elvatix houdt automatisch rekening met je beschikbare InMail credits.</p>
-          <p><strong>6. Voeg slimme follow-ups toe</strong> — Plan meteen een tweede bericht in met onze <Link href="/module-reminders">follow-ups</Link>. Volledig gepersonaliseerd en inhoudelijk relevant.</p>
+          <h2>Het probleem met handmatig InMails schrijven</h2>
+          <p>Een goede InMail schrijven kost 10 tot 15 minuten per bericht. Voor 20 kandidaten per dag betekent dat al snel twee tot drie uur puur schrijfwerk. Tijd die je niet hebt voor gesprekken, intakes en plaatsingen.</p>
+          <p>Standaard templates werken ook niet. Kandidaten herkennen ze direct en reageren niet. Je verliest credits en kandidaten.</p>
 
-          <h2>Wat levert InMailen op LinkedIn met Elvatix je op?</h2>
+          <h2>Hoe Elvatix InMails versnelt zonder kwaliteit te verliezen</h2>
+          <p>Elvatix genereert gepersonaliseerde InMails op basis van het LinkedIn-profiel van de kandidaat. De AI analyseert functie, ervaring, opleiding en recente activiteit en schrijft een bericht in jouw toon. Jij controleert en verstuurt.</p>
           <ul>
-            <li>Meer reacties op je InMails</li>
-            <li>Per week uren tijdswinst</li>
-            <li>Betere grip op je pipeline</li>
-            <li>Berichten die klinken als jij</li>
-            <li>Jij bepaalt wat eruit gaat</li>
+            <li>Selecteer tot 25 kandidaten in je Recruiter Seat.</li>
+            <li>Elvatix genereert per kandidaat een unieke InMail.</li>
+            <li>Elk bericht is afgestemd op profiel en jouw schrijfstijl.</li>
+            <li>Jij controleert, past aan indien gewenst en verstuurt.</li>
+            <li>Gemiddeld 30 seconden per bericht in plaats van 10 tot 15 minuten.</li>
           </ul>
 
-          <h2>Wat maakt Elvatix anders dan standaard AI-tools?</h2>
-          <ul>
-            <li>Je werkt volledig binnen LinkedIn Recruiter Seat, geen complexe nieuwe software</li>
-            <li>Tot 25 kandidaten tegelijk — schaalbaar zonder verlies van persoonlijkheid</li>
-            <li>Jouw eigen stijl, templates en structuur — geen standaard AI-output</li>
-            <li>Follow-ups zijn inhoudelijk sterk en sluiten naadloos aan</li>
-          </ul>
-
-          <h2>Wat is een InMail op LinkedIn?</h2>
-          <p>Een InMail op LinkedIn is een betaalde functie in LinkedIn Recruiter waarmee je professionals rechtstreeks kunt benaderen, zelfs als je geen connectie hebt. De meeste recruiters zetten InMails dagelijks in voor sourcing en talent outreach.</p>
+          <h2>Resultaten in de praktijk</h2>
+          <p>Recruiters die Elvatix gebruiken voor InMails zien hogere responspercentages, meer geaccepteerde berichten en significant minder schrijftijd. Bekijk de resultaten in onze case studies van <Link href="/case-study-manpower">Manpower</Link> en <Link href="/case-study-vibegroup">Vibe Group</Link>.</p>
 
           {/* FAQ */}
-          <h2>Veelgestelde vragen</h2>
+          <h2>Veelgestelde vragen over InMails op LinkedIn</h2>
           <details className="faq-item">
-            <summary>Hoeveel kandidaten kan ik tegelijk benaderen met Elvatix?</summary>
-            <p>Maximaal 25 per keer, volledig binnen LinkedIn Recruiter.</p>
+            <summary>Hoeveel InMail-credits heb ik per maand?</summary>
+            <p>Dit hangt af van je LinkedIn-abonnement. LinkedIn Recruiter Seat-gebruikers krijgen maandelijks InMail-credits. Ongebruikte credits rollen over tot een maximum. Elvatix helpt je deze credits zo effectief mogelijk te benutten.</p>
           </details>
           <details className="faq-item">
-            <summary>Gebruik ik mijn eigen InMail credits?</summary>
-            <p>Ja. Elvatix werkt binnen je bestaande LinkedIn-omgeving.</p>
+            <summary>Wat is een goede responsrate voor InMails?</summary>
+            <p>Een gemiddelde InMail-responsrate ligt tussen de 15% en 25%. Recruiters die Elvatix gebruiken voor gepersonaliseerde InMails behalen consistent hogere percentages, soms tot boven de 40%.</p>
           </details>
           <details className="faq-item">
-            <summary>Klinkt het nog wel als ikzelf?</summary>
-            <p>Ja. Je gebruikt je eigen sjablonen en tone-of-voice.</p>
+            <summary>Kan ik InMails sturen naar mensen buiten mijn netwerk?</summary>
+            <p>Ja. InMails zijn specifiek bedoeld voor mensen buiten je directe netwerk. Met een LinkedIn Recruiter Seat kun je iedereen op LinkedIn bereiken, ook zonder connectie.</p>
           </details>
           <details className="faq-item">
-            <summary>Stuur ik berichten automatisch?</summary>
-            <p>Nee. Jij bepaalt wat er verstuurd wordt. Elk bericht controleer je zelf voor verzending.</p>
+            <summary>Hoe zorg ik dat mijn InMails niet als spam worden ervaren?</summary>
+            <p>Door ze te personaliseren. Elvatix analyseert het profiel van de ontvanger en schrijft een bericht dat relevant en persoonlijk aanvoelt. Dat is het tegenovergestelde van spam.</p>
           </details>
         </article>
 

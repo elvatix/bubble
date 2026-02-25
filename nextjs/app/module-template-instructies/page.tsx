@@ -15,7 +15,7 @@ export default function Page() {
         {/* Hero */}
         <div className="text-center mb-12">
           <span className="page-badge">Module</span>
-          <h1 className="page-heading">Recruitment templates die persoonlijk wél werken</h1>
+          <h1 className="page-heading">Template Instructies: jouw stijl, automatisch toegepast</h1>
         </div>
 
         {/* Image */}
@@ -25,41 +25,36 @@ export default function Page() {
 
         {/* Body */}
         <article className="max-w-[720px] mx-auto prose-custom">
-          <h2>Waarom recruitment standaardberichten vaak niet werken</h2>
-          <p>Gebruik je altijd dezelfde recruitment standaardberichten voor e-mail of LinkedIn? Dan klinkt je communicatie al snel generiek. Kandidaten herkennen het meteen: dezelfde openingszin, dezelfde afsluiting. Hun reactie: nul.</p>
+          <h2>Waarom standaard recruitment templates niet werken</h2>
+          <p>Templates zijn verleidelijk. Je schrijft één bericht en stuurt het naar honderd kandidaten. Snel en schaalbaar. Maar kandidaten herkennen een template direct. Ze voelen de copy-paste. En reageren niet.</p>
+          <p>Tegelijkertijd is volledig handmatig schrijven niet schaalbaar. Elvatix biedt een derde weg: templates die automatisch worden gepersonaliseerd zodat elk bericht aanvoelt als maatwerk.</p>
 
-          <h2>Gebruik je recruitment templates als krachtig startpunt</h2>
-          <p>Gooi je sjablonen niet weg. Je recruitment templates zijn juist een goede basis. Upload ze in Elvatix en wij leren je schrijfstijl, tone of voice en opbouw automatisch herkennen.</p>
-
-          <h2>Geef instructies, krijg automatisch aangepaste berichten</h2>
-          <p>Voeg simpelweg instructies toe zoals:</p>
+          <h2>Hoe Template Instructies werken in Elvatix</h2>
+          <p>Met de Template Instructies-module leg je vast hoe jij communiceert. Je geeft Elvatix instructies over je schrijfstijl, tone-of-voice, wat je wel en niet wil zeggen en welke elementen altijd terugkomen in jouw berichten.</p>
           <ul>
-            <li>Maak het korter en directer</li>
-            <li>Voeg een luchtige toon toe</li>
-            <li>Gebruik een zakelijke aanspreekvorm</li>
-            <li>Laat het klinken alsof het snel geschreven is</li>
+            <li>Stel je tone-of-voice in: formeel, informeel, direct, warm.</li>
+            <li>Voeg voorbeeldberichten toe die jij goed vindt.</li>
+            <li>Geef instructies over wat je altijd of nooit wil vermelden.</li>
+            <li>Elvatix past alle gegenereerde berichten automatisch aan op jouw stijl.</li>
           </ul>
+          <p>Het resultaat: berichten die klinken alsof jij ze zelf hebt geschreven, ook als de AI ze heeft gegenereerd.</p>
 
-          <h2>Jij houdt de regie, wij helpen je schaalbaar maken</h2>
-          <p>Alle gegenereerde berichten komen overzichtelijk terug in je dashboard. Jij keurt alles goed. Elvatix integreert soepel in je LinkedIn workflow.</p>
-
-          <h2>Voorbeeld: van standaardbericht naar persoonlijk contact</h2>
-          <p><strong>Originele template:</strong> “Hi Naam, ik ben recruiter bij Bureau. Ik zie dat je ervaring hebt in functiegebied en heb een interessante rol beschikbaar. Zullen we even bellen?”</p>
-          <p><strong>Herschreven via Elvatix</strong> (vriendelijker, luchtiger, persoonlijker): “Hoi Naam, ik zie dat je al een interessante reis hebt gemaakt in de consultancywereld. Van je rol als X naar een nieuwe uitdaging bij X — dat laat zien hoe gedreven je bent. Je ervaring lijkt goed te passen bij een leuke uitdaging die ik op dit moment heb. Binnenkort even bellen?”</p>
+          <h2>Templates voor teams</h2>
+          <p>In grotere recruitmentteams heeft iedereen zijn eigen schrijfwijze. Met Template Instructies kun je één gedeelde stijl instellen voor het hele team. Zo communiceert iedereen consistent, herkenbaar en professioneel.</p>
 
           {/* FAQ */}
-          <h2>Veelgestelde vragen</h2>
+          <h2>Veelgestelde vragen over recruitment templates</h2>
           <details className="faq-item">
-            <summary>Wat is een recruitment template?</summary>
-            <p>Een standaardtekst die recruiters gebruiken om kandidaten sneller te benaderen. Het bespaart tijd maar klinkt vaak onpersoonlijk.</p>
+            <summary>Kan ik meerdere templates instellen voor verschillende doelgroepen?</summary>
+            <p>Ja. Je kunt aparte instructies instellen per doelgroep, per type vacature of per fase in het recruitmentproces. Elvatix past de juiste instructies toe op basis van het scenario dat je kiest.</p>
           </details>
           <details className="faq-item">
-            <summary>Hoe maak ik een recruitment template persoonlijker?</summary>
-            <p>Door kleine aanpassingen toe te voegen zoals een persoonlijke verwijzing naar het profiel van de kandidaat. Met Elvatix gebeurt dit automatisch.</p>
+            <summary>Hoe lang duurt het om mijn tone-of-voice in te stellen?</summary>
+            <p>Gemiddeld tien tot vijftien minuten. Je geeft een aantal voorbeeldberichten op en beschrijft je schrijfstijl. Elvatix leert hier direct van.</p>
           </details>
           <details className="faq-item">
-            <summary>Klinken de berichten nog wel als mijzelf?</summary>
-            <p>Ja. Elvatix leert jouw schrijfstijl en tone of voice, zodat alle aangepaste berichten menselijk en herkenbaar blijven.</p>
+            <summary>Wat als mijn schrijfstijl verandert?</summary>
+            <p>Je kunt je template instructies op elk moment aanpassen. Elvatix past zich direct aan op de nieuwe instructies.</p>
           </details>
         </article>
 
@@ -67,7 +62,7 @@ export default function Page() {
         <div className="cta-section rounded-card text-center mt-16 max-w-[720px] mx-auto">
           <h2 className="text-2xl font-extrabold text-white mb-3">Klaar om het zelf te ervaren?</h2>
           <p className="text-white/80 mb-6">Plan een gratis demo en ontdek de mogelijkheden.</p>
-          <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Boek Gratis Demo</Link>
+          <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Plan Gratis Demo</Link>
         </div>
       </div>
     </main>

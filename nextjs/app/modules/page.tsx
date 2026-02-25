@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const modules = [
   { title: "Connectieverzoeken", href: "/module-connectieverzoeken", image: "/images/modules/connectieverzoeken.png", alt: "Elvatix connectieverzoeken module" },
-  { title: "Custom GPT’s", href: "/module-custom-gpt", image: "/images/modules/custom-gpt.png", alt: "Elvatix custom GPT module" },
+  { title: "Custom GPT's", href: "/module-custom-gpt", image: "/images/modules/custom-gpt.png", alt: "Elvatix custom GPT module" },
   { title: "InMails", href: "/module-inmails", image: "/images/modules/inmails.png", alt: "Elvatix InMails module" },
   { title: "Reminders", href: "/module-reminders", image: "/images/modules/reminders.png", alt: "Elvatix reminders module" },
   { title: "Template Instructies", href: "/module-template-instructies", image: "/images/modules/templates.png", alt: "Elvatix template instructies module" },
@@ -44,60 +44,32 @@ export default function ModulesPage() {
         {/* Body Content */}
         <article className="max-w-[720px] mx-auto prose-custom">
           <h2>Wat is LinkedIn outreach?</h2>
-          <p>LinkedIn outreach is het actief benaderen van potentiële kandidaten via functies als <Link href="/module-connectieverzoeken">connectieverzoeken</Link>, <Link href="/module-inmails">InMails</Link> en vervolgberichten. In plaats van te wachten op sollicitaties neem je zelf het initiatief om contact te leggen met professionals die bij je vacature of doelgroep passen.</p>
-          <p>Deze vorm van kandidaatbenadering op <Link href="/integraties-linkedin">LinkedIn</Link> is essentieel om latent werkzoekenden te bereiken: mensen die niet actief reageren op vacatures maar wel openstaan voor kansen. Zo vergroot je je bereik in de markt.</p>
+          <p>LinkedIn outreach is het proactief benaderen van kandidaten of zakelijke contacten via LinkedIn. Voor recruiters betekent dit: de juiste persoon op het juiste moment aanspreken met een bericht dat écht aansluit. Geen standaardtekst, maar een bericht dat voelt alsof jij het persoonlijk hebt geschreven.</p>
+          <p>Maar dat kost tijd. En tijd is schaars. Daarom bouwden we Elvatix: zodat jij persoonlijk kunt blijven, ook als je op schaal werkt.</p>
 
-          <h2>Waarom recruiters LinkedIn outreach nodig hebben</h2>
-          <p>De recruitmentmarkt is veranderd. Reacties op vacatures lopen terug en de beste kandidaten bevinden zich zelden op job boards. Een proactieve LinkedIn outreach strategie maakt het mogelijk om gericht contact te maken met deze doelgroep: rechtstreeks en persoonlijk. Bekijk ook onze <Link href="/case-studies">case studies</Link>.</p>
-          <p>Dankzij gepersonaliseerde outreach op LinkedIn kun je direct inspelen op het profiel en de situatie van een kandidaat. Je maakt zo het verschil tussen opgemerkt worden of volledig genegeerd worden in een overvolle inbox.</p>
+          <h2>Hoe werkt LinkedIn outreach via Elvatix?</h2>
+          <p>Elvatix werkt als een AI-copilot direct in je <Link href="/integraties-linkedin">LinkedIn Recruiter Seat</Link>. Je selecteert kandidaten, kiest een module en genereert berichten die klinken alsof jij ze zelf hebt geschreven. Alles blijft in jouw controle: jij bepaalt wat er uitgaat.</p>
 
-          <h2>De grootste uitdagingen van LinkedIn outreach</h2>
-          <h3>1. Gepersonaliseerde LinkedIn berichten kosten veel tijd</h3>
-          <p>Een persoonlijk bericht werkt beter dan standaardtekst. Maar wie voor elke LinkedIn <Link href="/module-connectieverzoeken">connectieverzoek</Link> of <Link href="/module-inmails">InMail</Link> een unieke boodschap schrijft, loopt al snel vast op tijd.</p>
-
-          <h3>2. Massabenaderen voelt al snel als spam</h3>
-          <p>Bij LinkedIn cold outreach wordt snel de fout gemaakt om generieke berichten te sturen. Goede outreach combineert schaal met personalisatie.</p>
-
-          <h3>3. Opvolgen wordt te vaak vergeten</h3>
-          <p>Veel kansen worden gemist doordat recruiters geen <Link href="/module-reminders">follow-up</Link> uitsturen. Een succesvolle LinkedIn outreach strategie bevat dus altijd gestructureerde opvolging.</p>
-
-          <h2>Schaalbaar en persoonlijk: LinkedIn outreach met impact</h2>
-          <p>Goed uitgevoerde outreach voelt persoonlijk, zelfs als het efficiënt en deels geautomatiseerd is. Slimme AI-systemen en templates zorgen ervoor dat je op schaal gepersonaliseerd blijft communiceren.</p>
-
-          <h2>Elvatix: jouw tool voor schaalbare LinkedIn outreach</h2>
-          <p>Elvatix ondersteunt recruiters met alles wat ze nodig hebben voor effectieve, persoonlijke en schaalbare outreach via LinkedIn. Wij werken volledig in LinkedIn Recruiter, dus je hoeft geen nieuwe tools aan te leren of te installeren.</p>
-
-          <h3>Connectieverzoek-module</h3>
-          <p>Gebruik de Connectieverzoek-module om kandidaten op LinkedIn te benaderen met doelgerichte berichten op basis van profielinformatie en jouw persoonlijke stijl.</p>
-
-          <h3>InMail-module</h3>
-          <p>Gebruik de InMail-module om berichten te sturen die klinken alsof jij ze hebt geschreven, zonder terug te vallen op generieke openingszinnen.</p>
-
-          <h3>Reminders-module</h3>
-          <p>Gebruik de Reminders-module om automatisch bij te houden wie je wel of niet hebt opgevolgd met gepersonaliseerde suggesties.</p>
-
-          <h3>Templates en instructies</h3>
-          <p>Gebruik Templates & instructies om berichten te structureren en stijlconsistent te blijven.</p>
-
-          <h3>Switch makkelijk tussen recruitment en sales</h3>
-          <p>Gebruik de Recruitment/Sales switch om eenvoudig te wisselen van rol en berichtenstrategie per doelgroep.</p>
-
-          <h3>LinkedIn outreach binnen jouw bestaande workflow</h3>
-          <p>Elvatix werkt rechtstreeks in LinkedIn Recruiter Seat, Recruiter Lite of Sales Navigator. Geen extra tabbladen, tools of import-export.</p>
+          <h2>De modules van Elvatix</h2>
+          <p>Elvatix bestaat uit zes modules. Elke module is gericht op een specifiek onderdeel van je LinkedIn outreach. Samen vormen ze een volledig systeem waarmee je sneller, persoonlijker en effectiever kunt werven.</p>
 
           {/* FAQ */}
           <h2>Veelgestelde vragen over LinkedIn outreach</h2>
           <details className="faq-item">
-            <summary>Wat is het verschil tussen sourcing en outreach op LinkedIn?</summary>
-            <p>Sourcing is het zoeken en selecteren van kandidaten. Outreach is het actief contact leggen met die kandidaten via LinkedIn berichten.</p>
+            <summary>Wat maakt LinkedIn outreach effectief?</summary>
+            <p>Effectieve LinkedIn outreach is persoonlijk, relevant en op het juiste moment verstuurd. Berichten die aansluiten bij het profiel, de ervaring of de situatie van de ontvanger scoren significant beter dan generieke templates.</p>
           </details>
           <details className="faq-item">
-            <summary>Kun je LinkedIn outreach automatiseren zonder aan persoonlijkheid in te boeten?</summary>
-            <p>Ja. Met Elvatix kun je gepersonaliseerde berichten sturen op schaal. Door slimme templates behoud je je toon terwijl AI je werk versnelt.</p>
+            <summary>Hoeveel berichten kan ik tegelijk personaliseren met Elvatix?</summary>
+            <p>Met Elvatix kun je tot 25 berichten tegelijk laten genereren, elk uniek en afgestemd op het profiel van de ontvanger. Zo combineer je schaal met persoonlijkheid.</p>
           </details>
           <details className="faq-item">
-            <summary>Hoe vaak moet je opvolgen na een eerste bericht?</summary>
-            <p>Gemiddeld zijn 1 tot 2 follow-ups gebruikelijk met enkele dagen ertussen.</p>
+            <summary>Werkt Elvatix samen met LinkedIn Recruiter Seat?</summary>
+            <p>Ja. Elvatix integreert direct in je LinkedIn Recruiter Seat via een Chrome-extensie. Je hoeft niet te schakelen tussen tools of dashboards.</p>
+          </details>
+          <details className="faq-item">
+            <summary>Is LinkedIn outreach via Elvatix veilig?</summary>
+            <p>Ja. Elvatix werkt volledig binnen de limieten en richtlijnen van LinkedIn. Er worden geen verboden methodes of automatische verzendingen gebruikt. Jij keurt elk bericht goed voordat het verstuurd wordt.</p>
           </details>
         </article>
 

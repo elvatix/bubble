@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Hoe Manpower met Elvatix 65 uur werk terugwon in slechts 1,7 uur",
-  description: "Hoe Manpower met Elvatix 65 uur werk terugwon in slechts 1,7 uur",
+  title: "Case Study Manpower: 260 InMails in 1,7 uur met Elvatix",
+  description: "Hoe Robin van Manpower zijn schrijftijd met 96% reduceerde en zijn responsrate verhoogde naar 43% met Elvatix.",
   alternates: { canonical: "https://elvatix.com/case-study-manpower" },
 };
 
@@ -12,25 +12,27 @@ export default function Page() {
   return (
     <main className="pt-32 pb-20">
       <div className="section-inner px-6">
+        {/* Hero */}
         <div className="text-center mb-12">
           <span className="page-badge">Case Study</span>
-          <h1 className="page-heading">Hoe Manpower met Elvatix 65 uur werk terugwon in slechts 1,7 uur</h1>
+          <h1 className="page-heading">Manpower: persoonlijke InMails op schaal</h1>
         </div>
 
+        {/* Image */}
         <div className="relative aspect-video max-w-[800px] mx-auto mb-16 rounded-card overflow-hidden border border-border">
-          <Image src="/images/case-studies/manpower.png" alt="Case study Manpower met Elvatix" fill className="object-contain p-4 bg-surface" />
+          <Image src="/images/cases/manpower.png" alt="Case study Manpower met Elvatix" fill className="object-contain p-4 bg-surface" />
         </div>
 
+        {/* Body */}
         <article className="max-w-[720px] mx-auto prose-custom">
           <h2>De uitdaging</h2>
-          <p>Robin, recruiter bij Manpower, stond bekend om zijn persoonlijke touch. Geen standaardberichten, geen copy-paste. Elke kandidaat kreeg van hem een zorgvuldig geschreven InMail, afgestemd op profiel, ervaring en soms zelfs een detail uit iemands hobby's.</p>
+          <p>Robin, recruiter bij Manpower, stond bekend om zijn persoonlijke touch. Geen standaardberichten, geen copy-paste. Elke kandidaat kreeg van hem een zorgvuldig geschreven InMail, afgestemd op profiel, ervaring en soms zelfs een detail uit iemands hobby&apos;s.</p>
           <p>Die aanpak werkte. Zijn berichten vielen op, voelden menselijk en leverden keer op keer bovengemiddeld veel reacties op. Maar er zat een prijskaartje aan.</p>
           <p>Elke InMail kostte Robin 10 tot 15 minuten. Met 260 berichten in twee maanden tikte de teller al snel op tot 43 tot 65 uur. Dat is meer dan anderhalve werkweek puur besteed aan typen.</p>
           <p>Het dilemma was duidelijk: hoe hou je de persoonlijke kwaliteit vast zonder dat je complete weken kwijtraakt aan schrijfwerk?</p>
 
           <h2>De ontdekking</h2>
-          <p>Samen met Elvatix besloot Robin het experiment aan te gaan. In plaats van elk bericht van nul af te schrijven, ging hij testen met de AI-copilot van Elvatix, geïntegreerd in LinkedIn Recruiter Seat.</p>
-          <p>Het principe bleek verrassend eenvoudig:</p>
+          <p>Samen met Elvatix besloot Robin het experiment aan te gaan. In plaats van elk bericht van nul af te schrijven, ging hij testen met de AI-copilot van Elvatix, geïntegreerd in <Link href="/integraties-linkedin">LinkedIn Recruiter Seat</Link>. Het principe bleek verrassend eenvoudig:</p>
           <ul>
             <li>Upload je eigen tone-of-voice en een aantal favoriete templates.</li>
             <li>Selecteer tot 25 kandidaten tegelijk.</li>
@@ -42,9 +44,9 @@ export default function Page() {
           <h2>De resultaten</h2>
           <p>Het effect was direct zichtbaar:</p>
           <ul>
-            <li><strong>Snelheid:</strong> van 10 tot 15 minuten per bericht naar gemiddeld 30 seconden.</li>
-            <li><strong>Efficiëntie:</strong> 260 InMails in 1,7 uur in plaats van 43 tot 65 uur.</li>
-            <li><strong>Tijdswinst:</strong> ruim één tot anderhalve werkweek terug in twee maanden.</li>
+            <li>Snelheid: van 10 tot 15 minuten per bericht naar gemiddeld 30 seconden.</li>
+            <li>Efficiëntie: 260 InMails in 1,7 uur in plaats van 43 tot 65 uur.</li>
+            <li>Tijdswinst: ruim één tot anderhalve werkweek terug in twee maanden.</li>
           </ul>
           <p>Maar misschien nog belangrijker: de kwaliteit bleef overeind. Sterker nog:</p>
           <ul>
@@ -55,14 +57,15 @@ export default function Page() {
           <p>Kortom: meer gesprekken, betere resultaten, veel minder werk.</p>
 
           <h2>De impact</h2>
-          <p>Wat deze case laat zien is dat recruiters niet meer hoeven te kiezen tussen persoonlijk en schaalbaar. Met Elvatix kan het allebei: persoonlijke <Link href="/module-inmails">InMails</Link> in je eigen tone-of-voice, verstuurd in minuten, niet in uren, met responspercentages die zelfs hoger liggen dan handmatig werk.</p>
+          <p>Wat deze case laat zien is dat recruiters niet meer hoeven te kiezen tussen persoonlijk en schaalbaar. Met Elvatix kan het allebei: persoonlijke <Link href="/module-inmails">InMails</Link> in je eigen tone-of-voice, verstuurd in minuten niet in uren, met responspercentages die zelfs hoger liggen dan handmatig werk.</p>
           <p>Voor Robin betekende dit dat hij zijn tijd terugkreeg om zich weer te richten op wat hij het liefste doet: echte gesprekken voeren met kandidaten. En voor Manpower: meer output, hogere kwaliteit en een team dat minder verzuipt in schrijfwerk.</p>
         </article>
 
+        {/* CTA */}
         <div className="cta-section rounded-card text-center mt-16 max-w-[720px] mx-auto">
-          <h2 className="text-2xl font-extrabold text-white mb-3">Wil jij ook dit soort resultaten?</h2>
-          <p className="text-white/80 mb-6">Plan een gratis demo en ontdek wat Elvatix voor jouw team kan doen.</p>
-          <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Boek Gratis Demo</Link>
+          <h2 className="text-2xl font-extrabold text-white mb-3">Jouw succesverhaal begint hier</h2>
+          <p className="text-white/80 mb-6">Plan een demo en ontdek wat Elvatix voor jou kan doen.</p>
+          <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Plan Gratis Demo</Link>
         </div>
       </div>
     </main>

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Outreach LinkedIn voor detacheerders: persoonlijk, schaalbaar en effectief",
-  description: "Gebruik LinkedIn outreach slimmer. Voor detacheerders die sneller willen sourcen, betere follow-ups willen en persoonlijk contact willen behouden met kandidaten en opdrachtgevers.",
+  description: "Ontdek hoe detacheringsbureaus met Elvatix slimmer en sneller kandidaten en opdrachtgevers benaderen via LinkedIn.",
   alternates: { canonical: "https://elvatix.com/voor-detacheringsbureaus" },
 };
 
@@ -18,39 +17,35 @@ export default function Page() {
           <h1 className="page-heading">Outreach LinkedIn voor detacheerders: persoonlijk, schaalbaar en effectief</h1>
         </div>
 
-        {/* Image */}
-        <div className="relative aspect-video max-w-[800px] mx-auto mb-16 rounded-card overflow-hidden border border-border">
-          <Image src="/images/voor-wie/detacheringsbureaus.png" alt="Elvatix voor detacheringsbureaus" fill className="object-contain p-4 bg-surface" />
-        </div>
-
         {/* Body */}
         <article className="max-w-[720px] mx-auto prose-custom">
-          <h2>LinkedIn outreach: twee doelgroepen, &eacute;&eacute;n effici&euml;nte aanpak</h2>
-          <p>Als detacheringsbureau focus je op twee fronten: nieuwe kandidaten vinden en opdrachten binnenhalen. Maar dagelijkse outreach via LinkedIn kost tijd, vooral als je ieder bericht handmatig aanpast.</p>
+          <h2>LinkedIn outreach: twee doelgroepen, één efficiënte aanpak</h2>
+          <p>Als detacheringsbureau focus je op twee fronten: nieuwe kandidaten vinden en opdrachten binnenhalen. Je gebruikt LinkedIn voor leadgeneratie en sourcing. Maar dagelijkse outreach via LinkedIn kost tijd, vooral als je ieder bericht handmatig aanpast.</p>
+          <p>Je verstuurt <Link href="/module-connectieverzoeken">connectieverzoeken</Link>, <Link href="/module-inmails">InMails</Link>, voert gesprekken en probeert follow-ups te doen. Ondertussen gaan er kostbare uren verloren aan klikken, kopiëren en herschrijven.</p>
 
           <h3>Herken jij dit als detacheerder?</h3>
           <ul>
-            <li>Je schrijft elk bericht zelf om generieke <Link href="/module-inmails">InMails</Link> te vermijden.</li>
+            <li>Je schrijft elk bericht zelf om generieke InMails te vermijden.</li>
             <li>Je hebt honderden connecties maar slechts een paar gesprekken per week.</li>
-            <li>Je vergeet <Link href="/module-reminders">follow-ups</Link> op LinkedIn omdat het te veel tijd kost.</li>
+            <li>Je vergeet follow-ups op LinkedIn omdat het te veel tijd kost.</li>
             <li>Je werkt verspreid over meerdere tools en tabbladen.</li>
           </ul>
 
           <h2>Waarom persoonlijkheid cruciaal is in LinkedIn outreach</h2>
-          <p>Op LinkedIn zie je direct of een bericht oprecht is of niet. Een InMail of <Link href="/module-connectieverzoeken">connectieverzoek</Link> valt alleen op als het herkenbaar en inhoudelijk sterk is. Voor detacheerders is die balans extra belangrijk: bij opdrachtgevers wil je professioneel en to-the-point zijn, bij kandidaten wil je vertrouwen uitstralen.</p>
+          <p>Op LinkedIn zie je direct of een bericht oprecht is of niet. Een InMail of connectieverzoek valt alleen op als het herkenbaar en inhoudelijk sterk is. Anders blijft het bij gelezen maar geen reactie. Voor detacheerders is die balans extra belangrijk: bij opdrachtgevers wil je professioneel en to-the-point zijn, bij kandidaten wil je vertrouwen uitstralen.</p>
 
           <h2>Slimmere LinkedIn outreach met Elvatix</h2>
-          <p>Elvatix is een AI recruitment tool speciaal gemaakt voor interne teams bij detacheringsbureaus. Geen standaard AI-prompts of generieke flows maar slimme automatisering die jouw toon en workflow volgt, direct in je LinkedIn Recruiter Seat.</p>
+          <p>Elvatix is een AI recruitment tool speciaal gemaakt voor interne teams bij detacheringsbureaus. Geen standaard AI-prompts of generieke flows maar slimme automatisering die jouw toon en workflow volgt, direct in je <Link href="/integraties-linkedin">LinkedIn Recruiter Seat</Link>.</p>
           <ul>
-            <li><strong>Twee doelgroepen, &eacute;&eacute;n flow:</strong> outreach naar zowel kandidaten als opdrachtgevers in &eacute;&eacute;n ge&iuml;ntegreerd systeem.</li>
-            <li><strong>Profielherkenning:</strong> Elvatix herkent het profieltype en past toon en inhoud automatisch aan.</li>
-            <li><strong>Batch personaliseren:</strong> 25 unieke berichten tegelijk gepersonaliseerd op naam, functie, locatie en eerdere interacties.</li>
-            <li><strong>Follow-up LinkedIn:</strong> automatische opvolging met variatie en inhoudelijke continu&iuml;teit, geen herhalingen maar logische vervolgen.</li>
-            <li><strong>Zonder toolswitch:</strong> werkt direct in je LinkedIn Recruiter Seat, geen extra systemen of onboarding nodig.</li>
+            <li>Twee doelgroepen, één flow: outreach naar zowel kandidaten als opdrachtgevers in één geïntegreerd systeem.</li>
+            <li>Profielherkenning: Elvatix herkent het profieltype en past toon en inhoud automatisch aan.</li>
+            <li>Batch personaliseren: 25 unieke berichten tegelijk gepersonaliseerd op naam, functie, locatie en eerdere interacties.</li>
+            <li>Follow-up LinkedIn: automatische opvolging met variatie en inhoudelijke continuïteit, geen herhalingen maar logische vervolgen.</li>
+            <li>Zonder toolswitch: werkt direct in je LinkedIn Recruiter Seat, geen extra systemen of onboarding nodig.</li>
           </ul>
 
           <h2>Wat levert Elvatix concreet op?</h2>
-          <p>Stel: je voert recruitment outreach uit richting .NET-developers in regio Rotterdam. Normaal besteed je 3 uur aan persoonlijke berichtjes. Met Elvatix geef je een briefing en ontvang je 20 perfect gepersonaliseerde InMails, verstuurklaar binnen minuten.</p>
+          <p>Stel: je voert recruitment outreach uit richting .NET-developers in regio Rotterdam. Normaal besteed je 3 uur aan persoonlijke berichtjes. Met Elvatix geef je een briefing en ontvang je 20 perfect gepersonaliseerde InMails, verstuurklaar binnen minuten. Krijg je geen reactie? Dan plant de tool automatisch een follow-up in, afgestemd op je vorige bericht.</p>
 
           <h3>Minder klikwerk, meer echte gesprekken</h3>
           <p>Elvatix neemt het zware werk uit handen terwijl jij de controle houdt over toon en timing. Zo houd je tijd over voor intakegesprekken en relatiebeheer.</p>
@@ -80,8 +75,8 @@ export default function Page() {
 
         {/* CTA */}
         <div className="cta-section rounded-card text-center mt-16 max-w-[720px] mx-auto">
-          <h2 className="text-2xl font-extrabold text-white mb-3">Klaar voor slimmere outreach?</h2>
-          <p className="text-white/80 mb-6">Plan een demo en ontdek wat Elvatix voor jouw detacheringsbureau kan doen.</p>
+          <h2 className="text-2xl font-extrabold text-white mb-3">Klaar om slimmer te detacheren?</h2>
+          <p className="text-white/80 mb-6">Ontdek hoe Elvatix jouw outreach versnelt.</p>
           <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Boek Gratis Demo</Link>
         </div>
       </div>
