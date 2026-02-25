@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 };
 
 const segments = [
-  { title: "Recruitmentbureaus", desc: "Outreach op schaal zonder kwaliteit te verliezen", href: "/voor-recruitmentbureaus", image: "/images/voor-wie/bureaus.png", alt: "Elvatix voor recruitmentbureaus" },
-  { title: "Corporate Recruiters", desc: "Meer reacties, sterker employer brand", href: "/voor-corporate-recruiters", image: "/images/voor-wie/corporate.png", alt: "Elvatix voor corporate recruiters" },
-  { title: "Detacheringsbureaus", desc: "Kandidaten én opdrachtgevers bereiken", href: "/voor-detacheringsbureaus", image: "/images/voor-wie/detachering.png", alt: "Elvatix voor detacheringsbureaus" },
+  { title: "Recruitmentbureaus", desc: "Outreach op schaal zonder kwaliteit te verliezen", href: "/voor-recruitmentbureaus", image: "/images/voor-wie/recruitmentbureaus.png", alt: "Elvatix voor recruitmentbureaus" },
+  { title: "Corporate Recruiters", desc: "Meer reacties, sterker employer brand", href: "/voor-corporate-recruiters", image: "/images/voor-wie/corporate-recruiters.png", alt: "Elvatix voor corporate recruiters" },
+  { title: "Detacheringsbureaus", desc: "Kandidaten én opdrachtgevers bereiken", href: "/voor-detacheringsbureaus", image: "/images/voor-wie/detacheringsbureaus.png", alt: "Elvatix voor detacheringsbureaus" },
 ];
 
 export default function VoorWiePage() {

@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 };
 
 const cases = [
-  { company: "Manpower", slug: "/case-study-manpower", image: "/images/cases/manpower.png", alt: "Manpower case study", result: "43% responsrate, 260 InMails in 1,7 uur" },
-  { company: "Vibe Group", slug: "/case-study-vibegroup", image: "/images/cases/vibegroup.png", alt: "Vibe Group case study", result: "4-6 uur tijdswinst per week per recruiter" },
+  { company: "Manpower", slug: "/case-study-manpower", image: "/images/case-studies/manpower.png", alt: "Manpower case study", result: "43% responsrate, 260 InMails in 1,7 uur" },
+  { company: "Vibe Group", slug: "/case-study-vibegroup", image: "/images/case-studies/vibegroup.png", alt: "Vibe Group case study", result: "4-6 uur tijdswinst per week per recruiter" },
 ];
 
 export default function CaseStudiesPage() {

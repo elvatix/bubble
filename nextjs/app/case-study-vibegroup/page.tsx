@@ -30,7 +30,7 @@ export default function Page() {
       <section className="page-section">
         <div className="section-inner px-6">
           <div className="relative aspect-video max-w-[800px] mx-auto rounded-card overflow-hidden border border-border shadow-[var(--shadow-card)]">
-            <Image src="/images/cases/vibegroup.png" alt="Case study Vibe Group met Elvatix" fill className="object-contain p-4 bg-surface" />
+            <Image src="/images/case-studies/vibegroup.png" alt="Case study Vibe Group met Elvatix" fill className="object-contain p-4 bg-surface" />
           </div>
         </div>
       </section>

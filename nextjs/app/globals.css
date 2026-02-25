@@ -408,16 +408,6 @@ body {
   text-align: center;
   position: relative;
 }
-.page-hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, white);
-  pointer-events: none;
-}
 
 /* ── Alternating sections ── */
 .page-section {
