@@ -285,11 +285,11 @@ ANTWOORD FORMAT (volg EXACT):
     }
 
     const genAI = new GoogleGenerativeAI(geminiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
     const genStart = Date.now();
     const result = await model.generateContent(prompt);
     const genDuration = Date.now() - genStart;
-    console.log(`[Generate] Model: gemini-1.5-flash | Duration: ${genDuration}ms`);
+    console.log(`[Generate] Model: gemini-3-flash-preview | Duration: ${genDuration}ms`);
     const rawText = result.response.text();
 
     if (!rawText) {
