@@ -158,15 +158,19 @@ export async function POST(req: NextRequest) {
       const company = r.company || {};
       const currentJob = person.job_history?.[0];
 
+      const firstName = person.first_name || "";
+      const lastName = person.last_name || "";
+      const city = person.location?.city || "";
+      const country = person.location?.country || "";
+      const locationStr = [city, country].filter(Boolean).join(", ");
+
       return {
-        fullName: person.full_name || \`\${person.first_name || ""} \${person.last_name || ""}\`.trim(),
+        fullName: person.full_name || (firstName + " " + lastName).trim(),
         linkedinUrl: person.linkedin_url || null,
         jobTitle: person.current_job_title || currentJob?.title || null,
         headline: person.headline || null,
         companyName: currentJob?.company_name || company.name || null,
-        location: person.location
-          ? \`\${person.location.city || ""}, \${person.location.country || ""}\`.replace(/^, |, $/g, "")
-          : null,
+        location: locationStr || null,
       };
     });
 
