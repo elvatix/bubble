@@ -21,7 +21,7 @@ const pains = [
         <path d="M12 11h4M12 16h4M8 11h.01M8 16h.01" />
       </svg>
     ),
-    title: "De "Copy-Paste" blindheid",
+    title: "De \"Copy-Paste\" blindheid",
     description: "Om tijd te besparen grijp je terug op standaard templates of snelle ChatGPT prompts. Het resultaat? Grijze eenheidsworst. Toptalent herkent het direct en negeert je bericht.",
   },
   {
