@@ -10,8 +10,8 @@ const pains = [
         <polyline points="12 6 12 12 16 14" />
       </svg>
     ),
-    title: "De onmogelijke spagaat van targets",
-    description: "Je wéét dat een persoonlijk bericht beter werkt. Maar om je targets te halen, moet je volume draaien. Gevolg? 10 minuten per kandidaat en urenlang saai typewerk.",
+    title: "De InMail-grind",
+    description: "Profielen doorspitten, haakjes zoeken, een unieke tekst tikken. 15 minuten per kandidaat. Om je targets te halen, moet je volume draaien, maar de uren vliegen je door de vingers.",
   },
   {
     icon: (
@@ -21,8 +21,8 @@ const pains = [
         <path d="M12 11h4M12 16h4M8 11h.01M8 16h.01" />
       </svg>
     ),
-    title: "Templates afgestraft in seconden",
-    description: "Toptalent scant een InMail in twee seconden. Begin je met de zoveelste generieke ChatGPT copy-paste? Dan klikken ze direct weg, hoe goed je vacature ook is.",
+    title: "De "Copy-Paste" blindheid",
+    description: "Om tijd te besparen grijp je terug op standaard templates of snelle ChatGPT prompts. Het resultaat? Grijze eenheidsworst. Toptalent herkent het direct en negeert je bericht.",
   },
   {
     icon: (
@@ -31,8 +31,8 @@ const pains = [
         <polyline points="16 17 22 17 22 11" />
       </svg>
     ),
-    title: "Een gefragmenteerde workflow",
-    description: "Je switcht continu tussen ChatGPT, documenten vol templates en je Recruiter Seat. Tijdrovend, onoverzichtelijk en de perfecte manier om focus te verliezen.",
+    title: "Conversie die wegzakt",
+    description: "Je verstuurt er 50, je krijgt er 3 terug. Je weet dat de vacature goed is, de kandidaat is perfect, maar je bericht sneeuwt simpelweg onder in hun overvolle inbox.",
   },
   {
     icon: (
@@ -42,8 +42,8 @@ const pains = [
         <line x1="12" y1="17" x2="12.01" y2="17" />
       </svg>
     ),
-    title: "Het talent heeft de macht (en haast)",
-    description: "Goede kandidaten krijgen wekelijks talloze berichten. Als jouw benadering grijs of vertraagd is, tekent de droomkandidaat letterlijk bij de concurrent.",
+    title: "Verloren in je tabs",
+    description: "Knippen uit Recruiter Seat, plakken in ChatGPT, terug naar een Word-document voor je template, en weer terug naar LinkedIn. Een gefragmenteerde workflow die je focus killt.",
   },
   {
     icon: (
@@ -54,7 +54,7 @@ const pains = [
         <line x1="22" y1="8" x2="17" y2="13" />
       </svg>
     ),
-    title: "Connecties blijven \"In afwachting\"",
+    title: "Dode connectieverzoeken",
     description: "\"Ik zou je graag toevoegen aan mijn netwerk.\" Elke recruiter stuurt hetzelfde. Zonder persoonlijke noot accepteert niemand.",
   },
 ];

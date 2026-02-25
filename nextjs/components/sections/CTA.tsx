@@ -10,8 +10,8 @@ export default function CTA() {
           Klaar om het zelf te ervaren?
         </h2>
         <p className="text-white/85 text-base mb-8 leading-relaxed">
-          Ervaar zelf de directe impact op je response rate.
-          Probeer de gratis module vandaag nog en ontdek hoeveel sneller en effectiever je workflow in Recruiter Seat kan zijn.
+          Tijd om je concurrentie voor te zijn.
+          Toptalent kiest voor degene die de juiste snaar raakt. Stop met typen, start met converteren. Probeer Elvatix vandaag nog of plan een demo om het platform in actie te zien.
         </p>
         <div className="flex gap-3 justify-center flex-wrap">
           <motion.a

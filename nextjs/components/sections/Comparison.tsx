@@ -17,11 +17,10 @@ const XIcon = () => (
 );
 
 const rows = [
-  { label: "25 unieke profielen benaderen per klik", zonder: false, met: true },
-  { label: "Nieuwe tabs, Word documenten en tools overbodig (100% integratie)", zonder: false, met: true },
-  { label: "Respons rates die je wekelijkse targets ruimschoots overtreffen", zonder: false, met: true },
-  { label: "Hyper-personalisatie die niet leest als geforceerde AI", zonder: false, met: true },
-  { label: "Zelfs in bulk behoud je de menselijke touch", zonder: false, met: true },
+  { label: "10 min. ploeteren per persoon   vs   25 in 1 simpele handeling", zonder: false, met: true },
+  { label: "Knippen tussen 4 vensters   vs   Volledig native in LinkedIn", zonder: false, met: true },
+  { label: "Grijze \"Hey [Naam]\" template   vs   Diepgaande profielanalyse", zonder: false, met: true },
+  { label: "Vergeten follow-ups   vs   Geautomatiseerde vangnetten", zonder: false, met: true },
 ];
 
 export default function Comparison() {
@@ -30,10 +29,10 @@ export default function Comparison() {
       <div className="max-w-[900px] mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
-            Het verschil is meetbaar.
+            Terug naar de tekentafel.
           </h2>
           <p className="text-gray-500 text-base max-w-[520px] mx-auto">
-            Kwantiteit of Kwaliteit? Je hoeft niet meer te kiezen.
+            Waarom de ouderwetse manier je groei saboteert.
           </p>
         </div>
 

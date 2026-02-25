@@ -7,9 +7,9 @@ import AnimateOnScroll from "../animations/AnimateOnScroll";
 const tabs = [
   {
     id: "schaal",
-    label: "Persoonlijk op schaal (25 tegelijk)",
-    title: "Behoud personalisatie. Ontgrendel schaal.",
-    description: "Selecteer tot 25 kandidaten in je pool. Elvatix leest elk afzonderlijk profiel en schrijft 25 totaal verschillende, messcherpe berichten. Bulk outreach met de kwaliteit van handwerk.",
+    label: "25 profielen in één klik",
+    title: "Massa-outreach met een menselijke ziel.",
+    description: "Selecteer een hele pool kandidaten in één keer. De engine analyseert elk individueel profiel en pelt de relevante ervaring eruit. Het resultaat? 25 volstrekt unieke, persoonlijke InMails in de tijd dat jij normaal je koffie haalt.",
     features: [
       "25 kandidaten in één run",
       "Unieke profiel-analyse per persoon",
@@ -18,9 +18,9 @@ const tabs = [
   },
   {
     id: "integratie",
-    label: "Werkt waar jij al werkt",
-    title: "Geen nieuwe tools leren.",
-    description: "Volledige en directe integratie in LinkedIn Recruiter Seat en Sales Navigator. Selecteer je candidates, genereer en verstuur in één naadloze workflow zonder je tabblad te verlaten.",
+    label: "Volledig native integratie",
+    title: "Plug & play in Recruiter Seat.",
+    description: "Waarom wisselen van schermen? Elvatix draait strak en direct over LinkedIn Recruiter en Sales Navigator heen. Selecteer kandidaten in jouw bestaande pipelines en genereer berichten zonder ooit je tabblad te verlaten.",
     features: [
       "Recruiter Seat & Sales Navigator",
       "Werkt direct in je eigen pools",
@@ -28,25 +28,25 @@ const tabs = [
     ],
   },
   {
-    id: "switch",
-    label: "Follow-ups die converteren",
-    title: "Timing is alles.",
-    description: "80% van de kandidaten reageert pas bij het tweede bericht. Stel je follow-up sequence eenmalig in, leun achterover, en zie je respons rates verdubbelen zonder handmatig werk.",
-    features: [
-      "Volledig geautomatiseerde follow-up",
-      "Perfect getimede sequence",
-      "Direct de juiste tone-of-voice",
-    ],
-  },
-  {
     id: "templates",
-    label: "Jij regisseert, AI assisteert",
-    title: "Eigen templates mét ratio.",
-    description: "Bouw je eigen templates in jouw tone of voice. Elvatix leest de kaders, voegt context toe vanuit het cv, en zorgt dat elk bericht klinkt alsof jij er een kwartier voor bent gaan zitten.",
+    label: "Jouw Templates, Jouw Stem",
+    title: "Klink nooit als een robot.",
+    description: "Train het platform op jouw tone-of-voice en bouw dynamische templates per vacature. De AI snapt de kaders en vult deze vlijmscherp in met de data van de kandidaat. Consistent, professioneel en 100% jouw stijl.",
     features: [
       "Jouw eigen tone-of-voice",
       "Flexibele en vaste tekstblokken",
       "Context-bewuste AI invulling",
+    ],
+  },
+  {
+    id: "switch",
+    label: "Strategische Follow-ups",
+    title: "Win de \"Nee\" in de tweede ronde.",
+    description: "De magie zit vaak in de follow-up, maar handmatig bijhouden is een ramp. Automatiseer je opvolgingen intelligent. Laat de tool het moment kiezen om de conversatie weer aan te zwengelen als het eerste bericht koud blijft.",
+    features: [
+      "Perfect getimede sequence",
+      "Volledig geautomatiseerde follow-up",
+      "Verdubbel je respons rate",
     ],
   },
 ];
@@ -64,10 +64,10 @@ export default function Features() {
               Modules
             </p>
             <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-gray-900 mb-3">
-              Ontworpen voor de moderne recruiter
+              Gebouwd voor de workflow van toppresteerders
             </h2>
             <p className="text-gray-500 text-base max-w-[560px] mx-auto">
-              Een compleet platform dat integreert in jouw workflow en je productiviteit vertienvoudigt.
+              Geen losse tooltjes, maar een geïntegreerd platform dat naadloos aansluit op hoe jij écht werkt.
             </p>
           </div>
         </AnimateOnScroll>
