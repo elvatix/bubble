@@ -503,7 +503,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
                       {/* Recruiter search results dropdown */}
                       {showRecruiterResults && recruiterSearchResults.length > 0 && (
-                        <div className="absolute z-50 top-full left-0 right-0 mt-1.5 bg-white border border-gray-200 rounded-[10px] shadow-2xl min-h-[200px] max-h-[50vh] overflow-y-auto overscroll-contain">
+                        <div className="absolute z-50 top-full -left-5 -right-5 sm:left-0 sm:right-0 mt-1.5 bg-white border border-gray-200 rounded-[10px] shadow-2xl min-h-[200px] max-h-[50vh] overflow-y-auto overscroll-contain">
                           {recruiterSearchResults.map((person, idx) => (
                             <button key={idx} onMouseDown={() => handleSelectRecruiter(person)}
                               className="w-full text-left px-4 py-4 hover:bg-gray-50 cursor-pointer font-[inherit] border-none bg-transparent transition-colors"
@@ -623,7 +623,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
               {/* Search results dropdown */}
               {showSearchResults && searchResults.length > 0 && (
-                <div className="absolute z-50 top-full left-0 right-0 mt-1.5 bg-white border border-gray-200 rounded-[10px] shadow-2xl min-h-[200px] max-h-[50vh] overflow-y-auto overscroll-contain">
+                <div className="absolute z-50 top-full -left-5 -right-5 sm:left-0 sm:right-0 mt-1.5 bg-white border border-gray-200 rounded-[10px] shadow-2xl min-h-[200px] max-h-[50vh] overflow-y-auto overscroll-contain">
                   {searchResults.map((person, idx) => (
                     <button key={idx} onMouseDown={() => handleSelectPerson(person)}
                       className="w-full text-left px-4 py-4 hover:bg-gray-50 cursor-pointer font-[inherit] border-none bg-transparent transition-colors"
