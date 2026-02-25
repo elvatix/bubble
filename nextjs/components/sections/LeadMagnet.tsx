@@ -469,7 +469,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                   <div className="mb-4">
                     <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">Jouw LinkedIn profiel *</label>
                     <div className="relative">
-                      <div className={`flex items-center border rounded-[10px] transition-colors ${recruiterUrl ? "border-green bg-elvatix-light/30" : "border-gray-300"} focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]`}>
+                      <div className={`flex items-center w-full border rounded-[10px] transition-colors ${recruiterUrl ? "border-green bg-elvatix-light/30" : "border-gray-300"} focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]`}>
                         <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-200 flex items-center text-gray-400">
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -588,7 +588,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           <div className={compact ? "mb-3.5" : "mb-4"}>
             <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">LinkedIn profiel *</label>
             <div className="relative">
-              <div className={`flex items-center border rounded-[10px] transition-colors ${selectedPerson ? "border-green bg-elvatix-light/30" : "border-gray-300"} focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]`}>
+              <div className={`flex items-center w-full border rounded-[10px] transition-colors ${selectedPerson ? "border-green bg-elvatix-light/30" : "border-gray-300"} focus-within:border-green focus-within:shadow-[0_0_0_2px_rgba(141,182,0,0.08)]`}>
                 <span className="py-3 px-3.5 bg-gray-50 border-r border-gray-200 flex items-center text-gray-400">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -953,6 +953,8 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           @keyframes lm-blink { 50% { opacity: 0; } }
           @keyframes lm-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
           #lead-magnet input:focus { outline: none; border-color: var(--color-green); box-shadow: 0 0 0 2px rgba(141, 182, 0, 0.08); }
+        #lead-magnet input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset !important; -webkit-text-fill-color: #111827 !important; border-radius: 0 10px 10px 0; }
+        #lead-magnet input:-webkit-autofill:focus { -webkit-box-shadow: 0 0 0px 1000px white inset !important; }
         `}</style>
       </>
     );
@@ -985,6 +987,8 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         @keyframes lm-blink { 50% { opacity: 0; } }
         @keyframes lm-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
         #lead-magnet input:focus { outline: none; border-color: var(--color-green); box-shadow: 0 0 0 2px rgba(141, 182, 0, 0.08); }
+        #lead-magnet input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset !important; -webkit-text-fill-color: #111827 !important; border-radius: 0 10px 10px 0; }
+        #lead-magnet input:-webkit-autofill:focus { -webkit-box-shadow: 0 0 0px 1000px white inset !important; }
         @media (max-width: 640px) { #lead-magnet .lm-actions { flex-direction: column; } }
       `}</style>
     </section>

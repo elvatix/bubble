@@ -40,7 +40,8 @@ interface ProspeoCompany { name?: string; }
 interface ProspeoResult { person?: ProspeoPerson; company?: ProspeoCompany; }
 
 // Try a single Prospeo search with a given API key
-async function tryProspeoSearch(apiKey: string, filters: Record<string, unknown>): Promise<{ success: boolean; data?: unknown; rateLimited?: boolean }> {
+async function tryProspeoSearch(apiKey: string, filters: Record<string, unknown>, keyIndex: number): Promise<{ success: boolean; data?: unknown; rateLimited?: boolean }> {
+  const keyLabel = "Key " + (keyIndex + 1) + " (..."+apiKey.slice(-4)+")";
   try {
     const response = await fetch("https://api.prospeo.io/search-person", {
       method: "POST",
@@ -48,23 +49,33 @@ async function tryProspeoSearch(apiKey: string, filters: Record<string, unknown>
       body: JSON.stringify({ page: 1, filters }),
     });
 
+    // HTTP-level rate limit
     if (response.status === 429 || response.status === 402) {
+      console.log("[Prospeo] " + keyLabel + " → HTTP " + response.status + " (rate limited, trying next key)");
       return { success: false, rateLimited: true };
     }
 
     const data = await response.json();
     
-    // Prospeo returns error with rate limit info
+    // Prospeo returns error in JSON body with rate limit info
     if (data.error && (
       data.error_code === "RATE_LIMIT" ||
+      data.error_code === "CREDIT_LIMIT" ||
+      data.error_code === "QUOTA_EXCEEDED" ||
       (typeof data.message === "string" && data.message.toLowerCase().includes("rate")) ||
-      (typeof data.error === "string" && data.error.toLowerCase().includes("rate"))
+      (typeof data.message === "string" && data.message.toLowerCase().includes("credit")) ||
+      (typeof data.message === "string" && data.message.toLowerCase().includes("quota")) ||
+      (typeof data.error === "string" && data.error.toLowerCase().includes("rate")) ||
+      (typeof data.error === "string" && data.error.toLowerCase().includes("limit"))
     )) {
+      console.log("[Prospeo] " + keyLabel + " → " + (data.error_code || data.error || data.message) + " (rate/credit limited, trying next key)");
       return { success: false, rateLimited: true };
     }
 
+    console.log("[Prospeo] " + keyLabel + " → SUCCESS (" + (data.results?.length || 0) + " results)");
     return { success: true, data };
-  } catch {
+  } catch (err) {
+    console.log("[Prospeo] " + keyLabel + " → NETWORK ERROR: " + err);
     return { success: false, rateLimited: false };
   }
 }
@@ -105,8 +116,9 @@ export async function POST(req: NextRequest) {
     let lastData: unknown = null;
     let allRateLimited = true;
 
-    for (const key of apiKeys) {
-      const result = await tryProspeoSearch(key, filters);
+    console.log("[Prospeo] Search: \"" + query + "\" — " + apiKeys.length + " keys available");
+    for (let ki = 0; ki < apiKeys.length; ki++) {
+      const result = await tryProspeoSearch(apiKeys[ki], filters, ki);
       
       if (result.success) {
         lastData = result.data;
@@ -121,6 +133,7 @@ export async function POST(req: NextRequest) {
 
     // All keys rate limited
     if (allRateLimited && !lastData) {
+      console.log("[Prospeo] ALL " + apiKeys.length + " keys rate limited!");
       return NextResponse.json({ 
         error: "Zoekservice tijdelijk niet beschikbaar. Plak een LinkedIn URL om verder te gaan.", 
         fallback: true 
@@ -137,8 +150,8 @@ export async function POST(req: NextRequest) {
     // If company filter returns no results, retry with just the name (try all keys again)
     if (data.error && data.error_code === "NO_RESULTS" && words.length > 2) {
       const fallbackFilters = { person_name: { include: [query.trim()] } };
-      for (const key of apiKeys) {
-        const result = await tryProspeoSearch(key, fallbackFilters);
+      for (let ki = 0; ki < apiKeys.length; ki++) {
+        const result = await tryProspeoSearch(apiKeys[ki], fallbackFilters, ki);
         if (result.success) {
           data = result.data;
           break;
