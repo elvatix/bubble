@@ -113,7 +113,7 @@ export default function Features() {
                 ))}
               </ul>
             </div>
-            <div className="bg-gradient-to-br from-green-bg to-green-light rounded-[20px] p-10 flex items-center justify-center min-h-[240px]">
+            <div className="bg-gradient-to-br from-green-bg to-green-light rounded-card p-10 flex items-center justify-center min-h-[240px]">
               <motion.div
                 className="text-6xl text-center"
                 animate={{ scale: [1, 1.1, 1] }}

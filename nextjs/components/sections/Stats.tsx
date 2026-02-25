@@ -30,7 +30,7 @@ export default function Stats() {
             {items.map((s, i) => (
               <StaggerItem key={i}>
                 <motion.div
-                  className="text-center p-8 rounded-[20px] bg-gradient-to-br from-surface-card to-surface-card-end border border-border-light"
+                  className="text-center p-8 rounded-card bg-gradient-to-br from-surface-card to-surface-card-end border border-border-light"
                   whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(0,0,0,0.08)", borderColor: "rgba(141,182,0,0.2)" }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >

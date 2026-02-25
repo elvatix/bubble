@@ -59,7 +59,7 @@ export default function TrustPricing() {
           {trustItems.map((item, i) => (
             <motion.div
               key={i}
-              className="p-8 rounded-[20px] bg-white border border-elvatix/15 text-center relative overflow-hidden"
+              className="p-8 rounded-card bg-white border border-elvatix/15 text-center relative overflow-hidden"
               whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(155,187,10,0.1)", borderColor: "var(--color-elvatix)" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >

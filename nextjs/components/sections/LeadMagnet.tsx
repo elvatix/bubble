@@ -425,7 +425,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       id="lead-magnet"
       className={`bg-white border border-gray-200 relative overflow-visible ${
         compact
-          ? "rounded-[20px] p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.03)]"
+          ? "rounded-card p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.03)]"
           : "rounded-2xl p-9 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)]"
       }`}
     >

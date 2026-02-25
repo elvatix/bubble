@@ -42,7 +42,7 @@ export default function Testimonials() {
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
-                className="bg-white rounded-[20px] p-8 border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
+                className="bg-white rounded-card p-8 border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
                 whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(0,0,0,0.06)" }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >

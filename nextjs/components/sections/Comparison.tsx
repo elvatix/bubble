@@ -53,7 +53,7 @@ export default function Comparison() {
         </div>
 
         {/* Comparison table */}
-        <div className="rounded-[20px] border border-border overflow-hidden">
+        <div className="rounded-card border border-border overflow-hidden">
           {/* Header */}
           <div className="grid grid-cols-[1fr_140px_140px] max-md:grid-cols-[1fr_100px_100px] bg-surface py-3.5 px-6 border-b border-border">
             <span className="text-[13px] font-bold text-text-muted uppercase tracking-wide">Feature</span>
