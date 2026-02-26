@@ -136,15 +136,14 @@ body {
   .nav-cta { display: none; }
   .hamburger { display: flex; flex-direction: column; gap: 5px; align-items: center; margin-left: auto; }
   .mobile-nav.open {
-    display: flex; flex-direction: column; gap: 8px;
+    display: flex; flex-direction: column;
     position: fixed; top: 64px; left: 12px; right: 12px;
-    background: white; border-radius: 16px; padding: 16px 20px 28px;
+    background: white; border-radius: 16px; padding: 20px 24px 32px;
     box-shadow: 0 8px 40px rgba(0,0,0,0.12); z-index: 999;
-    max-height: calc(100vh - 80px); overflow-y: auto;
   }
-  .mobile-nav.open a { display: block; padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); text-decoration: none; border-bottom: 1px solid var(--color-border-light); font-weight: 500; }
+  .mobile-nav.open a { display: block; padding: 14px 0; font-size: 16px; color: var(--color-text-secondary); text-decoration: none; border-bottom: 1px solid var(--color-border-light); font-weight: 500; }
   .mobile-nav.open a:last-child { border-bottom: none; }
-  .mobile-nav.open .pill-btn { text-align: center; justify-content: center; width: 100%; margin-top: 8px; margin-bottom: 4px; }
+  .mobile-nav.open .pill-btn { text-align: center; justify-content: center; width: 100%; margin-top: 12px; border-bottom: none; padding: 14px 0; }
   .grid-2 { grid-template-columns: 1fr; gap: 32px; }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -167,15 +166,14 @@ body {
   .nav-cta { display: none; }
   .hamburger { display: flex; flex-direction: column; gap: 5px; align-items: center; margin-left: auto; }
   .mobile-nav.open {
-    display: flex; flex-direction: column; gap: 8px;
+    display: flex; flex-direction: column;
     position: fixed; top: 64px; left: 12px; right: 12px;
-    background: white; border-radius: 16px; padding: 16px 20px 28px;
+    background: white; border-radius: 16px; padding: 20px 24px 32px;
     box-shadow: 0 8px 40px rgba(0,0,0,0.12); z-index: 999;
-    max-height: calc(100vh - 80px); overflow-y: auto;
   }
-  .mobile-nav.open a { display: block; padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); text-decoration: none; border-bottom: 1px solid var(--color-border-light); font-weight: 500; }
+  .mobile-nav.open a { display: block; padding: 14px 0; font-size: 16px; color: var(--color-text-secondary); text-decoration: none; border-bottom: 1px solid var(--color-border-light); font-weight: 500; }
   .mobile-nav.open a:last-child { border-bottom: none; }
-  .mobile-nav.open .pill-btn { text-align: center; justify-content: center; width: 100%; margin-top: 8px; margin-bottom: 4px; }
+  .mobile-nav.open .pill-btn { text-align: center; justify-content: center; width: 100%; margin-top: 12px; border-bottom: none; padding: 14px 0; }
 
   .grid-2 { grid-template-columns: 1fr; gap: 24px; }
   .grid-3 { grid-template-columns: 1fr; }
