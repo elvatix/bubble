@@ -23,7 +23,7 @@ export default function HeroIllustration({ ariaLabel, centerCard, floats }: Hero
       <div className="hero-illo__blob hero-illo__blob--1" />
       <div className="hero-illo__blob hero-illo__blob--2" />
 
-      {/* Central card — 3D tilted */}
+      {/* Central card  - 3D tilted */}
       <div className="hero-illo__main-card">
         {centerCard}
       </div>

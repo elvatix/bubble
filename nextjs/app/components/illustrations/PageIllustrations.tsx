@@ -27,7 +27,7 @@ const Bar = ({ w, delay }: { w: string; delay: string }) => (
 export function ConnectieIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: persoonlijke LinkedIn connectieverzoeken versturen met Elvatix — profielen worden automatisch gepersonaliseerd"
+      ariaLabel="Illustratie: persoonlijke LinkedIn connectieverzoeken versturen met Elvatix  - profielen worden automatisch gepersonaliseerd"
       centerCard={
         <>
           <WindowDots />
@@ -65,7 +65,7 @@ export function ConnectieIllustration() {
 export function InMailsIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: gepersonaliseerde LinkedIn InMails versturen met Elvatix — tot 25 unieke berichten tegelijk vanuit Recruiter Seat"
+      ariaLabel="Illustratie: gepersonaliseerde LinkedIn InMails versturen met Elvatix  - tot 25 unieke berichten tegelijk vanuit Recruiter Seat"
       centerCard={
         <>
           <WindowDots />
@@ -110,7 +110,7 @@ export function InMailsIllustration() {
 export function CustomGPTIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: ingebouwde Custom GPT assistenten van Elvatix — prompt engineering zonder technische kennis"
+      ariaLabel="Illustratie: ingebouwde Custom GPT assistenten van Elvatix  - prompt engineering zonder technische kennis"
       centerCard={
         <>
           <WindowDots />
@@ -178,7 +178,7 @@ export function RemindersIllustration() {
 export function TemplatesIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: recruitment templates automatisch persoonlijk maken met Elvatix — upload je eigen stijl en instructies"
+      ariaLabel="Illustratie: recruitment templates automatisch persoonlijk maken met Elvatix  - upload je eigen stijl en instructies"
       centerCard={
         <>
           <WindowDots />
@@ -210,7 +210,7 @@ export function TemplatesIllustration() {
 export function SalesSwitchIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: Elvatix Recruitment Sales Switch — wissel tussen kandidaten en prospects in één omgeving"
+      ariaLabel="Illustratie: Elvatix Recruitment Sales Switch  - wissel tussen kandidaten en prospects in één omgeving"
       centerCard={
         <>
           <WindowDots />
@@ -240,7 +240,7 @@ export function SalesSwitchIllustration() {
 export function BureausIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: recruitment automation voor bureaus — schaalbare outreach via LinkedIn met behoud van kwaliteit"
+      ariaLabel="Illustratie: recruitment automation voor bureaus  - schaalbare outreach via LinkedIn met behoud van kwaliteit"
       centerCard={
         <>
           <WindowDots />
@@ -272,7 +272,7 @@ export function BureausIllustration() {
 export function CorporateIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: Elvatix voor corporate recruiters — sneller en persoonlijker werven met behoud van employer brand"
+      ariaLabel="Illustratie: Elvatix voor corporate recruiters  - sneller en persoonlijker werven met behoud van employer brand"
       centerCard={
         <>
           <WindowDots />
@@ -307,7 +307,7 @@ export function CorporateIllustration() {
 export function DetacheringIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: LinkedIn outreach voor detacheringsbureaus — twee doelgroepen in één flow met Elvatix"
+      ariaLabel="Illustratie: LinkedIn outreach voor detacheringsbureaus  - twee doelgroepen in één flow met Elvatix"
       centerCard={
         <>
           <WindowDots />
@@ -342,7 +342,7 @@ export function DetacheringIllustration() {
 export function ManpowerIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: case study Manpower — 65 uur werk teruggewonnen in 1,7 uur met Elvatix, responspercentage stijging van 40% naar 43%"
+      ariaLabel="Illustratie: case study Manpower  - 65 uur werk teruggewonnen in 1,7 uur met Elvatix, responspercentage stijging van 40% naar 43%"
       centerCard={
         <>
           <WindowDots />
@@ -375,7 +375,7 @@ export function ManpowerIllustration() {
 export function VibeGroupIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: case study Vibe Group — meer kwalitatieve gesprekken en minder werkdruk dankzij Elvatix"
+      ariaLabel="Illustratie: case study Vibe Group  - meer kwalitatieve gesprekken en minder werkdruk dankzij Elvatix"
       centerCard={
         <>
           <WindowDots />
@@ -406,7 +406,7 @@ export function VibeGroupIllustration() {
 export function IntegratiesIllustration() {
   return (
     <HeroIllustration
-      ariaLabel="Illustratie: Elvatix Chrome-extensie voor LinkedIn Recruiter Seat — installeer in 10 minuten, geen extra tools nodig"
+      ariaLabel="Illustratie: Elvatix Chrome-extensie voor LinkedIn Recruiter Seat  - installeer in 10 minuten, geen extra tools nodig"
       centerCard={
         <>
           <WindowDots />

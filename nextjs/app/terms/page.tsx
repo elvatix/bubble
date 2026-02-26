@@ -2,7 +2,7 @@ import Container from '@/components/ui/Container';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Algemene Voorwaarden — Elvatix B.V.',
+  title: 'Algemene Voorwaarden  - Elvatix B.V.',
   description: 'Lees de algemene voorwaarden van Elvatix B.V. Informatie over gegevensverwerking, beveiliging, bewaring en jouw rechten als gebruiker. AVG-conform.',
   alternates: { canonical: 'https://elvatix.com/terms' },
 };

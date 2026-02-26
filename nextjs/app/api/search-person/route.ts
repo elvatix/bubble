@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
     let lastData: unknown = null;
     let allRateLimited = true;
 
-    console.log("[Prospeo] Search: \"" + query + "\" — " + apiKeys.length + " keys available");
+    console.log("[Prospeo] Search: \"" + query + "\"  - " + apiKeys.length + " keys available");
     for (let ki = 0; ki < apiKeys.length; ki++) {
       const result = await tryProspeoSearch(apiKeys[ki], filters, ki);
       

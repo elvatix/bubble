@@ -10,7 +10,7 @@ export default function ModulesIllustration() {
       <div className="hero-illo__blob hero-illo__blob--1" />
       <div className="hero-illo__blob hero-illo__blob--2" />
 
-      {/* Central dashboard card — 3D tilted */}
+      {/* Central dashboard card  - 3D tilted */}
       <div className="hero-illo__main-card">
         <div className="hero-illo__card-header">
           <span className="hero-illo__dot hero-illo__dot--red" />

@@ -54,7 +54,7 @@ export default function Footer() {
         <Container>
           {/* Main Grid */}
           <div className="footer-grid">
-            {/* Brand Column — Left */}
+            {/* Brand Column  - Left */}
             <div>
               <Link href="/" className="no-underline block mb-5">
                 <Image

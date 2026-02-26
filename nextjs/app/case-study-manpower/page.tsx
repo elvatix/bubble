@@ -16,7 +16,7 @@ export default function CaseStudyManpowerPage() {
         <div className="section-inner">
           <span className="page-badge">Case Study</span>
           <h1 className="page-heading">Hoe Manpower met Elvatix 65 uur werk terugwon in slechts 1,7 uur</h1>
-          <p className="page-subtitle">Van 10-15 minuten per InMail naar 30 seconden — met hogere respons.</p>
+          <p className="page-subtitle">Van 10-15 minuten per InMail naar 30 seconden  - met hogere respons.</p>
         </div>
       </section>
 
@@ -44,7 +44,7 @@ export default function CaseStudyManpowerPage() {
           <article className="max-w-[720px] mx-auto prose-custom">
             <p>Robin, recruiter bij Manpower, stond bekend om zijn persoonlijke touch. Geen standaardberichten, geen copy-paste. Elke kandidaat kreeg een zorgvuldig geschreven InMail, afgestemd op profiel, ervaring en soms zelfs een detail uit iemands hobby&apos;s.</p>
             <p>Die aanpak werkte. Zijn berichten vielen op, voelden menselijk en leverden keer op keer bovengemiddeld veel reacties op. Maar er zat een prijskaartje aan.</p>
-            <p>Elke InMail kostte Robin 10 tot 15 minuten. Met 260 berichten in twee maanden tikte de teller op tot 43 tot 65 uur. Dat is meer dan anderhalve werkweek — puur besteed aan typen.</p>
+            <p>Elke InMail kostte Robin 10 tot 15 minuten. Met 260 berichten in twee maanden tikte de teller op tot 43 tot 65 uur. Dat is meer dan anderhalve werkweek  - puur besteed aan typen.</p>
           </article>
         </div>
       </PageSection>

@@ -16,7 +16,7 @@ export default function InMailsPage() {
         <div className="section-inner">
           <span className="page-badge">Module</span>
           <h1 className="page-heading">InMails op LinkedIn slimmer gebruiken: sneller, persoonlijker en volledig in Recruiter Seat</h1>
-          <p className="page-subtitle">Meer reacties op je InMails — zonder extra tools of tijdverlies.</p>
+          <p className="page-subtitle">Meer reacties op je InMails  - zonder extra tools of tijdverlies.</p>
         </div>
       </section>
 
@@ -100,7 +100,7 @@ export default function InMailsPage() {
           </div>
           <div className="feature-rows">
             <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Volledig binnen LinkedIn Recruiter Seat</h3><p className="feature-row__desc">Geen complexe nieuwe software. Je werkt in je vertrouwde omgeving.</p></div></div>
-            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Tot 25 kandidaten tegelijk — schaalbaar zonder verlies</h3><p className="feature-row__desc">Jouw eigen stijl, templates en structuur — geen standaard AI-output.</p></div></div>
+            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Tot 25 kandidaten tegelijk  - schaalbaar zonder verlies</h3><p className="feature-row__desc">Jouw eigen stijl, templates en structuur  - geen standaard AI-output.</p></div></div>
             <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Follow-ups die naadloos aansluiten</h3><p className="feature-row__desc">Inhoudelijk sterk en relevant. Gebruik <Link href="/module-template-instructies">templates &amp; instructies</Link> voor meer controle.</p></div></div>
           </div>
         </div>
@@ -122,9 +122,9 @@ export default function InMailsPage() {
         <div className="section-inner px-6">
           <div className="max-w-[720px] mx-auto">
             <h2 className="text-2xl font-extrabold text-text-primary mb-8 text-center">Veelgestelde vragen over InMails op LinkedIn en Elvatix</h2>
-            <details className="faq-item"><summary>Hoeveel kandidaten kan ik tegelijk benaderen met Elvatix?</summary><p>Maximaal 25 per keer — volledig binnen LinkedIn Recruiter. Zo houd je overzicht en kwaliteit, ook bij grotere outreach.</p></details>
+            <details className="faq-item"><summary>Hoeveel kandidaten kan ik tegelijk benaderen met Elvatix?</summary><p>Maximaal 25 per keer  - volledig binnen LinkedIn Recruiter. Zo houd je overzicht en kwaliteit, ook bij grotere outreach.</p></details>
             <details className="faq-item"><summary>Gebruik ik mijn eigen InMail credits?</summary><p>Ja. Elvatix werkt binnen je bestaande LinkedIn-omgeving. Je gebruikt dus gewoon de InMail credits die je al hebt.</p></details>
-            <details className="faq-item"><summary>Klinkt het nog wel als ikzelf?</summary><p>Ja. Je gebruikt je eigen sjablonen en tone-of-voice. Elvatix zorgt alleen voor tijdswinst — niet voor onpersoonlijke AI-berichten.</p></details>
+            <details className="faq-item"><summary>Klinkt het nog wel als ikzelf?</summary><p>Ja. Je gebruikt je eigen sjablonen en tone-of-voice. Elvatix zorgt alleen voor tijdswinst  - niet voor onpersoonlijke AI-berichten.</p></details>
             <details className="faq-item"><summary>Stuur ik berichten automatisch?</summary><p>Nee. Jij bepaalt wat er verstuurd wordt. Elk bericht controleer en verbeter je zelf voor verzending.</p></details>
             <details className="faq-item"><summary>Is dit compliant met LinkedIn-beleid?</summary><p>Ja. We houden rekening met je limieten en credits. Alles blijft binnen de spelregels van LinkedIn.</p></details>
           </div>

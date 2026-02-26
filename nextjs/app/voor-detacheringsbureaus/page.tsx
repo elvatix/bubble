@@ -5,7 +5,7 @@ import { DetacheringIllustration } from "../components/illustrations/PageIllustr
 
 export const metadata: Metadata = {
   title: "Outreach LinkedIn voor detacheerders: persoonlijk, schaalbaar en effectief | Elvatix",
-  description: "LinkedIn outreach voor detacheringsbureaus. Persoonlijk, schaalbaar en effectief — twee doelgroepen, één flow.",
+  description: "LinkedIn outreach voor detacheringsbureaus. Persoonlijk, schaalbaar en effectief  - twee doelgroepen, één flow.",
   alternates: { canonical: "https://elvatix.com/voor-detacheringsbureaus" },
 };
 
@@ -43,7 +43,7 @@ export default function VoorDetacheringPage() {
           <div className="section-heading">
             <span className="section-heading__badge">De oplossing</span>
             <h2 className="section-heading__title">Slimmere LinkedIn outreach met Elvatix</h2>
-            <p className="section-heading__subtitle">AI recruitment tool speciaal gemaakt voor detacheringsbureaus. Geen standaard AI-prompts — maar slimme automatisering die jouw toon en workflow volgt.</p>
+            <p className="section-heading__subtitle">AI recruitment tool speciaal gemaakt voor detacheringsbureaus. Geen standaard AI-prompts  - maar slimme automatisering die jouw toon en workflow volgt.</p>
           </div>
           <div className="benefit-grid">
             <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><h3 className="benefit-card__title">Twee doelgroepen, één flow</h3><p className="benefit-card__desc">Outreach naar zowel kandidaten als opdrachtgevers in één systeem. Profielherkenning past toon automatisch aan.</p></div>
@@ -62,7 +62,7 @@ export default function VoorDetacheringPage() {
           <article className="max-w-[720px] mx-auto prose-custom">
             <p>Stel: je voert recruitment outreach uit richting .NET-developers in regio Rotterdam. Normaal besteed je 3 uur aan persoonlijke berichtjes. Met Elvatix geef je een briefing (&lsquo;informele toon, focus op projectinhoud&rsquo;) en ontvang je 20 perfect gepersonaliseerde InMails. Verstuurklaar binnen minuten.</p>
             <p>Krijg je geen reactie? Dan plant de tool automatisch een follow-up LinkedIn in, afgestemd op je vorige bericht. Daardoor bied je kandidaten of contacten meerdere kansen om in te haken.</p>
-            <p>Consistente LinkedIn outreach is belangrijk — maar in de praktijk komt het er niet van. Elvatix neemt het zware werk uit handen terwijl jij de controle houdt over toon en timing. Nieuwsgierig naar resultaten? Bekijk onze <Link href="/case-studies">case studies</Link>.</p>
+            <p>Consistente LinkedIn outreach is belangrijk  - maar in de praktijk komt het er niet van. Elvatix neemt het zware werk uit handen terwijl jij de controle houdt over toon en timing. Nieuwsgierig naar resultaten? Bekijk onze <Link href="/case-studies">case studies</Link>.</p>
           </article>
         </div>
       </PageSection>

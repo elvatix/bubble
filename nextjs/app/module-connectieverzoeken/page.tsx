@@ -17,7 +17,7 @@ export default function ConnectieverzoekPage() {
         <div className="section-inner">
           <span className="page-badge">Module</span>
           <h1 className="page-heading">LinkedIn connectieverzoeken die wél geaccepteerd worden</h1>
-          <p className="page-subtitle">Persoonlijke connectieverzoeken op schaal — zonder een bericht dubbel te gebruiken.</p>
+          <p className="page-subtitle">Persoonlijke connectieverzoeken op schaal  - zonder een bericht dubbel te gebruiken.</p>
         </div>
       </section>
 

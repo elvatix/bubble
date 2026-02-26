@@ -105,7 +105,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   const [progress, setProgress] = useState(0);
   const [statusMsgIdx, setStatusMsgIdx] = useState(0);
 
-  // Status messages — analyzing phase: profile facts (no emoji). All other phases: fixed STATUS_TEXT.
+  // Status messages  - analyzing phase: profile facts (no emoji). All other phases: fixed STATUS_TEXT.
   const ANALYZING_MESSAGES = profile ? [
     "Profiel analyseren…",
     profile.currentTitle ? `Huidige rol: ${profile.currentTitle}` : "Werkervaring doorlopen…",
@@ -129,7 +129,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   }, [phase]);
   const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Progress bar — calibrated to real API timings
+  // Progress bar  - calibrated to real API timings
   // Flow: connecting(1s) → scanning(~2s API) → found(1.5s) → analyzing(1.5s) → writing-inmail(~14s API + ~5s typewriter) → writing-conn(~3s typewriter) → done
   // Total: ~28s
   // The bar should feel smooth and never stall. We use the typewriter progress to drive it during writing.
@@ -140,7 +140,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
       return;
     }
 
-    // Phase targets — represent where progress should be when this phase ENDS
+    // Phase targets  - represent where progress should be when this phase ENDS
     const targets: Record<string, number> = {
       connecting: 6,
       scanning: 15,
@@ -175,7 +175,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
   // Boost progress when typewriter is active (inmailFull arrived = API done, typewriter starts)
   useEffect(() => {
     if (phase === "writing-inmail" && inmailFull && progress < 85) {
-      // API returned — jump progress to 85% so it doesn't feel stuck
+      // API returned  - jump progress to 85% so it doesn't feel stuck
       setProgress(85);
     }
   }, [inmailFull, phase]);
@@ -285,7 +285,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     setShowRecruiterResults(false);
   }, []);
 
-  // Universal candidate input handler — detects URL vs name
+  // Universal candidate input handler  - detects URL vs name
   const isUrl = (text: string) => /linkedin\.com|^https?:\/\//i.test(text);
 
   const handleCandidateInput = useCallback((value: string) => {
@@ -584,7 +584,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             </button>
           </div>
 
-          {/* Universal candidate search — auto-detects URL vs name */}
+          {/* Universal candidate search  - auto-detects URL vs name */}
           <div className={compact ? "mb-3.5" : "mb-4"}>
             <label className="block text-[13px] font-semibold text-gray-700 mb-1.5">LinkedIn profiel *</label>
             <div className="relative">
@@ -724,7 +724,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           </div>
           )}
 
-          {/* Generate button — shown in Step 2 after recruiter profile */}
+          {/* Generate button  - shown in Step 2 after recruiter profile */}
           {formStep === 2 && recruiterProfile && (
             <button onClick={handleGenerate} disabled={!linkedinUrl}
               className={`w-full border-none rounded-[10px] font-bold cursor-pointer transition-colors font-[inherit] text-white ${

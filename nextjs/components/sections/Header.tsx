@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Row 1 — Trust Badges */}
+      {/* Row 1  - Trust Badges */}
       <div className="fixed top-0 left-0 right-0 z-[1001] bg-gradient-to-r from-[#1a2e05] to-[#2d4a0a] text-white">
         <div className="max-w-[1200px] mx-auto flex items-center justify-center gap-6 sm:gap-10 py-1.5 px-4 text-[11px] sm:text-xs font-medium">
           {trustBadges.map((badge) => (
@@ -63,9 +63,9 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Row 2 — Navigation */}
+      {/* Row 2  - Navigation */}
       <header className="navbar-floating" style={{ top: "40px" }}>
-        {/* Logo — full on desktop, icon on mobile */}
+        {/* Logo  - full on desktop, icon on mobile */}
         <Link href="/" className="no-underline shrink-0 z-[1]">
           <Image
             src="/images/elvatix-logo-lightgreen.svg"

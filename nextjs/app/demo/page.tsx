@@ -4,7 +4,7 @@ import Script from 'next/script';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Boek een gratis demo van Elvatix — persoonlijk gegeven door de oprichter',
+  title: 'Boek een gratis demo van Elvatix  - persoonlijk gegeven door de oprichter',
   description: 'Plan een gratis demo en ontdek hoe Elvatix jouw LinkedIn outreach transformeert. Persoonlijk gegeven door Gianni, oprichter van Elvatix. Binnen 10 minuten live.',
   alternates: { canonical: 'https://elvatix.com/demo' },
 };
@@ -56,7 +56,7 @@ export default function DemoPage() {
                 </li>
                 <li className="flex items-start gap-3 text-text-secondary text-[15px]">
                   <span className="text-elvatix mt-0.5 flex-shrink-0">●</span>
-                  Ik laat je zien hoe intuïtief en snel de setup is — binnen 10 minuten is je account live.
+                  Ik laat je zien hoe intuïtief en snel de setup is  - binnen 10 minuten is je account live.
                 </li>
               </ul>
             </div>
@@ -93,13 +93,13 @@ export default function DemoPage() {
                 strategy="lazyOnload"
               />
 
-              {/* White triangle overlay — hides badge on desktop & mobile */}
+              {/* White triangle overlay  - hides badge on desktop & mobile */}
               <div
                 className="absolute top-0 right-0 w-[120px] h-[120px] bg-white z-50 pointer-events-none"
                 style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }}
               />
 
-              {/* Bottom gradient — hides Cookie-instellingen */}
+              {/* Bottom gradient  - hides Cookie-instellingen */}
               <div className="absolute bottom-0 left-0 right-0 h-[50px] bg-gradient-to-t from-white via-white to-transparent z-50 pointer-events-none" />
             </div>
           </div>

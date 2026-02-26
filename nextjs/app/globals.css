@@ -777,7 +777,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Positions — arranged around the central dashboard */
+/* Positions  - arranged around the central dashboard */
 .hero-illo__float--1 { top: 8%; left: 2%;   animation-delay: 0s; }
 .hero-illo__float--2 { top: 4%; right: 4%;  animation-delay: -0.8s; }
 .hero-illo__float--3 { bottom: 12%; left: 0;  animation-delay: -1.6s; }
@@ -846,7 +846,7 @@ body {
 
 /* ═══════════════════════════════════════════
    PREMIUM SECTION COMPONENTS
-   Reusable visual blocks for content pages —
+   Reusable visual blocks for content pages  -
    matching the homepage's interactive quality.
    ═══════════════════════════════════════════ */
 

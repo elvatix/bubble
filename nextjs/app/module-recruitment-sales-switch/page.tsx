@@ -5,7 +5,7 @@ import { SalesSwitchIllustration } from "../components/illustrations/PageIllustr
 
 export const metadata: Metadata = {
   title: "LinkedIn leadgeneratie voor recruitment en sales in één omgeving | Elvatix",
-  description: "Wissel moeiteloos tussen recruitment en sales outreach. Eén omgeving, twee doelen — volledig binnen LinkedIn Recruiter.",
+  description: "Wissel moeiteloos tussen recruitment en sales outreach. Eén omgeving, twee doelen  - volledig binnen LinkedIn Recruiter.",
   alternates: { canonical: "https://elvatix.com/module-recruitment-sales-switch" },
 };
 
@@ -16,7 +16,7 @@ export default function SalesSwitchPage() {
         <div className="section-inner">
           <span className="page-badge">Module</span>
           <h1 className="page-heading">LinkedIn leadgeneratie voor recruitment en sales in één omgeving</h1>
-          <p className="page-subtitle">Eén omgeving, twee doelen — wissel moeiteloos tussen kandidaten en prospects.</p>
+          <p className="page-subtitle">Eén omgeving, twee doelen  - wissel moeiteloos tussen kandidaten en prospects.</p>
         </div>
       </section>
 
@@ -46,7 +46,7 @@ export default function SalesSwitchPage() {
           </div>
           <div className="step-flow">
             <div className="step-flow__item"><div className="step-flow__num">1</div><div className="step-flow__content"><h3 className="step-flow__title">Kies het scenario: recruitment of sales</h3><p className="step-flow__desc">Met één klik wissel je tussen kandidaten en prospects. De AI past toon en inhoud automatisch aan je doelgroep aan.</p></div></div>
-            <div className="step-flow__item"><div className="step-flow__num">2</div><div className="step-flow__content"><h3 className="step-flow__title">Laat berichten genereren</h3><p className="step-flow__desc">Maximaal 25 gepersonaliseerde berichten, elk uniek en in jouw stijl. <Link href="/module-connectieverzoeken" className="text-green-light underline">Connectieverzoeken</Link> of InMails — je kiest zelf.</p></div></div>
+            <div className="step-flow__item"><div className="step-flow__num">2</div><div className="step-flow__content"><h3 className="step-flow__title">Laat berichten genereren</h3><p className="step-flow__desc">Maximaal 25 gepersonaliseerde berichten, elk uniek en in jouw stijl. <Link href="/module-connectieverzoeken" className="text-green-light underline">Connectieverzoeken</Link> of InMails  - je kiest zelf.</p></div></div>
             <div className="step-flow__item"><div className="step-flow__num">3</div><div className="step-flow__content"><h3 className="step-flow__title">Controleer en pas aan</h3><p className="step-flow__desc">Jij bepaalt wat er uitgaat. Geen automatische verzending zonder akkoord. Volledige controle.</p></div></div>
             <div className="step-flow__item"><div className="step-flow__num">4</div><div className="step-flow__content"><h3 className="step-flow__title">Verzend slim + plan follow-ups</h3><p className="step-flow__desc">Berichten worden verspreid verzonden binnen LinkedIn-limieten. Plan automatisch een follow-up indien nodig.</p></div></div>
           </div>
@@ -77,7 +77,7 @@ export default function SalesSwitchPage() {
           <div className="feature-rows">
             <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Eén omgeving, twee doelen</h3><p className="feature-row__desc">Klanten en kandidaten vanuit dezelfde interface. Consistente tone-of-voice in alle berichten.</p></div></div>
             <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Schaalbaar zonder generiek te worden</h3><p className="feature-row__desc">Tot 25 unieke berichten per campagne. Meer focus op gesprekken, minder repetitief werk.</p></div></div>
-            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Unieke Recruitment/Sales switch</h3><p className="feature-row__desc">Pas je aanpak moeiteloos aan je doelgroep aan. Integratie met LinkedIn Recruiter Seat — geen externe tools nodig.</p></div></div>
+            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Unieke Recruitment/Sales switch</h3><p className="feature-row__desc">Pas je aanpak moeiteloos aan je doelgroep aan. Integratie met LinkedIn Recruiter Seat  - geen externe tools nodig.</p></div></div>
           </div>
         </div>
       </PageSection>

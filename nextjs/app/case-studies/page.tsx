@@ -53,7 +53,7 @@ export default function CaseStudiesPage() {
         <div className="section-inner px-6">
           <article className="max-w-[720px] mx-auto prose-custom">
             <h2>Recruitment case studies: succesverhalen van recruiters zoals jij</h2>
-            <p>Of je nu werkt bij een bureau, in-house of in detachering — veel recruiters lopen tegen dezelfde problemen aan. Denk aan lage response rates, beperkte personalisatie en handmatige opvolging die veel tijd kost. In iedere klantcase recruitment op deze pagina zie je hoe Elvatix daarin structureel verandering bracht.</p>
+            <p>Of je nu werkt bij een bureau, in-house of in detachering  - veel recruiters lopen tegen dezelfde problemen aan. Denk aan lage response rates, beperkte personalisatie en handmatige opvolging die veel tijd kost. In iedere klantcase recruitment op deze pagina zie je hoe Elvatix daarin structureel verandering bracht.</p>
             <p>Deze succesverhalen recruitment software laten zien wat er gebeurt als je slimme automatisering combineert met menselijk profielwerk. Geen marketingpraatjes maar meetbare verbeteringen in je sourcingproces.</p>
 
             <h2>Voorbeelden case study recruitment: van inzicht naar impact</h2>

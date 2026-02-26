@@ -42,7 +42,7 @@ export default function ProbeerPage() {
         </Container>
       </section>
 
-      {/* Generator — same shared component */}
+      {/* Generator  - same shared component */}
       <section className="pb-12 bg-white">
         <Container className="max-w-[720px]">
           <div className="rounded-card border border-elvatix/20 shadow-[0_4px_24px_rgba(155,187,10,0.08)] overflow-visible">
@@ -51,7 +51,7 @@ export default function ProbeerPage() {
         </Container>
       </section>
 
-      {/* Upsell — what the full product does */}
+      {/* Upsell  - what the full product does */}
       <section className="py-16 bg-surface">
         <Container className="max-w-[720px]">
           <div className="text-center mb-10">

@@ -61,7 +61,7 @@ export default function EnvelopeAnimation() {
       
       if (cancelled.current) return;
 
-      // Done — longer pause so status text is readable
+      // Done  - longer pause so status text is readable
       setPhase("done");
       await wait(1200);
       if (cancelled.current) return;
@@ -71,12 +71,12 @@ export default function EnvelopeAnimation() {
       await wait(1000);
       if (cancelled.current) return;
 
-      // Deliver — slow, so you see the letter enter the envelope
+      // Deliver  - slow, so you see the letter enter the envelope
       setPhase("deliver");
       await wait(2000);
       if (cancelled.current) return;
 
-      // Sent — celebrate
+      // Sent  - celebrate
       setPhase("sent");
       await wait(2500);
       if (cancelled.current) return;
@@ -376,7 +376,7 @@ export default function EnvelopeAnimation() {
                 </>
               )}
 
-              {/* LinkedIn header — "InMail" with correct casing */}
+              {/* LinkedIn header  - "InMail" with correct casing */}
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-5 h-5 rounded bg-[#0A66C2] flex items-center justify-center flex-shrink-0">
                   <span className="text-white text-[8px] font-bold">in</span>
@@ -439,7 +439,7 @@ export default function EnvelopeAnimation() {
             <rect x="16" y="64" width="28" height="3" rx="1.5" fill="white" opacity="0.04" />
           </svg>
 
-          {/* ─── Top flap — opens during deliver ─── */}
+          {/* ─── Top flap  - opens during deliver ─── */}
           <AnimatePresence>
             {(isDeliver || isSent) && (
               <motion.div

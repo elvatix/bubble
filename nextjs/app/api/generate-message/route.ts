@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { email, jobTitle, tone, senderName, vacancyText, customInstruction, profile, recruiterProfile } = body;
 
-    // Email no longer required — lead captured via recruiter LinkedIn URL in Step 1
+    // Email no longer required  - lead captured via recruiter LinkedIn URL in Step 1
 
     let profileContext = "";
     if (profile && profile.fullName) {
@@ -148,18 +148,18 @@ C. Werkervaring regels:
 
 STAP 2: HET SCHRIJFPROCES
 
-Fase A — De Opening (100% maatwerk):
+Fase A  - De Opening (100% maatwerk):
 - Begin direct in de wereld van de kandidaat.
 - Reageer inhoudelijk op wat je hebt gevonden (werk, bio, opvallende stap).
 - VERBODEN: Begin nooit met jouw agenda ("Ik heb een vacature", "Wij zoeken", "Ik wil even connecten").
 
-Fase B — De Brug (thematisch haakje):
+Fase B  - De Brug (thematisch haakje):
 - Maak de oversteek van hun wereld naar de rol, zonder dat de lezer het doorheeft.
 - Kies een thema uit de opening (bijv. 'coachen', 'bouwen', 'snel schakelen') en gebruik dat woord om de rol te introduceren.
 - VERBODEN BRUG-ZINNEN: "Precies die ervaring zoeken wij", "Dat zijn eigenschappen die je goed kunt gebruiken", "Daarom moest ik aan je denken", "Precies daarom stuur ik dit".
 - Ga er ALTIJD vanuit dat de rol interessant kan zijn. Vul nooit in dat het "niet past".
 
-Fase C — De Inhoud (feiten integreren):
+Fase C  - De Inhoud (feiten integreren):
 - Presenteer de baan met feiten uit het template (salaris, locatie, uren), in de toon van de opening.
 - Bullets? Gebruik ALTIJD streepjes (-), NOOIT sterretjes (*).
 - Vloeiende overgangen: het bericht mag NIET voelen als "stukje over jou" + harde enter + "blokje vacature". Zinnen moeten logisch op elkaar volgen.
