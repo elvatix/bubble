@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
   title: "Case studies recruitment: échte resultaten met Elvatix",
@@ -29,7 +30,7 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      <section className="page-section">
+      <PageSection>
         <div className="section-inner px-6">
           <div className="page-grid-3" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
             {cases.map((c) => (
@@ -47,63 +48,61 @@ export default function CaseStudiesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section--alt">
+      <PageSection alt>
         <div className="section-inner px-6">
+          <div className="section-heading">
+            <span className="section-heading__badge">Succesverhalen</span>
+            <h2 className="section-heading__title">Recruitment case studies: succesverhalen van recruiters zoals jij</h2>
+          </div>
           <article className="max-w-[720px] mx-auto prose-custom">
-            <h2>Recruitment case studies: succesverhalen van recruiters zoals jij</h2>
-            <p>Of je nu werkt bij een bureau, in-house of in detachering  - veel recruiters lopen tegen dezelfde problemen aan. Denk aan lage response rates, beperkte personalisatie en handmatige opvolging die veel tijd kost. In iedere klantcase recruitment op deze pagina zie je hoe Elvatix daarin structureel verandering bracht.</p>
+            <p>Of je nu werkt bij een bureau, in-house of in detachering - veel recruiters lopen tegen dezelfde problemen aan. Denk aan lage response rates, beperkte personalisatie en handmatige opvolging die veel tijd kost. In iedere klantcase recruitment op deze pagina zie je hoe Elvatix daarin structureel verandering bracht.</p>
             <p>Deze succesverhalen recruitment software laten zien wat er gebeurt als je slimme automatisering combineert met menselijk profielwerk. Geen marketingpraatjes maar meetbare verbeteringen in je sourcingproces.</p>
-
-            <h2>Voorbeelden case study recruitment: van inzicht naar impact</h2>
-            <p>Onze gebruikers variëren van kleine teams tot grote organisaties maar de resultaten zijn vergelijkbaar: meer reacties in minder tijd.</p>
-            <p>Bekijk o.a. <Link href="/case-study-manpower">Manpower</Link> en <Link href="/case-study-vibegroup">Vibe Group</Link>.</p>
-
-            <h2>Herkenbare problemen vóór Elvatix</h2>
-            <p>Alle recruitment case studies op deze pagina begonnen bij vergelijkbare uitdagingen:</p>
-            <ul>
-              <li>Lage respons op LinkedIn Recruiter berichten</li>
-              <li>Tijdverlies door handmatig berichten en opvolgen</li>
-              <li>Onpersoonlijke outreach die niet opvalt</li>
-              <li>Geen schaalbare personalisatie of gestructureerde aanpak</li>
-            </ul>
-            <p>Herken jij jezelf hierin? Dan sta je precies waar onze klanten ooit stonden voor hun succesverhaal begon.</p>
-
-            <h2>Wat verandert er met Elvatix?</h2>
-            <p>Elvatix helpt recruitmentteams om meer resultaat te halen uit hun sourcing. Dankzij AI-ondersteunde personalisatie en automatische opvolging krijg je meer grip, meer reacties en meer geplaatste kandidaten.</p>
-            <ul>
-              <li><strong>Meer respons:</strong> gepersonaliseerde berichten die opvallen</li>
-              <li><strong>Minder handwerk:</strong> automatische maar menselijke follow-ups</li>
-              <li><strong>Meer structuur:</strong> campagnes die schaalbaar en herhaalbaar zijn</li>
-              <li><strong>Snellere plaatsingen:</strong> dankzij betere timing en opvolging</li>
-            </ul>
-            <p>Zie hoe teams dit doen in onze case studies, of <Link href="/demo">plan direct een demo</Link>.</p>
           </article>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section">
+      <PageSection>
+        <div className="section-inner px-6">
+          <div className="section-heading">
+            <span className="section-heading__badge">Het probleem</span>
+            <h2 className="section-heading__title">Herkenbare problemen vóór Elvatix</h2>
+          </div>
+          <div className="feature-rows">
+            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Lage respons op LinkedIn berichten</h3><p className="feature-row__desc">Recruiters zien vaak responsrates van 5-10% op standaard InMails. Dat kost tijd en levert weinig op.</p></div></div>
+            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Tijdverlies door handmatig berichten</h3><p className="feature-row__desc">Onpersoonlijke outreach die niet opvalt. Geen schaalbare personalisatie of gestructureerde aanpak.</p></div></div>
+          </div>
+        </div>
+      </PageSection>
+
+      <PageSection dark>
+        <div className="section-inner px-6">
+          <div className="section-heading">
+            <span className="section-heading__badge">Resultaat</span>
+            <h2 className="section-heading__title">Wat verandert er met Elvatix?</h2>
+          </div>
+          <div className="benefit-grid">
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3 className="benefit-card__title">Meer respons</h3><p className="benefit-card__desc">Gepersonaliseerde berichten die opvallen.</p></div>
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3 className="benefit-card__title">Minder handwerk</h3><p className="benefit-card__desc">Automatische maar menselijke follow-ups.</p></div>
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h3 className="benefit-card__title">Meer structuur</h3><p className="benefit-card__desc">Campagnes die schaalbaar en herhaalbaar zijn. Snellere plaatsingen.</p></div>
+          </div>
+          <p className="text-center text-white/70 text-sm mt-6">Bekijk o.a. <Link href="/case-study-manpower" className="text-green-light underline">Manpower</Link> en <Link href="/case-study-vibegroup" className="text-green-light underline">Vibe Group</Link>.</p>
+        </div>
+      </PageSection>
+
+      <PageSection>
         <div className="section-inner px-6">
           <div className="max-w-[720px] mx-auto">
             <h2 className="text-2xl font-extrabold text-text-primary mb-8 text-center">Veelgestelde vragen over recruitment case studies</h2>
-            <details className="faq-item">
-              <summary>Wat is een case study recruitment precies?</summary>
-              <p>Een case study recruitment is een praktijkvoorbeeld dat laat zien hoe een recruiter of team betere resultaten behaalde door een nieuwe werkwijze of tool. Bij Elvatix zijn alle case studies gebaseerd op echte gebruikersdata.</p>
-            </details>
-            <details className="faq-item">
-              <summary>Voor wie zijn deze recruitment case studies relevant?</summary>
-              <p>Voor recruiters, bureaus, in-house teams, recruitment managers en teamleads die werken met LinkedIn Recruiter en meer resultaat willen halen uit hun outreach en opvolging.</p>
-            </details>
-            <details className="faq-item">
-              <summary>Kan ik mijn eigen case study met Elvatix realiseren?</summary>
-              <p>Ja. We helpen je graag met opstarten en doelen stellen. De beste recruitment case studies beginnen met een korte kennismaking.</p>
-            </details>
+            <details className="faq-item"><summary>Wat is een case study recruitment precies?</summary><p>Een praktijkvoorbeeld dat laat zien hoe een recruiter betere resultaten behaalde. Bij Elvatix zijn alle case studies gebaseerd op echte gebruikersdata.</p></details>
+            <details className="faq-item"><summary>Voor wie zijn deze case studies relevant?</summary><p>Voor recruiters, bureaus, in-house teams en teamleads die werken met LinkedIn Recruiter en meer resultaat willen.</p></details>
+            <details className="faq-item"><summary>Kan ik mijn eigen case study met Elvatix realiseren?</summary><p>Ja. We helpen je graag met opstarten en doelen stellen.</p></details>
           </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section--alt">
+      <PageSection alt>
         <div className="section-inner px-6">
           <div className="cta-section rounded-card text-center max-w-[800px] mx-auto">
             <h2 className="text-2xl font-extrabold text-white mb-3">Klaar voor jouw succesverhaal?</h2>
@@ -111,7 +110,7 @@ export default function CaseStudiesPage() {
             <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Boek Gratis Demo</Link>
           </div>
         </div>
-      </section>
+      </PageSection>
     </main>
   );
 }

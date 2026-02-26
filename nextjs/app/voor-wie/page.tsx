@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
   title: "Voor Wie | Elvatix",
@@ -33,7 +34,7 @@ export default function VoorWiePage() {
         </div>
       </section>
 
-      <section className="page-section">
+      <PageSection>
         <div className="section-inner px-6">
           <div className="page-grid-3">
             {segments.map((seg) => (
@@ -50,18 +51,18 @@ export default function VoorWiePage() {
             ))}
           </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section--alt">
+      <PageSection alt>
         <div className="section-inner px-6">
           <article className="max-w-[720px] mx-auto prose-custom">
             <p>Of je nu voor een bureau werkt, intern verantwoordelijk bent voor recruitment of bemiddelt in de detachering: met Elvatix verstuur je in no-time persoonlijke en effectieve connectieverzoeken en InMails.</p>
             <p>Twijfel je waar te beginnen? Bekijk onze <Link href="/modules">modules</Link>, lees <Link href="/case-studies">case studies</Link> of <Link href="/demo">plan een demo</Link>.</p>
           </article>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section">
+      <PageSection>
         <div className="section-inner px-6">
           <div className="cta-section rounded-card text-center max-w-[800px] mx-auto">
             <h2 className="text-2xl font-extrabold text-white mb-3">Ontdek wat Elvatix voor jou kan doen</h2>
@@ -69,7 +70,7 @@ export default function VoorWiePage() {
             <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Boek Gratis Demo</Link>
           </div>
         </div>
-      </section>
+      </PageSection>
     </main>
   );
 }

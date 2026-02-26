@@ -1,7 +1,6 @@
-import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
-import { FileTextIcon, SearchIcon, ZapIcon, CheckIcon, RocketIcon, BarChartIcon, UsersIcon } from "@/components/icons/Icons";
 import type { Metadata } from "next";
+import Link from "next/link";
+import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
   title: "Hoe het werkt - Elvatix",
@@ -9,187 +8,79 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://elvatix.com/hoe-het-werkt" },
 };
 
-const steps = [
-  {
-    number: "01",
-    icon: <FileTextIcon size={32} />,
-    title: "Maak je template aan",
-    description: "Stel je berichttemplate in, net zoals je een InMail-sjabloon maakt in Recruiter Seat. Voeg de vacature-informatie toe en bepaal de toon. Elvatix gebruikt dit als basis om elk bericht uniek te maken.",
-    highlight: "Eenmalig instellen, eindeloos hergebruiken",
-  },
-  {
-    number: "02",
-    icon: <SearchIcon size={32} />,
-    title: "Selecteer je kandidaten",
-    description: "Selecteer de kandidaten die je wilt benaderen. Elvatix analyseert hun profiel en schrijft een persoonlijk bericht.",
-    highlight: "Werkt met Recruiter, Sales Navigator en LinkedIn Search",
-  },
-  {
-    number: "03",
-    icon: <ZapIcon size={32} />,
-    title: "Genereer persoonlijke berichten",
-    description: "Klik op de Elvatix Chrome-extensie, kies je template en klik op genereren. Ons AI-systeem analyseert elk profiel - werkervaring, vaardigheden, zelfs recente posts - en schrijft een volledig gepersonaliseerd bericht.",
-    highlight: "Elk bericht is uniek, gebaseerd op het profiel",
-  },
-  {
-    number: "04",
-    icon: <CheckIcon size={32} />,
-    title: "Review en pas aan",
-    description: "Alle berichten verschijnen klaar om te versturen. Controleer ze in een oogopslag, pas individuele berichten aan als je wilt, of keur ze allemaal goed in een klik.",
-    highlight: "Volledige controle, nul verrassingen",
-  },
-  {
-    number: "05",
-    icon: <RocketIcon size={32} />,
-    title: "Verstuur met een klik",
-    description: "Klik op 'Bevestig & Verstuur' en Elvatix stuurt alle berichten uit. Met slimme tussenpozen van 50-70 seconden, volledig binnen de normen van LinkedIn. Veilig, betrouwbaar en zonder risico.",
-    highlight: "100% binnen LinkedIn richtlijnen",
-  },
-];
-
-const stats = [
-  { value: "50%", label: "Response rate door klanten", icon: <BarChartIcon size={24} /> },
-  { value: "0", label: "LinkedIn-waarschuwingen ooit", icon: <CheckIcon size={24} /> },
-  { value: "4-6u", label: "Tijdsbesparing per week", icon: <ZapIcon size={24} /> },
-  { value: "30s", label: "Per gepersonaliseerd bericht", icon: <RocketIcon size={24} /> },
-];
-
 export default function HoeHetWerktPage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="pt-40 pb-20 px-6 bg-gradient-to-b from-elvatix-light to-white">
-        <Container className="max-w-4xl text-center">
+    <main>
+      <section className="page-hero">
+        <div className="section-inner">
           <span className="page-badge">Hoe het werkt</span>
-          <h1 className="page-heading">
-            Van vacature tot <span className="gradient-text">persoonlijk bericht</span> in 5 stappen
-          </h1>
-          <p className="page-subtitle mb-10">
-            Geen urenlang copy-pasten. Geen generieke templates. Elvatix analyseert elk LinkedIn-profiel
-            en schrijft berichten die klinken alsof je ze zelf hebt geschreven.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="primary" href="/demo">Probeer het zelf</Button>
-            <Button variant="outline" href="/platform">Bekijk alle modules</Button>
+          <h1 className="page-heading">Van vacature tot <span className="gradient-text">persoonlijk bericht</span> in 5 stappen</h1>
+          <p className="page-subtitle">Geen urenlang copy-pasten. Geen generieke templates. Elvatix analyseert elk LinkedIn-profiel en schrijft berichten die klinken alsof je ze zelf hebt geschreven.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <Link href="/demo" className="pill-btn">Probeer het zelf</Link>
+            <Link href="/platform" className="pill-btn-outline">Bekijk alle modules</Link>
           </div>
-        </Container>
+        </div>
       </section>
 
-      {/* Steps */}
-      <section className="section-padding">
-        <Container className="max-w-5xl">
-          <div className="space-y-0">
-            {steps.map((step, i) => (
-              <div key={step.number} className="relative">
-                {/* Connecting line */}
-                {i < steps.length - 1 && (
-                  <div className="absolute left-[39px] top-[88px] bottom-0 w-[2px] bg-gradient-to-b from-elvatix to-elvatix-light max-md:left-[31px]" />
-                )}
-
-                <div className="flex gap-8 py-10 max-md:gap-5">
-                  {/* Number circle */}
-                  <div className="shrink-0 w-[80px] h-[80px] rounded-full bg-gradient-to-br from-elvatix to-green-dark flex items-center justify-center text-white font-black text-xl shadow-lg relative z-10 max-md:w-[64px] max-md:h-[64px] max-md:text-lg">
-                    {step.number}
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 pt-2">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-elvatix">{step.icon}</span>
-                      <h2 className="text-2xl font-bold text-text-primary max-md:text-xl">{step.title}</h2>
-                    </div>
-                    <p className="text-text-secondary text-[17px] leading-relaxed mb-4 max-w-2xl">
-                      {step.description}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-elvatix bg-elvatix-light px-4 py-2 rounded-full">
-                      <CheckIcon size={14} />
-                      {step.highlight}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
+      <PageSection dark>
+        <div className="section-inner px-6">
+          <div className="section-heading">
+            <span className="section-heading__badge">5 stappen</span>
+            <h2 className="section-heading__title">Zo werkt Elvatix</h2>
           </div>
-        </Container>
-      </section>
-
-      {/* Social proof stats bar */}
-      <section className="section-padding bg-gradient-to-br from-green-dark via-elvatix-dark to-green-gradient-end text-white">
-        <Container className="max-w-5xl">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
-            Resultaten die voor zich spreken
-          </h2>
-          <p className="text-center text-white/70 mb-12 max-w-2xl mx-auto text-lg">
-            Onze klanten zien met persoonlijke berichten dat de resultaten echt door het dak gaan.
-            Een klant had binnen een dag een response rate van 50% op 50 berichten.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                <div className="flex justify-center mb-3 text-green-accent">{stat.icon}</div>
-                <div className="text-4xl font-black mb-2">{stat.value}</div>
-                <div className="text-sm text-white/70">{stat.label}</div>
-              </div>
-            ))}
+          <div className="step-flow">
+            <div className="step-flow__item"><div className="step-flow__num">1</div><div className="step-flow__content"><h3 className="step-flow__title">Maak je template aan</h3><p className="step-flow__desc">Stel je berichttemplate in, net zoals je een InMail-sjabloon maakt in Recruiter Seat. Voeg de vacature-informatie toe en bepaal de toon. Eenmalig instellen, eindeloos hergebruiken.</p></div></div>
+            <div className="step-flow__item"><div className="step-flow__num">2</div><div className="step-flow__content"><h3 className="step-flow__title">Selecteer je kandidaten</h3><p className="step-flow__desc">Selecteer de kandidaten die je wilt benaderen. Werkt met Recruiter, Sales Navigator en LinkedIn Search.</p></div></div>
+            <div className="step-flow__item"><div className="step-flow__num">3</div><div className="step-flow__content"><h3 className="step-flow__title">Genereer persoonlijke berichten</h3><p className="step-flow__desc">Klik op de Elvatix Chrome-extensie, kies je template en klik op genereren. Ons AI-systeem analyseert elk profiel - werkervaring, vaardigheden, zelfs recente posts - en schrijft een volledig gepersonaliseerd bericht. Elk bericht is uniek.</p></div></div>
+            <div className="step-flow__item"><div className="step-flow__num">4</div><div className="step-flow__content"><h3 className="step-flow__title">Review en pas aan</h3><p className="step-flow__desc">Alle berichten verschijnen klaar om te versturen. Controleer ze in een oogopslag, pas individuele berichten aan of keur ze allemaal goed in een klik. Volledige controle, nul verrassingen.</p></div></div>
+            <div className="step-flow__item"><div className="step-flow__num">5</div><div className="step-flow__content"><h3 className="step-flow__title">Verstuur met een klik</h3><p className="step-flow__desc">Klik op &lsquo;Bevestig &amp; Verstuur&rsquo; en Elvatix stuurt alle berichten uit. Met slimme tussenpozen van 50-70 seconden, volledig binnen de normen van LinkedIn. 100% binnen LinkedIn richtlijnen.</p></div></div>
           </div>
-        </Container>
-      </section>
+        </div>
+      </PageSection>
 
-      {/* Unique selling points */}
-      <section className="section-padding">
-        <Container className="max-w-5xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-text-primary mb-4">
-              Waarom recruiters kiezen voor Elvatix
-            </h2>
-            <p className="page-subtitle">
-              Complimenten van kandidaten - zelfs als ze niet geinteresseerd zijn in de rol.
-              Dat is het niveau van personalisatie dat Elvatix levert.
-            </p>
+      <PageSection alt>
+        <div className="section-inner px-6">
+          <div className="section-heading">
+            <span className="section-heading__badge">Bewezen</span>
+            <h2 className="section-heading__title">Resultaten die voor zich spreken</h2>
+            <p className="section-heading__subtitle">Onze klanten zien met persoonlijke berichten dat de resultaten echt door het dak gaan.</p>
           </div>
+          <div className="stat-bar">
+            <div className="stat-bar__item"><div className="stat-bar__value">50%</div><div className="stat-bar__label">Response rate door klanten</div></div>
+            <div className="stat-bar__item"><div className="stat-bar__value">0</div><div className="stat-bar__label">LinkedIn-waarschuwingen ooit</div></div>
+            <div className="stat-bar__item"><div className="stat-bar__value">4-6u</div><div className="stat-bar__label">Tijdsbesparing per week</div></div>
+            <div className="stat-bar__item"><div className="stat-bar__value">30s</div><div className="stat-bar__label">Per gepersonaliseerd bericht</div></div>
+          </div>
+        </div>
+      </PageSection>
 
-          <div className="grid-3">
-            <div className="p-8 rounded-2xl bg-surface border border-border hover:border-elvatix transition-colors duration-300">
-              <span className="text-elvatix mb-4 block"><ZapIcon size={28} /></span>
-              <h3 className="font-bold text-lg mb-2">Diep gepersonaliseerd</h3>
-              <p className="text-text-muted text-sm leading-relaxed">
-                Elvatix kijkt naar werkervaring, vaardigheden, en recente posts. Elk bericht voelt handgeschreven.
-              </p>
-            </div>
-            <div className="p-8 rounded-2xl bg-surface border border-border hover:border-elvatix transition-colors duration-300">
-              <span className="text-elvatix mb-4 block"><CheckIcon size={28} /></span>
-              <h3 className="font-bold text-lg mb-2">100% LinkedIn-veilig</h3>
-              <p className="text-text-muted text-sm leading-relaxed">
-                Slimme tussenpozen van 50-70 seconden. In twee jaar hebben we nooit een waarschuwing gehad van een klant.
-              </p>
-            </div>
-            <div className="p-8 rounded-2xl bg-surface border border-border hover:border-elvatix transition-colors duration-300">
-              <span className="text-elvatix mb-4 block"><UsersIcon size={28} /></span>
-              <h3 className="font-bold text-lg mb-2">Volledige controle</h3>
-              <p className="text-text-muted text-sm leading-relaxed">
-                Review elk bericht voordat het verstuurd wordt. Pas aan wat je wilt, of keur alles goed in een klik.
-              </p>
+      <PageSection>
+        <div className="section-inner px-6">
+          <div className="section-heading">
+            <h2 className="section-heading__title">Waarom recruiters kiezen voor Elvatix</h2>
+            <p className="section-heading__subtitle">Complimenten van kandidaten - zelfs als ze niet geinteresseerd zijn in de rol. Dat is het niveau van personalisatie dat Elvatix levert.</p>
+          </div>
+          <div className="benefit-grid">
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3 className="benefit-card__title">Diep gepersonaliseerd</h3><p className="benefit-card__desc">Elvatix kijkt naar werkervaring, vaardigheden, en recente posts. Elk bericht voelt handgeschreven.</p></div>
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3 className="benefit-card__title">100% LinkedIn-veilig</h3><p className="benefit-card__desc">Slimme tussenpozen van 50-70 seconden. In twee jaar nooit een waarschuwing gehad van een klant.</p></div>
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 className="benefit-card__title">Volledige controle</h3><p className="benefit-card__desc">Review elk bericht voordat het verstuurd wordt. Pas aan wat je wilt, of keur alles goed in een klik.</p></div>
+          </div>
+        </div>
+      </PageSection>
+
+      <PageSection alt>
+        <div className="section-inner px-6">
+          <div className="cta-section rounded-card text-center max-w-[800px] mx-auto">
+            <h2 className="text-2xl font-extrabold text-white mb-3">Klaar om het zelf te ervaren?</h2>
+            <p className="text-white/80 mb-6">Plan een demo en ontdek hoe Elvatix jouw LinkedIn-outreach transformeert. Van uren typen naar minuten.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Plan een demo</Link>
+              <Link href="/contact" className="pill-btn border border-white/30 text-white font-bold px-8 py-3">Neem contact op</Link>
             </div>
           </div>
-        </Container>
-      </section>
-
-      {/* Final CTA */}
-      <section className="cta-section text-center">
-        <Container className="max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-            Klaar om het zelf te ervaren?
-          </h2>
-          <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
-            Plan een demo en ontdek hoe Elvatix jouw LinkedIn-outreach transformeert.
-            Van uren typen naar minuten.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="white" href="/demo">Plan een demo</Button>
-            <Button variant="outline" href="/contact">Neem contact op</Button>
-          </div>
-        </Container>
-      </section>
-    </>
+        </div>
+      </PageSection>
+    </main>
   );
 }
