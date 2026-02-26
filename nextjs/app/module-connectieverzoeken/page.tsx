@@ -7,7 +7,7 @@ import { ConnectieIllustration } from "../components/illustrations/PageIllustrat
 export const metadata: Metadata = {
   openGraph: {
     title: "10x sneller persoonlijke LinkedIn connectieverzoeken maken",
-    description: "\",
+    description: "Genereer 10x sneller gepersonaliseerde LinkedIn connectieverzoeken. Automatiseer je outreach zonder in te leveren op menselijke kwaliteit en authenticiteit.",
     url: "https://elvatix.com/module-connectieverzoeken",
     type: "website",
   },
