@@ -1,3 +1,4 @@
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import LeadMagnet from "@/components/sections/LeadMagnet";
@@ -61,8 +62,22 @@ const benefits = [
 ];
 
 export default function ProbeerPage() {
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Probeer Elvatix gratis",
+    "operatingSystem": "WebBrowser",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  };
+
   return (
     <>
+      <JsonLd schema={pageSchema} />
       {/* ── Hero ── */}
       <section className="page-hero">
         <div className="section-inner">

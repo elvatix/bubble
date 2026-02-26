@@ -4,7 +4,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://elvatix.com';
 
   const pages = [
-    '',
+    '', // Homepage
+    '/probeer',
     '/modules',
     '/module-inmails',
     '/module-connectieverzoeken',
@@ -20,19 +21,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/case-studies',
     '/case-study-manpower',
     '/case-study-vibegroup',
+    '/over-ons',
     '/blog',
     '/contact',
     '/demo',
     '/hoe-het-werkt',
-    '/pricing',
     '/terms',
     '/privacy',
   ];
 
-  return pages.map((page) => ({
-    url: `${baseUrl}${page}`,
-    lastModified: new Date(),
-    changeFrequency: page === '' ? 'weekly' as const : 'monthly' as const,
-    priority: page === '' ? 1 : page.startsWith('/module') ? 0.8 : 0.7,
-  }));
+  return pages.map((page) => {
+    // Determine priority based on page importance
+    let priority = 0.7; // default
+    if (page === '') priority = 1.0;
+    else if (page === '/probeer' || page === '/modules' || page === '/voor-wie') priority = 0.9;
+    else if (page.startsWith('/module-') || page.startsWith('/voor-') || page.startsWith('/integraties')) priority = 0.8;
+
+    return {
+      url: `${baseUrl}${page}`,
+      lastModified: new Date(),
+      changeFrequency: page === '' ? 'weekly' as const : 'monthly' as const,
+      priority,
+    };
+  });
 }

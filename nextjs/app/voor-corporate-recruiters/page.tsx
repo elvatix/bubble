@@ -1,3 +1,4 @@
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageSection from "../components/PageSection";
@@ -10,8 +11,28 @@ export const metadata: Metadata = {
 };
 
 export default function VoorCorporatePage() {
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Voor Wie",
+        "item": "https://elvatix.com/voor-wie"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Voor Corporate Recruiters",
+        "item": "https://elvatix.com/voor-corporate-recruiters"
+      }
+    ]
+  };
+
   return (
     <main>
+      <JsonLd schema={pageSchema} />
       <section className="page-hero">
         <div className="section-inner">
           <span className="page-badge">Voor Wie</span>

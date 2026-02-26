@@ -1,3 +1,4 @@
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageSection from "../components/PageSection";
@@ -10,8 +11,22 @@ export const metadata: Metadata = {
 };
 
 export default function CustomGPTPage() {
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Custom GPT",
+    "operatingSystem": "WebBrowser",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  };
+
   return (
     <main>
+      <JsonLd schema={pageSchema} />
       <section className="page-hero">
         <div className="section-inner">
           <span className="page-badge">Module</span>

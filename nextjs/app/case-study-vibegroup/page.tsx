@@ -1,3 +1,4 @@
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageSection from "../components/PageSection";
@@ -10,8 +11,23 @@ export const metadata: Metadata = {
 };
 
 export default function CaseStudyVibeGroupPage() {
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Hoe Elvatix zorgt voor meer output en minder werkdruk bij Vibe Group",
+    "about": {
+      "@type": "Organization",
+      "name": "Vibe Group"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Elvatix"
+    }
+  };
+
   return (
     <main>
+      <JsonLd schema={pageSchema} />
       <section className="page-hero">
         <div className="section-inner">
           <span className="page-badge">Case Study</span>

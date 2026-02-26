@@ -81,6 +81,35 @@ export const metadata: Metadata = {
   },
 };
 
+const globalSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://elvatix.com/#website",
+      "url": "https://elvatix.com/",
+      "name": "Elvatix",
+      "description": "Schrijf persoonlijke InMails in seconden. De AI-recruitment copilot die uren handmatig werk bespaart.",
+      "publisher": {
+        "@id": "https://elvatix.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://elvatix.com/#organization",
+      "name": "Elvatix",
+      "url": "https://elvatix.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://elvatix.com/favicon.png"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/elvatix/"
+      ]
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -89,7 +118,7 @@ export default function RootLayout({
   return (
     <html lang="nl" className={inter.variable}>
       <body className={inter.className}>
-        <JsonLd />
+        <JsonLd schema={globalSchema} />
         <Header />
         {children}
         <Footer />

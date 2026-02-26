@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/login'],
+      disallow: ['/api/'],
     },
     sitemap: 'https://elvatix.com/sitemap.xml',
   };
