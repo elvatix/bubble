@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageSection from "../components/PageSection";
 import { IntegratiesIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
@@ -19,77 +20,70 @@ export default function IntegratiesLinkedInPage() {
         </div>
       </section>
 
-      <section className="page-section">
+      <PageSection><div className="section-inner px-6"><IntegratiesIllustration /></div></PageSection>
+
+      {/* ── Why no separate tools ── */}
+      <PageSection alt>
         <div className="section-inner px-6">
-          <IntegratiesIllustration />
+          <div className="section-heading">
+            <span className="section-heading__badge">Simpel</span>
+            <h2 className="section-heading__title">Waarom recruiters geen losse tools willen</h2>
+            <p className="section-heading__subtitle">Het laatste wat je wilt is schakelen tussen tabbladen, systemen of dashboards. Daarom is de LinkedIn plugin ontworpen als lichtgewicht Chrome-extensie.</p>
+          </div>
+          <div className="stat-bar">
+            <div className="stat-bar__item"><div className="stat-bar__value">&lt;10 min</div><div className="stat-bar__label">installatie</div></div>
+            <div className="stat-bar__item"><div className="stat-bar__value">0</div><div className="stat-bar__label">extra tools nodig</div></div>
+            <div className="stat-bar__item"><div className="stat-bar__value">100%</div><div className="stat-bar__label">binnen LinkedIn</div></div>
+          </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section--alt">
+      {/* ── Install (step flow) ── */}
+      <PageSection dark>
         <div className="section-inner px-6">
-          <article className="max-w-[720px] mx-auto prose-custom">
-            <h2>Waarom recruiters geen losse tools willen</h2>
-            <p>Als recruiter werk je vanuit LinkedIn. Het laatste wat je wilt is schakelen tussen tabbladen, systemen of dashboards. Daarom is de LinkedIn plugin van Elvatix ontworpen als lichtgewicht Chrome-extensie. Alles blijft gekoppeld aan jouw Recruiter Seat of Lite.</p>
-
-            <h2>Installeren, koppelen en klaar</h2>
-            <p>De LinkedIn integratie werkt direct na installatie. De plugin voegt zich toe aan je interface zonder je werk te onderbreken. Je hoeft niets te leren of in te stellen. Elvatix draait direct mee in je bestaande workflow.</p>
-          </article>
+          <div className="section-heading">
+            <span className="section-heading__badge">Installatie</span>
+            <h2 className="section-heading__title">LinkedIn plugin installatie in minder dan 10 minuten</h2>
+          </div>
+          <div className="step-flow">
+            <div className="step-flow__item"><div className="step-flow__num">1</div><div className="step-flow__content"><h3 className="step-flow__title">Installeer via Chrome Web Store</h3><p className="step-flow__desc">Met één klik installeer je Elvatix. Binnen enkele minuten heb je toegang tot slimme functies zoals <Link href="/module-inmails" className="text-green-light underline">InMails</Link> en <Link href="/module-connectieverzoeken" className="text-green-light underline">connectieverzoeken</Link> genereren.</p></div></div>
+            <div className="step-flow__item"><div className="step-flow__num">2</div><div className="step-flow__content"><h3 className="step-flow__title">Koppel je LinkedIn Recruiter</h3><p className="step-flow__desc">Plug and play. Na het inloggen verschijnt de plugin direct in je Recruiter Seat. Geen technische kennis nodig. Optimaliseer met <Link href="/module-template-instructies" className="text-green-light underline">templates &amp; instructies</Link> of <Link href="/module-custom-gpt" className="text-green-light underline">Custom GPT&apos;s</Link>.</p></div></div>
+            <div className="step-flow__item"><div className="step-flow__num">3</div><div className="step-flow__content"><h3 className="step-flow__title">Start direct met personaliseren</h3><p className="step-flow__desc">Gebruik templates, personaliseer berichten en verstuur vanuit je vertrouwde scherm. De plugin past zich aan jouw workflow aan.</p></div></div>
+          </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section">
+      {/* ── Security ── */}
+      <PageSection>
         <div className="section-inner px-6">
-          <article className="max-w-[720px] mx-auto prose-custom">
-            <h2>LinkedIn plugin installatie in minder dan 10 minuten</h2>
-            <h3>Zo installeer je de LinkedIn Chrome-extensie</h3>
-            <p>Via de Chrome Web Store installeer je Elvatix met één klik. Daarna koppel je je LinkedIn Recruiter-account. Binnen enkele minuten heb je toegang tot slimme functies in je bestaande omgeving zoals <Link href="/module-inmails">InMails</Link> en <Link href="/module-connectieverzoeken">connectieverzoeken</Link> genereren.</p>
-
-            <h3>Koppeling met LinkedIn Recruiter is plug and play</h3>
-            <p>Na het inloggen zie je de plugin direct verschijnen in je Recruiter Seat. Alles is geïntegreerd zoals je gewend bent. De koppeling met LinkedIn Recruiter vraagt geen technische kennis. Je blijft volledig in control. Optimaliseer je toon met <Link href="/module-template-instructies">templates &amp; instructies</Link> of test varianten met onze <Link href="/module-custom-gpt">Custom GPT&apos;s</Link>.</p>
-
-            <h3>Start direct met personaliseren en versturen</h3>
-            <p>Gebruik templates, personaliseer berichten en verstuur vanuit je vertrouwde scherm. De plugin past zich aan jouw workflow aan — en niet andersom.</p>
-          </article>
+          <div className="section-heading">
+            <span className="section-heading__badge">Veiligheid</span>
+            <h2 className="section-heading__title">Geen IT-hindernissen of risico&apos;s</h2>
+          </div>
+          <div className="benefit-grid">
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3 className="benefit-card__title">Binnen LinkedIn&apos;s regels</h3><p className="benefit-card__desc">100% binnen de gedragsregels, limieten en architectuur van LinkedIn. Geen workarounds of verboden methodes.</p></div>
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3 className="benefit-card__title">Geen data-opslag</h3><p className="benefit-card__desc">Geen gevoelige gegevens buiten je account. Alles binnen je bestaande omgeving zonder compliance-risico&apos;s.</p></div>
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 className="benefit-card__title">Zelf installeren — ook met teams</h3><p className="benefit-card__desc">Iedere recruiter kan Elvatix zelfstandig installeren. Geen IT-project nodig. Handig voor agencies en bureaus.</p></div>
+          </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section--alt">
+      {/* ── Why this plugin ── */}
+      <PageSection alt>
         <div className="section-inner px-6">
-          <article className="max-w-[720px] mx-auto prose-custom">
-            <h2>Geen IT-hindernissen of risico&apos;s</h2>
-            <h3>Volledig binnen LinkedIn&apos;s regels en limieten</h3>
-            <p>Elvatix werkt 100% binnen de gedragsregels, limieten en architectuur van LinkedIn. We gebruiken geen workarounds of verboden methodes. Jij werkt zoals je gewend bent — veilig en betrouwbaar.</p>
-
-            <h3>Geen data-opslag buiten LinkedIn</h3>
-            <p>Onze LinkedIn tool voor recruiters verwerkt geen gevoelige gegevens buiten je account. Alles gebeurt binnen je bestaande omgeving zonder compliance-risico&apos;s of externe opslag.</p>
-
-            <h3>Zelf installeren — ook met grotere teams</h3>
-            <p>Iedere recruiter in je team kan Elvatix zelfstandig installeren en gebruiken. Er is geen technische begeleiding of IT-project voor nodig. Handig voor agencies en bureaus die direct aan de slag willen.</p>
-          </article>
+          <div className="section-heading">
+            <h2 className="section-heading__title">Waarom deze LinkedIn plugin het verschil maakt</h2>
+          </div>
+          <div className="feature-rows">
+            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Sneller, niet moeilijker</h3><p className="feature-row__desc">Elvatix laat recruiters slimmer werken in minder tijd — zonder verandering van systemen.</p></div></div>
+            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Echte koppeling, geen overlay</h3><p className="feature-row__desc">Deze Chrome-extensie is een echte LinkedIn integratie. Voelt vertrouwd en functioneert beter dan workaround-tools.</p></div></div>
+            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Templates, reminders en opvolgflows</h3><p className="feature-row__desc">Personaliseer outreach, stel <Link href="/module-reminders">reminders</Link> in en volg gesprekken op. Start met <Link href="/module-inmails">InMails</Link> of <Link href="/module-connectieverzoeken">connectieverzoeken</Link>.</p></div></div>
+          </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section">
-        <div className="section-inner px-6">
-          <article className="max-w-[720px] mx-auto prose-custom">
-            <h2>Blijf werken zoals je al doet — maar dan slimmer</h2>
-            <h3>Werken in LinkedIn Recruiter met slimme hulp</h3>
-            <p>De plugin past zich aan aan wat jij al doet. Alles begint en eindigt in Recruiter Seat — de LinkedIn tool die je al dagelijks gebruikt. Geen nieuwe gewoontes nodig, wel meer rust en snelheid.</p>
-
-            <h3>Gebruik templates, reminders en opvolgflows</h3>
-            <p>Personaliseer je outreach, stel <Link href="/module-reminders">reminders</Link> in en volg gesprekken op. Alle functies blijven binnen LinkedIn zodat je minder hoeft te klikken en meer impact maakt. Start met <Link href="/module-inmails">InMails</Link> of <Link href="/module-connectieverzoeken">connectieverzoeken</Link> — wat jij nodig hebt.</p>
-
-            <h2>Waarom deze LinkedIn plugin het verschil maakt</h2>
-            <h3>Sneller, niet moeilijker</h3>
-            <p>Elvatix laat recruiters slimmer werken in minder tijd — zonder verandering van systemen. Door het directe gebruik in LinkedIn Recruiter haal je meer uit je dag zonder langer bezig te zijn.</p>
-
-            <h3>Niet zomaar een extensie — maar een echte koppeling</h3>
-            <p>Deze Chrome-extensie is geen losse overlay maar een echte LinkedIn integratie. Daardoor voelt hij vertrouwd en functioneert hij beter dan workaround-tools of aparte inlogs.</p>
-          </article>
-        </div>
-      </section>
-
-      <section className="page-section--alt">
+      {/* ── CTA ── */}
+      <PageSection>
         <div className="section-inner px-6">
           <div className="cta-section rounded-card text-center max-w-[800px] mx-auto">
             <h2 className="text-2xl font-extrabold text-white mb-3">Klaar om slimmer te werken?</h2>
@@ -97,7 +91,7 @@ export default function IntegratiesLinkedInPage() {
             <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Boek Gratis Demo</Link>
           </div>
         </div>
-      </section>
+      </PageSection>
     </main>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageSection from "../components/PageSection";
 import { VibeGroupIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
@@ -19,104 +20,82 @@ export default function CaseStudyVibeGroupPage() {
         </div>
       </section>
 
-      <section className="page-section">
-        <div className="section-inner px-6">
-          <VibeGroupIllustration />
-        </div>
-      </section>
+      <PageSection><div className="section-inner px-6"><VibeGroupIllustration /></div></PageSection>
 
-      <section className="page-section--alt">
+      {/* ── Stat bar ── */}
+      <PageSection alt>
         <div className="section-inner px-6">
+          <div className="stat-bar">
+            <div className="stat-bar__item"><div className="stat-bar__value">4-6 uur</div><div className="stat-bar__label">bespaard per week/recruiter</div></div>
+            <div className="stat-bar__item"><div className="stat-bar__value">+31%</div><div className="stat-bar__label">meer relevante reacties</div></div>
+            <div className="stat-bar__item"><div className="stat-bar__value">38%</div><div className="stat-bar__label">responsrate</div></div>
+          </div>
+        </div>
+      </PageSection>
+
+      {/* ── Challenge ── */}
+      <PageSection>
+        <div className="section-inner px-6">
+          <div className="section-heading">
+            <span className="section-heading__badge">De uitdaging</span>
+            <h2 className="section-heading__title">Steeds meer vacatures, te weinig tijd voor personalisatie</h2>
+          </div>
           <article className="max-w-[720px] mx-auto prose-custom">
-            <h2>De uitdaging</h2>
             <p>Een snelgroeiende recruitmentorganisatie liep tegen een herkenbaar probleem aan. Steeds meer vacatures. Steeds meer berichten die verstuurd moesten worden. Recruiters hadden te weinig tijd om elke InMail echt persoonlijk te maken. En ondertussen bleef de druk op employer branding hoog — want elke kandidaat moest zich gezien voelen.</p>
             <p>De centrale vraag was simpel maar spannend: kan Elvatix zorgen voor snelheid en personalisatie tegelijk?</p>
-
-            <h2>De oplossing: Elvatix als copilot</h2>
-            <p>Veel AI-tools voelen onpersoonlijk. Kandidaten merken dat meteen en reageren afwijzend. Precies daar maakt Elvatix het verschil. De tool is gebouwd met één doel: menselijke, hyperpersoonlijke berichten op schaal mogelijk maken.</p>
-            <p>Tijdens de pilot zette het recruitmentteam Elvatix in als copilot binnen LinkedIn Recruiter Seat. Daarmee konden ze direct InMails en connectieverzoeken genereren. Hun ervaring:</p>
-            <ul>
-              <li>De berichten klonken authentiek en persoonlijk.</li>
-              <li>Kandidaten reageerden inhoudelijker en positiever.</li>
-              <li>De werkdruk daalde merkbaar.</li>
-            </ul>
           </article>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section">
+      {/* ── Solution ── */}
+      <PageSection dark>
         <div className="section-inner px-6">
-          <article className="max-w-[720px] mx-auto prose-custom">
-            <h2>De resultaten per recruiter</h2>
-
-            <h3>Lisa</h3>
-            <ul>
-              <li><strong>Tijdswinst:</strong> 45 minuten per dag</li>
-              <li><strong>Impact:</strong> &ldquo;Sinds ik met Elvatix werk krijg ik veel meer positieve reacties. Geen negatieve reacties meer zoals &lsquo;weer zo&apos;n generiek bericht&rsquo;.&rdquo;</li>
-              <li><strong>Employer branding:</strong> sterker imago, meer persoonlijke connecties</li>
-            </ul>
-
-            <h3>Mila</h3>
-            <ul>
-              <li><strong>Tijdswinst:</strong> 1 uur per dag</li>
-              <li><strong>Responsrate:</strong> van 20% naar 26%, met pieken tot 35%</li>
-              <li><strong>Positieve reacties:</strong> +31% meer relevante reacties</li>
-              <li><strong>Quote:</strong> &ldquo;Je ziet dat kandidaten uitgebreider reageren. Dat helpt enorm. Je kunt makkelijker het gesprek in.&rdquo;</li>
-            </ul>
-
-            <h3>Ramon</h3>
-            <ul>
-              <li><strong>Tijdswinst:</strong> van 2 tot 3 uur naar 15 minuten voor 75 tot 100 berichten</li>
-              <li><strong>Respons:</strong> 38% (36% geaccepteerd, slechts 2% geweigerd)</li>
-              <li><strong>Quote:</strong> &ldquo;Mensen reageren uitgebreider, waardoor ik sneller in gesprek raak.&rdquo;</li>
-            </ul>
-
-            <h3>Sophie</h3>
-            <ul>
-              <li><strong>Tijdswinst:</strong> 1 tot 2 uur per dag</li>
-              <li><strong>Respons:</strong> vrijwel alleen geaccepteerde InMails</li>
-              <li><strong>Quote:</strong> &ldquo;Ik had 20 gesprekken openstaan toen ik na de pauze terugkwam.&rdquo;</li>
-              <li><strong>Impact:</strong> berichten in de ochtend verstuurd → 20 kwalitatieve reacties binnen enkele uren</li>
-            </ul>
-
-            <h3>Sara</h3>
-            <ul>
-              <li><strong>Tijdswinst:</strong> 1 tot 2 uur per dag</li>
-              <li><strong>Responsrate:</strong> 33%</li>
-              <li><strong>Quote:</strong> &ldquo;Ik was eerst een hele ochtend bezig met berichten. Nu kan ik bellen vanaf 10 uur.&rdquo;</li>
-              <li><strong>Extra voordeel:</strong> ook bij persoonlijke connectieverzoeken ziet ze nu betere respons en nieuwe gesprekken ontstaan.</li>
-            </ul>
-          </article>
+          <div className="section-heading">
+            <span className="section-heading__badge">De oplossing</span>
+            <h2 className="section-heading__title">Elvatix als copilot</h2>
+            <p className="section-heading__subtitle">Menselijke, hyperpersoonlijke berichten op schaal mogelijk maken.</p>
+          </div>
+          <div className="feature-rows">
+            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Authentiek en persoonlijk</h3><p className="feature-row__desc">De berichten klonken authentiek en persoonlijk. Kandidaten reageerden inhoudelijker en positiever.</p></div></div>
+            <div className="feature-row"><div className="feature-row__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div className="feature-row__content"><h3 className="feature-row__title">Werkdruk daalde merkbaar</h3><p className="feature-row__desc">Direct inzetbaar als copilot binnen LinkedIn Recruiter Seat. InMails en connectieverzoeken genereren zonder extra tools.</p></div></div>
+          </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section--alt">
+      {/* ── Results per recruiter ── */}
+      <PageSection>
         <div className="section-inner px-6">
-          <article className="max-w-[720px] mx-auto prose-custom">
-            <h2>Wat het team merkte</h2>
-            <p>Door Elvatix ontstond een duidelijk patroon dat iedereen herkende:</p>
-            <ul>
-              <li><strong>Tijdswinst:</strong> 4 tot 6 uur per week per recruiter</li>
-              <li><strong>Meer kwalitatieve gesprekken:</strong> kandidaten reageerden uitgebreider en positiever</li>
-              <li><strong>Lagere werkdruk:</strong> meer tijd voor bellen, opvolging en sourcing</li>
-              <li><strong>Sterkere employer branding:</strong> elk bericht voelde persoonlijk en professioneel</li>
-            </ul>
-            <p>Elvatix gaf het team de ingang waar recruiters direct op konden voortbouwen.</p>
-
-            <h2>De impact voor de organisatie</h2>
-            <p>Voor deze recruitmentorganisatie betekende de inzet van Elvatix:</p>
-            <ul>
-              <li>Directe tijdswinst en efficiëntie</li>
-              <li>Hogere responspercentages en rijkere gesprekken</li>
-              <li>Een sterker werkgeversmerk doordat elke kandidaat een persoonlijke ervaring kreeg</li>
-              <li>Duurzame schaalbaarheid: meer output, zonder concessies aan kwaliteit</li>
-            </ul>
-            <p>Kortom: meer resultaat met minder werkdruk.</p>
-          </article>
+          <div className="section-heading">
+            <span className="section-heading__badge">Per recruiter</span>
+            <h2 className="section-heading__title">De resultaten per recruiter</h2>
+          </div>
+          <div className="feature-rows">
+            <div className="feature-row"><div className="feature-row__icon" style={{background: "rgba(155,187,10,0.2)", fontSize: "14px", fontWeight: 800, color: "var(--color-elvatix)"}}>L</div><div className="feature-row__content"><h3 className="feature-row__title">Lisa — 45 min/dag bespaard</h3><p className="feature-row__desc">&ldquo;Sinds ik met Elvatix werk krijg ik veel meer positieve reacties. Geen negatieve reacties meer zoals &lsquo;weer zo&apos;n generiek bericht&rsquo;.&rdquo; Sterker imago, meer persoonlijke connecties.</p></div></div>
+            <div className="feature-row"><div className="feature-row__icon" style={{background: "rgba(155,187,10,0.2)", fontSize: "14px", fontWeight: 800, color: "var(--color-elvatix)"}}>M</div><div className="feature-row__content"><h3 className="feature-row__title">Mila — 1 uur/dag, responsrate van 20% naar 26%</h3><p className="feature-row__desc">&ldquo;Je ziet dat kandidaten uitgebreider reageren. Dat helpt enorm. Je kunt makkelijker het gesprek in.&rdquo; +31% meer relevante reacties, met pieken tot 35%.</p></div></div>
+            <div className="feature-row"><div className="feature-row__icon" style={{background: "rgba(155,187,10,0.2)", fontSize: "14px", fontWeight: 800, color: "var(--color-elvatix)"}}>R</div><div className="feature-row__content"><h3 className="feature-row__title">Ramon — van 2-3 uur naar 15 min voor 100 berichten</h3><p className="feature-row__desc">&ldquo;Mensen reageren uitgebreider, waardoor ik sneller in gesprek raak.&rdquo; 38% respons (36% geaccepteerd, slechts 2% geweigerd).</p></div></div>
+            <div className="feature-row"><div className="feature-row__icon" style={{background: "rgba(155,187,10,0.2)", fontSize: "14px", fontWeight: 800, color: "var(--color-elvatix)"}}>S</div><div className="feature-row__content"><h3 className="feature-row__title">Sophie — 1-2 uur/dag, 20 reacties in uren</h3><p className="feature-row__desc">&ldquo;Ik had 20 gesprekken openstaan toen ik na de pauze terugkwam.&rdquo; Berichten in de ochtend → 20 kwalitatieve reacties binnen enkele uren.</p></div></div>
+            <div className="feature-row"><div className="feature-row__icon" style={{background: "rgba(155,187,10,0.2)", fontSize: "14px", fontWeight: 800, color: "var(--color-elvatix)"}}>S</div><div className="feature-row__content"><h3 className="feature-row__title">Sara — 1-2 uur/dag, 33% responsrate</h3><p className="feature-row__desc">&ldquo;Ik was eerst een hele ochtend bezig met berichten. Nu kan ik bellen vanaf 10 uur.&rdquo; Ook bij connectieverzoeken betere respons en nieuwe gesprekken.</p></div></div>
+          </div>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="page-section">
+      {/* ── Team impact ── */}
+      <PageSection alt>
+        <div className="section-inner px-6">
+          <div className="section-heading">
+            <span className="section-heading__badge">Team resultaten</span>
+            <h2 className="section-heading__title">Wat het team merkte</h2>
+          </div>
+          <div className="benefit-grid">
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 className="benefit-card__title">4-6 uur/week bespaard</h3><p className="benefit-card__desc">Per recruiter. Meer tijd voor bellen, opvolging en sourcing.</p></div>
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3 className="benefit-card__title">Kwalitatievere gesprekken</h3><p className="benefit-card__desc">Kandidaten reageerden uitgebreider en positiever.</p></div>
+            <div className="benefit-card"><div className="benefit-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 className="benefit-card__title">Sterkere employer branding</h3><p className="benefit-card__desc">Elk bericht voelde persoonlijk en professioneel. Duurzame schaalbaarheid.</p></div>
+          </div>
+        </div>
+      </PageSection>
+
+      {/* ── CTA ── */}
+      <PageSection>
         <div className="section-inner px-6">
           <div className="cta-section rounded-card text-center max-w-[800px] mx-auto">
             <h2 className="text-2xl font-extrabold text-white mb-3">Ook zulke resultaten behalen?</h2>
@@ -124,7 +103,7 @@ export default function CaseStudyVibeGroupPage() {
             <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Boek Gratis Demo</Link>
           </div>
         </div>
-      </section>
+      </PageSection>
     </main>
   );
 }
