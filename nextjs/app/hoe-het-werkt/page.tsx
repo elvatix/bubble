@@ -17,8 +17,8 @@ export default function HoeHetWerktPage() {
           <h1 className="page-heading">Van vacature tot <span className="gradient-text">persoonlijk bericht</span> in 5 stappen</h1>
           <p className="page-subtitle">Geen urenlang copy-pasten. Geen generieke templates. Elvatix analyseert elk LinkedIn-profiel en schrijft berichten die klinken alsof je ze zelf hebt geschreven.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Link href="/probeer" className="pill-btn pill-btn-elvatix">Probeer het zelf</Link>
-            <Link href="/modules" className="pill-btn pill-btn-outline">Bekijk alle modules</Link>
+            <Link href="/probeer" className="pill-btn pill-btn-elvatix text-center justify-center">Probeer het zelf</Link>
+            <Link href="/modules" className="pill-btn pill-btn-outline text-center justify-center">Bekijk alle modules</Link>
           </div>
         </div>
       </section>
@@ -75,8 +75,8 @@ export default function HoeHetWerktPage() {
             <h2 className="text-2xl font-extrabold text-white mb-3">Klaar om het zelf te ervaren?</h2>
             <p className="text-white/80 mb-6">Plan een demo en ontdek hoe Elvatix jouw LinkedIn-outreach transformeert. Van uren typen naar minuten.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/demo" className="pill-btn pill-btn-elvatix bg-white !text-[#2D3B00] hover:bg-white/90">Plan een demo</Link>
-              <Link href="/modules" className="pill-btn pill-btn-outline !border-white/40 !text-white hover:!bg-white/10">Bekijk alle modules</Link>
+              <Link href="/demo" className="pill-btn pill-btn-elvatix bg-white !text-[#2D3B00] hover:bg-white/90 text-center justify-center">Plan een demo</Link>
+              <Link href="/modules" className="pill-btn pill-btn-outline !border-white/40 !text-white hover:!bg-white/10 text-center justify-center">Bekijk alle modules</Link>
             </div>
           </div>
         </div>
