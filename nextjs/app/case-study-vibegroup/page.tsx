@@ -21,9 +21,7 @@ export default function CaseStudyVibeGroupPage() {
 
       <section className="page-section">
         <div className="section-inner px-6">
-          <div className="max-w-[800px] mx-auto">
-            <Image src="/images/case-studies/vibegroup.png" alt="Case study Vibe Group" width={800} height={450} className="rounded-card shadow-card mx-auto" />
-          </div>
+          <VibeGroupIllustration />
         </div>
       </section>
 

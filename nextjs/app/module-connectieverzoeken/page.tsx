@@ -21,9 +21,7 @@ export default function ConnectieverzoekPage() {
 
       <section className="page-section">
         <div className="section-inner px-6">
-          <div className="max-w-[800px] mx-auto">
-            <Image src="/images/modules/connectieverzoeken.png" alt="Elvatix connectieverzoeken module" width={800} height={450} className="rounded-card shadow-card mx-auto" />
-          </div>
+          <ConnectieIllustration />
         </div>
       </section>
 

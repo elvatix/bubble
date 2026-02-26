@@ -21,9 +21,7 @@ export default function SalesSwitchPage() {
 
       <section className="page-section">
         <div className="section-inner px-6">
-          <div className="max-w-[800px] mx-auto">
-            <Image src="/images/modules/sales-switch.png" alt="Elvatix recruitment sales switch module" width={800} height={450} className="rounded-card shadow-card mx-auto" />
-          </div>
+          <SalesSwitchIllustration />
         </div>
       </section>
 

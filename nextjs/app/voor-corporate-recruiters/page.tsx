@@ -21,9 +21,7 @@ export default function VoorCorporatePage() {
 
       <section className="page-section">
         <div className="section-inner px-6">
-          <div className="max-w-[800px] mx-auto">
-            <Image src="/images/voor-wie/corporate-recruiters.png" alt="Elvatix voor corporate recruiters" width={800} height={450} className="rounded-card shadow-card mx-auto" />
-          </div>
+          <CorporateIllustration />
         </div>
       </section>
 
