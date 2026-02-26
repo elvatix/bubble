@@ -53,7 +53,8 @@ export async function POST(req: NextRequest) {
 
     const sheets = google.sheets({ version: "v4", auth });
 
-    const timestamp = new Date().toISOString();
+    const now = new Date();
+    const timestamp = now.toLocaleDateString("nl-NL", { day: "2-digit", month: "2-digit", year: "numeric", timeZone: "Europe/Amsterdam" });
 
     // Append a new row to Logs!B:J (columns B through I)
     await sheets.spreadsheets.values.append({

@@ -420,10 +420,12 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
     setInmailFull(""); setInmailDisplayed("");
     setConnectionFull(""); setConnectionDisplayed("");
     setLinkedinUrl(""); setJobTitle(""); setError("");
+    setCandidateInput(""); setSelectedPerson("");
+    setSearchResults([]); setShowSearchResults(false);
     setEnriched(false); setProfile(null);
     setActiveTab("inmail");
     setProgress(0);
-
+    setFormStep(1); // Go back to Kandidaat step, keep recruiter profile
   };
 
   const phaseOrder: Phase[] = ["connecting", "scanning", "found", "analyzing", "writing-inmail", "writing-conn", "done"];
