@@ -49,34 +49,31 @@ async function tryProspeoSearch(apiKey: string, filters: Record<string, unknown>
       body: JSON.stringify({ page: 1, filters }),
     });
 
-    // HTTP-level rate limit
-    if (response.status === 429 || response.status === 402) {
-      console.log("[Prospeo] " + keyLabel + " → HTTP " + response.status + " (rate limited, trying next key)");
+    // Any non-200 HTTP status → try next key
+    if (!response.ok) {
+      console.log("[Prospeo] " + keyLabel + " → HTTP " + response.status + " (failed, trying next key)");
       return { success: false, rateLimited: true };
     }
 
     const data = await response.json();
     
-    // Prospeo returns error in JSON body with rate limit info
-    if (data.error && (
-      data.error_code === "RATE_LIMIT" ||
-      data.error_code === "CREDIT_LIMIT" ||
-      data.error_code === "QUOTA_EXCEEDED" ||
-      (typeof data.message === "string" && data.message.toLowerCase().includes("rate")) ||
-      (typeof data.message === "string" && data.message.toLowerCase().includes("credit")) ||
-      (typeof data.message === "string" && data.message.toLowerCase().includes("quota")) ||
-      (typeof data.error === "string" && data.error.toLowerCase().includes("rate")) ||
-      (typeof data.error === "string" && data.error.toLowerCase().includes("limit"))
-    )) {
-      console.log("[Prospeo] " + keyLabel + " → " + (data.error_code || data.error || data.message) + " (rate/credit limited, trying next key)");
+    // Any error in the response body → try next key (except NO_RESULTS which is valid)
+    if (data.error) {
+      const errorInfo = data.error_code || data.error || data.message || "unknown error";
+      if (data.error_code === "NO_RESULTS") {
+        // NO_RESULTS = search worked, just no matches — valid response
+        console.log("[Prospeo] " + keyLabel + " → No results found (valid response)");
+        return { success: true, data };
+      }
+      console.log("[Prospeo] " + keyLabel + " → ERROR: " + errorInfo + " (trying next key)");
       return { success: false, rateLimited: true };
     }
 
     console.log("[Prospeo] " + keyLabel + " → SUCCESS (" + (data.results?.length || 0) + " results)");
     return { success: true, data };
   } catch (err) {
-    console.log("[Prospeo] " + keyLabel + " → NETWORK ERROR: " + err);
-    return { success: false, rateLimited: false };
+    console.log("[Prospeo] " + keyLabel + " → NETWORK ERROR: " + err + " (trying next key)");
+    return { success: false, rateLimited: true };
   }
 }
 
