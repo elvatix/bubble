@@ -36,6 +36,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Bericht verstuurd' }, { status: 200 });
   } catch (error) {
     console.error('SendGrid error:', error);
+    // Log full response body for debugging
+    if (error && typeof error === 'object' && 'response' in error) {
+      const resp = (error as any).response;
+      console.error('SendGrid response body:', JSON.stringify(resp?.body));
+      console.error('SendGrid response status:', resp?.statusCode);
+    }
     return NextResponse.json({ message: 'Er ging iets mis bij het versturen' }, { status: 500 });
   }
 }
