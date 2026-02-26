@@ -2,7 +2,7 @@ import Container from '@/components/ui/Container';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Privacybeleid & AVG Compliance",
+  title: "Privacybeleid & AVG compliance",
   description: 'Lees hoe Elvatix B.V. omgaat met jouw persoonsgegevens. Volledig AVG-conform, veilige opslag via Bubble en geen gegevensdeling buiten onze diensten.',
   alternates: { canonical: 'https://elvatix.com/privacy' },
 };

@@ -3,7 +3,7 @@ import Link from "next/link";
 import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
-  title: "Ontmoet het Team Achter de AI Copilot",
+  title: "Ontmoet het team achter de AI copilot",
   description: "Leer het team achter Elvatix kennen. Gebouwd door recruiters, voor recruiters.",
   alternates: { canonical: "https://elvatix.com/over-ons" },
 };

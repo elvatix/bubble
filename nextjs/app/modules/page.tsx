@@ -5,7 +5,7 @@ import PageSection from "../components/PageSection";
 import ModulesIllustration from "../components/illustrations/ModulesIllustration";
 
 export const metadata: Metadata = {
-  title: "Overzicht van Alle AI-Recruitment Modules",
+  title: "Overzicht van alle AI-recruitment modules",
   description: "Wat is LinkedIn outreach? Leer hoe je als recruiter of consultant kandidaten persoonlijk en schaalbaar kunt benaderen via LinkedIn, met hulp van Elvatix.",
   alternates: { canonical: "https://elvatix.com/modules" },
 };
