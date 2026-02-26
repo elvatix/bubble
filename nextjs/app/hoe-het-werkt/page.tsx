@@ -75,8 +75,8 @@ export default function HoeHetWerktPage() {
             <h2 className="text-2xl font-extrabold text-white mb-3">Klaar om het zelf te ervaren?</h2>
             <p className="text-white/80 mb-6">Plan een demo en ontdek hoe Elvatix jouw LinkedIn-outreach transformeert. Van uren typen naar minuten.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/demo" className="pill-btn bg-white text-elvatix font-bold px-8 py-3">Plan een demo</Link>
-              <Link href="/contact" className="pill-btn border border-white/30 text-white font-bold px-8 py-3">Neem contact op</Link>
+              <Link href="/demo" className="pill-btn pill-btn-elvatix bg-white !text-[#2D3B00] hover:bg-white/90">Plan een demo</Link>
+              <Link href="/modules" className="pill-btn pill-btn-outline !border-white/40 !text-white hover:!bg-white/10">Bekijk alle modules</Link>
             </div>
           </div>
         </div>
