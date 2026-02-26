@@ -885,7 +885,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
-.stat-bar__item { text-align: center; }
+.stat-bar__item { text-align: center; display: flex; flex-direction: column; align-items: center; }
 .stat-bar__value {
   font-size: 32px;
   font-weight: 900;
@@ -895,7 +895,7 @@ body {
 .stat-bar__label {
   font-size: 13px;
   color: rgba(255,255,255,0.8);
-  margin-top: 2px;
+  margin-top: 4px; display: block;
 }
 @media (max-width: 640px) {
   .stat-bar { flex-direction: column; gap: 16px; padding: 20px 16px; }
