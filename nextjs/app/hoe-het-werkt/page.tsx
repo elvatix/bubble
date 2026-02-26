@@ -17,8 +17,8 @@ export default function HoeHetWerktPage() {
           <h1 className="page-heading">Van vacature tot <span className="gradient-text">persoonlijk bericht</span> in 5 stappen</h1>
           <p className="page-subtitle">Geen urenlang copy-pasten. Geen generieke templates. Elvatix analyseert elk LinkedIn-profiel en schrijft berichten die klinken alsof je ze zelf hebt geschreven.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Link href="/demo" className="pill-btn">Probeer het zelf</Link>
-            <Link href="/platform" className="pill-btn-outline">Bekijk alle modules</Link>
+            <Link href="/probeer" className="pill-btn pill-btn-elvatix">Probeer het zelf</Link>
+            <Link href="/modules" className="pill-btn pill-btn-outline">Bekijk alle modules</Link>
           </div>
         </div>
       </section>

@@ -41,8 +41,10 @@ const linkColumns = [
   {
     title: "Informatie",
     links: [
+      { label: "Probeer gratis", href: "/probeer" },
+      { label: "Hoe het werkt", href: "/hoe-het-werkt" },
       { label: "Integraties", href: "/integraties-linkedin" },
-      { label: "Blogs", href: "/blogs" },
+      { label: "Blog", href: "/blog" },
     ],
   },
 ];

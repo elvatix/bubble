@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Modules", href: "/modules" },
   { label: "Voor wie", href: "/voor-wie" },
   { label: "Case studies", href: "/case-studies" },
+  { label: "Probeer gratis", href: "/probeer" },
   { label: "Contact", href: "/contact" },
 ];
 
