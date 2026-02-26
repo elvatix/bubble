@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { CorporateIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
   title: "Hoe Elvatix corporate recruiters helpt sneller en persoonlijker te werven | Elvatix",

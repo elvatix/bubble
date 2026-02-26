@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { RemindersIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
   title: "Wat is een follow up? En waarom het je reactiepercentages verhoogt | Elvatix",

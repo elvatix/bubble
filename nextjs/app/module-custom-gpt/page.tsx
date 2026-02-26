@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { CustomGPTIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
   title: "Custom GPT's: ingebouwde AI-assistenten voor recruiters | Elvatix",

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { DetacheringIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
   title: "Outreach LinkedIn voor detacheerders: persoonlijk, schaalbaar en effectief | Elvatix",

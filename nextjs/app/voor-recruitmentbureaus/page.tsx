@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { BureausIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
   title: "Recruitment automation voor bureaus | Elvatix",

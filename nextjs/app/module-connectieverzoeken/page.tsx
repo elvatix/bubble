@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { ConnectieIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
   title: "10x sneller persoonlijke LinkedIn connectieverzoeken maken | Elvatix",

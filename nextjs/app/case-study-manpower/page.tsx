@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { ManpowerIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
   title: "Hoe Manpower met Elvatix 65 uur werk terugwon in slechts 1,7 uur | Elvatix",

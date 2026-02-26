@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { VibeGroupIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
   title: "Hoe Elvatix zorgt voor meer output en minder werkdruk bij Vibe Group | Elvatix",

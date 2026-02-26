@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { IntegratiesIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
   title: "LinkedIn plugin voor Recruiter Seat: werk sneller in je vertrouwde omgeving | Elvatix",
