@@ -480,7 +480,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                           onChange={(e) => handleRecruiterInput(e.target.value)}
                           onFocus={() => recruiterSearchResults.length > 0 && !recruiterUrl && setShowRecruiterResults(true)}
                           onBlur={() => setTimeout(() => setShowRecruiterResults(false), 200)}
-                          className="flex-1 py-3 px-3.5 border-none outline-none text-base sm:text-sm bg-transparent text-gray-900 font-[inherit]" />
+                          className="flex-1 min-w-0 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit] truncate" />
                         {isSearchingRecruiter && (
                           <span className="pr-3 text-gray-400">
                             <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
@@ -599,7 +599,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                   onChange={(e) => handleCandidateInput(e.target.value)}
                   onFocus={() => searchResults.length > 0 && !selectedPerson && setShowSearchResults(true)}
                   onBlur={() => setTimeout(() => setShowSearchResults(false), 200)}
-                  className="flex-1 py-3 px-3.5 border-none outline-none text-base sm:text-sm bg-transparent text-gray-900 font-[inherit]" />
+                  className="flex-1 min-w-0 py-3 px-3.5 border-none outline-none text-sm bg-transparent text-gray-900 font-[inherit] truncate" />
                 {isSearching && (
                   <span className="pr-3 text-gray-400">
                     <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
