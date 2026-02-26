@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import ModulesIllustration from "../components/illustrations/ModulesIllustration";
 
 export const metadata: Metadata = {
   title: "Alle modules | Elvatix",
@@ -25,6 +26,7 @@ export default function ModulesPage() {
           <span className="page-badge">Modules</span>
           <h1 className="page-heading">LinkedIn outreach: zo werf je<br className="hidden sm:block" /> persoonlijk én op schaal</h1>
           <p className="page-subtitle">Elvatix bestaat uit zes modules. Elke module is gericht op een specifiek onderdeel van je LinkedIn outreach.</p>
+          <ModulesIllustration />
         </div>
       </section>
 

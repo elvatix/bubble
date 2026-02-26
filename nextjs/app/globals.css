@@ -591,3 +591,255 @@ body {
   .highlight-card { padding: 20px; }
   .stat-card { padding: 24px 16px; }
 }
+
+/* ═══════════════════════════════════════════
+   HERO ILLUSTRATION SYSTEM
+   Premium animated 3D illustrations for pages.
+   Consistent style language: glassmorphism,
+   floating cards, gradient blobs, particles.
+   ═══════════════════════════════════════════ */
+
+/* ── Keyframes ── */
+@keyframes illo-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes illo-float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes illo-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.15); }
+}
+@keyframes illo-glow {
+  0%, 100% { box-shadow: 0 8px 32px rgba(155,187,10,0.12), 0 0 0 1px rgba(155,187,10,0.08); }
+  50% { box-shadow: 0 12px 48px rgba(155,187,10,0.22), 0 0 0 1px rgba(155,187,10,0.15); }
+}
+@keyframes illo-bar-grow {
+  from { width: 0; }
+}
+@keyframes illo-line-draw {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes illo-blob-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(12px, -8px) scale(1.04); }
+  66% { transform: translate(-8px, 6px) scale(0.97); }
+}
+@keyframes illo-particle-drift {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(-60px) translateX(20px); opacity: 0; }
+}
+
+/* ── Container ── */
+.hero-illo {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  height: 380px;
+  margin: 0 auto;
+  perspective: 900px;
+}
+
+/* ── Background dot grid ── */
+.hero-illo__grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(155,187,10,0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+}
+
+/* ── Gradient blobs ── */
+.hero-illo__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: illo-blob-drift 12s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-illo__blob--1 {
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(155,187,10,0.18), transparent 70%);
+  top: 10%; left: 15%;
+}
+.hero-illo__blob--2 {
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(155,187,10,0.12), transparent 70%);
+  bottom: 10%; right: 15%;
+  animation-delay: -5s;
+}
+
+/* ── Central dashboard card ── */
+.hero-illo__main-card {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 280px;
+  transform: translate(-50%, -50%) perspective(800px) rotateY(-6deg) rotateX(4deg);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(155,187,10,0.15);
+  border-radius: 16px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.08),
+    0 8px 24px rgba(155,187,10,0.08),
+    0 0 0 1px rgba(255,255,255,0.6) inset;
+  overflow: hidden;
+  animation: illo-float-slow 6s ease-in-out infinite;
+  z-index: 10;
+}
+.hero-illo__card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: rgba(155,187,10,0.06);
+  border-bottom: 1px solid rgba(155,187,10,0.1);
+}
+.hero-illo__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+.hero-illo__dot--red { background: #ff5f57; }
+.hero-illo__dot--yellow { background: #ffbd2e; }
+.hero-illo__dot--green { background: #28ca41; }
+.hero-illo__card-title {
+  margin-left: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+}
+.hero-illo__card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Metric bars inside dashboard ── */
+.hero-illo__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero-illo__metric-label {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.hero-illo__bar-track {
+  height: 6px;
+  background: rgba(155,187,10,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.hero-illo__bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--color-elvatix), var(--color-green-light));
+  animation: illo-bar-grow 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-illo__bar-fill--1 { width: 82%; animation-delay: 0.3s; }
+.hero-illo__bar-fill--2 { width: 65%; animation-delay: 0.5s; }
+.hero-illo__bar-fill--3 { width: 91%; animation-delay: 0.7s; }
+.hero-illo__bar-fill--4 { width: 48%; animation-delay: 0.9s; }
+
+/* ── Floating module cards ── */
+.hero-illo__float {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(155,187,10,0.12);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  z-index: 20;
+  animation: illo-glow 4s ease-in-out infinite, illo-float 5s ease-in-out infinite;
+}
+.hero-illo__float svg {
+  color: var(--color-elvatix);
+  flex-shrink: 0;
+}
+
+/* Positions — arranged around the central dashboard */
+.hero-illo__float--1 { top: 8%; left: 2%;   animation-delay: 0s; }
+.hero-illo__float--2 { top: 4%; right: 4%;  animation-delay: -0.8s; }
+.hero-illo__float--3 { bottom: 12%; left: 0;  animation-delay: -1.6s; }
+.hero-illo__float--4 { bottom: 15%; right: 2%; animation-delay: -2.4s; }
+.hero-illo__float--5 { top: 42%; left: -2%;  animation-delay: -3.2s; }
+.hero-illo__float--6 { top: 38%; right: -1%; animation-delay: -4.0s; }
+
+/* ── Floating particles ── */
+.hero-illo__particle {
+  position: absolute;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--color-elvatix);
+  opacity: 0;
+  animation: illo-particle-drift 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+.hero-illo__particle--1 { top: 30%; left: 20%; animation-delay: 0s; }
+.hero-illo__particle--2 { top: 60%; left: 70%; animation-delay: -1s; }
+.hero-illo__particle--3 { top: 20%; left: 55%; animation-delay: -2s; }
+.hero-illo__particle--4 { top: 70%; left: 35%; animation-delay: -3s; }
+.hero-illo__particle--5 { top: 45%; left: 80%; animation-delay: -4s; width: 4px; height: 4px; }
+.hero-illo__particle--6 { top: 55%; left: 15%; animation-delay: -2.5s; width: 3px; height: 3px; }
+.hero-illo__particle--7 { top: 15%; left: 40%; animation-delay: -1.5s; width: 4px; height: 4px; }
+
+/* ── SVG connecting lines ── */
+.hero-illo__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-illo__line {
+  animation: illo-line-draw 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* ── Mobile responsive for hero illustration ── */
+@media (max-width: 640px) {
+  .hero-illo {
+    height: 260px;
+    max-width: 100%;
+  }
+  .hero-illo__main-card {
+    width: 200px;
+    transform: translate(-50%, -50%) perspective(800px) rotateY(-3deg) rotateX(2deg);
+  }
+  .hero-illo__float {
+    font-size: 9px;
+    padding: 6px 10px;
+    gap: 5px;
+  }
+  .hero-illo__float svg { width: 16px; height: 16px; }
+  .hero-illo__float--1 { top: 5%; left: 0; }
+  .hero-illo__float--2 { top: 2%; right: 0; }
+  .hero-illo__float--3 { bottom: 5%; left: -2%; }
+  .hero-illo__float--4 { bottom: 8%; right: -2%; }
+  .hero-illo__float--5 { top: 38%; left: -4%; }
+  .hero-illo__float--6 { top: 35%; right: -4%; }
+  .hero-illo__metric-label { font-size: 7px; }
+  .hero-illo__card-title { font-size: 8px; }
+  .hero-illo__blob { display: none; }
+}
