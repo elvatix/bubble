@@ -475,7 +475,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                           </svg>
                         </span>
-                        <input type="text" placeholder="Naam of LinkedIn URL"
+                        <input type="text" placeholder="Typ hier de naam"
                           value={recruiterInput}
                           onChange={(e) => handleRecruiterInput(e.target.value)}
                           onFocus={() => recruiterSearchResults.length > 0 && !recruiterUrl && setShowRecruiterResults(true)}
@@ -594,7 +594,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                     <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                   </svg>
                 </span>
-                <input type="text" placeholder="Naam of LinkedIn URL"
+                <input type="text" placeholder="Typ hier de naam"
                   value={candidateInput}
                   onChange={(e) => handleCandidateInput(e.target.value)}
                   onFocus={() => searchResults.length > 0 && !selectedPerson && setShowSearchResults(true)}
