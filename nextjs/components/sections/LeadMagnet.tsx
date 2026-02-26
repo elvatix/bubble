@@ -386,6 +386,21 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
 
       setInmailFull(genData.message);
       setConnectionFull(genData.connectionRequest || "");
+
+      // Non-blocking: log to Google Sheets in the background
+      fetch("/api/log-to-sheets", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: scrapeData.profile?.fullName || "",
+          linkedinUrl,
+          vacancy: jobTitle,
+          toneOfVoice: tone,
+          extraInstruction: customInstruction,
+          vacancyText,
+          createdMessage: genData.message,
+        }),
+      }).catch(() => {}); // Silent fail — user should never be affected
     } catch {
       setError("Er is een fout opgetreden. Probeer het opnieuw.");
       setPhase("idle");
