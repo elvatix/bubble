@@ -392,8 +392,8 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: scrapeData.profile?.fullName || "",
-          linkedinUrl,
+          name: recruiterProfile?.fullName || senderName || "",
+          linkedinUrl: recruiterUrl || "",
           vacancy: jobTitle,
           toneOfVoice: tone,
           extraInstruction: customInstruction,
