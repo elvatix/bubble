@@ -18,7 +18,7 @@ export default function PageSection({ children, alt, dark, className = "", id }:
       className={`${base} ${className}`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.5 }}
     >
       {children}
