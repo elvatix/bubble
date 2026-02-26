@@ -17,10 +17,10 @@ const XIcon = () => (
 );
 
 const rows = [
-  { label: "10 min. ploeteren per persoon   vs   25 in 1 simpele handeling", zonder: false, met: true },
-  { label: "Knippen tussen 4 vensters   vs   Volledig native in LinkedIn", zonder: false, met: true },
-  { label: "Grijze \"Hey [Naam]\" template   vs   Diepgaande profielanalyse", zonder: false, met: true },
-  { label: "Vergeten follow-ups   vs   Geautomatiseerde vangnetten", zonder: false, met: true },
+  { label: "25+ gepersonaliseerde berichten genereren in één simpele handeling", zonder: false, met: true },
+  { label: "Volledig native werken binnen LinkedIn (geen tabbladen switchen)", zonder: false, met: true },
+  { label: "Hyper-personalisatie op basis van diepgaande AI-profielanalyse", zonder: false, met: true },
+  { label: "Geautomatiseerde vangnetten en opvolgberichten instellen", zonder: false, met: true },
 ];
 
 export default function Comparison() {
@@ -29,10 +29,10 @@ export default function Comparison() {
       <div className="max-w-[900px] mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-[clamp(28px,3.5vw,48px)] font-black text-text-primary mb-3">
-            Terug naar de tekentafel.
+            Waarom handmatig werken niet meer loont.
           </h2>
           <p className="text-text-muted text-base max-w-[520px] mx-auto">
-            Waarom de ouderwetse manier je groei saboteert.
+            Het verschil tussen eindeloos ploeteren en volledig geautomatiseerde personalisatie.
           </p>
         </div>
 
