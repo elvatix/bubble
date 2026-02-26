@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Voor Wie | Elvatix",
@@ -9,9 +8,18 @@ export const metadata: Metadata = {
 };
 
 const segments = [
-  { title: "Recruitmentbureaus", href: "/voor-recruitmentbureaus", image: "/images/voor-wie/recruitmentbureaus.png", alt: "Elvatix voor recruitmentbureaus" },
-  { title: "Corporate Recruiters", href: "/voor-corporate-recruiters", image: "/images/voor-wie/corporate-recruiters.png", alt: "Elvatix voor corporate recruiters" },
-  { title: "Detacheringsbureaus", href: "/voor-detacheringsbureaus", image: "/images/voor-wie/detacheringsbureaus.png", alt: "Elvatix voor detacheringsbureaus" },
+  {
+    title: "Recruitmentbureaus", href: "/voor-recruitmentbureaus",
+    icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9BBB0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+  },
+  {
+    title: "Corporate Recruiters", href: "/voor-corporate-recruiters",
+    icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9BBB0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="8" y2="6.01"/><line x1="12" y1="6" x2="12" y2="6.01"/><line x1="16" y1="6" x2="16" y2="6.01"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="16" y1="14" x2="16" y2="14.01"/></svg>,
+  },
+  {
+    title: "Detacheringsbureaus", href: "/voor-detacheringsbureaus",
+    icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9BBB0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+  },
 ];
 
 export default function VoorWiePage() {
@@ -30,8 +38,10 @@ export default function VoorWiePage() {
           <div className="page-grid-3">
             {segments.map((seg) => (
               <Link key={seg.href} href={seg.href} className="group block highlight-card overflow-hidden no-underline p-0">
-                <div className="relative aspect-video bg-surface rounded-t-[var(--radius-card)]">
-                  <Image src={seg.image} alt={seg.alt} fill className="object-contain p-4" />
+                <div className="flex items-center justify-center aspect-video bg-surface rounded-t-[var(--radius-card)]">
+                  <div className="w-16 h-16 rounded-2xl bg-elvatix-light flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    {seg.icon}
+                  </div>
                 </div>
                 <div className="p-5">
                   <h3 className="text-base font-bold text-text-primary group-hover:text-elvatix transition-colors mb-1">Voor {seg.title}</h3>

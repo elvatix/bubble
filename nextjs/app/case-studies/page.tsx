@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Case studies recruitment: échte resultaten met Elvatix",
@@ -9,8 +8,14 @@ export const metadata: Metadata = {
 };
 
 const cases = [
-  { title: "Manpower", desc: "Check hier hoe Manpower met Elvatix 65 uur werk terugwon in slechts 1,7 uur", href: "/case-study-manpower", image: "/images/case-studies/manpower.png", alt: "Case study Manpower" },
-  { title: "Vibe Group", desc: "Check hier hoe wij zorgen voor meer kwalitatieve gesprekken én minder werkdruk bij Vibe Group.", href: "/case-study-vibegroup", image: "/images/case-studies/vibegroup.png", alt: "Case study Vibe Group" },
+  {
+    title: "Manpower", desc: "Check hier hoe Manpower met Elvatix 65 uur werk terugwon in slechts 1,7 uur", href: "/case-study-manpower",
+    icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9BBB0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>,
+  },
+  {
+    title: "Vibe Group", desc: "Check hier hoe wij zorgen voor meer kwalitatieve gesprekken én minder werkdruk bij Vibe Group.", href: "/case-study-vibegroup",
+    icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9BBB0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+  },
 ];
 
 export default function CaseStudiesPage() {
@@ -29,8 +34,10 @@ export default function CaseStudiesPage() {
           <div className="page-grid-3" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
             {cases.map((c) => (
               <Link key={c.href} href={c.href} className="group block highlight-card overflow-hidden no-underline p-0">
-                <div className="relative aspect-video bg-surface rounded-t-[var(--radius-card)]">
-                  <Image src={c.image} alt={c.alt} fill className="object-contain p-4" />
+                <div className="flex items-center justify-center aspect-video bg-surface rounded-t-[var(--radius-card)]">
+                  <div className="w-16 h-16 rounded-2xl bg-elvatix-light flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    {c.icon}
+                  </div>
                 </div>
                 <div className="p-5">
                   <h3 className="text-base font-bold text-text-primary group-hover:text-elvatix transition-colors mb-2">{c.title}</h3>
