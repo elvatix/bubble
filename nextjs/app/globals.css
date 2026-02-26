@@ -1127,3 +1127,8 @@ body {
 .trust-badge-inline:hover {
   color: var(--color-text-primary);
 }
+
+/* ── FORCE MOBILE BUTTON BORDER ── */
+.mobile-nav.open .pill-btn-outline {
+  border: 2px solid var(--color-elvatix) !important;
+}
