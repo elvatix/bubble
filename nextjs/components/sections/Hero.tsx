@@ -4,9 +4,24 @@ import Container from "@/components/ui/Container";
 import LeadMagnet from "@/components/sections/LeadMagnet";
 import EnvelopeAnimation from "@/components/animations/EnvelopeAnimation";
 
+const trustItems = [
+  {
+    label: "5.0 op Chrome",
+    url: "https://chromewebstore.google.com/detail/elvatix/apdlpieiebgmgkkhimlbkliccnkimgem?pli=1",
+  },
+  {
+    label: "4.4 op Trustpilot",
+    url: "https://www.google.com/search?q=Elvatix+B.V.+Trustpilot",
+  },
+  {
+    label: "5.0 op Google",
+    url: "https://share.google/ywHHIe4e8U4bUzVqr",
+  },
+];
+
 export default function Hero() {
   return (
-    <section className="pt-40 pb-[60px] bg-gradient-to-b from-elvatix-light to-white">
+    <section className="pt-32 pb-[60px] bg-gradient-to-b from-elvatix-light to-white">
       <Container>
         {/* Split layout: text left, animation right */}
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-12">
@@ -40,6 +55,24 @@ export default function Hero() {
               >
                 Bekijk hoe het werkt
               </motion.a>
+            </div>
+
+            {/* Trust badges - subtle inline social proof */}
+            <div className="flex items-center gap-4 mt-6 justify-center lg:justify-start">
+              {trustItems.map((item, i) => (
+                <a
+                  key={item.label}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="trust-badge-inline"
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                  {item.label}
+                </a>
+              ))}
             </div>
           </div>
 

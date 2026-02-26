@@ -403,7 +403,7 @@ body {
 
 /* ── Page Hero (gradient top bg like homepage) ── */
 .page-hero {
-  padding: 140px 24px 64px;
+  padding: 120px 24px 64px;
   background: linear-gradient(180deg, var(--color-elvatix-light) 0%, rgba(240,247,212,0.3) 60%, transparent 100%);
   text-align: center;
   position: relative;
@@ -1107,3 +1107,21 @@ body {
 .page-section--dark .benefit-card__title { color: white; }
 .page-section--dark .benefit-card__desc { color: rgba(255,255,255,0.7); }
 .page-section--dark .benefit-card__icon { background: rgba(155,187,10,0.2); }
+
+/* ── Trust Badge Inline (hero social proof) ── */
+.trust-badge-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.trust-badge-inline svg {
+  color: #daa520;
+}
+.trust-badge-inline:hover {
+  color: var(--color-text-primary);
+}
