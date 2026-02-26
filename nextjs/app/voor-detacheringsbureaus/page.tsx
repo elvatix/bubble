@@ -5,10 +5,18 @@ import PageSection from "../components/PageSection";
 import { DetacheringIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Outreach LinkedIn voor detacheerders: persoonlijk, schaalbaar en effectief",
+    description: "LinkedIn outreach voor detacheringsbureaus. Persoonlijk, schaalbaar en effectief  - twee doelgroepen, één flow.",
+    url: "https://elvatix.com/voor-detacheringsbureaus",
+    type: "website",
+  },
   title: "Outreach LinkedIn voor detacheerders: persoonlijk, schaalbaar en effectief",
   description: "LinkedIn outreach voor detacheringsbureaus. Persoonlijk, schaalbaar en effectief  - twee doelgroepen, één flow.",
   alternates: { canonical: "https://elvatix.com/voor-detacheringsbureaus" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function VoorDetacheringPage() {
   const pageSchema = {

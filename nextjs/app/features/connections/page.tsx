@@ -4,6 +4,12 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Connectieverzoeken",
+    description: "Schrijf LinkedIn connectieverzoeken die opvallen en daadwerkelijk geaccepteerd worden.",
+    url: "https://elvatix.com/features/connections",
+    type: "website",
+  },
   title: 'Connectieverzoeken',
   description: 'Schrijf LinkedIn connectieverzoeken die opvallen en daadwerkelijk geaccepteerd worden.',
   alternates: { canonical: '/features/connections' },
@@ -15,6 +21,8 @@ const features = [
   { title: 'A/B varianten', desc: 'Genereer meerdere varianten en kies de versie die het best past bij je aanpak : formeel, casual of ergens daartussenin.' },
   { title: 'Automatisch koppelen     aan InMail', desc: 'Verstuur een connectieverzoek én een InMail tegelijk. Elvatix zorgt dat beide berichten op elkaar aansluiten.' },
 ];
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function ConnectionsPage() {
   return (

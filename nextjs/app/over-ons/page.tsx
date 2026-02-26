@@ -3,10 +3,18 @@ import Link from "next/link";
 import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Ontmoet het team achter de AI copilot",
+    description: "Leer het team achter Elvatix kennen. Gebouwd door recruiters, voor recruiters.",
+    url: "https://elvatix.com/over-ons",
+    type: "website",
+  },
   title: "Ontmoet het team achter de AI copilot",
   description: "Leer het team achter Elvatix kennen. Gebouwd door recruiters, voor recruiters.",
   alternates: { canonical: "https://elvatix.com/over-ons" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function OverOnsPage() {
   return (

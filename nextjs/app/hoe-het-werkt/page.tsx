@@ -4,10 +4,18 @@ import Link from "next/link";
 import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Hoe werkt Elvatix? In 5 stappen naar succes",
+    description: "Ontdek hoe Elvatix in 5 stappen je LinkedIn outreach automatiseert. Van template aanmaken tot berichten versturen - veilig, persoonlijk en razendsnel.",
+    url: "https://elvatix.com/hoe-het-werkt",
+    type: "website",
+  },
   title: "Hoe werkt Elvatix? In 5 stappen naar succes",
   description: "Ontdek hoe Elvatix in 5 stappen je LinkedIn outreach automatiseert. Van template aanmaken tot berichten versturen - veilig, persoonlijk en razendsnel.",
   alternates: { canonical: "https://elvatix.com/hoe-het-werkt" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function HoeHetWerktPage() {
   const pageSchema = {

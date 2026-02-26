@@ -5,6 +5,12 @@ import PageSection from "../components/PageSection";
 import ModulesIllustration from "../components/illustrations/ModulesIllustration";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Overzicht van alle AI-recruitment modules",
+    description: "Wat is LinkedIn outreach? Leer hoe je als recruiter of consultant kandidaten persoonlijk en schaalbaar kunt benaderen via LinkedIn, met hulp van Elvatix.",
+    url: "https://elvatix.com/modules",
+    type: "website",
+  },
   title: "Overzicht van alle AI-recruitment modules",
   description: "Wat is LinkedIn outreach? Leer hoe je als recruiter of consultant kandidaten persoonlijk en schaalbaar kunt benaderen via LinkedIn, met hulp van Elvatix.",
   alternates: { canonical: "https://elvatix.com/modules" },
@@ -36,6 +42,8 @@ const modules = [
     icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9BBB0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>,
   },
 ];
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function ModulesPage() {
   const pageSchema = {

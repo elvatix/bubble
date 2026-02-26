@@ -4,6 +4,12 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "AI InMails",
+    description: "Genereer gepersonaliseerde LinkedIn InMails in seconden met AI.",
+    url: "https://elvatix.com/features/inmails",
+    type: "website",
+  },
   title: 'AI InMails',
   description: 'Genereer gepersonaliseerde LinkedIn InMails in seconden met AI.',
   alternates: { canonical: '/features/inmails' },
@@ -15,6 +21,8 @@ const features = [
   { title: 'Tone-of-voice aanpasbaar', desc: 'Van formeel tot casual, van direct tot subtiel. Pas de schrijfstijl aan op jouw merk en doelgroep.' },
   { title: 'Custom GPT training', desc: 'Train het model op jouw beste berichten. Hoe meer je het gebruikt, hoe beter het jouw stijl begrijpt.' },
 ];
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function InMailsPage() {
   return (

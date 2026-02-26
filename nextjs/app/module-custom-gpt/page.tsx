@@ -5,10 +5,18 @@ import PageSection from "../components/PageSection";
 import { CustomGPTIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Custom GPT",
+    description: "Ontdek hoe recruiters zonder promptkennis AI slim inzetten met de ingebouwde GPT",
+    url: "https://elvatix.com/module-custom-gpt",
+    type: "website",
+  },
   title: "Custom GPT's: ingebouwde AI-assistenten voor recruiters",
   description: "Ontdek hoe recruiters zonder promptkennis AI slim inzetten met de ingebouwde GPT's van Elvatix. Meer reacties, minder werk.",
   alternates: { canonical: "https://elvatix.com/module-custom-gpt" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function CustomGPTPage() {
   const pageSchema = {

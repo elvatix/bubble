@@ -2,10 +2,18 @@ import Container from '@/components/ui/Container';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Algemene voorwaarden",
+    description: "Lees de algemene voorwaarden van Elvatix B.V. Informatie over gegevensverwerking, beveiliging, bewaring en jouw rechten als gebruiker. AVG-conform.",
+    url: "https://elvatix.com/terms",
+    type: "website",
+  },
   title: "Algemene voorwaarden",
   description: 'Lees de algemene voorwaarden van Elvatix B.V. Informatie over gegevensverwerking, beveiliging, bewaring en jouw rechten als gebruiker. AVG-conform.',
   alternates: { canonical: 'https://elvatix.com/terms' },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function TermsPage() {
   return (

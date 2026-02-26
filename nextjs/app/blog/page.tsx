@@ -7,6 +7,12 @@ import type { Metadata } from 'next';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Recruitment blog: tips, trends en inzichten voor recruiters",
+    description: "Lees de laatste blogs van Elvatix over LinkedIn outreach, recruitment automation en kandidaatbenadering. Praktische tips voor recruiters die slimmer willen werken.",
+    url: "https://elvatix.com/blog",
+    type: "website",
+  },
   title: "Recruitment blog: tips, trends en inzichten voor recruiters",
   description: 'Lees de laatste blogs van Elvatix over LinkedIn outreach, recruitment automation en kandidaatbenadering. Praktische tips voor recruiters die slimmer willen werken.',
   alternates: { canonical: 'https://elvatix.com/blog' },

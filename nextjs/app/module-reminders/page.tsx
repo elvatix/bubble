@@ -5,10 +5,18 @@ import PageSection from "../components/PageSection";
 import { RemindersIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Wat is een follow up? En waarom het je reactiepercentages verhoogt",
+    description: "Ontdek hoe je met gepersonaliseerde follow-ups meer reacties krijgt op je LinkedIn outreach.",
+    url: "https://elvatix.com/module-reminders",
+    type: "website",
+  },
   title: "Wat is een follow up? En waarom het je reactiepercentages verhoogt",
   description: "Ontdek hoe je met gepersonaliseerde follow-ups meer reacties krijgt op je LinkedIn outreach.",
   alternates: { canonical: "https://elvatix.com/module-reminders" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function RemindersPage() {
   const pageSchema = {

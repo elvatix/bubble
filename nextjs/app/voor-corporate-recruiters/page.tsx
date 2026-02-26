@@ -5,10 +5,18 @@ import PageSection from "../components/PageSection";
 import { CorporateIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Hoe Elvatix corporate recruiters helpt sneller en persoonlijker te werven",
+    description: "Als corporate recruiter werf je talent voor één werkgever. Elvatix helpt je sneller en persoonlijker te werven direct in LinkedIn Recruiter.",
+    url: "https://elvatix.com/voor-corporate-recruiters",
+    type: "website",
+  },
   title: "Hoe Elvatix corporate recruiters helpt sneller en persoonlijker te werven",
   description: "Als corporate recruiter werf je talent voor één werkgever. Elvatix helpt je sneller en persoonlijker te werven direct in LinkedIn Recruiter.",
   alternates: { canonical: "https://elvatix.com/voor-corporate-recruiters" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function VoorCorporatePage() {
   const pageSchema = {

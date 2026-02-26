@@ -5,10 +5,18 @@ import PageSection from "../components/PageSection";
 import { ConnectieIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "10x sneller persoonlijke LinkedIn connectieverzoeken maken",
+    description: "\",
+    url: "https://elvatix.com/module-connectieverzoeken",
+    type: "website",
+  },
   title: "10x sneller persoonlijke LinkedIn connectieverzoeken maken",
   description: "\"Ik wil u graag toevoegen...\" is zó 2015. Met Elvatix stuur je in één klik berichten waar mensen van glimlachen. Persoonlijk, origineel en direct vanuit je Recruiter Seat.",
   alternates: { canonical: "https://elvatix.com/module-connectieverzoeken" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function ConnectieverzoekPage() {
   const pageSchema = {

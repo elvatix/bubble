@@ -5,10 +5,18 @@ import PageSection from "../components/PageSection";
 import { TemplatesIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Recruitment templates die persoonlijk wél werken",
+    description: "Upload je eigen templates, voeg instructies toe en laat Elvatix je berichten automatisch persoonlijk maken. Zonder dat het generiek wordt.",
+    url: "https://elvatix.com/module-template-instructies",
+    type: "website",
+  },
   title: "Recruitment templates die persoonlijk wél werken",
   description: "Upload je eigen templates, voeg instructies toe en laat Elvatix je berichten automatisch persoonlijk maken. Zonder dat het generiek wordt.",
   alternates: { canonical: "https://elvatix.com/module-template-instructies" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function TemplateInstructiesPage() {
   const pageSchema = {

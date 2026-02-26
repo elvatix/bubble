@@ -4,6 +4,12 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Smart Reminders",
+    description: "Automatische follow-up reminders op basis van eerdere interacties. Nooit meer een kandidaat vergeten.",
+    url: "https://elvatix.com/features/reminders",
+    type: "website",
+  },
   title: 'Smart Reminders',
   description: 'Automatische follow-up reminders op basis van eerdere interacties. Nooit meer een kandidaat vergeten.',
   alternates: { canonical: '/features/reminders' },
@@ -15,6 +21,8 @@ const features = [
   { title: 'Automatische pipeline', desc: 'Stel een follow-up sequence in: dag 3, dag 7, dag 14. Elvatix doet de rest . Totdat de kandidaat reageert.' },
   { title: 'Team-overzicht', desc: 'Managers zien in één dashboard welke follow-ups openstaan, wie achterloopt en waar kansen liggen.' },
 ];
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function RemindersPage() {
   return (

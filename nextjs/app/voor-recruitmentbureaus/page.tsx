@@ -5,10 +5,18 @@ import PageSection from "../components/PageSection";
 import { BureausIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Recruitment automation voor bureaus",
+    description: "Recruitment automation die menselijk klinkt. Schaal je outreach via LinkedIn zonder kwaliteit te verliezen.",
+    url: "https://elvatix.com/voor-recruitmentbureaus",
+    type: "website",
+  },
   title: "Recruitment automation voor bureaus",
   description: "Recruitment automation die menselijk klinkt. Schaal je outreach via LinkedIn zonder kwaliteit te verliezen.",
   alternates: { canonical: "https://elvatix.com/voor-recruitmentbureaus" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function VoorRecruitmentbureausPage() {
   const pageSchema = {

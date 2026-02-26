@@ -2,10 +2,18 @@ import Container from '@/components/ui/Container';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Privacybeleid & AVG compliance",
+    description: "Lees hoe Elvatix B.V. omgaat met jouw persoonsgegevens. Volledig AVG-conform, veilige opslag via Bubble en geen gegevensdeling buiten onze diensten.",
+    url: "https://elvatix.com/privacy",
+    type: "website",
+  },
   title: "Privacybeleid & AVG compliance",
   description: 'Lees hoe Elvatix B.V. omgaat met jouw persoonsgegevens. Volledig AVG-conform, veilige opslag via Bubble en geen gegevensdeling buiten onze diensten.',
   alternates: { canonical: 'https://elvatix.com/privacy' },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function PrivacyPage() {
   return (

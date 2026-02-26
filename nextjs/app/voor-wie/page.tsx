@@ -3,6 +3,12 @@ import Link from "next/link";
 import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Voor wie is Elvatix ontwikkeld?",
+    description: "Elvatix is ontwikkeld voor iedereen die dagelijks met LinkedIn werkt om de juiste mensen te vinden en te bereiken.",
+    url: "https://elvatix.com/voor-wie",
+    type: "website",
+  },
   title: "Voor wie is Elvatix ontwikkeld?",
   description: "Elvatix is ontwikkeld voor iedereen die dagelijks met LinkedIn werkt om de juiste mensen te vinden en te bereiken.",
   alternates: { canonical: "https://elvatix.com/voor-wie" },
@@ -22,6 +28,8 @@ const segments = [
     icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#9BBB0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
   },
 ];
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function VoorWiePage() {
   return (

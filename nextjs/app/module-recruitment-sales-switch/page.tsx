@@ -5,10 +5,18 @@ import PageSection from "../components/PageSection";
 import { SalesSwitchIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "LinkedIn leadgeneratie voor recruitment en sales in één omgeving",
+    description: "Wissel moeiteloos tussen recruitment en sales outreach. Eén omgeving, twee doelen  - volledig binnen LinkedIn Recruiter.",
+    url: "https://elvatix.com/module-recruitment-sales-switch",
+    type: "website",
+  },
   title: "LinkedIn leadgeneratie voor recruitment en sales in één omgeving",
   description: "Wissel moeiteloos tussen recruitment en sales outreach. Eén omgeving, twee doelen  - volledig binnen LinkedIn Recruiter.",
   alternates: { canonical: "https://elvatix.com/module-recruitment-sales-switch" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function SalesSwitchPage() {
   const pageSchema = {

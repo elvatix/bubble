@@ -61,6 +61,8 @@ const benefits = [
   },
 ];
 
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
+
 export default function ProbeerPage() {
   const pageSchema = {
     "@context": "https://schema.org",

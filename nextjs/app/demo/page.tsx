@@ -4,10 +4,18 @@ import Script from 'next/script';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Boek een gratis demo van Elvatix  - persoonlijk gegeven door de oprichter",
+    description: "Plan een gratis demo en ontdek hoe Elvatix jouw LinkedIn outreach transformeert. Persoonlijk gegeven door Gianni, oprichter van Elvatix. Binnen 10 minuten live.",
+    url: "https://elvatix.com/demo",
+    type: "website",
+  },
   title: 'Boek een gratis demo van Elvatix  - persoonlijk gegeven door de oprichter',
   description: 'Plan een gratis demo en ontdek hoe Elvatix jouw LinkedIn outreach transformeert. Persoonlijk gegeven door Gianni, oprichter van Elvatix. Binnen 10 minuten live.',
   alternates: { canonical: 'https://elvatix.com/demo' },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function DemoPage() {
   return (

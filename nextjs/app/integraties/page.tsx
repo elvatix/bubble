@@ -3,6 +3,12 @@ import Link from "next/link";
 import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Naadloze ATS & CRM integraties",
+    description: "Verbind Elvatix met je bestaande recruitment tools. Naadloze integraties met populaire ATS en CRM systemen.",
+    url: "https://elvatix.com/integraties",
+    type: "website",
+  },
   title: "Naadloze ATS & CRM integraties",
   description: "Verbind Elvatix met je bestaande recruitment tools. Naadloze integraties met populaire ATS en CRM systemen.",
   alternates: { canonical: "https://elvatix.com/integraties" },
@@ -16,6 +22,8 @@ const integrations = [
   { name: "Zapier", desc: "Verbind Elvatix met 5000+ apps via Zapier voor onbeperkte automatisering.", status: "Live" },
   { name: "API", desc: "Bouw custom integraties met onze REST API. Volledige documentatie beschikbaar.", status: "Live" },
 ];
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function IntegratiesPage() {
   return (

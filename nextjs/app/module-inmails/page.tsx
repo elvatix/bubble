@@ -5,10 +5,18 @@ import PageSection from "../components/PageSection";
 import { InMailsIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "InMails op LinkedIn slimmer gebruiken",
+    description: "Sneller, persoonlijker en volledig in Recruiter Seat. Ontdek hoe Elvatix je InMails naar een hoger niveau tilt.",
+    url: "https://elvatix.com/module-inmails",
+    type: "website",
+  },
   title: "InMails op LinkedIn slimmer gebruiken",
   description: "Sneller, persoonlijker en volledig in Recruiter Seat. Ontdek hoe Elvatix je InMails naar een hoger niveau tilt.",
   alternates: { canonical: "https://elvatix.com/module-inmails" },
 };
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function InMailsPage() {
   const pageSchema = {

@@ -4,6 +4,12 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: "Analytics",
+    description: "Diepgaande inzichten in je LinkedIn outreach. Zie wat werkt en optimaliseer je recruitment strategie.",
+    url: "https://elvatix.com/features/analytics",
+    type: "website",
+  },
   title: 'Analytics',
   description: 'Diepgaande inzichten in je LinkedIn outreach. Zie wat werkt en optimaliseer je recruitment strategie.',
   alternates: { canonical: '/features/analytics' },
@@ -15,6 +21,8 @@ const features = [
   { title: 'Team dashboards', desc: 'Managers krijgen real-time overzicht van team prestaties, individuele rankings en verbetermogelijkheden.' },
   { title: 'Export & rapportage', desc: 'Download rapporten als PDF of CSV. Deel resultaten met stakeholders in het format dat zij prefereren.' },
 ];
+
+export const revalidate = 86400; // Cache for 24 hours (11/10 SEO optimization)
 
 export default function AnalyticsPage() {
   return (
