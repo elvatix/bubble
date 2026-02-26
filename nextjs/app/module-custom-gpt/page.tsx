@@ -4,7 +4,7 @@ import PageSection from "../components/PageSection";
 import { CustomGPTIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
-  title: "Custom GPT's: ingebouwde AI-assistenten voor recruiters | Elvatix",
+  title: "Custom GPT's: ingebouwde AI-assistenten voor recruiters",
   description: "Ontdek hoe recruiters zonder promptkennis AI slim inzetten met de ingebouwde GPT's van Elvatix. Meer reacties, minder werk.",
   alternates: { canonical: "https://elvatix.com/module-custom-gpt" },
 };

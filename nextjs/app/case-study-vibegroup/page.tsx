@@ -4,7 +4,7 @@ import PageSection from "../components/PageSection";
 import { VibeGroupIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
-  title: "Hoe Elvatix zorgt voor meer output en minder werkdruk bij Vibe Group | Elvatix",
+  title: "Hoe Elvatix zorgt voor meer output en minder werkdruk bij Vibe Group",
   description: "Meer kwalitatieve gesprekken én minder werkdruk. Ontdek de resultaten van Vibe Group met Elvatix.",
   alternates: { canonical: "https://elvatix.com/case-study-vibegroup" },
 };

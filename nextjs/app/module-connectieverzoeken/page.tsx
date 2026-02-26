@@ -4,7 +4,7 @@ import PageSection from "../components/PageSection";
 import { ConnectieIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
-  title: "10x sneller persoonlijke LinkedIn connectieverzoeken maken | Elvatix",
+  title: "10x sneller persoonlijke LinkedIn connectieverzoeken maken",
   description: "\"Ik wil u graag toevoegen...\" is zó 2015. Met Elvatix stuur je in één klik berichten waar mensen van glimlachen. Persoonlijk, origineel en direct vanuit je Recruiter Seat.",
   alternates: { canonical: "https://elvatix.com/module-connectieverzoeken" },
 };

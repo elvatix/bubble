@@ -4,7 +4,7 @@ import PageSection from "../components/PageSection";
 import { DetacheringIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
-  title: "Outreach LinkedIn voor detacheerders: persoonlijk, schaalbaar en effectief | Elvatix",
+  title: "Outreach LinkedIn voor detacheerders: persoonlijk, schaalbaar en effectief",
   description: "LinkedIn outreach voor detacheringsbureaus. Persoonlijk, schaalbaar en effectief  - twee doelgroepen, één flow.",
   alternates: { canonical: "https://elvatix.com/voor-detacheringsbureaus" },
 };

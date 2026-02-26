@@ -4,7 +4,7 @@ import PageSection from "../components/PageSection";
 import { InMailsIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
-  title: "InMails op LinkedIn slimmer gebruiken | Elvatix",
+  title: "InMails op LinkedIn slimmer gebruiken",
   description: "Sneller, persoonlijker en volledig in Recruiter Seat. Ontdek hoe Elvatix je InMails naar een hoger niveau tilt.",
   alternates: { canonical: "https://elvatix.com/module-inmails" },
 };

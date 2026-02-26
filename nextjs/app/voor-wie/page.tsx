@@ -3,7 +3,7 @@ import Link from "next/link";
 import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
-  title: "Voor Wie | Elvatix",
+  title: "Voor Wie",
   description: "Elvatix is ontwikkeld voor iedereen die dagelijks met LinkedIn werkt om de juiste mensen te vinden en te bereiken.",
   alternates: { canonical: "https://elvatix.com/voor-wie" },
 };

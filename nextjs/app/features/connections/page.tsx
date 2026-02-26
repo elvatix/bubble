@@ -4,7 +4,7 @@ import Button from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Connectieverzoeken | Elvatix',
+  title: 'Connectieverzoeken',
   description: 'Schrijf LinkedIn connectieverzoeken die opvallen en daadwerkelijk geaccepteerd worden.',
   alternates: { canonical: '/features/connections' },
 };

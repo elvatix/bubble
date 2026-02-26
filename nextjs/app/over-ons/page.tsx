@@ -3,7 +3,7 @@ import Link from "next/link";
 import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
-  title: "Over Ons | Elvatix",
+  title: "Over Ons",
   description: "Leer het team achter Elvatix kennen. Gebouwd door recruiters, voor recruiters.",
   alternates: { canonical: "https://elvatix.com/over-ons" },
 };

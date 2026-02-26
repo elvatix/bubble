@@ -3,7 +3,7 @@ import Link from "next/link";
 import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
-  title: "Hoe het werkt - Elvatix",
+  title: "Hoe het werkt",
   description: "Ontdek hoe Elvatix in 5 stappen je LinkedIn outreach automatiseert. Van template aanmaken tot berichten versturen - veilig, persoonlijk en razendsnel.",
   alternates: { canonical: "https://elvatix.com/hoe-het-werkt" },
 };

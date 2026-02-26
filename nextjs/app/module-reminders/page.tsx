@@ -4,7 +4,7 @@ import PageSection from "../components/PageSection";
 import { RemindersIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
-  title: "Wat is een follow up? En waarom het je reactiepercentages verhoogt | Elvatix",
+  title: "Wat is een follow up? En waarom het je reactiepercentages verhoogt",
   description: "Ontdek hoe je met gepersonaliseerde follow-ups meer reacties krijgt op je LinkedIn outreach.",
   alternates: { canonical: "https://elvatix.com/module-reminders" },
 };

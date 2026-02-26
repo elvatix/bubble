@@ -4,7 +4,7 @@ import PageSection from "../components/PageSection";
 import { CorporateIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
-  title: "Hoe Elvatix corporate recruiters helpt sneller en persoonlijker te werven | Elvatix",
+  title: "Hoe Elvatix corporate recruiters helpt sneller en persoonlijker te werven",
   description: "Als corporate recruiter werf je talent voor één werkgever. Elvatix helpt je sneller en persoonlijker te werven direct in LinkedIn Recruiter.",
   alternates: { canonical: "https://elvatix.com/voor-corporate-recruiters" },
 };

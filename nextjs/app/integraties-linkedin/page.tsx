@@ -4,7 +4,7 @@ import PageSection from "../components/PageSection";
 import { IntegratiesIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
-  title: "LinkedIn plugin voor Recruiter Seat: werk sneller in je vertrouwde omgeving | Elvatix",
+  title: "LinkedIn plugin voor Recruiter Seat: werk sneller in je vertrouwde omgeving",
   description: "Installeer de Elvatix Chrome-extensie en werk direct slimmer in LinkedIn Recruiter. Geen extra tools, geen leercurve.",
   alternates: { canonical: "https://elvatix.com/integraties-linkedin" },
 };

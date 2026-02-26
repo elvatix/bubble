@@ -4,7 +4,7 @@ import PageSection from "../components/PageSection";
 import { ManpowerIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
-  title: "Hoe Manpower met Elvatix 65 uur werk terugwon in slechts 1,7 uur | Elvatix",
+  title: "Hoe Manpower met Elvatix 65 uur werk terugwon in slechts 1,7 uur",
   description: "Robin, recruiter bij Manpower, bespaarde 65 uur schrijfwerk in slechts 1,7 uur met Elvatix. Responspercentage steeg van 40% naar 43%.",
   alternates: { canonical: "https://elvatix.com/case-study-manpower" },
 };

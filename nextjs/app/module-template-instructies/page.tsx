@@ -4,7 +4,7 @@ import PageSection from "../components/PageSection";
 import { TemplatesIllustration } from "../components/illustrations/PageIllustrations";
 
 export const metadata: Metadata = {
-  title: "Recruitment templates die persoonlijk wél werken | Elvatix",
+  title: "Recruitment templates die persoonlijk wél werken",
   description: "Upload je eigen templates, voeg instructies toe en laat Elvatix je berichten automatisch persoonlijk maken. Zonder dat het generiek wordt.",
   alternates: { canonical: "https://elvatix.com/module-template-instructies" },
 };

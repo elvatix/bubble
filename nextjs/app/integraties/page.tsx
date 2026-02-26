@@ -3,7 +3,7 @@ import Link from "next/link";
 import PageSection from "../components/PageSection";
 
 export const metadata: Metadata = {
-  title: "Integraties | Elvatix",
+  title: "Integraties",
   description: "Verbind Elvatix met je bestaande recruitment tools. Naadloze integraties met populaire ATS en CRM systemen.",
   alternates: { canonical: "https://elvatix.com/integraties" },
 };

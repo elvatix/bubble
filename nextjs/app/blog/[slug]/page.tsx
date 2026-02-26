@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
   const blogUrl = `https://elvatix.com/blog/${slug}`;
 
   return {
-    title: blog['SEO title'] + ' | Elvatix',
+    title: blog['SEO title'],
     description: blog['SEO Description'],
     authors: [{ name: blog.Author || 'Elvatix' }],
     alternates: { canonical: blogUrl },
