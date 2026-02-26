@@ -41,6 +41,7 @@ export async function POST(req: NextRequest) {
       extraInstruction,
       vacancyText,
       createdMessage,
+      connectionRequest,
     } = body;
 
     // Authenticate with Google Sheets API via Service Account
@@ -54,10 +55,10 @@ export async function POST(req: NextRequest) {
 
     const timestamp = new Date().toISOString();
 
-    // Append a new row to Logs!B:I (columns B through I)
+    // Append a new row to Logs!B:J (columns B through I)
     await sheets.spreadsheets.values.append({
       spreadsheetId: SHEET_ID,
-      range: "Logs!B:I",
+      range: "Logs!B:J",
       valueInputOption: "USER_ENTERED",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
@@ -70,7 +71,8 @@ export async function POST(req: NextRequest) {
             toneOfVoice || "",   // F: tone_of_voice
             extraInstruction || "", // G: extra_instruction
             vacancyText || "",   // H: vacancy_text
-            createdMessage || "", // I: created_message
+            createdMessage || "", // I: inmail
+            connectionRequest || "", // J: connection_request
           ],
         ],
       },

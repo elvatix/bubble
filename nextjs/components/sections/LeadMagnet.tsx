@@ -399,6 +399,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
           extraInstruction: customInstruction,
           vacancyText,
           createdMessage: genData.message,
+          connectionRequest: genData.connectionRequest || "",
         }),
       }).catch(() => {}); // Silent fail — user should never be affected
     } catch {
