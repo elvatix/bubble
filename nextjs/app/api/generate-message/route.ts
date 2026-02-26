@@ -46,13 +46,7 @@ function sanitizeCustomInstruction(input: string): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || req.headers.get("x-real-ip") || "unknown";
-    if (!checkRateLimit(ip)) {
-      return NextResponse.json(
-        { error: "Je hebt het maximale aantal gratis berichten bereikt (2 per dag). Neem contact op voor onbeperkt gebruik." },
-        { status: 429 }
-      );
-    }
+    // Rate limit disabled for testing
 
     const body = await req.json();
     const { email, jobTitle, tone, senderName, vacancyText, customInstruction, profile, recruiterProfile } = body;
